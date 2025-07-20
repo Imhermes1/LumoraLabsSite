@@ -2,13 +2,15 @@
 
 import { useState, useEffect } from 'react'
 import { Users, Star, Gift, ArrowRight } from 'lucide-react'
+import BetaSignupModal from './BetaSignupModal'
 
 export default function BetaSignup() {
-  const [totalBetaSignups, setTotalBetaSignups] = useState(40)
+  const [totalBetaSignups, setTotalBetaSignups] = useState(38)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const totalSlots = 100
 
   const openBetaSignup = () => {
-    window.open('https://field-hearing-f91.notion.site/22b2ce9d9bf1803cb157ec370b405c9e?pvs=105', '_blank')
+    setIsModalOpen(true)
   }
 
   // Simulate occasional counter updates (optional for demo purposes)
@@ -32,8 +34,8 @@ export default function BetaSignup() {
             Join the <span className="gradient-text">Revolution</span>
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Be among the first to experience the future of beautiful, wellness-focused apps. 
-            Limited spots available for exclusive early access.
+            Be among the first to experience the future of elegant, wellness-focused apps. 
+            Exclusive spots available for early access.
           </p>
         </div>
 
@@ -41,7 +43,7 @@ export default function BetaSignup() {
           {/* Progress Bar */}
           <div className="mb-8">
             <div className="flex justify-between items-center mb-3">
-              <h3 className="text-xl font-semibold text-white">Beta Program Status</h3>
+              <h3 className="text-xl font-semibold text-white">Beta Programme Status</h3>
               <span className="text-lumora-pink font-bold text-lg">
                 {totalBetaSignups}/{totalSlots} spots filled
               </span>
@@ -67,7 +69,7 @@ export default function BetaSignup() {
               </div>
               <h3 className="text-white font-semibold mb-2">Exclusive Early Access</h3>
               <p className="text-white/70 text-sm">
-                Be the first to experience groundbreaking features before public launch
+                Be the first to experience extraordinary features before public launch
               </p>
             </div>
 
@@ -115,7 +117,7 @@ export default function BetaSignup() {
               onClick={openBetaSignup}
               className="group bg-gradient-to-r from-lumora-pink via-lumora-purple to-deep-purple rounded-full px-8 py-4 text-white font-bold text-lg hover:shadow-xl hover:shadow-lumora-purple/30 transition-all duration-300 inline-flex items-center"
             >
-              Join Beta Program Now
+              Join Beta Programme Now
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
             </button>
 
@@ -129,10 +131,13 @@ export default function BetaSignup() {
         <div className="text-center mt-8">
           <div className="glass rounded-2xl px-6 py-4 inline-block">
             <p className="text-lumora-pink font-semibold">
-              ⚡ Limited Time: Beta closes when we reach 100 participants
+              ⚡ Exclusive: Beta closes when we reach 100 participants
             </p>
           </div>
         </div>
+
+        {/* Beta Signup Modal */}
+        <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     </section>
   )

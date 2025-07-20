@@ -36,8 +36,8 @@ export default function Home() {
               Our <span className="gradient-text">Apps</span>
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              Revolutionary apps that understand your needs and adapt to your lifestyle. 
-              Built exclusively for Apple with cutting-edge AI and beautiful design.
+              Transformative apps that understand your needs and adapt to your lifestyle. 
+              Built exclusively for Apple with cutting-edge AI and elegant design.
             </p>
           </div>
 

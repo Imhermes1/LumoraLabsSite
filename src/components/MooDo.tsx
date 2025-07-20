@@ -2,40 +2,42 @@
 
 import { useState } from 'react'
 import { Brain, Mic, Cloud, TrendingUp, Heart } from 'lucide-react'
+import BetaSignupModal from './BetaSignupModal'
 
 const features = [
   {
     icon: Heart,
-    title: 'Mood-Driven Task Prioritization',
-    description: 'Tasks automatically filtered and sorted based on your current emotional state'
+    title: 'Mood-Driven Task Prioritisation',
+    description: 'Tasks elegantly filtered and organised based on your current emotional state'
   },
   {
     icon: Brain,
     title: 'Emotional Intelligence',
-    description: 'Daily mood check-ins with pattern recognition and adaptive UI theming'
+    description: 'Intuitive mood check-ins with sophisticated pattern recognition and adaptive UI theming'
   },
   {
     icon: Mic,
     title: 'Voice Integration',
-    description: 'Natural voice check-ins that extract tasks and mood insights conversationally'
+    description: 'Effortless voice check-ins that extract tasks and mood insights conversationally'
   },
   {
     icon: Cloud,
     title: 'Seamless Sync',
-    description: 'CloudKit integration for real-time updates across iPhone, iPad, and Mac'
+    description: 'CloudKit integration for instant updates across iPhone, iPad, and Mac'
   },
   {
     icon: TrendingUp,
-    title: 'Smart Analytics',
+    title: 'Intelligent Analytics',
     description: 'Mood-task correlation insights and productivity patterns based on emotional states'
   }
 ]
 
 export default function MooDo() {
-  const [betaCount, setBetaCount] = useState(20)
+  const [betaCount, setBetaCount] = useState(16)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const openBetaSignup = () => {
-    window.open('https://field-hearing-f91.notion.site/22b2ce9d9bf1803cb157ec370b405c9e?pvs=105', '_blank')
+    setIsModalOpen(true)
   }
 
   return (
@@ -56,8 +58,8 @@ export default function MooDo() {
                 Work with your emotions, not against them
               </p>
               <p className="text-white/80 text-lg leading-relaxed">
-                Revolutionary task management app that adapts to your emotional state in real-time. 
-                Unlike traditional productivity tools, MooDo uses advanced AI to optimize your workflow 
+                Transformative task management that adapts to your emotional rhythm in real-time. 
+                Unlike conventional productivity tools, MooDo uses sophisticated AI to optimise your workflow 
                 based on how you're feeling.
               </p>
             </div>
@@ -84,7 +86,7 @@ export default function MooDo() {
 
             {/* Beta CTA */}
             <div className="glass rounded-2xl p-6 text-center">
-              <p className="text-white/70 mb-2">MooDo Beta Program</p>
+              <p className="text-white/70 mb-2">MooDo Beta Programme</p>
               <div className="text-2xl font-bold text-lumora-pink mb-2">
                 {betaCount}/50 <span className="text-lg text-white/60">spots filled</span>
               </div>
@@ -141,6 +143,9 @@ export default function MooDo() {
           </div>
         </div>
       </div>
+
+      {/* Beta Signup Modal */}
+      <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }

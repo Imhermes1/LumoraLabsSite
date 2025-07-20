@@ -2,40 +2,42 @@
 
 import { useState } from 'react'
 import { Zap, Database, Mic2, MapPin, TrendingUp } from 'lucide-react'
+import BetaSignupModal from './BetaSignupModal'
 
 const features = [
   {
     icon: Zap,
     title: 'GPT-4 AI Integration',
-    description: 'Advanced natural language processing optimized for Australian accents and food culture'
+    description: 'Sophisticated natural language processing optimised for Australian accents and food culture'
   },
   {
     icon: Database,
     title: 'AUSNUT Database',
-    description: "Australia's official food composition database for superior local accuracy"
+    description: "Australia's official food composition database for precision local accuracy"
   },
   {
     icon: MapPin,
     title: 'Local Brand Recognition',
-    description: "Recognizes 50+ Australian brands including Woolworths, Coles, McDonald's Australia"
+    description: "Instantly recognises 50+ Australian brands including Woolworths, Coles, McDonald's Australia"
   },
   {
     icon: Mic2,
     title: 'Voice-First Interface',
-    description: 'Natural speech recognition with Australian accent optimisation'
+    description: 'Effortless speech recognition with Australian accent optimisation'
   },
   {
     icon: TrendingUp,
     title: 'Personalised AI Coaching',
-    description: 'Contextual nutrition advice that learns your preferences and goals'
+    description: 'Intelligent nutrition advice that learns your preferences and goals'
   }
 ]
 
 export default function CoreTrack() {
-  const [betaCount, setBetaCount] = useState(20)
+  const [betaCount, setBetaCount] = useState(22)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const openBetaSignup = () => {
-    window.open('https://field-hearing-f91.notion.site/22b2ce9d9bf1803cb157ec370b405c9e?pvs=105', '_blank')
+    setIsModalOpen(true)
   }
 
   return (
@@ -78,12 +80,11 @@ export default function CoreTrack() {
                 Core <span className="gradient-text bg-gradient-to-r from-positive to-focused bg-clip-text text-transparent">Track</span>
               </h2>
               <p className="text-xl md:text-2xl text-positive font-semibold mb-4">
-                The first AI-powered nutrition app built for Australians
+                The intelligent way to track what you eat
               </p>
               <p className="text-white/80 text-lg leading-relaxed">
-                Combines GPT-4 AI with Australia's official AUSNUT food database to deliver 95% accurate 
-                nutrition tracking through natural voice conversations. Finally, an app that understands 
-                Australian food culture.
+                Powered by GPT-4, CoreTrack delivers precise, intuitive tracking built for the way Australians eat. 
+                A nutrition experience that feels natural, local, and uniquely helpful.
               </p>
             </div>
 
@@ -109,7 +110,7 @@ export default function CoreTrack() {
 
             {/* Beta CTA */}
             <div className="glass rounded-2xl p-6 text-center">
-              <p className="text-white/70 mb-2">Core Track Beta Program</p>
+              <p className="text-white/70 mb-2">Core Track Beta Programme</p>
               <div className="text-2xl font-bold text-positive mb-2">
                 {betaCount}/50 <span className="text-lg text-white/60">spots filled</span>
               </div>
@@ -125,7 +126,7 @@ export default function CoreTrack() {
 
         {/* Market Stats */}
         <div className="mt-8 pt-8 border-t border-white/10">
-          <h3 className="text-white font-semibold mb-4">Market Opportunity:</h3>
+          <h3 className="text-white font-semibold mb-4">Australian Market:</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="glass rounded-2xl p-4 text-center">
               <div className="text-2xl font-bold text-positive mb-1">$2.4B</div>
@@ -142,6 +143,9 @@ export default function CoreTrack() {
           </div>
         </div>
       </div>
+
+      {/* Beta Signup Modal */}
+      <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }

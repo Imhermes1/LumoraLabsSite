@@ -5,10 +5,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import BetaSignupModal from './BetaSignupModal'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +35,7 @@ export default function Navigation() {
   }
 
   const openBetaSignup = () => {
-    window.open('https://field-hearing-f91.notion.site/22b2ce9d9bf1803cb157ec370b405c9e?pvs=105', '_blank')
+    setIsModalOpen(true)
   }
 
   return (
@@ -127,6 +129,9 @@ export default function Navigation() {
             </button>
           </div>
         )}
+
+        {/* Beta Signup Modal */}
+        <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     </nav>
   )

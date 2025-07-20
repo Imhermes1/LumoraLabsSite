@@ -2,12 +2,13 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
+import { Analytics } from '@vercel/analytics/next'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Lumora Labs - Building the Future of Beautiful Apps',
-  description: "Lumora Labs creates the world's most beautifully designed and best functioning apps exclusively for Apple, with Android coming soon. Join our beta program.",  keywords: 'Lumora Labs, MooDo, Core Track, iOS apps, Apple ecosystem, AI nutrition, mood management, productivity, mental health, Australian nutrition app',
+  title: 'Lumora Labs - Crafting the Future of Extraordinary Apps',
+  description: "Lumora Labs creates the world's most elegantly crafted and intuitively powerful apps exclusively for Apple, with Android coming soon. Join our beta programme.",  keywords: 'Lumora Labs, MooDo, Core Track, iOS apps, Apple ecosystem, AI nutrition, mood management, productivity, mental health, Australian nutrition app',
   authors: [{ name: 'Luke Fornieri' }],
   creator: 'Luke Fornieri',
   publisher: 'Lumora Labs',
@@ -16,8 +17,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_AU',
     url: 'https://lumoralabs.com',
-    title: 'Lumora Labs - Building the Future of Beautiful Apps',
-    description: 'Premium AI-powered apps for Apple ecosystem. MooDo for mood-based task management and Core Track for Australian nutrition tracking.',
+    title: 'Lumora Labs - Crafting the Future of Extraordinary Apps',
+    description: 'Elegantly crafted AI-powered apps for Apple ecosystem. MooDo for mood-based task management and Core Track for Australian nutrition tracking.',
     siteName: 'Lumora Labs',
     images: [
       {
@@ -30,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lumora Labs - Building the Future of Beautiful Apps',
-    description: 'Premium AI-powered apps for Apple ecosystem. Join our exclusive beta program.',
+    title: 'Lumora Labs - Crafting the Future of Extraordinary Apps',
+    description: 'Elegantly crafted AI-powered apps for Apple ecosystem. Join our exclusive beta programme.',
     images: ['/images/twitter-image.png'],
   },
   viewport: 'width=device-width, initial-scale=1',
@@ -56,6 +57,7 @@ export default function RootLayout({
         <div className="min-h-screen">
           {children}
         </div>
+        <Analytics />
       </body>
     </html>
   )

@@ -6,31 +6,31 @@ const technologies = [
   {
     icon: Smartphone,
     title: 'SwiftUI & UIKit',
-    description: 'Native iOS development for optimal performance and Apple ecosystem integration',
+    description: 'Native iOS development for optimal performance and elegant Apple ecosystem integration',
     color: 'lumora-pink'
   },
   {
     icon: Brain,
     title: 'GPT-4 AI Integration',
-    description: 'Advanced AI for emotional intelligence and Australian nutrition understanding',
+    description: 'Sophisticated AI for emotional intelligence and intuitive Australian nutrition understanding',
     color: 'lumora-purple'
   },
   {
     icon: Cpu,
     title: 'Core ML Processing',
-    description: 'On-device machine learning for privacy and real-time performance',
+    description: 'On-device machine learning for privacy and instant performance',
     color: 'deep-purple'
   },
   {
     icon: Cloud,
     title: 'CloudKit Sync',
-    description: 'Seamless synchronization across iPhone, iPad, and Mac devices',
+    description: 'Effortless synchronisation across iPhone, iPad, and Mac devices',
     color: 'positive'
   },
   {
     icon: Zap,
     title: 'Advanced Speech Recognition',
-    description: 'Natural language processing optimized for voice-first interactions',
+    description: 'Intelligent language processing optimised for voice-first interactions',
     color: 'calm'
   },
   {
@@ -44,9 +44,9 @@ const technologies = [
 const architectureFeatures = [
   'MVVM with Combine reactive programming',
   'Modular, scalable codebase architecture',
-  'Offline-first with cloud synchronization',
+  'Offline-first with cloud synchronisation',
   'Full accessibility and VoiceOver support',
-  'Multi-language localization framework',
+  'Multi-language localisation framework',
   'Comprehensive testing suite (XCTest, XCUITest)'
 ]
 
@@ -59,8 +59,8 @@ export default function Technology() {
             Cutting-Edge <span className="gradient-text">Technology</span>
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Built with the latest technologies to deliver premium experiences that Apple users expect. 
-            Every component is crafted for performance, privacy, and seamless integration.
+            Built with the latest technologies to deliver extraordinary experiences that Apple users expect. 
+            Every component is elegantly crafted for performance, privacy, and seamless integration.
           </p>
         </div>
 
@@ -100,22 +100,22 @@ export default function Technology() {
               <div className="glass rounded-xl p-4">
                 <h4 className="text-lumora-pink font-semibold mb-2">MooDo AI</h4>
                 <p className="text-white/70 text-sm">
-                  Emotional intelligence algorithms that learn from user behavior patterns 
-                  to optimize task recommendations and workflow adaptations.
+                  Emotional intelligence algorithms that learn from user behaviour patterns 
+                  to optimise task recommendations and workflow adaptations.
                 </p>
               </div>
               <div className="glass rounded-xl p-4">
                 <h4 className="text-positive font-semibold mb-2">Core Track AI</h4>
                 <p className="text-white/70 text-sm">
-                  Advanced natural language processing trained on Australian food culture, 
-                  integrated with AUSNUT database for unprecedented local accuracy.
+                  Sophisticated natural language processing trained on Australian food culture, 
+                  integrated with AUSNUT database for extraordinary local accuracy.
                 </p>
               </div>
               <div className="glass rounded-xl p-4">
                 <h4 className="text-calm font-semibold mb-2">Privacy AI</h4>
                 <p className="text-white/70 text-sm">
                   On-device processing ensures your personal data never leaves your device 
-                  while still providing intelligent, personalized experiences.
+                  while still providing intelligent, personalised experiences.
                 </p>
               </div>
             </div>
@@ -126,8 +126,8 @@ export default function Technology() {
         <div className="mt-16 glass-strong rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-bold text-white mb-4">Apple Ecosystem Excellence</h3>
           <p className="text-white/80 max-w-3xl mx-auto mb-6">
-            Designed specifically for Apple's ecosystem with deep integration across devices. 
-            Experience seamless handoff, universal clipboard, and native Apple features 
+            Elegantly designed for Apple's ecosystem with intuitive integration across devices. 
+            Experience effortless handoff, universal clipboard, and native Apple features 
             that make our apps feel like natural extensions of your Apple devices.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

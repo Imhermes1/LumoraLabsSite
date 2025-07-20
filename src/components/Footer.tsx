@@ -1,14 +1,17 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Mail, MapPin, Github, Twitter, Linkedin } from 'lucide-react'
+import BetaSignupModal from './BetaSignupModal'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const openBetaSignup = () => {
-    window.open('https://field-hearing-f91.notion.site/22b2ce9d9bf1803cb157ec370b405c9e?pvs=105', '_blank')
+    setIsModalOpen(true)
   }
 
   return (
@@ -33,7 +36,7 @@ export default function Footer() {
             </div>
 
             <p className="text-white/70 text-lg mb-6 max-w-md leading-relaxed">
-              Where light meets innovation. Creating the world's most beautiful and functional apps 
+              Where light meets innovation. Creating the world's most elegantly crafted and intuitively powerful apps 
               exclusively for Apple, with Android coming soon.
             </p>
 
@@ -70,7 +73,7 @@ export default function Footer() {
                 onClick={openBetaSignup}
                 className="block text-white/70 hover:text-lumora-pink transition-colors text-sm"
               >
-                Beta Program
+                Beta Programme
               </button>
               <button 
                 onClick={() => document.getElementById('technology')?.scrollIntoView({ behavior: 'smooth' })}
@@ -105,14 +108,14 @@ export default function Footer() {
         <div className="glass-strong rounded-2xl p-8 mb-12 text-center">
           <h3 className="text-2xl font-bold text-white mb-4">Ready to Experience the Future?</h3>
           <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-            Join our exclusive beta program and be among the first to experience beautiful, 
+            Join our exclusive beta programme and be among the first to experience elegant, 
             AI-powered apps that enhance your productivity and wellness.
           </p>
           <button
             onClick={openBetaSignup}
             className="bg-gradient-to-r from-lumora-pink to-lumora-purple rounded-full px-8 py-3 text-white font-semibold hover:shadow-lg hover:shadow-lumora-purple/25 transition-all duration-300"
           >
-            Join Beta Program
+            Join Beta Programme
           </button>
         </div>
 
@@ -148,6 +151,9 @@ export default function Footer() {
             © {currentYear} Lumora Labs. All rights reserved. Made with ✨ in Australia.
           </p>
         </div>
+
+        {/* Beta Signup Modal */}
+        <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     </footer>
   )
