@@ -17,16 +17,16 @@ const features = [
   {
     icon: MapPin,
     title: 'Local Brand Recognition',
-    description: 'Recognizes 50+ Australian brands including Woolworths, Coles, McDonald's Australia',
+    description: "Recognizes 50+ Australian brands including Woolworths, Coles, McDonald's Australia"
   },
   {
     icon: Mic2,
     title: 'Voice-First Interface',
-    description: 'Natural speech recognition with Australian accent optimization'
+    description: 'Natural speech recognition with Australian accent optimisation'
   },
   {
     icon: TrendingUp,
-    title: 'Personalized AI Coaching',
+    title: 'Personalised AI Coaching',
     description: 'Contextual nutrition advice that learns your preferences and goals'
   }
 ]
@@ -89,10 +89,10 @@ export default function CoreTrack() {
 
             {/* Features Grid */}
             <div className="space-y-4 mb-8">
-              {features.map((feature, index) => {
+              {features.map((feature) => {
                 const IconComponent = feature.icon
                 return (
-                  <div key={index} className="glass rounded-2xl p-4 hover:bg-white/5 transition-all duration-300">
+                  <div key={feature.title} className="glass rounded-2xl p-4 hover:bg-white/5 transition-all duration-300">
                     <div className="flex items-start space-x-3">
                       <div className="p-2 bg-positive/20 rounded-lg">
                         <IconComponent size={20} className="text-positive" />
