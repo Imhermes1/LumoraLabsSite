@@ -7,8 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Lumora Labs - Building the Future of Beautiful Apps',
-  description: 'Lumora Labs creates the world's most beautifully designed and best functioning apps exclusively for Apple, with Android coming soon. Join our beta program.',
-  keywords: 'Lumora Labs, MooDo, Core Track, iOS apps, Apple ecosystem, AI nutrition, mood management, productivity, mental health, Australian nutrition app',
+  description: "Lumora Labs creates the world's most beautifully designed and best functioning apps exclusively for Apple, with Android coming soon. Join our beta program.",  keywords: 'Lumora Labs, MooDo, Core Track, iOS apps, Apple ecosystem, AI nutrition, mood management, productivity, mental health, Australian nutrition app',
   authors: [{ name: 'Luke Fornieri' }],
   creator: 'Luke Fornieri',
   publisher: 'Lumora Labs',
