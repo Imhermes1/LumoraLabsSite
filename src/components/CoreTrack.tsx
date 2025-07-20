@@ -17,7 +17,7 @@ const features = [
   {
     icon: MapPin,
     title: 'Local Brand Recognition',
-    description: 'Recognizes 50+ Australian brands including Woolworths, Coles, McDonald's Australia'
+    description: 'Recognizes 50+ Australian brands including Woolworths, Coles, McDonald's Australia',
   },
   {
     icon: Mic2,
