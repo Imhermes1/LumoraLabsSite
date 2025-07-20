@@ -38,7 +38,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
       />
 
       {/* Modal */}
-      <div className="relative w-full max-w-6xl mx-4 max-h-[90vh] overflow-hidden">
+      <div className="relative w-full max-w-6xl mx-4 max-h-[90vh] overflow-y-auto">
         <div className="glass-strong rounded-3xl p-8 md:p-12">
           
           {/* Header */}
@@ -62,7 +62,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
           </div>
 
           {/* Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8 mb-8">
             
             {/* Left Side - App Previews & Info */}
             <div className="space-y-6">
@@ -167,11 +167,11 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
                   <iframe 
                     src="https://field-hearing-f91.notion.site/ebd/22b2ce9d9bf1803cb157ec370b405c9e" 
                     width="100%" 
-                    height="600" 
+                    height="500" 
                     frameBorder="0" 
                     allowFullScreen
                     className="w-full"
-                    style={{ minHeight: '600px' }}
+                    style={{ minHeight: '500px' }}
                   />
                 </div>
               </div>
