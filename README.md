@@ -1,8 +1,6 @@
 # Lumora Labs Website
 
-![Lumora Labs](https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/6bb54c3c-75a0-40d9-b472-6e30dc2cb268.png)
-
-**Where Light Meets Innovation** ✨
+**Elegantly crafted AI-powered apps for the Apple ecosystem.**
 
 A premium Next.js website for Lumora Labs, showcasing our beautiful AI-powered apps exclusively for Apple ecosystem (Android coming soon).
 
@@ -337,3 +335,11 @@ This project is proprietary software. Unauthorized copying, modification, distri
 
 **Built with ✨ by Lumora Labs**  
 *Where Light Meets Innovation*
+
+## 🚀 Latest Updates
+
+- ✅ Australian English language throughout
+- ✅ Apple-style elegant terminology  
+- ✅ Embedded beta signup modal
+- ✅ Updated beta counters (MooDo: 16/50, CoreTrack: 22/50)
+- ✅ Vercel Analytics integration
