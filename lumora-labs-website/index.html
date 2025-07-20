@@ -1,372 +1,165 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumora Labs - Building the Future of Beautiful Apps</title>
-    <meta name="description" content="Lumora Labs creates the world's most beautifully designed and best functioning apps exclusively for Apple, with Android coming soon.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <div class="nav__content">
-                <div class="nav__logo">
-                    <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/6bb54c3c-75a0-40d9-b472-6e30dc2cb268.png" alt="Lumora Labs" class="nav__logo-img">
-                    <span class="nav__logo-text">Lumora Labs</span>
+<!-- MooDo App -->
+<div class="app-showcase moodo">
+    <div class="app-showcase__content">
+        <div class="app-showcase__text">
+            <h3>MooDo</h3>
+            <p class="app-tagline">Work with your emotions, not against them</p>
+            <p class="app-description">Transformative task management that adapts to your emotional rhythm. MooDo intuitively responds to how you feel, aligning your to-dos with your state of mind using advanced AI.</p>
+
+            <div class="app-features">
+                <div class="feature-card">
+                    <h4>🎯 Mood-Driven Task Prioritisation</h4>
+                    <p>AI-powered flow that syncs tasks to your mindset</p>
                 </div>
-                <div class="nav__links">
-                    <a href="#apps" class="nav__link">Apps</a>
-                    <a href="#beta" class="nav__link">Beta</a>
-                    <a href="#technology" class="nav__link">Technology</a>
-                    <button onclick="window.open('https://field-hearing-f91.notion.site/22b2ce9d9bf1803cb157ec370b405c9e?pvs=105', '_blank')" class="btn btn--primary btn--sm">Join Beta</button>
+                <div class="feature-card">
+                    <h4>🧠 Emotional Intelligence</h4>
+                    <p>Elegant mood tracking with insights that evolve</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🎤 Voice Integration</h4>
+                    <p>Natural voice input for seamless task creation</p>
+                </div>
+                <div class="feature-card">
+                    <h4>☁️ Seamless Sync</h4>
+                    <p>Effortless sync across iPhone, iPad, and Mac</p>
+                </div>
+            </div>
+
+            <div class="target-audience">
+                <h4>Perfect for:</h4>
+                <div class="audience-tags">
+                    <span class="tag">Mental Health Professionals</span>
+                    <span class="tag">Creative Professionals</span>
+                    <span class="tag">Remote Workers</span>
+                    <span class="tag">Students</span>
+                </div>
+            </div>
+
+            <div class="beta-signup-inline">
+                <p>MooDo Beta Testers: <span class="counter" id="moodo-counter">20</span> / 50</p>
+                <div class="progress-bar">
+                    <div class="progress-fill moodo-progress" style="width: 40%"></div>
                 </div>
             </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero__background"></div>
-        <div class="container">
-            <div class="hero__content">
-                <h1 class="hero__title">Building the Future of Beautiful Apps</h1>
-                <p class="hero__subtitle">Lumora Labs creates the world's most beautifully designed and best functioning apps exclusively for Apple, with Android coming soon</p>
-                <div class="hero__actions">
-                    <a href="#apps" class="btn btn--primary btn--lg">Explore Our Apps</a>
-                    <button onclick="window.open('https://field-hearing-f91.notion.site/22b2ce9d9bf1803cb157ec370b405c9e?pvs=105', '_blank')" class="btn btn--outline btn--lg">Join Beta Program</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Company Overview -->
-    <section class="company-overview">
-        <div class="container">
-            <div class="glass-panel">
-                <h2>The Future of App Development</h2>
-                <p>At Lumora Labs, we believe that technology should be beautiful, intuitive, and deeply human. We're pioneering the next generation of mobile experiences with apps that don't just function perfectly – they feel magical.</p>
-                <div class="company-stats">
-                    <div class="stat">
-                        <h3>Apple First</h3>
-                        <p>Exclusively designed for iOS ecosystem</p>
-                    </div>
-                    <div class="stat">
-                        <h3>AI Powered</h3>
-                        <p>Cutting-edge artificial intelligence</p>
-                    </div>
-                    <div class="stat">
-                        <h3>Human Centered</h3>
-                        <p>Designed with empathy and care</p>
+        <div class="app-showcase__image">
+            <div class="app-mockup moodo-mockup">
+                <div class="mockup-screen">
+                    <div class="mood-interface">
+                        <div class="mood-selector">
+                            <div class="mood-option active" data-mood="positive">😊</div>
+                            <div class="mood-option" data-mood="calm">😌</div>
+                            <div class="mood-option" data-mood="focused">🎯</div>
+                            <div class="mood-option" data-mood="creative">💡</div>
+                            <div class="mood-option" data-mood="stressed">😰</div>
+                        </div>
+                        <div class="task-list">
+                            <div class="task-item">
+                                <span class="task-emoji">📝</span>
+                                <span>Write blog post</span>
+                                <span class="task-mood positive">Positive</span>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-emoji">📱</span>
+                                <span>Call mom</span>
+                                <span class="task-mood positive">Positive</span>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-emoji">🎨</span>
+                                <span>Design mockup</span>
+                                <span class="task-mood creative">Creative</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- Featured Apps -->
-    <section id="apps" class="featured-apps">
-        <div class="container">
-            <h2 class="section-title">Our Revolutionary Apps</h2>
-            
-            <!-- MooDo App -->
-            <div class="app-showcase moodo">
-                <div class="app-showcase__content">
-                    <div class="app-showcase__text">
-                        <h3>MooDo</h3>
-                        <p class="app-tagline">Work with your emotions, not against them</p>
-                        <p class="app-description">Revolutionary task management app that adapts to your emotional state in real-time. Unlike traditional productivity tools, MooDo uses advanced AI to understand your current mood and automatically optimizes your workflow accordingly.</p>
-                        
-                        <div class="app-features">
-                            <div class="feature-card">
-                                <h4>🎯 Mood-Driven Task Prioritization</h4>
-                                <p>AI-powered recommendations that match tasks to your emotional state</p>
-                            </div>
-                            <div class="feature-card">
-                                <h4>🧠 Emotional Intelligence</h4>
-                                <p>Daily mood tracking with pattern recognition and insights</p>
-                            </div>
-                            <div class="feature-card">
-                                <h4>🎤 Voice Integration</h4>
-                                <p>Natural voice check-ins and conversational task creation</p>
-                            </div>
-                            <div class="feature-card">
-                                <h4>☁️ Seamless Sync</h4>
-                                <p>CloudKit integration across iPhone, iPad, and Mac</p>
-                            </div>
+<!-- CoreTrack App -->
+<div class="app-showcase coretrack">
+    <div class="app-showcase__content">
+        <div class="app-showcase__image">
+            <div class="app-mockup coretrack-mockup">
+                <div class="mockup-screen">
+                    <div class="nutrition-interface">
+                        <div class="voice-input">
+                            <div class="voice-wave"></div>
+                            <p>"I had a Woolworths chicken breast with Coles bread"</p>
                         </div>
-                        
-                        <div class="target-audience">
-                            <h4>Perfect for:</h4>
-                            <div class="audience-tags">
-                                <span class="tag">Mental Health Professionals</span>
-                                <span class="tag">Creative Professionals</span>
-                                <span class="tag">Remote Workers</span>
-                                <span class="tag">Students</span>
+                        <div class="ai-response">
+                            <div class="brand-recognition">
+                                <span class="brand-tag woolworths">Woolworths</span>
+                                <span class="brand-tag coles">Coles</span>
                             </div>
-                        </div>
-                        
-                        <div class="beta-signup-inline">
-                            <p>MooDo Beta Testers: <span class="counter" id="moodo-counter">20</span> / 50</p>
-                            <div class="progress-bar">
-                                <div class="progress-fill moodo-progress" style="width: 40%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="app-showcase__image">
-                        <div class="app-mockup moodo-mockup">
-                            <div class="mockup-screen">
-                                <div class="mood-interface">
-                                    <div class="mood-selector">
-                                        <div class="mood-option active" data-mood="positive">😊</div>
-                                        <div class="mood-option" data-mood="calm">😌</div>
-                                        <div class="mood-option" data-mood="focused">🎯</div>
-                                        <div class="mood-option" data-mood="creative">💡</div>
-                                        <div class="mood-option" data-mood="stressed">😰</div>
-                                    </div>
-                                    <div class="task-list">
-                                        <div class="task-item">
-                                            <span class="task-emoji">📝</span>
-                                            <span>Write blog post</span>
-                                            <span class="task-mood positive">Positive</span>
-                                        </div>
-                                        <div class="task-item">
-                                            <span class="task-emoji">📱</span>
-                                            <span>Call mom</span>
-                                            <span class="task-mood positive">Positive</span>
-                                        </div>
-                                        <div class="task-item">
-                                            <span class="task-emoji">🎨</span>
-                                            <span>Design mockup</span>
-                                            <span class="task-mood creative">Creative</span>
-                                        </div>
-                                    </div>
+                            <div class="nutrition-stats">
+                                <div class="stat">
+                                    <span class="value">380</span>
+                                    <span class="label">Calories</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="value">28g</span>
+                                    <span class="label">Protein</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="value">15g</span>
+                                    <span class="label">Carbs</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="app-showcase__text">
+            <h3>Core Track</h3>
+            <p class="app-tagline">The intelligent way to track what you eat</p>
+            <p class="app-description">Powered by GPT-4, CoreTrack delivers accurate, intuitive tracking built for the way Australians eat. A nutrition experience that feels natural, local, and uniquely helpful.</p>
 
-            <!-- CoreTrack App -->
-            <div class="app-showcase coretrack">
-                <div class="app-showcase__content">
-                    <div class="app-showcase__image">
-                        <div class="app-mockup coretrack-mockup">
-                            <div class="mockup-screen">
-                                <div class="nutrition-interface">
-                                    <div class="voice-input">
-                                        <div class="voice-wave"></div>
-                                        <p>"I had a Woolworths chicken breast with Coles bread"</p>
-                                    </div>
-                                    <div class="ai-response">
-                                        <div class="brand-recognition">
-                                            <span class="brand-tag woolworths">Woolworths</span>
-                                            <span class="brand-tag coles">Coles</span>
-                                        </div>
-                                        <div class="nutrition-stats">
-                                            <div class="stat">
-                                                <span class="value">380</span>
-                                                <span class="label">Calories</span>
-                                            </div>
-                                            <div class="stat">
-                                                <span class="value">28g</span>
-                                                <span class="label">Protein</span>
-                                            </div>
-                                            <div class="stat">
-                                                <span class="value">15g</span>
-                                                <span class="label">Carbs</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="app-features">
+                <div class="feature-card">
+                    <h4>🤖 GPT-4 AI Integration</h4>
+                    <p>Advanced intelligence tuned to your voice and local food culture</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🇦🇺 AUSNUT Database</h4>
+                    <p>Precision data from Australia’s official nutrition source</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🏪 Local Brand Recognition</h4>
+                    <p>Instantly identifies Woolworths, Coles, and more</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🎤 Voice-First Interface</h4>
+                    <p>Effortless logging with natural conversation</p>
+                </div>
+            </div>
+
+            <div class="market-stats">
+                <h4>Australian Market:</h4>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value">$2.4B</span>
+                        <span class="stat-label">Health & Fitness Market</span>
                     </div>
-                    <div class="app-showcase__text">
-                        <h3>Core Track</h3>
-                        <p class="app-tagline">The first AI-powered nutrition app built for Australians</p>
-                        <p class="app-description">Combines GPT-4 AI with Australia's official AUSNUT food database to deliver 95% accurate nutrition tracking through natural voice conversations. Finally, a nutrition app that understands Australian food culture and local brands.</p>
-                        
-                        <div class="app-features">
-                            <div class="feature-card">
-                                <h4>🤖 GPT-4 AI Integration</h4>
-                                <p>Advanced AI optimized for Australian accents and food culture</p>
-                            </div>
-                            <div class="feature-card">
-                                <h4>🇦🇺 AUSNUT Database</h4>
-                                <p>Australia's official food database for accurate nutrition data</p>
-                            </div>
-                            <div class="feature-card">
-                                <h4>🏪 Local Brand Recognition</h4>
-                                <p>Recognizes Woolworths, Coles, McDonald's Australia, and 50+ brands</p>
-                            </div>
-                            <div class="feature-card">
-                                <h4>🎤 Voice-First Interface</h4>
-                                <p>Hands-free nutrition tracking with natural speech recognition</p>
-                            </div>
-                        </div>
-                        
-                        <div class="market-stats">
-                            <h4>Australian Market:</h4>
-                            <div class="stats-grid">
-                                <div class="stat-item">
-                                    <span class="stat-value">$2.4B</span>
-                                    <span class="stat-label">Health & Fitness Market</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-value">8.2%</span>
-                                    <span class="stat-label">Annual Growth</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-value">2.3M</span>
-                                    <span class="stat-label">Target Users</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="beta-signup-inline">
-                            <p>Core Track Beta Testers: <span class="counter" id="coretrack-counter">20</span> / 50</p>
-                            <div class="progress-bar">
-                                <div class="progress-fill coretrack-progress" style="width: 40%"></div>
-                            </div>
-                        </div>
+                    <div class="stat-item">
+                        <span class="stat-value">8.2%</span>
+                        <span class="stat-label">Annual Growth</span>
                     </div>
+                    <div class="stat-item">
+                        <span class="stat-value">2.3M</span>
+                        <span class="stat-label">Target Users</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="beta-signup-inline">
+                <p>Core Track Beta Testers: <span class="counter" id="coretrack-counter">20</span> / 50</p>
+                <div class="progress-bar">
+                    <div class="progress-fill coretrack-progress" style="width: 40%"></div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Beta Signup Section -->
-    <section id="beta" class="beta-signup">
-        <div class="container">
-            <div class="glass-panel">
-                <h2>Join the Beta - Limited Spots Available</h2>
-                <p>Be among the first to experience the future of app design. Get exclusive early access to MooDo and Core Track.</p>
-                
-                <div class="beta-stats">
-                    <div class="app-beta-card">
-                        <h3>MooDo Beta</h3>
-                        <div class="counter-display">
-                            <span class="current-count" id="moodo-beta-counter">20</span>
-                            <span class="total-count">/ 50</span>
-                        </div>
-                        <div class="progress-bar large">
-                            <div class="progress-fill moodo-progress" style="width: 40%"></div>
-                        </div>
-                        <p>Spots remaining: <span id="moodo-remaining">30</span></p>
-                    </div>
-                    
-                    <div class="app-beta-card">
-                        <h3>Core Track Beta</h3>
-                        <div class="counter-display">
-                            <span class="current-count" id="coretrack-beta-counter">20</span>
-                            <span class="total-count">/ 50</span>
-                        </div>
-                        <div class="progress-bar large">
-                            <div class="progress-fill coretrack-progress" style="width: 40%"></div>
-                        </div>
-                        <p>Spots remaining: <span id="coretrack-remaining">30</span></p>
-                    </div>
-                </div>
-                
-                <div class="beta-benefits">
-                    <h4>Beta Benefits:</h4>
-                    <ul>
-                        <li>Free lifetime premium access</li>
-                        <li>Direct influence on app development</li>
-                        <li>Exclusive community access</li>
-                        <li>First to experience new features</li>
-                    </ul>
-                </div>
-                
-                <button onclick="window.open('https://field-hearing-f91.notion.site/22b2ce9d9bf1803cb157ec370b405c9e?pvs=105', '_blank')" class="btn btn--primary btn--lg beta-signup-btn">
-                    Sign Up for Beta Access
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology & Innovation -->
-    <section id="technology" class="technology">
-        <div class="container">
-            <h2 class="section-title">Cutting-Edge Technology</h2>
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <div class="tech-icon">🧠</div>
-                    <h3>Artificial Intelligence</h3>
-                    <p>Advanced GPT-4 integration with emotional intelligence and natural language processing</p>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon">📱</div>
-                    <h3>Apple Ecosystem</h3>
-                    <p>Native SwiftUI development with CloudKit sync across iPhone, iPad, and Mac</p>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon">🎤</div>
-                    <h3>Voice Technology</h3>
-                    <p>Advanced speech recognition optimized for natural conversation and local accents</p>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon">🎨</div>
-                    <h3>Design Excellence</h3>
-                    <p>Glassmorphism UI with adaptive theming and micro-interactions</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__brand">
-                    <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/6bb54c3c-75a0-40d9-b472-6e30dc2cb268.png" alt="Lumora Labs" class="footer__logo">
-                    <h4>Lumora Labs</h4>
-                    <p>Building the future of beautiful apps</p>
-                </div>
-                <div class="footer__links">
-                    <div class="footer__section">
-                        <h4>Apps</h4>
-                        <ul>
-                            <li><a href="#apps">MooDo</a></li>
-                            <li><a href="#apps">Core Track</a></li>
-                            <li><button onclick="window.open('https://field-hearing-f91.notion.site/22b2ce9d9bf1803cb157ec370b405c9e?pvs=105', '_blank')" class="footer-link-btn">Beta Program</button></li>
-                        </ul>
-                    </div>
-                    <div class="footer__section">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="#technology">Technology</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Careers</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__section">
-                        <h4>Legal</h4>
-                        <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <p>&copy; 2025 Lumora Labs. All rights reserved.</p>
-                <div class="footer__social">
-                    <a href="#" aria-label="Twitter">🐦</a>
-                    <a href="#" aria-label="LinkedIn">💼</a>
-                    <a href="#" aria-label="Instagram">📸</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="app.js"></script>
-</body>
-</html>
+    </div>
+</div>
