@@ -40,18 +40,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Static Background - Performance Optimized */}
-      <div className="absolute inset-0">
-        {/* Simple static light source */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-yellow-300/20 rounded-full blur-2xl"></div>
-        
-        {/* Static corner elements */}
-        <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-white/20 via-lumora-purple/30 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-white/20 via-lumora-pink/30 to-transparent rounded-full blur-3xl"></div>
-      </div>
-
+    <section className="relative min-h-screen flex items-center justify-center">
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="glass-strong rounded-3xl p-8 md:p-12 lg:p-16">
