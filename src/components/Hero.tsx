@@ -41,17 +41,22 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Enhanced Animated Background */}
+      {/* Enhanced Space-like Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-lumora-purple/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-lumora-pink/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-deep-purple/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+        {/* Large nebula clouds */}
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-lumora-purple/25 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-lumora-pink/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-deep-purple/15 rounded-full blur-3xl animate-pulse delay-500"></div>
         
-        {/* Additional background elements */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-lumora-pink/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-positive/10 rounded-full blur-2xl animate-pulse delay-3000"></div>
-        <div className="absolute top-3/4 right-1/3 w-32 h-32 bg-deep-purple/15 rounded-full blur-xl animate-pulse delay-1500"></div>
-        <div className="absolute bottom-1/3 left-1/3 w-40 h-40 bg-lumora-purple/15 rounded-full blur-xl animate-pulse delay-2500"></div>
+        {/* Additional nebula elements with more pink */}
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-lumora-pink/20 rounded-full blur-2xl animate-pulse delay-2000"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-lumora-pink/15 rounded-full blur-2xl animate-pulse delay-3000"></div>
+        <div className="absolute top-3/4 right-1/3 w-32 h-32 bg-deep-purple/20 rounded-full blur-xl animate-pulse delay-1500"></div>
+        <div className="absolute bottom-1/3 left-1/3 w-40 h-40 bg-lumora-purple/20 rounded-full blur-xl animate-pulse delay-2500"></div>
+        
+        {/* Drifting nebula clouds */}
+        <div className="absolute top-1/3 right-1/4 w-56 h-56 bg-lumora-pink/15 rounded-full blur-2xl animate-nebula-drift"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-72 h-72 bg-lumora-purple/10 rounded-full blur-3xl animate-nebula-drift delay-10000"></div>
       </div>
 
       {/* Content */}
@@ -117,29 +122,40 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Enhanced Floating Elements */}
-      {/* Primary particles */}
-      <div className="absolute top-20 left-10 w-4 h-4 bg-lumora-pink/40 rounded-full animate-float animate-pulse-glow"></div>
-      <div className="absolute top-40 right-20 w-6 h-6 bg-lumora-purple/40 rounded-full animate-float-2 animate-pulse-glow delay-1000"></div>
-      <div className="absolute bottom-32 left-20 w-3 h-3 bg-deep-purple/40 rounded-full animate-float-3 animate-pulse-glow delay-500"></div>
-      <div className="absolute bottom-20 right-10 w-5 h-5 bg-positive/40 rounded-full animate-float animate-pulse-glow delay-1500"></div>
+      {/* Enhanced Space-like Floating Elements */}
+      {/* Primary glowing particles with more pink */}
+      <div className="absolute top-20 left-10 w-4 h-4 bg-lumora-pink/50 rounded-full animate-float animate-pulse-glow"></div>
+      <div className="absolute top-40 right-20 w-6 h-6 bg-lumora-purple/50 rounded-full animate-float-2 animate-pulse-glow delay-1000"></div>
+      <div className="absolute bottom-32 left-20 w-3 h-3 bg-deep-purple/50 rounded-full animate-float-3 animate-pulse-glow delay-500"></div>
+      <div className="absolute bottom-20 right-10 w-5 h-5 bg-lumora-pink/50 rounded-full animate-float animate-pulse-glow delay-1500"></div>
       
-      {/* Additional particles for more density */}
-      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-lumora-pink/30 rounded-full animate-float-2 delay-2000"></div>
-      <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-lumora-purple/30 rounded-full animate-float-3 delay-3000"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-4 h-4 bg-deep-purple/30 rounded-full animate-float delay-2500"></div>
-      <div className="absolute top-2/3 left-1/3 w-2 h-2 bg-positive/30 rounded-full animate-float-2 delay-3500"></div>
+      {/* Additional space particles with more pink */}
+      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-lumora-pink/40 rounded-full animate-float-2 delay-2000"></div>
+      <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-lumora-purple/40 rounded-full animate-float-3 delay-3000"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-4 h-4 bg-lumora-pink/40 rounded-full animate-float delay-2500"></div>
+      <div className="absolute top-2/3 left-1/3 w-2 h-2 bg-lumora-pink/40 rounded-full animate-float-2 delay-3500"></div>
       
-      {/* Small sparkle particles */}
-      <div className="absolute top-16 left-1/2 w-1 h-1 bg-white/60 rounded-full animate-float-3 delay-1000"></div>
-      <div className="absolute top-1/2 right-16 w-1 h-1 bg-white/60 rounded-full animate-float delay-2000"></div>
-      <div className="absolute bottom-16 left-1/2 w-1 h-1 bg-white/60 rounded-full animate-float-2 delay-3000"></div>
-      <div className="absolute top-1/2 left-16 w-1 h-1 bg-white/60 rounded-full animate-float-3 delay-1500"></div>
+      {/* Twinkling stars */}
+      <div className="absolute top-16 left-1/2 w-1 h-1 bg-white/80 rounded-full animate-space-twinkle delay-1000"></div>
+      <div className="absolute top-1/2 right-16 w-1 h-1 bg-white/80 rounded-full animate-space-twinkle delay-2000"></div>
+      <div className="absolute bottom-16 left-1/2 w-1 h-1 bg-white/80 rounded-full animate-space-twinkle delay-3000"></div>
+      <div className="absolute top-1/2 left-16 w-1 h-1 bg-white/80 rounded-full animate-space-twinkle delay-1500"></div>
       
-      {/* Glowing orbs */}
-      <div className="absolute top-1/4 right-1/4 w-8 h-8 bg-lumora-pink/20 rounded-full animate-float animate-pulse-glow delay-4000"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-6 h-6 bg-lumora-purple/20 rounded-full animate-float-2 animate-pulse-glow delay-5000"></div>
-      <div className="absolute top-3/4 left-1/2 w-4 h-4 bg-deep-purple/20 rounded-full animate-float-3 animate-pulse-glow delay-6000"></div>
+      {/* More twinkling stars */}
+      <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-white/70 rounded-full animate-space-twinkle delay-4000"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-white/70 rounded-full animate-space-twinkle delay-5000"></div>
+      <div className="absolute top-2/3 right-1/3 w-1 h-1 bg-white/70 rounded-full animate-space-twinkle delay-6000"></div>
+      <div className="absolute bottom-2/3 left-1/3 w-1 h-1 bg-white/70 rounded-full animate-space-twinkle delay-7000"></div>
+      
+      {/* Large glowing nebula orbs */}
+      <div className="absolute top-1/4 right-1/4 w-8 h-8 bg-lumora-pink/25 rounded-full animate-float animate-pulse-glow delay-4000"></div>
+      <div className="absolute bottom-1/4 left-1/4 w-6 h-6 bg-lumora-purple/25 rounded-full animate-float-2 animate-pulse-glow delay-5000"></div>
+      <div className="absolute top-3/4 left-1/2 w-4 h-4 bg-lumora-pink/25 rounded-full animate-float-3 animate-pulse-glow delay-6000"></div>
+      
+      {/* Complex floating particles */}
+      <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-lumora-pink/35 rounded-full animate-float-4 delay-8000"></div>
+      <div className="absolute bottom-1/2 left-1/4 w-4 h-4 bg-lumora-purple/35 rounded-full animate-float-4 delay-9000"></div>
+      <div className="absolute top-1/4 bottom-1/4 w-2 h-2 bg-lumora-pink/35 rounded-full animate-float-4 delay-10000"></div>
 
       {/* Beta Signup Modal */}
       <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
