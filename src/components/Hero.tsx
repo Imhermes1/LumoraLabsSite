@@ -43,19 +43,17 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center">
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Logo with border just above it */}
-        <div className="mb-8 flex justify-center">
-          <div className="glass-strong rounded-3xl p-4 md:p-6 lg:p-8">
+        {/* Unified card with logo and text */}
+        <div className="glass rounded-2xl p-6 md:p-8 lg:p-10">
+          {/* Logo */}
+          <div className="mb-8 flex justify-center">
             <img 
               src="/images/Lumora-Labs-Logo-transparent.png" 
               alt="Lumora Labs Logo" 
               className="h-30 md:h-35 lg:h-40 xl:h-45 w-auto opacity-95 hover:opacity-100 transition-all duration-300"
             />
           </div>
-        </div>
-        
-        {/* Text content with minimal border */}
-        <div className="glass rounded-2xl p-6 md:p-8 lg:p-10">
+          
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Crafting the{' '}
             <span className="gradient-text bg-gradient-to-r from-lumora-pink via-lumora-purple to-deep-purple">
