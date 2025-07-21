@@ -139,13 +139,13 @@ html {
     transform: translate(0px, 0px);
   }
   25% {
-    transform: translate(200px, -100px);
+    transform: translate(400px, -200px);
   }
   50% {
-    transform: translate(100px, -200px);
+    transform: translate(200px, -400px);
   }
   75% {
-    transform: translate(-150px, -50px);
+    transform: translate(-300px, -100px);
   }
   100% {
     transform: translate(0px, 0px);
@@ -157,13 +157,13 @@ html {
     transform: translate(0px, 0px);
   }
   25% {
-    transform: translate(-200px, 100px);
+    transform: translate(-400px, 200px);
   }
   50% {
-    transform: translate(-100px, 200px);
+    transform: translate(-200px, 400px);
   }
   75% {
-    transform: translate(150px, 50px);
+    transform: translate(300px, 100px);
   }
   100% {
     transform: translate(0px, 0px);
@@ -175,10 +175,10 @@ html {
     transform: translate(0px, 0px);
   }
   33% {
-    transform: translate(300px, 50px);
+    transform: translate(600px, 100px);
   }
   66% {
-    transform: translate(-200px, -150px);
+    transform: translate(-400px, -300px);
   }
   100% {
     transform: translate(0px, 0px);
@@ -190,10 +190,10 @@ html {
     transform: translate(0px, 0px);
   }
   33% {
-    transform: translate(-300px, -50px);
+    transform: translate(-600px, -100px);
   }
   66% {
-    transform: translate(200px, 150px);
+    transform: translate(400px, 300px);
   }
   100% {
     transform: translate(0px, 0px);
@@ -339,15 +339,15 @@ html {
 
 @keyframes nebula-drift {
   0% {
-    transform: translateX(-100px) translateY(-50px) rotate(0deg);
+    transform: translateX(-300px) translateY(-150px) rotate(0deg);
     opacity: 0.3;
   }
   50% {
-    transform: translateX(50px) translateY(-100px) rotate(180deg);
+    transform: translateX(150px) translateY(-300px) rotate(180deg);
     opacity: 0.6;
   }
   100% {
-    transform: translateX(100px) translateY(-50px) rotate(360deg);
+    transform: translateX(300px) translateY(-150px) rotate(360deg);
     opacity: 0.3;
   }
 }
@@ -421,19 +421,19 @@ html {
 }
 
 .animate-move-around-1 {
-  animation: move-around-1 20s ease-in-out infinite;
+  animation: move-around-1 8s ease-in-out infinite;
 }
 
 .animate-move-around-2 {
-  animation: move-around-2 25s ease-in-out infinite;
+  animation: move-around-2 10s ease-in-out infinite;
 }
 
 .animate-move-around-3 {
-  animation: move-around-3 30s ease-in-out infinite;
+  animation: move-around-3 12s ease-in-out infinite;
 }
 
 .animate-move-around-4 {
-  animation: move-around-4 35s ease-in-out infinite;
+  animation: move-around-4 15s ease-in-out infinite;
 }
 
 .animate-figure-8 {
@@ -469,7 +469,7 @@ html {
 }
 
 .animate-nebula-drift {
-  animation: nebula-drift 20s ease-in-out infinite;
+  animation: nebula-drift 12s ease-in-out infinite;
 }
 
 .animate-lumos-rays {
