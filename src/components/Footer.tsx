@@ -33,13 +33,13 @@ export default function Footer() {
 
             <div className="flex items-center space-x-2 text-white/60 mb-2">
               <MapPin size={16} />
-              <span className="text-sm">Vermont South, VIC, Australia</span>
+              <span className="text-sm">Melbourne, VIC, Australia</span>
             </div>
 
             <div className="flex items-center space-x-2 text-white/60">
               <Mail size={16} />
-              <a href="mailto:luke@lumoralabs.com" className="text-sm hover:text-lumora-pink transition-colors">
-                luke@lumoralabs.com
+              <a href="mailto:luke@lumoralabs.io" className="text-sm hover:text-lumora-pink transition-colors">
+                luke@lumoralabs.io
               </a>
             </div>
           </div>
