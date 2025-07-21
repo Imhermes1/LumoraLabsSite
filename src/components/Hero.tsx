@@ -46,7 +46,7 @@ export default function Hero() {
         {/* Unified card with logo and text */}
         <div className="glass rounded-2xl px-2 pt-0 pb-2 md:px-4 md:pt-0 md:pb-4 lg:px-6 lg:pt-0 lg:pb-6">
           {/* Logo */}
-          <div className="mb-3 flex justify-center">
+          <div className="mb-1 flex justify-center -mt-2">
             <img 
               src="/images/Lumora-Labs-Logo-transparent.png" 
               alt="Lumora Labs Logo" 
@@ -92,16 +92,6 @@ export default function Hero() {
               <span className="ml-2">38/100 spots filled</span>
             </p>
           </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <button
-            onClick={scrollToApps}
-            className="text-white/50 hover:text-white/80 transition-colors duration-300"
-          >
-            <ChevronDown size={32} />
-          </button>
         </div>
       </div>
 
