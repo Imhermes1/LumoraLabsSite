@@ -47,13 +47,11 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/20 rounded-full blur-3xl animate-light-burst"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-yellow-300/30 rounded-full blur-2xl animate-light-burst delay-2000"></div>
         
-        {/* Lumos light rays radiating outward */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-32 bg-gradient-to-b from-white via-yellow-200 to-transparent animate-lumos-rays"></div>
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2 h-32 bg-gradient-to-t from-white via-yellow-200 to-transparent animate-lumos-rays delay-500"></div>
-          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-32 h-2 bg-gradient-to-r from-white via-yellow-200 to-transparent animate-lumos-rays delay-1000"></div>
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-32 h-2 bg-gradient-to-l from-white via-yellow-200 to-transparent animate-lumos-rays delay-1500"></div>
-        </div>
+        {/* Dynamic moving light orbs */}
+        <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-white/40 rounded-full blur-xl animate-float-4 delay-2000"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-20 h-20 bg-yellow-200/35 rounded-full blur-xl animate-float-2 delay-3000"></div>
+        <div className="absolute top-3/4 right-1/3 w-12 h-12 bg-white/30 rounded-full blur-lg animate-float-3 delay-4000"></div>
+        <div className="absolute bottom-1/3 left-1/3 w-14 h-14 bg-yellow-200/30 rounded-full blur-lg animate-float delay-5000"></div>
         
         {/* Magical nebula clouds with bright centers */}
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-white/30 via-lumora-purple/40 to-transparent rounded-full blur-3xl animate-pulse"></div>
@@ -169,6 +167,24 @@ export default function Hero() {
       <div className="absolute bottom-1/6 right-1/6 w-2 h-2 bg-white/85 rounded-full animate-magical-sparkle delay-12000"></div>
       <div className="absolute top-5/6 left-1/6 w-2 h-2 bg-yellow-200/85 rounded-full animate-magical-sparkle delay-13000"></div>
       <div className="absolute bottom-5/6 right-1/6 w-2 h-2 bg-white/85 rounded-full animate-magical-sparkle delay-14000"></div>
+      
+      {/* More dynamic moving elements */}
+      <div className="absolute top-1/8 left-3/4 w-3 h-3 bg-white/80 rounded-full animate-float-2 delay-15000"></div>
+      <div className="absolute bottom-1/8 right-3/4 w-4 h-4 bg-yellow-200/75 rounded-full animate-float-3 delay-16000"></div>
+      <div className="absolute top-7/8 right-1/8 w-3 h-3 bg-white/80 rounded-full animate-float-4 delay-17000"></div>
+      <div className="absolute bottom-7/8 left-1/8 w-4 h-4 bg-yellow-200/75 rounded-full animate-float delay-18000"></div>
+      
+      {/* Floating light trails */}
+      <div className="absolute top-1/5 right-1/5 w-6 h-6 bg-gradient-to-br from-white/60 via-yellow-200/50 to-transparent rounded-full animate-float-2 delay-19000"></div>
+      <div className="absolute bottom-1/5 left-1/5 w-5 h-5 bg-gradient-to-br from-yellow-200/60 via-white/50 to-transparent rounded-full animate-float-3 delay-20000"></div>
+      <div className="absolute top-4/5 left-4/5 w-4 h-4 bg-gradient-to-br from-white/60 via-yellow-200/50 to-transparent rounded-full animate-float-4 delay-21000"></div>
+      <div className="absolute bottom-4/5 right-4/5 w-5 h-5 bg-gradient-to-br from-yellow-200/60 via-white/50 to-transparent rounded-full animate-float delay-22000"></div>
+      
+      {/* Extra twinkling elements */}
+      <div className="absolute top-1/4 right-1/6 w-1 h-1 bg-white/90 rounded-full animate-space-twinkle delay-23000"></div>
+      <div className="absolute bottom-1/4 left-1/6 w-1 h-1 bg-yellow-200/90 rounded-full animate-space-twinkle delay-24000"></div>
+      <div className="absolute top-3/4 left-1/6 w-1 h-1 bg-white/90 rounded-full animate-space-twinkle delay-25000"></div>
+      <div className="absolute bottom-3/4 right-1/6 w-1 h-1 bg-yellow-200/90 rounded-full animate-space-twinkle delay-26000"></div>
 
       {/* Beta Signup Modal */}
       <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
