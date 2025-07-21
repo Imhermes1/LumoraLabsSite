@@ -44,7 +44,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Unified card with logo and text */}
-        <div className="glass rounded-2xl p-2 md:p-4 lg:p-6">
+        <div className="glass rounded-2xl px-2 pt-0 pb-2 md:px-4 md:pt-0 md:pb-4 lg:px-6 lg:pt-0 lg:pb-6">
           {/* Logo */}
           <div className="mb-8 flex justify-center">
             <img 
