@@ -25,7 +25,7 @@ export default function Navigation() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      const navHeight = 40
+      const navHeight = 44
       const targetPosition = element.offsetTop - navHeight
       window.scrollTo({
         top: targetPosition,
@@ -41,11 +41,11 @@ export default function Navigation() {
 
   return (
     <nav className={cn(
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+      'fixed top-2 left-0 right-0 z-50 transition-all duration-300',
       isScrolled ? 'glass-strong' : 'bg-transparent'
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-10">
+        <div className="flex justify-between items-center h-11">
           {/* Logo */}
           <Logo size="md" />
 

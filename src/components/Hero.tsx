@@ -19,7 +19,7 @@ export default function Hero() {
   const scrollToApps = () => {
     const element = document.getElementById('apps')
     if (element) {
-      const navHeight = 40
+      const navHeight = 52
       const targetPosition = element.offsetTop - navHeight
       window.scrollTo({
         top: targetPosition,
