@@ -133,6 +133,73 @@ html {
   }
 }
 
+/* Screen-wide movement animations */
+@keyframes move-around-1 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(200px, -100px);
+  }
+  50% {
+    transform: translate(100px, -200px);
+  }
+  75% {
+    transform: translate(-150px, -50px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes move-around-2 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(-200px, 100px);
+  }
+  50% {
+    transform: translate(-100px, 200px);
+  }
+  75% {
+    transform: translate(150px, 50px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes move-around-3 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  33% {
+    transform: translate(300px, 50px);
+  }
+  66% {
+    transform: translate(-200px, -150px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes move-around-4 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  33% {
+    transform: translate(-300px, -50px);
+  }
+  66% {
+    transform: translate(200px, 150px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
 @keyframes pulse-glow {
   0%, 100% {
     opacity: 0.4;
@@ -236,6 +303,22 @@ html {
 
 .animate-float-4 {
   animation: float-4 15s ease-in-out infinite;
+}
+
+.animate-move-around-1 {
+  animation: move-around-1 20s ease-in-out infinite;
+}
+
+.animate-move-around-2 {
+  animation: move-around-2 25s ease-in-out infinite;
+}
+
+.animate-move-around-3 {
+  animation: move-around-3 30s ease-in-out infinite;
+}
+
+.animate-move-around-4 {
+  animation: move-around-4 35s ease-in-out infinite;
 }
 
 .animate-pulse-glow {

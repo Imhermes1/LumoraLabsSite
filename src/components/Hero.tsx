@@ -128,63 +128,63 @@ export default function Hero() {
       </div>
 
       {/* Lumos Magical Floating Elements */}
-      {/* Bright magical orbs */}
-      <div className="absolute top-20 left-10 w-8 h-8 bg-gradient-to-br from-white/80 via-yellow-200/70 to-lumora-pink/60 rounded-full animate-float animate-pulse-glow"></div>
-      <div className="absolute top-40 right-20 w-10 h-10 bg-gradient-to-br from-white/80 via-yellow-200/70 to-lumora-purple/60 rounded-full animate-float-2 animate-pulse-glow delay-1000"></div>
-      <div className="absolute bottom-32 left-20 w-7 h-7 bg-gradient-to-br from-white/80 via-yellow-200/70 to-deep-purple/60 rounded-full animate-float-3 animate-pulse-glow delay-500"></div>
-      <div className="absolute bottom-20 right-10 w-9 h-9 bg-gradient-to-br from-white/80 via-yellow-200/70 to-lumora-pink/60 rounded-full animate-float animate-pulse-glow delay-1500"></div>
+      {/* Bright magical orbs - moving around screen */}
+      <div className="absolute top-20 left-10 w-8 h-8 bg-gradient-to-br from-white/80 via-yellow-200/70 to-lumora-pink/60 rounded-full animate-move-around-1 animate-pulse-glow"></div>
+      <div className="absolute top-40 right-20 w-10 h-10 bg-gradient-to-br from-white/80 via-yellow-200/70 to-lumora-purple/60 rounded-full animate-move-around-2 animate-pulse-glow delay-1000"></div>
+      <div className="absolute bottom-32 left-20 w-7 h-7 bg-gradient-to-br from-white/80 via-yellow-200/70 to-deep-purple/60 rounded-full animate-move-around-3 animate-pulse-glow delay-500"></div>
+      <div className="absolute bottom-20 right-10 w-9 h-9 bg-gradient-to-br from-white/80 via-yellow-200/70 to-lumora-pink/60 rounded-full animate-move-around-4 animate-pulse-glow delay-1500"></div>
       
-      {/* Magical sparkles */}
-      <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/90 rounded-full animate-magical-sparkle delay-2000"></div>
-      <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-yellow-200/80 rounded-full animate-magical-sparkle delay-3000"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-5 h-5 bg-white/90 rounded-full animate-magical-sparkle delay-2500"></div>
-      <div className="absolute top-2/3 left-1/3 w-3 h-3 bg-yellow-200/80 rounded-full animate-magical-sparkle delay-3500"></div>
+      {/* Magical sparkles - moving around screen */}
+      <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/90 rounded-full animate-move-around-1 animate-magical-sparkle delay-2000"></div>
+      <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-yellow-200/80 rounded-full animate-move-around-2 animate-magical-sparkle delay-3000"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-5 h-5 bg-white/90 rounded-full animate-move-around-3 animate-magical-sparkle delay-2500"></div>
+      <div className="absolute top-2/3 left-1/3 w-3 h-3 bg-yellow-200/80 rounded-full animate-move-around-4 animate-magical-sparkle delay-3500"></div>
       
-      {/* Bright twinkling stars */}
-      <div className="absolute top-16 left-1/2 w-2 h-2 bg-white/95 rounded-full animate-space-twinkle delay-1000"></div>
-      <div className="absolute top-1/2 right-16 w-2 h-2 bg-white/95 rounded-full animate-space-twinkle delay-2000"></div>
-      <div className="absolute bottom-16 left-1/2 w-2 h-2 bg-white/95 rounded-full animate-space-twinkle delay-3000"></div>
-      <div className="absolute top-1/2 left-16 w-2 h-2 bg-white/95 rounded-full animate-space-twinkle delay-1500"></div>
+      {/* Bright twinkling stars - moving around screen */}
+      <div className="absolute top-16 left-1/2 w-2 h-2 bg-white/95 rounded-full animate-move-around-1 animate-space-twinkle delay-1000"></div>
+      <div className="absolute top-1/2 right-16 w-2 h-2 bg-white/95 rounded-full animate-move-around-2 animate-space-twinkle delay-2000"></div>
+      <div className="absolute bottom-16 left-1/2 w-2 h-2 bg-white/95 rounded-full animate-move-around-3 animate-space-twinkle delay-3000"></div>
+      <div className="absolute top-1/2 left-16 w-2 h-2 bg-white/95 rounded-full animate-move-around-4 animate-space-twinkle delay-1500"></div>
       
-      {/* More bright twinkling stars */}
-      <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-yellow-200/90 rounded-full animate-space-twinkle delay-4000"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-yellow-200/90 rounded-full animate-space-twinkle delay-5000"></div>
-      <div className="absolute top-2/3 right-1/3 w-1 h-1 bg-white/90 rounded-full animate-space-twinkle delay-6000"></div>
-      <div className="absolute bottom-2/3 left-1/3 w-1 h-1 bg-white/90 rounded-full animate-space-twinkle delay-7000"></div>
+      {/* More bright twinkling stars - moving around screen */}
+      <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-yellow-200/90 rounded-full animate-move-around-1 animate-space-twinkle delay-4000"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-yellow-200/90 rounded-full animate-move-around-2 animate-space-twinkle delay-5000"></div>
+      <div className="absolute top-2/3 right-1/3 w-1 h-1 bg-white/90 rounded-full animate-move-around-3 animate-space-twinkle delay-6000"></div>
+      <div className="absolute bottom-2/3 left-1/3 w-1 h-1 bg-white/90 rounded-full animate-move-around-4 animate-space-twinkle delay-7000"></div>
       
-      {/* Large bright magical orbs */}
-      <div className="absolute top-1/4 right-1/4 w-12 h-12 bg-gradient-to-br from-white/60 via-yellow-200/50 to-lumora-pink/40 rounded-full animate-float animate-pulse-glow delay-4000"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-10 h-10 bg-gradient-to-br from-white/60 via-yellow-200/50 to-lumora-purple/40 rounded-full animate-float-2 animate-pulse-glow delay-5000"></div>
-      <div className="absolute top-3/4 left-1/2 w-6 h-6 bg-gradient-to-br from-white/60 via-yellow-200/50 to-lumora-pink/40 rounded-full animate-float-3 animate-pulse-glow delay-6000"></div>
+      {/* Large bright magical orbs - moving around screen */}
+      <div className="absolute top-1/4 right-1/4 w-12 h-12 bg-gradient-to-br from-white/60 via-yellow-200/50 to-lumora-pink/40 rounded-full animate-move-around-1 animate-pulse-glow delay-4000"></div>
+      <div className="absolute bottom-1/4 left-1/4 w-10 h-10 bg-gradient-to-br from-white/60 via-yellow-200/50 to-lumora-purple/40 rounded-full animate-move-around-2 animate-pulse-glow delay-5000"></div>
+      <div className="absolute top-3/4 left-1/2 w-6 h-6 bg-gradient-to-br from-white/60 via-yellow-200/50 to-lumora-pink/40 rounded-full animate-move-around-3 animate-pulse-glow delay-6000"></div>
       
-      {/* Complex magical particles */}
-      <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-gradient-to-br from-white/70 via-yellow-200/60 to-lumora-pink/50 rounded-full animate-float-4 delay-8000"></div>
-      <div className="absolute bottom-1/2 left-1/4 w-5 h-5 bg-gradient-to-br from-white/70 via-yellow-200/60 to-lumora-purple/50 rounded-full animate-float-4 delay-9000"></div>
-      <div className="absolute top-1/4 bottom-1/4 w-3 h-3 bg-gradient-to-br from-white/70 via-yellow-200/60 to-lumora-pink/50 rounded-full animate-float-4 delay-10000"></div>
+      {/* Complex magical particles - moving around screen */}
+      <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-gradient-to-br from-white/70 via-yellow-200/60 to-lumora-pink/50 rounded-full animate-move-around-4 delay-8000"></div>
+      <div className="absolute bottom-1/2 left-1/4 w-5 h-5 bg-gradient-to-br from-white/70 via-yellow-200/60 to-lumora-purple/50 rounded-full animate-move-around-1 delay-9000"></div>
+      <div className="absolute top-1/4 bottom-1/4 w-3 h-3 bg-gradient-to-br from-white/70 via-yellow-200/60 to-lumora-pink/50 rounded-full animate-move-around-2 delay-10000"></div>
       
-      {/* Additional magical sparkles */}
-      <div className="absolute top-1/6 left-1/6 w-2 h-2 bg-yellow-200/85 rounded-full animate-magical-sparkle delay-11000"></div>
-      <div className="absolute bottom-1/6 right-1/6 w-2 h-2 bg-white/85 rounded-full animate-magical-sparkle delay-12000"></div>
-      <div className="absolute top-5/6 left-1/6 w-2 h-2 bg-yellow-200/85 rounded-full animate-magical-sparkle delay-13000"></div>
-      <div className="absolute bottom-5/6 right-1/6 w-2 h-2 bg-white/85 rounded-full animate-magical-sparkle delay-14000"></div>
+      {/* Additional magical sparkles - moving around screen */}
+      <div className="absolute top-1/6 left-1/6 w-2 h-2 bg-yellow-200/85 rounded-full animate-move-around-1 animate-magical-sparkle delay-11000"></div>
+      <div className="absolute bottom-1/6 right-1/6 w-2 h-2 bg-white/85 rounded-full animate-move-around-2 animate-magical-sparkle delay-12000"></div>
+      <div className="absolute top-5/6 left-1/6 w-2 h-2 bg-yellow-200/85 rounded-full animate-move-around-3 animate-magical-sparkle delay-13000"></div>
+      <div className="absolute bottom-5/6 right-1/6 w-2 h-2 bg-white/85 rounded-full animate-move-around-4 animate-magical-sparkle delay-14000"></div>
       
-      {/* More dynamic moving elements */}
-      <div className="absolute top-1/8 left-3/4 w-3 h-3 bg-white/80 rounded-full animate-float-2 delay-15000"></div>
-      <div className="absolute bottom-1/8 right-3/4 w-4 h-4 bg-yellow-200/75 rounded-full animate-float-3 delay-16000"></div>
-      <div className="absolute top-7/8 right-1/8 w-3 h-3 bg-white/80 rounded-full animate-float-4 delay-17000"></div>
-      <div className="absolute bottom-7/8 left-1/8 w-4 h-4 bg-yellow-200/75 rounded-full animate-float delay-18000"></div>
+      {/* More dynamic moving elements - moving around screen */}
+      <div className="absolute top-1/8 left-3/4 w-3 h-3 bg-white/80 rounded-full animate-move-around-1 delay-15000"></div>
+      <div className="absolute bottom-1/8 right-3/4 w-4 h-4 bg-yellow-200/75 rounded-full animate-move-around-2 delay-16000"></div>
+      <div className="absolute top-7/8 right-1/8 w-3 h-3 bg-white/80 rounded-full animate-move-around-3 delay-17000"></div>
+      <div className="absolute bottom-7/8 left-1/8 w-4 h-4 bg-yellow-200/75 rounded-full animate-move-around-4 delay-18000"></div>
       
-      {/* Floating light trails */}
-      <div className="absolute top-1/5 right-1/5 w-6 h-6 bg-gradient-to-br from-white/60 via-yellow-200/50 to-transparent rounded-full animate-float-2 delay-19000"></div>
-      <div className="absolute bottom-1/5 left-1/5 w-5 h-5 bg-gradient-to-br from-yellow-200/60 via-white/50 to-transparent rounded-full animate-float-3 delay-20000"></div>
-      <div className="absolute top-4/5 left-4/5 w-4 h-4 bg-gradient-to-br from-white/60 via-yellow-200/50 to-transparent rounded-full animate-float-4 delay-21000"></div>
-      <div className="absolute bottom-4/5 right-4/5 w-5 h-5 bg-gradient-to-br from-yellow-200/60 via-white/50 to-transparent rounded-full animate-float delay-22000"></div>
+      {/* Floating light trails - moving around screen */}
+      <div className="absolute top-1/5 right-1/5 w-6 h-6 bg-gradient-to-br from-white/60 via-yellow-200/50 to-transparent rounded-full animate-move-around-1 delay-19000"></div>
+      <div className="absolute bottom-1/5 left-1/5 w-5 h-5 bg-gradient-to-br from-yellow-200/60 via-white/50 to-transparent rounded-full animate-move-around-2 delay-20000"></div>
+      <div className="absolute top-4/5 left-4/5 w-4 h-4 bg-gradient-to-br from-white/60 via-yellow-200/50 to-transparent rounded-full animate-move-around-3 delay-21000"></div>
+      <div className="absolute bottom-4/5 right-4/5 w-5 h-5 bg-gradient-to-br from-yellow-200/60 via-white/50 to-transparent rounded-full animate-move-around-4 delay-22000"></div>
       
-      {/* Extra twinkling elements */}
-      <div className="absolute top-1/4 right-1/6 w-1 h-1 bg-white/90 rounded-full animate-space-twinkle delay-23000"></div>
-      <div className="absolute bottom-1/4 left-1/6 w-1 h-1 bg-yellow-200/90 rounded-full animate-space-twinkle delay-24000"></div>
-      <div className="absolute top-3/4 left-1/6 w-1 h-1 bg-white/90 rounded-full animate-space-twinkle delay-25000"></div>
-      <div className="absolute bottom-3/4 right-1/6 w-1 h-1 bg-yellow-200/90 rounded-full animate-space-twinkle delay-26000"></div>
+      {/* Extra twinkling elements - moving around screen */}
+      <div className="absolute top-1/4 right-1/6 w-1 h-1 bg-white/90 rounded-full animate-move-around-1 animate-space-twinkle delay-23000"></div>
+      <div className="absolute bottom-1/4 left-1/6 w-1 h-1 bg-yellow-200/90 rounded-full animate-move-around-2 animate-space-twinkle delay-24000"></div>
+      <div className="absolute top-3/4 left-1/6 w-1 h-1 bg-white/90 rounded-full animate-move-around-3 animate-space-twinkle delay-25000"></div>
+      <div className="absolute bottom-3/4 right-1/6 w-1 h-1 bg-yellow-200/90 rounded-full animate-move-around-4 animate-space-twinkle delay-26000"></div>
 
       {/* Beta Signup Modal */}
       <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
