@@ -60,7 +60,7 @@ export default function Hero() {
           {/* Logo */}
           <div className="mb-8 flex justify-center">
             <img 
-              src="/images/lumora-labs-logo.png" 
+              src="/images/Lumora Labs Logo.png" 
               alt="Lumora Labs Logo" 
               className="h-16 md:h-20 lg:h-24 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
             />
