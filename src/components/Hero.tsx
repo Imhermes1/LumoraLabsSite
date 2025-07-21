@@ -42,7 +42,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Lumos Spell Magical Background */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0">
         {/* Bright light source at center - now moving */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/20 rounded-full blur-3xl animate-center-float-1"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-yellow-300/30 rounded-full blur-2xl animate-center-float-2 delay-2000"></div>
@@ -54,10 +54,10 @@ export default function Hero() {
         <div className="absolute bottom-1/3 left-1/3 w-14 h-14 bg-yellow-200/30 rounded-full blur-lg animate-float delay-5000"></div>
         
         {/* Corner elements with specific movement patterns */}
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-white/30 via-lumora-purple/40 to-transparent rounded-full blur-3xl animate-figure-8"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-white/30 via-lumora-pink/45 to-transparent rounded-full blur-3xl animate-s-shape delay-1000"></div>
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-yellow-200/25 via-lumora-pink/35 to-transparent rounded-full blur-2xl animate-random-path-1 delay-2000"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-tl from-yellow-200/25 via-lumora-pink/30 to-transparent rounded-full blur-2xl animate-random-path-2 delay-3000"></div>
+        <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-white/30 via-lumora-purple/40 to-transparent rounded-full blur-3xl animate-figure-8"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-white/30 via-lumora-pink/45 to-transparent rounded-full blur-3xl animate-s-shape delay-1000"></div>
+        <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-yellow-200/25 via-lumora-pink/35 to-transparent rounded-full blur-2xl animate-random-path-1 delay-2000"></div>
+        <div className="absolute bottom-0 right-0 w-48 h-48 bg-gradient-to-tl from-yellow-200/25 via-lumora-pink/30 to-transparent rounded-full blur-2xl animate-random-path-2 delay-3000"></div>
         
         {/* Bright magical orbs */}
         <div className="absolute top-1/3 right-1/4 w-56 h-56 bg-gradient-to-br from-white/40 via-yellow-200/30 to-lumora-pink/20 rounded-full blur-2xl animate-nebula-drift"></div>
