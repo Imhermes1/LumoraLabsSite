@@ -200,6 +200,121 @@ html {
   }
 }
 
+/* Figure 8 movement pattern */
+@keyframes figure-8 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(100px, -50px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  75% {
+    transform: translate(-100px, -50px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+/* S-shape movement pattern */
+@keyframes s-shape {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(80px, -40px);
+  }
+  50% {
+    transform: translate(-60px, 30px);
+  }
+  75% {
+    transform: translate(40px, -20px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+/* Random path movement */
+@keyframes random-path-1 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  20% {
+    transform: translate(120px, -30px);
+  }
+  40% {
+    transform: translate(60px, 80px);
+  }
+  60% {
+    transform: translate(-90px, 40px);
+  }
+  80% {
+    transform: translate(-40px, -60px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes random-path-2 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  30% {
+    transform: translate(-100px, 60px);
+  }
+  50% {
+    transform: translate(70px, -80px);
+  }
+  70% {
+    transform: translate(-50px, -40px);
+  }
+  85% {
+    transform: translate(80px, 30px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+/* Central glow movement patterns */
+@keyframes center-float-1 {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(50px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 40px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes center-float-2 {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  25% {
+    transform: translate(-40px, -20px) scale(1.2);
+  }
+  50% {
+    transform: translate(60px, 30px) scale(0.8);
+  }
+  75% {
+    transform: translate(-20px, -50px) scale(1.1);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
 @keyframes pulse-glow {
   0%, 100% {
     opacity: 0.4;
@@ -319,6 +434,30 @@ html {
 
 .animate-move-around-4 {
   animation: move-around-4 35s ease-in-out infinite;
+}
+
+.animate-figure-8 {
+  animation: figure-8 15s ease-in-out infinite;
+}
+
+.animate-s-shape {
+  animation: s-shape 18s ease-in-out infinite;
+}
+
+.animate-random-path-1 {
+  animation: random-path-1 22s ease-in-out infinite;
+}
+
+.animate-random-path-2 {
+  animation: random-path-2 25s ease-in-out infinite;
+}
+
+.animate-center-float-1 {
+  animation: center-float-1 12s ease-in-out infinite;
+}
+
+.animate-center-float-2 {
+  animation: center-float-2 16s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
