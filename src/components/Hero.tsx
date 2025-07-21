@@ -50,7 +50,7 @@ export default function Hero() {
             <img 
               src="/images/Lumora-Labs-Logo-transparent.png" 
               alt="Lumora Labs Logo" 
-              className="h-35 md:h-40 lg:h-46 xl:h-52 w-auto opacity-95 hover:opacity-100 transition-all duration-300"
+              className="h-35 md:h-40 lg:h-46 xl:h-52 w-auto opacity-95 hover:opacity-100 transition-all duration-300 animate-logo-glow"
             />
           </div>
           
