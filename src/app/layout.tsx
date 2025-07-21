@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Lumora Labs - Crafting the Future of Extraordinary Apps',
-  description: "Lumora Labs creates the world's most elegantly crafted and intuitively powerful apps exclusively for Apple, with Android coming soon. Join our beta programme.",  keywords: 'Lumora Labs, MooDo, Core Track, iOS apps, Apple ecosystem, AI nutrition, mood management, productivity, mental health, Australian nutrition app',
+  description: "Lumora Labs creates the world's most elegantly crafted and intuitively powerful apps exclusively for Apple, with Android coming soon. Join our beta program.",  keywords: 'Lumora Labs, MooDo, Core Track, iOS apps, Apple ecosystem, AI nutrition, mood management, productivity, mental health, Australian nutrition app',
   authors: [{ name: 'Luke Fornieri' }],
   creator: 'Luke Fornieri',
   publisher: 'Lumora Labs',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Lumora Labs - Crafting the Future of Extraordinary Apps',
-    description: 'Elegantly crafted AI-powered apps for Apple ecosystem. Join our exclusive beta programme.',
+    description: 'Elegantly crafted AI-powered apps for Apple ecosystem. Join our exclusive beta program.',
     images: ['/images/twitter-image.png'],
   },
   viewport: 'width=device-width, initial-scale=1',

@@ -86,7 +86,7 @@ export default function MooDo() {
 
             {/* Beta CTA */}
             <div className="glass rounded-2xl p-6 text-center">
-              <p className="text-white/70 mb-2">MooDo Beta Programme</p>
+              <p className="text-white/70 mb-2">MooDo Beta Program</p>
               <div className="text-2xl font-bold text-lumora-pink mb-2">
                 {betaCount}/50 <span className="text-lg text-white/60">spots filled</span>
               </div>

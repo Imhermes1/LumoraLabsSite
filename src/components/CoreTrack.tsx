@@ -110,7 +110,7 @@ export default function CoreTrack() {
 
             {/* Beta CTA */}
             <div className="glass rounded-2xl p-6 text-center">
-              <p className="text-white/70 mb-2">Core Track Beta Programme</p>
+              <p className="text-white/70 mb-2">Core Track Beta Program</p>
               <div className="text-2xl font-bold text-positive mb-2">
                 {betaCount}/50 <span className="text-lg text-white/60">spots filled</span>
               </div>

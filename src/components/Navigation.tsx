@@ -49,7 +49,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-3">
             <div className="relative w-10 h-10">
               <Image
-                src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/6bb54c3c-75a0-40d9-b472-6e30dc2cb268.png"
+                src="/images/lumora-labs-logo.png"
                 alt="Lumora Labs"
                 fill
                 className="object-contain"

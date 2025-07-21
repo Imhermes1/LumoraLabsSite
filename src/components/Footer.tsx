@@ -73,7 +73,7 @@ export default function Footer() {
                 onClick={openBetaSignup}
                 className="block text-white/70 hover:text-lumora-pink transition-colors text-sm"
               >
-                Beta Programme
+                Beta Program
               </button>
               <button 
                 onClick={() => document.getElementById('technology')?.scrollIntoView({ behavior: 'smooth' })}
@@ -108,14 +108,14 @@ export default function Footer() {
         <div className="glass-strong rounded-2xl p-8 mb-12 text-center">
           <h3 className="text-2xl font-bold text-white mb-4">Ready to Experience the Future?</h3>
           <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-            Join our exclusive beta programme and be among the first to experience elegant, 
+            Join our exclusive beta program and be among the first to experience elegant, 
             AI-powered apps that enhance your productivity and wellness.
           </p>
           <button
             onClick={openBetaSignup}
             className="bg-gradient-to-r from-lumora-pink to-lumora-purple rounded-full px-8 py-3 text-white font-semibold hover:shadow-lg hover:shadow-lumora-purple/25 transition-all duration-300"
           >
-            Join Beta Programme
+            Join Beta Program
           </button>
         </div>
 

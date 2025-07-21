@@ -158,7 +158,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
                     Complete Your Application
                   </h3>
                   <p className="text-white/70 text-sm">
-                    Join 38 other innovators already in our exclusive beta programme
+                    Join 38 other innovators already in our exclusive beta program
                   </p>
                 </div>
                 

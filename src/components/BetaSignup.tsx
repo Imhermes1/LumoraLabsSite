@@ -43,7 +43,7 @@ export default function BetaSignup() {
           {/* Progress Bar */}
           <div className="mb-8">
             <div className="flex justify-between items-center mb-3">
-              <h3 className="text-xl font-semibold text-white">Beta Programme Status</h3>
+              <h3 className="text-xl font-semibold text-white">Beta Program Status</h3>
               <span className="text-lumora-pink font-bold text-lg">
                 {totalBetaSignups}/{totalSlots} spots filled
               </span>
@@ -117,7 +117,7 @@ export default function BetaSignup() {
               onClick={openBetaSignup}
               className="group bg-gradient-to-r from-lumora-pink via-lumora-purple to-deep-purple rounded-full px-8 py-4 text-white font-bold text-lg hover:shadow-xl hover:shadow-lumora-purple/30 transition-all duration-300 inline-flex items-center"
             >
-              Join Beta Programme Now
+              Join Beta Program Now
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
             </button>
 
