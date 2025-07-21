@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import BetaSignupModal from './BetaSignupModal'
+import Logo from './Logo'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -46,20 +47,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="relative w-10 h-10">
-              <Image
-                src="/images/Lumora-Labs-Logo-transparent.png"
-                alt="Lumora Labs"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-            <span className="text-xl font-bold text-white">
-              Lumora Labs
-            </span>
-          </div>
+          <Logo size="md" />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Mail, MapPin, Github, Twitter, Linkedin } from 'lucide-react'
 import BetaSignupModal from './BetaSignupModal'
+import Logo from './Logo'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -23,17 +24,7 @@ export default function Footer() {
 
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="relative w-10 h-10">
-                <Image
-                  src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/6bb54c3c-75a0-40d9-b472-6e30dc2cb268.png"
-                  alt="Lumora Labs"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <span className="text-2xl font-bold text-white">Lumora Labs</span>
-            </div>
+            <Logo size="lg" className="mb-4" />
 
             <p className="text-white/70 text-lg mb-6 max-w-md leading-relaxed">
               Where light meets innovation. Creating the world's most elegantly crafted and intuitively powerful apps 
