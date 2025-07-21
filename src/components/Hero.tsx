@@ -56,13 +56,13 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="glass-strong rounded-3xl p-5 md:p-8 lg:p-12">
+        <div className="glass-strong rounded-3xl p-8 md:p-12 lg:p-16">
           {/* Logo */}
-          <div className="mb-12 flex justify-center">
+          <div className="mb-8 flex justify-center">
             <img 
               src="/images/Lumora-Labs-Logo-transparent.png" 
               alt="Lumora Labs Logo" 
-              className="h-32 md:h-40 lg:h-48 xl:h-56 w-auto opacity-95 hover:opacity-100 transition-all duration-300 animate-logo-glow"
+              className="h-24 md:h-28 lg:h-32 xl:h-36 w-auto opacity-95 hover:opacity-100 transition-all duration-300 animate-logo-glow"
             />
           </div>
           
