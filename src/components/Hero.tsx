@@ -41,22 +41,29 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Enhanced Space-like Animated Background */}
+      {/* Lumos Spell Magical Background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Large nebula clouds */}
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-lumora-purple/40 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-lumora-pink/45 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-deep-purple/30 rounded-full blur-3xl animate-pulse delay-500"></div>
+        {/* Bright light source at center */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/20 rounded-full blur-3xl animate-light-burst"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-yellow-300/30 rounded-full blur-2xl animate-light-burst delay-2000"></div>
         
-        {/* Additional nebula elements with more pink */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-lumora-pink/35 rounded-full blur-2xl animate-pulse delay-2000"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-lumora-pink/30 rounded-full blur-2xl animate-pulse delay-3000"></div>
-        <div className="absolute top-3/4 right-1/3 w-32 h-32 bg-deep-purple/35 rounded-full blur-xl animate-pulse delay-1500"></div>
-        <div className="absolute bottom-1/3 left-1/3 w-40 h-40 bg-lumora-purple/35 rounded-full blur-xl animate-pulse delay-2500"></div>
+        {/* Lumos light rays radiating outward */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-32 bg-gradient-to-b from-white via-yellow-200 to-transparent animate-lumos-rays"></div>
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2 h-32 bg-gradient-to-t from-white via-yellow-200 to-transparent animate-lumos-rays delay-500"></div>
+          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-32 h-2 bg-gradient-to-r from-white via-yellow-200 to-transparent animate-lumos-rays delay-1000"></div>
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-32 h-2 bg-gradient-to-l from-white via-yellow-200 to-transparent animate-lumos-rays delay-1500"></div>
+        </div>
         
-        {/* Drifting nebula clouds */}
-        <div className="absolute top-1/3 right-1/4 w-56 h-56 bg-lumora-pink/15 rounded-full blur-2xl animate-nebula-drift"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-72 h-72 bg-lumora-purple/10 rounded-full blur-3xl animate-nebula-drift delay-10000"></div>
+        {/* Magical nebula clouds with bright centers */}
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-white/30 via-lumora-purple/40 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-white/30 via-lumora-pink/45 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-yellow-200/25 via-lumora-pink/35 to-transparent rounded-full blur-2xl animate-pulse delay-2000"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-tl from-yellow-200/25 via-lumora-pink/30 to-transparent rounded-full blur-2xl animate-pulse delay-3000"></div>
+        
+        {/* Bright magical orbs */}
+        <div className="absolute top-1/3 right-1/4 w-56 h-56 bg-gradient-to-br from-white/40 via-yellow-200/30 to-lumora-pink/20 rounded-full blur-2xl animate-nebula-drift"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-72 h-72 bg-gradient-to-tl from-white/30 via-yellow-200/25 to-lumora-purple/15 rounded-full blur-3xl animate-nebula-drift delay-10000"></div>
       </div>
 
       {/* Content */}
@@ -122,40 +129,46 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Enhanced Space-like Floating Elements */}
-      {/* Primary glowing particles with more pink */}
-      <div className="absolute top-20 left-10 w-6 h-6 bg-lumora-pink/70 rounded-full animate-float animate-pulse-glow"></div>
-      <div className="absolute top-40 right-20 w-8 h-8 bg-lumora-purple/70 rounded-full animate-float-2 animate-pulse-glow delay-1000"></div>
-      <div className="absolute bottom-32 left-20 w-5 h-5 bg-deep-purple/70 rounded-full animate-float-3 animate-pulse-glow delay-500"></div>
-      <div className="absolute bottom-20 right-10 w-7 h-7 bg-lumora-pink/70 rounded-full animate-float animate-pulse-glow delay-1500"></div>
+      {/* Lumos Magical Floating Elements */}
+      {/* Bright magical orbs */}
+      <div className="absolute top-20 left-10 w-8 h-8 bg-gradient-to-br from-white/80 via-yellow-200/70 to-lumora-pink/60 rounded-full animate-float animate-pulse-glow"></div>
+      <div className="absolute top-40 right-20 w-10 h-10 bg-gradient-to-br from-white/80 via-yellow-200/70 to-lumora-purple/60 rounded-full animate-float-2 animate-pulse-glow delay-1000"></div>
+      <div className="absolute bottom-32 left-20 w-7 h-7 bg-gradient-to-br from-white/80 via-yellow-200/70 to-deep-purple/60 rounded-full animate-float-3 animate-pulse-glow delay-500"></div>
+      <div className="absolute bottom-20 right-10 w-9 h-9 bg-gradient-to-br from-white/80 via-yellow-200/70 to-lumora-pink/60 rounded-full animate-float animate-pulse-glow delay-1500"></div>
       
-      {/* Additional space particles with more pink */}
-      <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-lumora-pink/60 rounded-full animate-float-2 delay-2000"></div>
-      <div className="absolute top-1/3 right-1/3 w-5 h-5 bg-lumora-purple/60 rounded-full animate-float-3 delay-3000"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-6 h-6 bg-lumora-pink/60 rounded-full animate-float delay-2500"></div>
-      <div className="absolute top-2/3 left-1/3 w-4 h-4 bg-lumora-pink/60 rounded-full animate-float-2 delay-3500"></div>
+      {/* Magical sparkles */}
+      <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/90 rounded-full animate-magical-sparkle delay-2000"></div>
+      <div className="absolute top-1/3 right-1/3 w-4 h-4 bg-yellow-200/80 rounded-full animate-magical-sparkle delay-3000"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-5 h-5 bg-white/90 rounded-full animate-magical-sparkle delay-2500"></div>
+      <div className="absolute top-2/3 left-1/3 w-3 h-3 bg-yellow-200/80 rounded-full animate-magical-sparkle delay-3500"></div>
       
-      {/* Twinkling stars */}
-      <div className="absolute top-16 left-1/2 w-1 h-1 bg-white/80 rounded-full animate-space-twinkle delay-1000"></div>
-      <div className="absolute top-1/2 right-16 w-1 h-1 bg-white/80 rounded-full animate-space-twinkle delay-2000"></div>
-      <div className="absolute bottom-16 left-1/2 w-1 h-1 bg-white/80 rounded-full animate-space-twinkle delay-3000"></div>
-      <div className="absolute top-1/2 left-16 w-1 h-1 bg-white/80 rounded-full animate-space-twinkle delay-1500"></div>
+      {/* Bright twinkling stars */}
+      <div className="absolute top-16 left-1/2 w-2 h-2 bg-white/95 rounded-full animate-space-twinkle delay-1000"></div>
+      <div className="absolute top-1/2 right-16 w-2 h-2 bg-white/95 rounded-full animate-space-twinkle delay-2000"></div>
+      <div className="absolute bottom-16 left-1/2 w-2 h-2 bg-white/95 rounded-full animate-space-twinkle delay-3000"></div>
+      <div className="absolute top-1/2 left-16 w-2 h-2 bg-white/95 rounded-full animate-space-twinkle delay-1500"></div>
       
-      {/* More twinkling stars */}
-      <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-white/70 rounded-full animate-space-twinkle delay-4000"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-white/70 rounded-full animate-space-twinkle delay-5000"></div>
-      <div className="absolute top-2/3 right-1/3 w-1 h-1 bg-white/70 rounded-full animate-space-twinkle delay-6000"></div>
-      <div className="absolute bottom-2/3 left-1/3 w-1 h-1 bg-white/70 rounded-full animate-space-twinkle delay-7000"></div>
+      {/* More bright twinkling stars */}
+      <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-yellow-200/90 rounded-full animate-space-twinkle delay-4000"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-yellow-200/90 rounded-full animate-space-twinkle delay-5000"></div>
+      <div className="absolute top-2/3 right-1/3 w-1 h-1 bg-white/90 rounded-full animate-space-twinkle delay-6000"></div>
+      <div className="absolute bottom-2/3 left-1/3 w-1 h-1 bg-white/90 rounded-full animate-space-twinkle delay-7000"></div>
       
-      {/* Large glowing nebula orbs */}
-      <div className="absolute top-1/4 right-1/4 w-8 h-8 bg-lumora-pink/25 rounded-full animate-float animate-pulse-glow delay-4000"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-6 h-6 bg-lumora-purple/25 rounded-full animate-float-2 animate-pulse-glow delay-5000"></div>
-      <div className="absolute top-3/4 left-1/2 w-4 h-4 bg-lumora-pink/25 rounded-full animate-float-3 animate-pulse-glow delay-6000"></div>
+      {/* Large bright magical orbs */}
+      <div className="absolute top-1/4 right-1/4 w-12 h-12 bg-gradient-to-br from-white/60 via-yellow-200/50 to-lumora-pink/40 rounded-full animate-float animate-pulse-glow delay-4000"></div>
+      <div className="absolute bottom-1/4 left-1/4 w-10 h-10 bg-gradient-to-br from-white/60 via-yellow-200/50 to-lumora-purple/40 rounded-full animate-float-2 animate-pulse-glow delay-5000"></div>
+      <div className="absolute top-3/4 left-1/2 w-6 h-6 bg-gradient-to-br from-white/60 via-yellow-200/50 to-lumora-pink/40 rounded-full animate-float-3 animate-pulse-glow delay-6000"></div>
       
-      {/* Complex floating particles */}
-      <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-lumora-pink/35 rounded-full animate-float-4 delay-8000"></div>
-      <div className="absolute bottom-1/2 left-1/4 w-4 h-4 bg-lumora-purple/35 rounded-full animate-float-4 delay-9000"></div>
-      <div className="absolute top-1/4 bottom-1/4 w-2 h-2 bg-lumora-pink/35 rounded-full animate-float-4 delay-10000"></div>
+      {/* Complex magical particles */}
+      <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-gradient-to-br from-white/70 via-yellow-200/60 to-lumora-pink/50 rounded-full animate-float-4 delay-8000"></div>
+      <div className="absolute bottom-1/2 left-1/4 w-5 h-5 bg-gradient-to-br from-white/70 via-yellow-200/60 to-lumora-purple/50 rounded-full animate-float-4 delay-9000"></div>
+      <div className="absolute top-1/4 bottom-1/4 w-3 h-3 bg-gradient-to-br from-white/70 via-yellow-200/60 to-lumora-pink/50 rounded-full animate-float-4 delay-10000"></div>
+      
+      {/* Additional magical sparkles */}
+      <div className="absolute top-1/6 left-1/6 w-2 h-2 bg-yellow-200/85 rounded-full animate-magical-sparkle delay-11000"></div>
+      <div className="absolute bottom-1/6 right-1/6 w-2 h-2 bg-white/85 rounded-full animate-magical-sparkle delay-12000"></div>
+      <div className="absolute top-5/6 left-1/6 w-2 h-2 bg-yellow-200/85 rounded-full animate-magical-sparkle delay-13000"></div>
+      <div className="absolute bottom-5/6 right-1/6 w-2 h-2 bg-white/85 rounded-full animate-magical-sparkle delay-14000"></div>
 
       {/* Beta Signup Modal */}
       <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

@@ -170,6 +170,58 @@ html {
   }
 }
 
+/* Lumos spell light rays */
+@keyframes lumos-rays {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.8) rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8) rotate(360deg);
+  }
+}
+
+/* Magical sparkles */
+@keyframes magical-sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1) rotate(90deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2) rotate(180deg);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1) rotate(270deg);
+  }
+}
+
+/* Bright light burst */
+@keyframes light-burst {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
 .animate-float {
   animation: float 8s ease-in-out infinite;
 }
@@ -196,6 +248,18 @@ html {
 
 .animate-nebula-drift {
   animation: nebula-drift 20s ease-in-out infinite;
+}
+
+.animate-lumos-rays {
+  animation: lumos-rays 4s ease-in-out infinite;
+}
+
+.animate-magical-sparkle {
+  animation: magical-sparkle 2s ease-in-out infinite;
+}
+
+.animate-light-burst {
+  animation: light-burst 6s ease-in-out infinite;
 }
 
 /* Enhanced logo glow animation with inner white/yellow glow */
