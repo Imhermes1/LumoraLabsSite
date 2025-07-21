@@ -58,16 +58,12 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="glass-strong rounded-3xl p-5 md:p-8 lg:p-12">
           {/* Logo */}
-          <div className="mb-12 flex justify-center relative">
-            <div className="relative">
-              <img 
-                src="/images/Lumora-Labs-Logo-transparent.png" 
-                alt="Lumora Labs Logo" 
-                className="h-32 md:h-40 lg:h-48 xl:h-56 w-auto opacity-95 hover:opacity-100 transition-all duration-300 animate-logo-glow relative z-10"
-              />
-              {/* Sunlight sweep overlay */}
-              <div className="absolute inset-0 animate-sunlight-sweep pointer-events-none z-20"></div>
-            </div>
+          <div className="mb-12 flex justify-center">
+            <img 
+              src="/images/Lumora-Labs-Logo-transparent.png" 
+              alt="Lumora Labs Logo" 
+              className="h-32 md:h-40 lg:h-48 xl:h-56 w-auto opacity-95 hover:opacity-100 transition-all duration-300 animate-logo-glow"
+            />
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
