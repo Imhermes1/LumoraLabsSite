@@ -119,6 +119,9 @@ export default function Footer() {
             <Link href="/terms-of-service" className="text-white/60 hover:text-white text-sm transition-colors">
               Terms of Service
             </Link>
+            <Link href="/terms-of-use" className="text-white/60 hover:text-white text-sm transition-colors">
+              Terms of Use
+            </Link>
             <Link href="/beta-terms" className="text-white/60 hover:text-white text-sm transition-colors">
               Beta Terms
             </Link>

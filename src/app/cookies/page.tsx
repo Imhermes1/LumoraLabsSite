@@ -205,7 +205,7 @@ export default function CookiePolicy() {
                   <div className="glass rounded-xl p-4">
                     <h4 className="text-white font-semibold mb-2">Google Chrome</h4>
                     <ol className="text-white/70 text-sm space-y-1">
-                      <li>1. Click Settings > Privacy and Security > Cookies and other site data</li>
+                      <li>1. Click Settings &gt; Privacy and Security &gt; Cookies and other site data</li>
                       <li>2. Choose your preferred cookie settings</li>
                       <li>3. Manage exceptions for specific sites</li>
                     </ol>
@@ -213,7 +213,7 @@ export default function CookiePolicy() {
                   <div className="glass rounded-xl p-4">
                     <h4 className="text-white font-semibold mb-2">Safari</h4>
                     <ol className="text-white/70 text-sm space-y-1">
-                      <li>1. Go to Preferences > Privacy</li>
+                      <li>1. Go to Preferences &gt; Privacy</li>
                       <li>2. Choose cookie and tracking preferences</li>
                       <li>3. Manage website data</li>
                     </ol>
@@ -221,7 +221,7 @@ export default function CookiePolicy() {
                   <div className="glass rounded-xl p-4">
                     <h4 className="text-white font-semibold mb-2">Firefox</h4>
                     <ol className="text-white/70 text-sm space-y-1">
-                      <li>1. Click Settings > Privacy & Security</li>
+                      <li>1. Click Settings &gt; Privacy & Security</li>
                       <li>2. Choose cookie and tracking protection settings</li>
                       <li>3. Manage data for individual sites</li>
                     </ol>
@@ -229,7 +229,7 @@ export default function CookiePolicy() {
                   <div className="glass rounded-xl p-4">
                     <h4 className="text-white font-semibold mb-2">Microsoft Edge</h4>
                     <ol className="text-white/70 text-sm space-y-1">
-                      <li>1. Click Settings > Cookies and site permissions</li>
+                      <li>1. Click Settings &gt; Cookies and site permissions</li>
                       <li>2. Choose cookie preferences</li>
                       <li>3. Manage site-specific permissions</li>
                     </ol>
@@ -241,16 +241,16 @@ export default function CookiePolicy() {
                   <div className="glass rounded-xl p-4">
                     <h4 className="text-white font-semibold mb-2">iOS (iPhone/iPad)</h4>
                     <ul className="text-white/70 text-sm space-y-1">
-                      <li>• Settings > Privacy & Security > Analytics & Improvements</li>
-                      <li>• Specific app settings within Settings > [App Name]</li>
+                      <li>• Settings &gt; Privacy & Security &gt; Analytics & Improvements</li>
+                      <li>• Specific app settings within Settings &gt; [App Name]</li>
                       <li>• iCloud settings for data synchronization</li>
                     </ul>
                   </div>
                   <div className="glass rounded-xl p-4">
                     <h4 className="text-white font-semibold mb-2">Android</h4>
                     <ul className="text-white/70 text-sm space-y-1">
-                      <li>• Settings > Google > Ads</li>
-                      <li>• App-specific permissions in Settings > Apps</li>
+                      <li>• Settings &gt; Google &gt; Ads</li>
+                      <li>• App-specific permissions in Settings &gt; Apps</li>
                       <li>• Google Play Services data controls</li>
                     </ul>
                   </div>
