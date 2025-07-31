@@ -4,13 +4,15 @@ import { useState } from 'react'
 import { CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
 
 interface FormData {
-  name: string
-  email: string
-  phone: string
-  device: string
-  experience: string
-  expectations: string
-  agreeToTerms: boolean
+  fullName: string
+  googleEmail: string
+  appleIdEmail: string
+  betaTestInvites: string
+  appInvites: {
+    macro: boolean
+    moodo: boolean
+  }
+  disclaimer: boolean
 }
 
 interface BetaSignupFormProps {
@@ -19,24 +21,51 @@ interface BetaSignupFormProps {
 
 export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    device: '',
-    experience: '',
-    expectations: '',
-    agreeToTerms: false,
+    fullName: '',
+    googleEmail: '',
+    appleIdEmail: '',
+    betaTestInvites: '',
+    appInvites: {
+      macro: false,
+      moodo: false
+    },
+    disclaimer: false
   })
   
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target
+    if (type === 'checkbox') {
+      const checkbox = e.target as HTMLInputElement
+      if (name === 'macro' || name === 'moodo') {
+        setFormData(prev => ({
+          ...prev,
+          appInvites: {
+            ...prev.appInvites,
+            [name]: checkbox.checked
+          }
+        }))
+      } else if (name === 'disclaimer') {
+        setFormData(prev => ({
+          ...prev,
+          disclaimer: checkbox.checked
+        }))
+      }
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }))
+    }
+  }
+
+  const handleRadioChange = (value: string) => {
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+      betaTestInvites: value
     }))
   }
 
@@ -47,16 +76,37 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
     setErrorMessage('')
 
     // Validate required fields
-    if (!formData.name || !formData.email) {
+    if (!formData.fullName) {
       setSubmitStatus('error')
-      setErrorMessage('Name and email are required')
+      setErrorMessage('Full Name is required')
       setIsSubmitting(false)
       return
     }
 
-    if (!formData.agreeToTerms) {
+    if (!formData.googleEmail && !formData.appleIdEmail) {
       setSubmitStatus('error')
-      setErrorMessage('You must agree to our Terms of Use and Privacy Policy')
+      setErrorMessage('Please provide either a Google Email or Apple ID Email')
+      setIsSubmitting(false)
+      return
+    }
+
+    if (!formData.betaTestInvites) {
+      setSubmitStatus('error')
+      setErrorMessage('Please select whether you agree to receive Beta Test Invites')
+      setIsSubmitting(false)
+      return
+    }
+
+    if (!formData.appInvites.macro && !formData.appInvites.moodo) {
+      setSubmitStatus('error')
+      setErrorMessage('Please select at least one app invite')
+      setIsSubmitting(false)
+      return
+    }
+
+    if (!formData.disclaimer) {
+      setSubmitStatus('error')
+      setErrorMessage('You must agree to the disclaimer')
       setIsSubmitting(false)
       return
     }
@@ -67,7 +117,17 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.googleEmail || formData.appleIdEmail,
+          phone: '',
+          device: '',
+          experience: '',
+          expectations: '',
+          betaTestInvites: formData.betaTestInvites,
+          appInvites: formData.appInvites,
+          disclaimer: formData.disclaimer
+        }),
       })
 
       const data = await response.json()
@@ -75,13 +135,15 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
       if (response.ok) {
         setSubmitStatus('success')
         setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          device: '',
-          experience: '',
-          expectations: '',
-          agreeToTerms: false,
+          fullName: '',
+          googleEmail: '',
+          appleIdEmail: '',
+          betaTestInvites: '',
+          appInvites: {
+            macro: false,
+            moodo: false
+          },
+          disclaimer: false
         })
         if (onSuccess) {
           onSuccess()
@@ -121,177 +183,189 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Name and Email */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="text-center mb-6">
+        <h3 className="text-white font-semibold text-lg mb-2">
+          Get exclusive early access to MooDo and Macro
+        </h3>
+        <p className="text-white/70 text-sm">
+          Join beta testers already experiencing the future
+        </p>
+      </div>
+
+      {/* Public Form Banner */}
+      <div className="bg-amber-500/20 border border-amber-500/30 rounded-lg p-3 flex items-center justify-between">
+        <span className="text-amber-400 text-sm">This form is public. Anyone with the link can submit a response.</span>
+        <button className="text-amber-400 text-sm hover:text-amber-300 transition-colors">Change</button>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Full Name */}
         <div>
-          <label htmlFor="name" className="block text-white/80 text-sm font-medium mb-2">
+          <label htmlFor="fullName" className="block text-white/80 text-sm font-medium mb-2">
             Full Name *
           </label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={formData.name}
+            id="fullName"
+            name="fullName"
+            value={formData.fullName}
             onChange={handleInputChange}
             required
             className="w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300"
-            placeholder="Your full name"
+            placeholder="Respondent's answer"
           />
         </div>
-        
+
+        {/* Google Email */}
         <div>
-          <label htmlFor="email" className="block text-white/80 text-sm font-medium mb-2">
-            Email Address *
+          <label htmlFor="googleEmail" className="block text-white/80 text-sm font-medium mb-2">
+            Google Email
           </label>
           <input
             type="email"
-            id="email"
-            name="email"
-            value={formData.email}
+            id="googleEmail"
+            name="googleEmail"
+            value={formData.googleEmail}
             onChange={handleInputChange}
-            required
             className="w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300"
-            placeholder="your@email.com"
+            placeholder="Respondent's answer"
           />
         </div>
-      </div>
 
-      {/* Phone and Device */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Apple ID Email */}
         <div>
-          <label htmlFor="phone" className="block text-white/80 text-sm font-medium mb-2">
-            Phone Number
+          <label htmlFor="appleIdEmail" className="block text-white/80 text-sm font-medium mb-2">
+            Apple ID Email
           </label>
           <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
+            type="email"
+            id="appleIdEmail"
+            name="appleIdEmail"
+            value={formData.appleIdEmail}
             onChange={handleInputChange}
             className="w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300"
-            placeholder="+61 400 000 000"
+            placeholder="Respondent's answer"
           />
         </div>
-        
+
+        {/* Beta Test Invites */}
         <div>
-          <label htmlFor="device" className="block text-white/80 text-sm font-medium mb-2">
-            Primary Device
+          <label className="block text-white/80 text-sm font-medium mb-2">
+            I agree to receive Beta Test Invites
           </label>
-          <select
-            id="device"
-            name="device"
-            value={formData.device}
-            onChange={handleInputChange}
-            className="w-full glass rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300"
-          >
-            <option value="">Select your device</option>
-            <option value="iPhone">iPhone</option>
-            <option value="iPad">iPad</option>
-            <option value="Android Phone">Android Phone</option>
-            <option value="Android Tablet">Android Tablet</option>
-            <option value="Mac">Mac</option>
-            <option value="Windows">Windows</option>
-            <option value="Multiple">Multiple devices</option>
-          </select>
-        </div>
-      </div>
-
-      {/* Experience */}
-      <div>
-        <label htmlFor="experience" className="block text-white/80 text-sm font-medium mb-2">
-          What's your experience with productivity apps?
-        </label>
-        <textarea
-          id="experience"
-          name="experience"
-          value={formData.experience}
-          onChange={handleInputChange}
-          rows={3}
-          className="w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300 resize-none"
-          placeholder="Tell us about your experience with task management, nutrition tracking, or similar apps..."
-        />
-      </div>
-
-      {/* Expectations */}
-      <div>
-        <label htmlFor="expectations" className="block text-white/80 text-sm font-medium mb-2">
-          What are you hoping to achieve with our apps?
-        </label>
-        <textarea
-          id="expectations"
-          name="expectations"
-          value={formData.expectations}
-          onChange={handleInputChange}
-          rows={3}
-          className="w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300 resize-none"
-          placeholder="What problems are you trying to solve? What would success look like for you?"
-        />
-      </div>
-
-      {/* Error Message */}
-      {submitStatus === 'error' && (
-        <div className="glass rounded-xl p-4 border border-red-500/30">
-          <div className="flex items-center space-x-3">
-            <AlertCircle className="text-red-400" size={20} />
-            <p className="text-red-400 text-sm">{errorMessage}</p>
+          <p className="text-white/50 text-xs mb-3">(Respondents can select up to 1)</p>
+          <div className="space-y-2">
+            <label className="flex items-center space-x-3">
+              <input
+                type="radio"
+                name="betaTestInvites"
+                value="Yes"
+                checked={formData.betaTestInvites === 'Yes'}
+                onChange={() => handleRadioChange('Yes')}
+                className="w-4 h-4 text-lumora-purple bg-white/10 border-white/30 focus:ring-lumora-purple/50"
+              />
+              <span className="text-white/70 text-sm">Yes</span>
+            </label>
+            <label className="flex items-center space-x-3">
+              <input
+                type="radio"
+                name="betaTestInvites"
+                value="No"
+                checked={formData.betaTestInvites === 'No'}
+                onChange={() => handleRadioChange('No')}
+                className="w-4 h-4 text-lumora-purple bg-white/10 border-white/30 focus:ring-lumora-purple/50"
+              />
+              <span className="text-white/70 text-sm">No</span>
+            </label>
           </div>
         </div>
-      )}
 
-      {/* Terms Agreement */}
-      <div className="flex items-start space-x-3">
-        <input
-          type="checkbox"
-          id="agreeToTerms"
-          name="agreeToTerms"
-          checked={formData.agreeToTerms}
-          onChange={handleInputChange}
-          className="mt-1 w-4 h-4 text-lumora-purple bg-white/10 border-white/30 rounded focus:ring-lumora-purple/50 focus:ring-2"
-        />
-        <label htmlFor="agreeToTerms" className="text-white/70 text-sm">
-          I agree to the{' '}
-          <a href="/terms-of-use" className="text-lumora-pink hover:underline" target="_blank" rel="noopener noreferrer">
-            Terms of Use
-          </a>{' '}
-          and{' '}
-          <a href="/privacy-policy" className="text-lumora-pink hover:underline" target="_blank" rel="noopener noreferrer">
-            Privacy Policy
-          </a>
-        </label>
-      </div>
+        {/* App Invites */}
+        <div>
+          <label className="block text-white/80 text-sm font-medium mb-2">
+            App Invites
+          </label>
+          <p className="text-white/50 text-xs mb-3">(Respondents can select as many as they like)</p>
+          <div className="space-y-3">
+            <label className="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                name="macro"
+                checked={formData.appInvites.macro}
+                onChange={handleInputChange}
+                className="mt-1 w-4 h-4 text-lumora-purple bg-white/10 border-white/30 rounded focus:ring-lumora-purple/50 focus:ring-2"
+              />
+              <span className="text-white/70 text-sm">
+                Macro - AI Calorie Tracker & Nutritionist Coach with 95+% Accuracy
+              </span>
+            </label>
+            <label className="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                name="moodo"
+                checked={formData.appInvites.moodo}
+                onChange={handleInputChange}
+                className="mt-1 w-4 h-4 text-lumora-purple bg-white/10 border-white/30 rounded focus:ring-lumora-purple/50 focus:ring-2"
+              />
+              <span className="text-white/70 text-sm">
+                MooDo - Smart Tasks based on your mental health
+              </span>
+            </label>
+          </div>
+        </div>
 
-      {/* Submit Button */}
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full glass-strong rounded-xl px-6 py-4 text-white font-semibold text-lg hover:bg-lumora-purple/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
-      >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="animate-spin" size={20} />
-            <span>Submitting...</span>
-          </>
-        ) : (
-          <>
-            <span>Join Beta Program</span>
-            <span>✨</span>
-          </>
+        {/* Disclaimer */}
+        <div>
+          <label className="block text-white/80 text-sm font-medium mb-2">
+            Disclaimer *
+          </label>
+          <div className="glass rounded-xl p-4 mb-3">
+            <p className="text-white/70 text-sm leading-relaxed">
+              Beta access requires iOS 18+ or Android 13+ with compatible device. Limited availability subject to device compatibility, testing requirements, active participation commitment, and program terms. Beta software is in active development and may contain bugs, performance issues, and incomplete features.
+            </p>
+          </div>
+          <label className="flex items-start space-x-3">
+            <input
+              type="checkbox"
+              name="disclaimer"
+              checked={formData.disclaimer}
+              onChange={handleInputChange}
+              className="mt-1 w-4 h-4 text-lumora-purple bg-white/10 border-white/30 rounded focus:ring-lumora-purple/50 focus:ring-2"
+            />
+            <span className="text-white/70 text-sm">Agree</span>
+          </label>
+        </div>
+
+        {/* Error Message */}
+        {submitStatus === 'error' && (
+          <div className="glass rounded-xl p-4 border border-red-500/30">
+            <div className="flex items-center space-x-3">
+              <AlertCircle className="text-red-400" size={20} />
+              <p className="text-red-400 text-sm">{errorMessage}</p>
+            </div>
+          </div>
         )}
-      </button>
 
-      {/* Privacy Notice */}
-      <p className="text-white/50 text-xs text-center">
-        By submitting this form, you agree to receive updates about our beta program and accept our{' '}
-        <a href="/terms-of-use" className="text-lumora-pink hover:underline" target="_blank" rel="noopener noreferrer">
-          Terms of Use
-        </a>{' '}
-        and{' '}
-        <a href="/privacy-policy" className="text-lumora-pink hover:underline" target="_blank" rel="noopener noreferrer">
-          Privacy Policy
-        </a>. 
-        We respect your privacy and will never share your information with third parties.
-      </p>
-    </form>
+        {/* Submit Button */}
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full glass-strong rounded-xl px-6 py-4 text-white font-semibold text-lg hover:bg-lumora-purple/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+        >
+          {isSubmitting ? (
+            <>
+              <Loader2 className="animate-spin" size={20} />
+              <span>Submitting...</span>
+            </>
+          ) : (
+            <>
+              <span>Submit</span>
+            </>
+          )}
+        </button>
+      </form>
+    </div>
   )
 } 

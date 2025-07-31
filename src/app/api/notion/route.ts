@@ -4,7 +4,17 @@ import { createBetaSignup, getBetaSignups } from '@/lib/notion'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, phone, device, experience, expectations } = body
+    const { 
+      name, 
+      email, 
+      phone, 
+      device, 
+      experience, 
+      expectations,
+      betaTestInvites,
+      appInvites,
+      disclaimer
+    } = body
 
     // Validate required fields
     if (!name || !email) {
@@ -14,14 +24,35 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    if (!betaTestInvites) {
+      return NextResponse.json(
+        { error: 'Beta test invites agreement is required' },
+        { status: 400 }
+      )
+    }
+
+    if (!appInvites || (!appInvites.macro && !appInvites.moodo)) {
+      return NextResponse.json(
+        { error: 'At least one app invite must be selected' },
+        { status: 400 }
+      )
+    }
+
+    if (!disclaimer) {
+      return NextResponse.json(
+        { error: 'Disclaimer agreement is required' },
+        { status: 400 }
+      )
+    }
+
     // Create a new beta signup using our utility function
     const signupId = await createBetaSignup({
       name,
       email,
-      phone,
-      device,
-      experience,
-      expectations,
+      phone: phone || '',
+      device: device || '',
+      experience: experience || '',
+      expectations: expectations || '',
       status: 'New',
     })
 
