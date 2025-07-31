@@ -53,9 +53,10 @@ export default function Home() {
 
       <BetaSignup />
 
-      <Technology />
+      <Technology /> */}
 
-      <Footer /> */}
+      {/* Footer */}
+      <Footer />
     </main>
   )
 }
