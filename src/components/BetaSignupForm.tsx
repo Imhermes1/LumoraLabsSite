@@ -35,6 +35,7 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [debugInfo, setDebugInfo] = useState<string>('')
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target
@@ -112,13 +113,16 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
     }
 
     try {
-      console.log('Submitting form data:', {
+      const formDataToSend = {
         name: formData.fullName,
         email: formData.googleEmail || formData.appleIdEmail,
         betaTestInvites: formData.betaTestInvites,
         appInvites: formData.appInvites,
         disclaimer: formData.disclaimer
-      })
+      }
+      
+      console.log('Submitting form data:', formDataToSend)
+      setDebugInfo(`Submitting form data: ${JSON.stringify(formDataToSend, null, 2)}`)
 
       const response = await fetch('/api/notion', {
         method: 'POST',
@@ -141,6 +145,8 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
       console.log('Response status:', response.status)
       const data = await response.json()
       console.log('Response data:', data)
+      
+      setDebugInfo(prev => prev + `\n\nResponse status: ${response.status}\nResponse data: ${JSON.stringify(data, null, 2)}`)
 
       if (response.ok) {
         setSubmitStatus('success')
@@ -166,6 +172,7 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
       console.error('Form submission error:', error)
       setSubmitStatus('error')
       setErrorMessage('Network error. Please check your connection and try again.')
+      setDebugInfo(prev => prev + `\n\nError: ${error}`)
     } finally {
       setIsSubmitting(false)
     }
@@ -350,6 +357,25 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
               <AlertCircle className="text-red-400" size={20} />
               <p className="text-red-400 text-sm">{errorMessage}</p>
             </div>
+          </div>
+        )}
+
+        {/* Debug Information */}
+        {debugInfo && (
+          <div className="glass rounded-xl p-4 border border-blue-500/30">
+            <div className="flex items-center justify-between mb-2">
+              <h4 className="text-blue-400 text-sm font-semibold">Debug Information:</h4>
+              <button
+                type="button"
+                onClick={() => setDebugInfo('')}
+                className="text-blue-400 hover:text-blue-300 text-xs"
+              >
+                Clear Debug
+              </button>
+            </div>
+            <pre className="text-blue-300 text-xs whitespace-pre-wrap overflow-x-auto">
+              {debugInfo}
+            </pre>
           </div>
         )}
 
