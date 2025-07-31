@@ -21,8 +21,11 @@ export async function POST(request: NextRequest) {
 
     console.log('Environment check:', {
       hasToken: !!process.env.NOTION_API_TOKEN,
+      tokenLength: process.env.NOTION_API_TOKEN?.length,
       hasDatabaseId: !!process.env.NOTION_DATABASE_ID,
-      databaseId: process.env.NOTION_DATABASE_ID
+      databaseId: process.env.NOTION_DATABASE_ID,
+      databaseIdLength: process.env.NOTION_DATABASE_ID?.length,
+      allEnvVars: Object.keys(process.env).filter(key => key.includes('NOTION'))
     })
 
     // Validate required fields
@@ -60,6 +63,22 @@ export async function POST(request: NextRequest) {
 
     console.log('All validation passed, creating signup...')
 
+    // Test Notion API connection first
+    try {
+      console.log('Testing Notion API connection...')
+      const { notion } = await import('@/lib/notion')
+      const testResponse = await notion.databases.retrieve({
+        database_id: process.env.NOTION_DATABASE_ID || '22b2ce9d9bf180a3868fd7a68da60bf0'
+      })
+      console.log('Notion API connection successful, database ID:', testResponse.id)
+    } catch (testError: any) {
+      console.error('Notion API connection test failed:', testError?.message)
+      return NextResponse.json(
+        { error: 'Notion API connection failed', details: testError?.message },
+        { status: 500 }
+      )
+    }
+
     // Create a new beta signup using our utility function
     const signupId = await createBetaSignup({
       name,
@@ -72,8 +91,9 @@ export async function POST(request: NextRequest) {
     })
 
     if (!signupId) {
+      console.log('createBetaSignup returned null/undefined')
       return NextResponse.json(
-        { error: 'Failed to create beta signup' },
+        { error: 'Failed to create beta signup - function returned null' },
         { status: 500 }
       )
     }
