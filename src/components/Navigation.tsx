@@ -6,12 +6,15 @@ import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import BetaSignupModal from './BetaSignupModal'
+import ComingSoonModal from './ComingSoonModal'
 import Logo from './Logo'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false)
+  const [comingSoonSection, setComingSoonSection] = useState<'apps' | 'beta' | 'technology'>('apps')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,16 +25,9 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      const navHeight = 44
-      const targetPosition = element.offsetTop - navHeight
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      })
-    }
+  const openComingSoonModal = (section: 'apps' | 'beta' | 'technology') => {
+    setComingSoonSection(section)
+    setIsComingSoonModalOpen(true)
     setIsMenuOpen(false)
   }
 
@@ -52,19 +48,19 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <button
-              onClick={() => scrollToSection('apps')}
+              onClick={() => openComingSoonModal('apps')}
               className="text-white/80 hover:text-white transition-colors duration-200"
             >
               Apps
             </button>
             <button
-              onClick={() => scrollToSection('beta')}
+              onClick={() => openComingSoonModal('beta')}
               className="text-white/80 hover:text-white transition-colors duration-200"
             >
               Beta
             </button>
             <button
-              onClick={() => scrollToSection('technology')}
+              onClick={() => openComingSoonModal('technology')}
               className="text-white/80 hover:text-white transition-colors duration-200"
             >
               Technology
@@ -92,19 +88,19 @@ export default function Navigation() {
         {isMenuOpen && (
           <div className="md:hidden glass-strong mt-2 rounded-2xl p-4 space-y-4">
             <button
-              onClick={() => scrollToSection('apps')}
+              onClick={() => openComingSoonModal('apps')}
               className="block w-full text-left text-white/80 hover:text-white transition-colors duration-200 py-2"
             >
               Apps
             </button>
             <button
-              onClick={() => scrollToSection('beta')}
+              onClick={() => openComingSoonModal('beta')}
               className="block w-full text-left text-white/80 hover:text-white transition-colors duration-200 py-2"
             >
               Beta
             </button>
             <button
-              onClick={() => scrollToSection('technology')}
+              onClick={() => openComingSoonModal('technology')}
               className="block w-full text-left text-white/80 hover:text-white transition-colors duration-200 py-2"
             >
               Technology
@@ -120,6 +116,13 @@ export default function Navigation() {
 
         {/* Beta Signup Modal */}
         <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        
+        {/* Coming Soon Modal */}
+        <ComingSoonModal 
+          isOpen={isComingSoonModalOpen} 
+          onClose={() => setIsComingSoonModalOpen(false)} 
+          section={comingSoonSection}
+        />
       </div>
     </nav>
   )
