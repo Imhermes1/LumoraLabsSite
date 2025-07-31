@@ -157,10 +157,10 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
               <div className="glass rounded-2xl overflow-hidden">
                 <div className="p-6 bg-gradient-to-r from-lumora-pink/10 to-lumora-purple/10">
                   <h3 className="text-white font-semibold text-lg mb-2">
-                    Complete Your Application
+                    Sign up for the beta
                   </h3>
                   <p className="text-white/70 text-sm">
-                    Join other innovators already in our exclusive beta program
+                    Shape the next generation of apps
                   </p>
                 </div>
                 

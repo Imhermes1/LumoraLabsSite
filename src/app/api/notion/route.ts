@@ -3,7 +3,10 @@ import { createBetaSignup, getBetaSignups } from '@/lib/notion'
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('API route called')
     const body = await request.json()
+    console.log('Request body:', body)
+    
     const { 
       name, 
       email, 
@@ -16,8 +19,15 @@ export async function POST(request: NextRequest) {
       disclaimer
     } = body
 
+    console.log('Environment check:', {
+      hasToken: !!process.env.NOTION_API_TOKEN,
+      hasDatabaseId: !!process.env.NOTION_DATABASE_ID,
+      databaseId: process.env.NOTION_DATABASE_ID
+    })
+
     // Validate required fields
     if (!name || !email) {
+      console.log('Validation failed: missing name or email')
       return NextResponse.json(
         { error: 'Name and email are required' },
         { status: 400 }
@@ -25,6 +35,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (!betaTestInvites) {
+      console.log('Validation failed: missing beta test invites')
       return NextResponse.json(
         { error: 'Beta test invites agreement is required' },
         { status: 400 }
@@ -32,6 +43,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (!appInvites || (!appInvites.macro && !appInvites.moodo)) {
+      console.log('Validation failed: missing app invites')
       return NextResponse.json(
         { error: 'At least one app invite must be selected' },
         { status: 400 }
@@ -39,11 +51,14 @@ export async function POST(request: NextRequest) {
     }
 
     if (!disclaimer) {
+      console.log('Validation failed: missing disclaimer')
       return NextResponse.json(
         { error: 'Disclaimer agreement is required' },
         { status: 400 }
       )
     }
+
+    console.log('All validation passed, creating signup...')
 
     // Create a new beta signup using our utility function
     const signupId = await createBetaSignup({

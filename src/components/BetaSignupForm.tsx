@@ -112,6 +112,14 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
     }
 
     try {
+      console.log('Submitting form data:', {
+        name: formData.fullName,
+        email: formData.googleEmail || formData.appleIdEmail,
+        betaTestInvites: formData.betaTestInvites,
+        appInvites: formData.appInvites,
+        disclaimer: formData.disclaimer
+      })
+
       const response = await fetch('/api/notion', {
         method: 'POST',
         headers: {
@@ -130,7 +138,9 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
         }),
       })
 
+      console.log('Response status:', response.status)
       const data = await response.json()
+      console.log('Response data:', data)
 
       if (response.ok) {
         setSubmitStatus('success')
@@ -153,6 +163,7 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
         setErrorMessage(data.error || 'Something went wrong. Please try again.')
       }
     } catch (error) {
+      console.error('Form submission error:', error)
       setSubmitStatus('error')
       setErrorMessage('Network error. Please check your connection and try again.')
     } finally {
@@ -187,17 +198,11 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
       {/* Header */}
       <div className="text-center mb-6">
         <h3 className="text-white font-semibold text-lg mb-2">
-          Get exclusive early access to MooDo and Macro
+          Sign up for the beta
         </h3>
         <p className="text-white/70 text-sm">
-          Join beta testers already experiencing the future
+          Shape the next generation of apps
         </p>
-      </div>
-
-      {/* Public Form Banner */}
-      <div className="bg-amber-500/20 border border-amber-500/30 rounded-lg p-3 flex items-center justify-between">
-        <span className="text-amber-400 text-sm">This form is public. Anyone with the link can submit a response.</span>
-        <button className="text-amber-400 text-sm hover:text-amber-300 transition-colors">Change</button>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
