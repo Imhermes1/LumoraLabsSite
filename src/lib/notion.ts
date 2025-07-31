@@ -17,6 +17,7 @@ export interface BetaSignup {
   appInvites?: string
   disclaimer?: boolean
   submissionTime: string
+  alphaTester?: string
 }
 
 export async function getBetaSignups(): Promise<BetaSignup[]> {
@@ -40,6 +41,7 @@ export async function getBetaSignups(): Promise<BetaSignup[]> {
       appInvites: page.properties['App Invites ']?.multi_select?.[0]?.name || '',
       disclaimer: page.properties['Disclaimer']?.checkbox || false,
       submissionTime: page.properties['Submission time']?.date?.start || '',
+      alphaTester: page.properties['Alpha Tester']?.rich_text?.[0]?.text?.content || 'No',
     }))
   } catch (error) {
     console.error('Error fetching beta signups:', error)
@@ -50,8 +52,7 @@ export async function getBetaSignups(): Promise<BetaSignup[]> {
 export async function getAlphaTesterCount(): Promise<number> {
   try {
     const signups = await getBetaSignups()
-    // Alpha testers are the first 25 signups
-    return Math.min(signups.length, 25)
+    return signups.filter(signup => signup.alphaTester === 'Yes').length
   } catch (error) {
     console.error('Error getting alpha tester count:', error)
     return 0
@@ -128,6 +129,15 @@ export async function createBetaSignup(signupData: {
           date: {
             start: new Date().toISOString(),
           },
+        },
+        'Alpha Tester': {
+          rich_text: [
+            {
+              text: {
+                content: isAlphaTester ? 'Yes' : 'No',
+              },
+            },
+          ],
         },
       },
     })
