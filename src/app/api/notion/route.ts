@@ -20,6 +20,8 @@ export async function POST(request: NextRequest) {
     const { 
       name, 
       email, 
+      appleIdEmail,
+      googleEmail,
       betaTestInvites,
       appInvites,
       disclaimer
@@ -94,11 +96,12 @@ export async function POST(request: NextRequest) {
 
     // Create a new beta signup using our utility function
     const signupId = await createBetaSignup({
-      name,
-      email,
+      fullName: name,
+      appleIdEmail: body.appleIdEmail || undefined,
+      googleEmail: body.googleEmail || undefined,
       betaTestInvites,
       appInvites,
-      status: 'New',
+      disclaimer,
     })
 
     if (!signupId) {

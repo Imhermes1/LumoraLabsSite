@@ -10,15 +10,13 @@ export const DATABASE_ID = process.env.NOTION_DATABASE_ID || '22b2ce9d9bf180a386
 
 export interface BetaSignup {
   id: string
-  name: string
-  email: string
+  fullName: string
+  appleIdEmail?: string
+  googleEmail?: string
   betaTestInvites?: string
-  appInvites?: {
-    macro: boolean
-    moodo: boolean
-  }
-  status: string
-  signupDate: string
+  appInvites?: string
+  disclaimer?: boolean
+  submissionTime: string
 }
 
 export async function getBetaSignups(): Promise<BetaSignup[]> {
@@ -35,15 +33,13 @@ export async function getBetaSignups(): Promise<BetaSignup[]> {
 
     return response.results.map((page: any) => ({
       id: page.id,
-      name: page.properties.Name?.title?.[0]?.text?.content || '',
-      email: page.properties.Email?.email || '',
-      betaTestInvites: page.properties['Beta Test Invites']?.select?.name || '',
-      appInvites: {
-        macro: page.properties['App Invites - Macro']?.checkbox || false,
-        moodo: page.properties['App Invites - MooDo']?.checkbox || false,
-      },
-      status: page.properties.Status?.select?.name || 'New',
-      signupDate: page.properties['Signup Date']?.date?.start || '',
+      fullName: page.properties['Full Name']?.title?.[0]?.text?.content || '',
+      appleIdEmail: page.properties['Apple ID Email']?.email || '',
+      googleEmail: page.properties['Google Email']?.email || '',
+      betaTestInvites: page.properties['I agree to receive Beta...']?.select?.name || '',
+      appInvites: page.properties['App Invites']?.select?.name || '',
+      disclaimer: page.properties['Disclaimer']?.checkbox || false,
+      submissionTime: page.properties['Submission time']?.date?.start || '',
     }))
   } catch (error) {
     console.error('Error fetching beta signups:', error)
@@ -52,14 +48,15 @@ export async function getBetaSignups(): Promise<BetaSignup[]> {
 }
 
 export async function createBetaSignup(signupData: {
-  name: string
-  email: string
+  fullName: string
+  appleIdEmail?: string
+  googleEmail?: string
   betaTestInvites?: string
   appInvites?: {
     macro: boolean
     moodo: boolean
   }
-  status: string
+  disclaimer?: boolean
 }): Promise<string | null> {
   try {
     console.log('Creating beta signup with data:', signupData)
@@ -75,37 +72,43 @@ export async function createBetaSignup(signupData: {
         database_id: DATABASE_ID,
       },
       properties: {
-        Name: {
+        'Full Name': {
           title: [
             {
               text: {
-                content: signupData.name,
+                content: signupData.fullName,
               },
             },
           ],
         },
-        Email: {
-          email: signupData.email,
+        'Apple ID Email': signupData.appleIdEmail ? {
+          email: signupData.appleIdEmail,
+        } : {
+          email: null,
         },
-        'Beta Test Invites': signupData.betaTestInvites ? {
+        'Google Email': signupData.googleEmail ? {
+          email: signupData.googleEmail,
+        } : {
+          email: null,
+        },
+        'I agree to receive Beta...': signupData.betaTestInvites ? {
           select: {
             name: signupData.betaTestInvites,
           },
         } : {
           select: null,
         },
-        'App Invites - Macro': {
-          checkbox: signupData.appInvites?.macro || false,
-        },
-        'App Invites - MooDo': {
-          checkbox: signupData.appInvites?.moodo || false,
-        },
-        Status: {
+        'App Invites': {
           select: {
-            name: signupData.status || 'New',
+            name: signupData.appInvites?.macro && signupData.appInvites?.moodo ? 'Both' :
+                   signupData.appInvites?.macro ? 'Macro' :
+                   signupData.appInvites?.moodo ? 'MooDo' : 'None',
           },
         },
-        'Signup Date': {
+        'Disclaimer': {
+          checkbox: signupData.disclaimer || false,
+        },
+        'Submission time': {
           date: {
             start: new Date().toISOString(),
           },
@@ -125,4 +128,4 @@ export async function createBetaSignup(signupData: {
     })
     return null
   }
-} 
+}
