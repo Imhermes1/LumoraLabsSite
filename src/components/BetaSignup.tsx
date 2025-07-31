@@ -64,7 +64,7 @@ export default function BetaSignup() {
                   </div>
                   <div>
                     <h3 className="text-white font-bold text-xl">Alpha Tester Spots Available!</h3>
-                    <p className="text-white/80 text-sm">First 25 users get exclusive benefits</p>
+                    <p className="text-white/80 text-sm">First 25 users get exclusive Alpha Tester benefits</p>
                   </div>
                 </div>
                 <div className="text-right">
@@ -75,16 +75,16 @@ export default function BetaSignup() {
               
               <div className="grid md:grid-cols-3 gap-4 mb-4">
                 <div className="text-center">
-                  <div className="text-lumora-pink font-bold text-lg">50% OFF</div>
-                  <div className="text-white/70 text-xs">Launch Discount</div>
+                  <div className="text-lumora-pink font-bold text-lg">Exclusive Discount</div>
+                  <div className="text-white/70 text-xs">Special Launch Offer</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lumora-pink font-bold text-lg">Early Access</div>
-                  <div className="text-white/70 text-xs">Before Public</div>
+                  <div className="text-lumora-pink font-bold text-lg">Priority Access</div>
+                  <div className="text-white/70 text-xs">Before Everyone Else</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lumora-pink font-bold text-lg">Direct Support</div>
-                  <div className="text-white/70 text-xs">Priority Help</div>
+                  <div className="text-lumora-pink font-bold text-lg">VIP Treatment</div>
+                  <div className="text-white/70 text-xs">Premium Benefits</div>
                 </div>
               </div>
             </div>

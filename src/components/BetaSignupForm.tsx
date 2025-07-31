@@ -230,15 +230,15 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
             <div className="space-y-2 mb-6 text-left max-w-sm mx-auto">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-lumora-pink rounded-full"></div>
-                <span className="text-white/80 text-sm">50% discount at launch</span>
+                <span className="text-white/80 text-sm">Exclusive launch discount</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-lumora-purple rounded-full"></div>
-                <span className="text-white/80 text-sm">Priority early access</span>
+                <span className="text-white/80 text-sm">Priority access to new features</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-deep-purple rounded-full"></div>
-                <span className="text-white/80 text-sm">Direct support channel</span>
+                <span className="text-white/80 text-sm">VIP support and exclusive perks</span>
               </div>
             </div>
           </>
