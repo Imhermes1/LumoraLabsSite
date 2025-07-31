@@ -1,13 +1,15 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Wand2, Sparkles } from 'lucide-react'
 import BetaSignupModal from './BetaSignupModal'
+import AlphaRevealModal from './AlphaRevealModal'
 import BetaCount from './BetaCount'
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isAlphaModalOpen, setIsAlphaModalOpen] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -15,6 +17,10 @@ export default function Hero() {
 
   const openBetaSignup = () => {
     setIsModalOpen(true)
+  }
+
+  const openAlphaReveal = () => {
+    setIsAlphaModalOpen(true)
   }
 
   const scrollToApps = () => {
@@ -79,10 +85,23 @@ export default function Hero() {
             </button>
 
             <button
-              onClick={scrollToApps}
-              className="border border-white/30 rounded-full px-8 py-4 text-white font-semibold text-lg hover:bg-white/10 transition-all duration-300"
+              onClick={openAlphaReveal}
+              className="relative border border-purple-500/50 rounded-full px-8 py-4 text-white font-semibold text-lg hover:bg-purple-500/20 transition-all duration-300 group overflow-hidden animate-aparecium-glow"
             >
-              Discover Apps
+              {/* Enhanced glowing effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-purple-500/20 rounded-full blur-sm group-hover:blur-md transition-all duration-300"></div>
+              
+              {/* Content */}
+              <span className="relative flex items-center">
+                <Wand2 className="mr-2 text-purple-400 group-hover:text-pink-400 transition-colors duration-300 animate-aparecium-sparkle" size={20} />
+                Aparecium
+                <Sparkles className="ml-2 text-yellow-400 animate-aparecium-sparkle" size={16} />
+              </span>
+              
+              {/* Enhanced magical sparkle effects */}
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
+              <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-pink-400 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+              <div className="absolute top-1/2 -right-2 w-1 h-1 bg-purple-400 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
             </button>
           </div>
 
@@ -93,6 +112,9 @@ export default function Hero() {
 
       {/* Beta Signup Modal */}
       <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
+      {/* Alpha Reveal Modal */}
+      <AlphaRevealModal isOpen={isAlphaModalOpen} onClose={() => setIsAlphaModalOpen(false)} />
     </section>
   )
 }
