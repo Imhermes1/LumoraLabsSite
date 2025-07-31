@@ -48,8 +48,10 @@ export default function BetaSignup() {
             Join the <span className="gradient-text">Lumora Labs</span> Alpha Program
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Be among the first to experience the future of elegantly crafted, beautifully designed, and purposefully built apps. 
-            Help us shape the world's most intuitively powerful applications.
+            Elegantly crafted. Beautifully designed. Purposefully built.
+          </p>
+          <p className="text-lg text-white/70 max-w-3xl mx-auto mt-4">
+            Help us shape the world's most intuitively powerful software.
           </p>
         </div>
 
@@ -79,12 +81,12 @@ export default function BetaSignup() {
                   <div className="text-white/70 text-xs">Direct influence on development</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lumora-pink font-bold text-lg">Exclusive Access</div>
-                  <div className="text-white/70 text-xs">Be the first to experience</div>
+                  <div className="text-lumora-pink font-bold text-lg">First to Experience</div>
+                  <div className="text-white/70 text-xs">Be among the first</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lumora-pink font-bold text-lg">Premium Benefits</div>
-                  <div className="text-white/70 text-xs">Lifetime advantages</div>
+                  <div className="text-lumora-pink font-bold text-lg">Lifetime Benefits</div>
+                  <div className="text-white/70 text-xs">Premium advantages</div>
                 </div>
               </div>
             </div>

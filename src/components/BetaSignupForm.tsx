@@ -225,20 +225,20 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
               Welcome to Lumora Labs Alpha! 🎉
             </h3>
             <p className="text-white/70 text-sm mb-4">
-              Congratulations! You're now part of our Alpha Program. Help us create elegantly crafted, beautifully designed, and purposefully built experiences:
+              Thanks for helping us create experiences that are elegantly crafted, beautifully designed, and purposefully built.
             </p>
             <div className="space-y-2 mb-6 text-left max-w-sm mx-auto">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-lumora-pink rounded-full"></div>
-                <span className="text-white/80 text-sm">Direct influence on Lumora Labs development</span>
+                <span className="text-white/80 text-sm">Shape the future of intuitive software</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-lumora-purple rounded-full"></div>
-                <span className="text-white/80 text-sm">Exclusive access to cutting-edge features</span>
+                <span className="text-white/80 text-sm">Be among the first to experience</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-deep-purple rounded-full"></div>
-                <span className="text-white/80 text-sm">Premium benefits and lifetime advantages</span>
+                <span className="text-white/80 text-sm">Lifetime premium advantages</span>
               </div>
             </div>
           </>
