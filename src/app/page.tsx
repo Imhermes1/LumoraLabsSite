@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import MooDo from '@/components/MooDo'
-import CoreTrack from '@/components/CoreTrack'
+import CoreTrack from '@/components/Macro'
 import BetaSignup from '@/components/BetaSignup'
 import Technology from '@/components/Technology'
 import Footer from '@/components/Footer'
@@ -28,8 +28,8 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
-      {/* Apps Section */}
-      <section id="apps" className="py-16 md:py-24">
+      {/* Apps Section - Hidden for social media promotion */}
+      {/* <section id="apps" className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -41,26 +41,21 @@ export default function Home() {
             </p>
           </div>
 
-          {/* MooDo Section */}
           <div className="mb-16">
             <MooDo />
           </div>
 
-          {/* CoreTrack Section */}
           <div className="mb-16">
             <CoreTrack />
           </div>
         </div>
       </section>
 
-      {/* Beta Signup Section */}
       <BetaSignup />
 
-      {/* Technology Section */}
       <Technology />
 
-      {/* Footer */}
-      <Footer />
+      <Footer /> */}
     </main>
   )
 }

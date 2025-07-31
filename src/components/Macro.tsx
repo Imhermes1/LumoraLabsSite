@@ -59,7 +59,7 @@ export default function CoreTrack() {
                 <p className="text-white/70 text-sm">
                   App screenshot placeholder
                   <br />
-                  <span className="text-white/50 text-xs">Upload your Core Track app images here</span>
+                  <span className="text-white/50 text-xs">Upload your Macro app images here</span>
                 </p>
               </div>
             </div>
@@ -110,7 +110,7 @@ export default function CoreTrack() {
 
             {/* Beta CTA */}
             <div className="glass rounded-2xl p-6 text-center">
-              <p className="text-white/70 mb-2">Core Track Beta Program</p>
+                              <p className="text-white/70 mb-2">Macro Beta Program</p>
               <div className="text-2xl font-bold text-positive mb-2">
                 {betaCount}/50 <span className="text-lg text-white/60">spots filled</span>
               </div>
@@ -118,7 +118,7 @@ export default function CoreTrack() {
                 onClick={openBetaSignup}
                 className="w-full bg-gradient-to-r from-positive to-calm rounded-full py-3 px-6 text-white font-semibold hover:shadow-lg hover:shadow-positive/25 transition-all duration-300"
               >
-                Join Core Track Beta
+                Join Macro Beta
               </button>
             </div>
           </div>

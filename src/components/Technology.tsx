@@ -105,7 +105,7 @@ export default function Technology() {
                 </p>
               </div>
               <div className="glass rounded-xl p-4">
-                <h4 className="text-positive font-semibold mb-2">Core Track AI</h4>
+                <h4 className="text-positive font-semibold mb-2">Macro AI</h4>
                 <p className="text-white/70 text-sm">
                   Sophisticated natural language processing trained on Australian food culture, 
                   integrated with AUSNUT database for extraordinary local accuracy.

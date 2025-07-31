@@ -58,7 +58,7 @@ export default function Footer() {
                 onClick={() => document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' })}
                 className="block text-white/70 hover:text-lumora-pink transition-colors text-sm"
               >
-                Core Track - Nutrition AI
+                Macro - Nutrition AI
               </button>
               <button 
                 onClick={openBetaSignup}

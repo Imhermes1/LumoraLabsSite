@@ -21,7 +21,7 @@ Lumora Labs creates the world's most beautifully designed and best functioning a
 - Mental health-first approach to productivity
 - Real-time adaptation to emotional states
 
-#### 🥗 Core Track - AI Nutrition for Australians  
+#### 🥗 Macro - AI Nutrition for Australians  
 *"The first AI nutrition app built specifically for Australia"*
 - GPT-4 AI with AUSNUT database integration
 - Recognizes 50+ local brands (Woolworths, Coles, etc.)
@@ -105,7 +105,7 @@ lumora-labs-nextjs/
 │   │   ├── Navigation.tsx     # Header navigation
 │   │   ├── Hero.tsx          # Hero section
 │   │   ├── MooDo.tsx         # MooDo app showcase
-│   │   ├── CoreTrack.tsx     # Core Track app showcase
+│   │   ├── CoreTrack.tsx     # Macro app showcase
 │   │   ├── BetaSignup.tsx    # Beta program signup
 │   │   ├── Technology.tsx    # Technology section
 │   │   ├── Footer.tsx        # Footer component
@@ -156,7 +156,7 @@ lumora-labs-nextjs/
 
 ### Current Status
 - **MooDo Beta**: 20/50 participants
-- **Core Track Beta**: 20/50 participants
+- **Macro Beta**: 20/50 participants
 - **Total Combined**: 40/100 spots filled
 
 ### Signup Process
@@ -250,7 +250,7 @@ npm run type-check  # TypeScript type checking
 - Robot.txt configuration
 
 ### Content Strategy
-- Focus keywords: "Lumora Labs", "MooDo", "Core Track", "iOS apps", "Australian nutrition app"
+- Focus keywords: "Lumora Labs", "MooDo", "Macro", "iOS apps", "Australian nutrition app"
 - Regular content updates through blog (future)
 - Social media integration
 - Press coverage and backlinks

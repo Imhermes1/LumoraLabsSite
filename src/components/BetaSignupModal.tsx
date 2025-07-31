@@ -94,7 +94,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
                       <Smartphone className="text-positive" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-white font-semibold text-lg">Core Track</h3>
+                      <h3 className="text-white font-semibold text-lg">Macro</h3>
                       <p className="text-white/60 text-sm">Intelligent nutrition tracking</p>
                     </div>
                   </div>
