@@ -115,7 +115,7 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
     }
 
     if (!formData.googleEmail.trim() && !formData.appleIdEmail.trim()) {
-      errors.email = 'Please provide either a Google Email or Apple ID Email'
+      errors.email = 'Please provide at least one email address (Google for Android testing, Apple ID for iOS testing)'
     }
 
     if (!formData.betaTestInvites) {
@@ -302,10 +302,13 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
           <label className="block text-white/80 text-sm font-medium mb-2">
             Email Address *
           </label>
-          <p className="text-white/50 text-xs mb-3">Please provide at least one email address</p>
+          <p className="text-white/50 text-xs mb-3">Please provide at least one email address. The email should correspond to the platform you'll be testing on.</p>
           
           {/* Google Email */}
           <div className="mb-3">
+            <label htmlFor="googleEmail" className="block text-white/60 text-xs mb-1">
+              Google Email (for Android testing)
+            </label>
             <input
               type="email"
               id="googleEmail"
@@ -317,12 +320,15 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
                   ? 'focus:ring-red-500/50 border border-red-500/30' 
                   : 'focus:ring-lumora-purple/50'
               }`}
-              placeholder="Google Email (optional)"
+              placeholder="Enter your Google email"
             />
           </div>
 
           {/* Apple ID Email */}
           <div>
+            <label htmlFor="appleIdEmail" className="block text-white/60 text-xs mb-1">
+              Apple ID Email (for iOS testing)
+            </label>
             <input
               type="email"
               id="appleIdEmail"
@@ -334,7 +340,7 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
                   ? 'focus:ring-red-500/50 border border-red-500/30' 
                   : 'focus:ring-lumora-purple/50'
               }`}
-              placeholder="Apple ID Email (optional)"
+              placeholder="Enter your Apple ID email"
             />
           </div>
           
