@@ -49,7 +49,7 @@ export default function BetaSignup() {
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
             Be among the first to experience the future of elegantly crafted and intuitively powerful apps. 
-            Help us perfect the world's most beautifully designed and best functioning applications.
+            Help us craft the world's most beautifully designed and best functioning applications.
           </p>
         </div>
 

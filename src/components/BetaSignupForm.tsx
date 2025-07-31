@@ -225,7 +225,7 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
               Welcome to Lumora Labs Alpha! 🎉
             </h3>
             <p className="text-white/70 text-sm mb-4">
-              Congratulations! You're now part of our Alpha Program. Help us perfect extraordinary app experiences:
+              Congratulations! You're now part of our Alpha Program. Help us craft extraordinary app experiences:
             </p>
             <div className="space-y-2 mb-6 text-left max-w-sm mx-auto">
               <div className="flex items-center space-x-2">
