@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { X, Sparkles, Smartphone, Heart } from 'lucide-react'
+import BetaSignupForm from './BetaSignupForm'
+import BetaCount from './BetaCount'
 
 interface BetaSignupModalProps {
   isOpen: boolean
@@ -150,7 +152,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
               </div>
             </div>
 
-            {/* Right Side - Embedded Form */}
+            {/* Right Side - Custom Form */}
             <div className="lg:border-l lg:border-white/10 lg:pl-8">
               <div className="glass rounded-2xl overflow-hidden">
                 <div className="p-6 bg-gradient-to-r from-lumora-pink/10 to-lumora-purple/10">
@@ -158,21 +160,13 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
                     Complete Your Application
                   </h3>
                   <p className="text-white/70 text-sm">
-                    Join 38 other innovators already in our exclusive beta program
+                    Join other innovators already in our exclusive beta program
                   </p>
                 </div>
                 
-                {/* Embedded Notion Form */}
-                <div className="relative">
-                  <iframe 
-                    src="https://field-hearing-f91.notion.site/ebd/22b2ce9d9bf1803cb157ec370b405c9e" 
-                    width="100%" 
-                    height="500" 
-                    frameBorder="0" 
-                    allowFullScreen
-                    className="w-full"
-                    style={{ minHeight: '500px' }}
-                  />
+                {/* Custom Beta Signup Form */}
+                <div className="p-6">
+                  <BetaSignupForm />
                 </div>
               </div>
             </div>
@@ -180,10 +174,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
 
           {/* Footer */}
           <div className="mt-8 pt-6 border-t border-white/10 text-center">
-            <p className="text-white/60 text-sm">
-              <span className="text-lumora-pink font-medium">Limited spots available:</span> 
-              <span className="ml-2">62 spots remaining out of 100</span>
-            </p>
+            <BetaCount />
           </div>
         </div>
       </div>

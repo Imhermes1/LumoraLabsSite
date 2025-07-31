@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
 import BetaSignupModal from './BetaSignupModal'
+import BetaCount from './BetaCount'
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
@@ -86,12 +87,7 @@ export default function Hero() {
           </div>
 
           {/* Beta Status */}
-          <div className="glass rounded-2xl p-4 inline-block">
-            <p className="text-white/70 text-sm">
-              <span className="text-lumora-pink font-semibold">Exclusive Beta:</span> 
-              <span className="ml-2">38/100 spots filled</span>
-            </p>
-          </div>
+          <BetaCount />
         </div>
       </div>
 
