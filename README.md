@@ -295,7 +295,7 @@ npm run type-check  # TypeScript type checking
 
 ### Beta Program
 - **Signup**: [Join Beta Program](https://field-hearing-f91.notion.site/22b2ce9d9bf1803cb157ec370b405c9e?pvs=105)
-- **Requirements**: iPhone 12+ with iOS 17+
+- **Requirements**: iOS 18+ or Android 13+
 - **Commitment**: 2-3 hours/week testing
 - **Benefits**: Lifetime discounts and early access
 

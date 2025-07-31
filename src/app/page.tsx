@@ -37,7 +37,7 @@ export default function Home() {
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
               Transformative apps that understand your needs and adapt to your lifestyle. 
-              Built exclusively for Apple with cutting-edge AI and elegant design.
+              Built for Apple and Android with cutting-edge technology and elegant design.
             </p>
           </div>
 

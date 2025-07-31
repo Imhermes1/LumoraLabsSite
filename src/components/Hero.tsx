@@ -65,7 +65,7 @@ export default function Hero() {
 
           <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed">
             Lumora Labs creates the world's most elegantly crafted and intuitively powerful apps 
-            exclusively for Apple, with Android coming soon
+            for Apple and Android
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">

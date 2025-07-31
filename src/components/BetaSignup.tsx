@@ -99,7 +99,7 @@ export default function BetaSignup() {
             <h3 className="text-white font-semibold mb-3">Beta Requirements:</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <p className="text-white/70 text-sm">• iPhone 12+ running iOS 17+</p>
+                <p className="text-white/70 text-sm">• iOS 18+ or Android 13+</p>
                 <p className="text-white/70 text-sm">• 2-3 hours per week testing</p>
                 <p className="text-white/70 text-sm">• Weekly feedback sessions</p>
               </div>
@@ -124,6 +124,14 @@ export default function BetaSignup() {
             <p className="text-white/60 text-sm mt-4">
               Secure your spot in the future of app innovation
             </p>
+            
+            {/* Privacy Notice */}
+            <div className="mt-6 p-4 glass rounded-xl">
+              <p className="text-white/60 text-xs text-center">
+                Your data is securely stored in Notion and used solely for beta program management. 
+                We respect your privacy and will never share your information with third parties.
+              </p>
+            </div>
           </div>
         </div>
 
