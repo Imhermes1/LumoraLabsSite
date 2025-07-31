@@ -204,11 +204,8 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
     <div className="space-y-6">
       {/* Header */}
       <div className="text-center mb-6">
-        <h3 className="text-white font-semibold text-lg mb-2">
-          Sign up for the beta
-        </h3>
         <p className="text-white/70 text-sm">
-          Shape the next generation of apps
+          Join our exclusive beta program and be among the first to experience our innovative apps. Help us shape the future of mobile technology while gaining early access to cutting-edge features and personalized experiences.
         </p>
       </div>
 

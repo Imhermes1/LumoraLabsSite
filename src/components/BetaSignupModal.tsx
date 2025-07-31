@@ -155,7 +155,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
             {/* Right Side - Custom Form */}
             <div className="lg:border-l lg:border-white/10 lg:pl-8">
               <div className="glass rounded-2xl overflow-hidden">
-                <div className="p-6 bg-gradient-to-r from-lumora-pink/10 to-lumora-purple/10">
+                <div className="p-6 bg-gradient-to-r from-lumora-pink/10 to-lumora-purple/10 text-center">
                   <h3 className="text-white font-semibold text-lg mb-2">
                     Sign up for the beta
                   </h3>
