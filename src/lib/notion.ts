@@ -12,7 +12,6 @@ export interface BetaSignup {
   id: string
   name: string
   email: string
-  phone?: string
   device?: string
   experience?: string
   expectations?: string
@@ -36,7 +35,6 @@ export async function getBetaSignups(): Promise<BetaSignup[]> {
       id: page.id,
       name: page.properties.Name?.title?.[0]?.text?.content || '',
       email: page.properties.Email?.email || '',
-      phone: page.properties.Phone?.phone_number || '',
       device: page.properties.Device?.select?.name || '',
       experience: page.properties.Experience?.rich_text?.[0]?.text?.content || '',
       expectations: page.properties.Expectations?.rich_text?.[0]?.text?.content || '',
@@ -76,9 +74,7 @@ export async function createBetaSignup(signupData: Omit<BetaSignup, 'id' | 'sign
         Email: {
           email: signupData.email,
         },
-        Phone: {
-          phone_number: signupData.phone || null,
-        },
+
         Device: signupData.device ? {
           select: {
             name: signupData.device,
