@@ -17,6 +17,7 @@ export interface BetaSignup {
   appInvites?: string
   disclaimer?: boolean
   submissionTime: string
+  alphaTester?: string
 }
 
 export async function getBetaSignups(): Promise<BetaSignup[]> {
