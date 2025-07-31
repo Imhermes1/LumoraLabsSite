@@ -36,8 +36,8 @@ export async function getBetaSignups(): Promise<BetaSignup[]> {
       fullName: page.properties['Full Name']?.title?.[0]?.text?.content || '',
       appleIdEmail: page.properties['Apple ID Email']?.email || '',
       googleEmail: page.properties['Google Email']?.email || '',
-      betaTestInvites: page.properties['I agree to receive Beta...']?.select?.name || '',
-      appInvites: page.properties['App Invites']?.select?.name || '',
+      betaTestInvites: page.properties['I agree to receive Beta Test Invites']?.multi_select?.[0]?.name || '',
+      appInvites: page.properties['App Invites ']?.multi_select?.[0]?.name || '',
       disclaimer: page.properties['Disclaimer']?.checkbox || false,
       submissionTime: page.properties['Submission time']?.date?.start || '',
     }))
@@ -91,19 +91,20 @@ export async function createBetaSignup(signupData: {
         } : {
           email: null,
         },
-        'I agree to receive Beta...': signupData.betaTestInvites ? {
-          select: {
-            name: signupData.betaTestInvites,
-          },
+        'I agree to receive Beta Test Invites': signupData.betaTestInvites ? {
+          multi_select: [
+            {
+              name: signupData.betaTestInvites,
+            },
+          ],
         } : {
-          select: null,
+          multi_select: [],
         },
-        'App Invites': {
-          select: {
-            name: signupData.appInvites?.macro && signupData.appInvites?.moodo ? 'Both' :
-                   signupData.appInvites?.macro ? 'Macro' :
-                   signupData.appInvites?.moodo ? 'MooDo' : 'None',
-          },
+        'App Invites ': {
+          multi_select: [
+            ...(signupData.appInvites?.macro ? [{ name: 'Macro' }] : []),
+            ...(signupData.appInvites?.moodo ? [{ name: 'MooDo' }] : []),
+          ],
         },
         'Disclaimer': {
           checkbox: signupData.disclaimer || false,
