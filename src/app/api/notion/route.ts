@@ -4,6 +4,16 @@ import { createBetaSignup, getBetaSignups } from '@/lib/notion'
 export async function POST(request: NextRequest) {
   try {
     console.log('API route called')
+    
+    // Test environment variables immediately
+    console.log('=== ENVIRONMENT VARIABLE TEST ===')
+    console.log('NOTION_API_TOKEN exists:', !!process.env.NOTION_API_TOKEN)
+    console.log('NOTION_API_TOKEN length:', process.env.NOTION_API_TOKEN?.length)
+    console.log('NOTION_DATABASE_ID exists:', !!process.env.NOTION_DATABASE_ID)
+    console.log('NOTION_DATABASE_ID value:', process.env.NOTION_DATABASE_ID)
+    console.log('All env vars with NOTION:', Object.keys(process.env).filter(key => key.includes('NOTION')))
+    console.log('=== END ENVIRONMENT TEST ===')
+    
     const body = await request.json()
     console.log('Request body:', body)
     
@@ -67,12 +77,19 @@ export async function POST(request: NextRequest) {
     try {
       console.log('Testing Notion API connection...')
       const { notion } = await import('@/lib/notion')
+      
+      // Test if we can access the database
       const testResponse = await notion.databases.retrieve({
         database_id: process.env.NOTION_DATABASE_ID || '22b2ce9d9bf180a3868fd7a68da60bf0'
       })
       console.log('Notion API connection successful, database ID:', testResponse.id)
+      
+      // Check database properties
+      console.log('Database properties:', Object.keys(testResponse.properties))
+      console.log('Available properties:', testResponse.properties)
     } catch (testError: any) {
       console.error('Notion API connection test failed:', testError?.message)
+      console.error('Full error:', testError)
       return NextResponse.json(
         { error: 'Notion API connection failed', details: testError?.message },
         { status: 500 }

@@ -77,30 +77,32 @@ export async function createBetaSignup(signupData: Omit<BetaSignup, 'id' | 'sign
           email: signupData.email,
         },
         Phone: {
-          phone_number: signupData.phone || '',
+          phone_number: signupData.phone || null,
         },
-        Device: {
+        Device: signupData.device ? {
           select: {
-            name: signupData.device || 'Not specified',
+            name: signupData.device,
           },
+        } : {
+          select: null,
         },
         Experience: {
-          rich_text: [
+          rich_text: signupData.experience ? [
             {
               text: {
-                content: signupData.experience || '',
+                content: signupData.experience,
               },
             },
-          ],
+          ] : [],
         },
         Expectations: {
-          rich_text: [
+          rich_text: signupData.expectations ? [
             {
               text: {
-                content: signupData.expectations || '',
+                content: signupData.expectations,
               },
             },
-          ],
+          ] : [],
         },
         Status: {
           select: {
