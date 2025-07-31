@@ -19,7 +19,6 @@ export async function POST(request: NextRequest) {
     
     const { 
       name, 
-      email, 
       appleIdEmail,
       googleEmail,
       betaTestInvites,
@@ -37,10 +36,19 @@ export async function POST(request: NextRequest) {
     })
 
     // Validate required fields
-    if (!name || !email) {
-      console.log('Validation failed: missing name or email')
+    if (!name) {
+      console.log('Validation failed: missing name')
       return NextResponse.json(
-        { error: 'Name and email are required' },
+        { error: 'Name is required' },
+        { status: 400 }
+      )
+    }
+
+    // Check if at least one email is provided
+    if (!appleIdEmail && !googleEmail) {
+      console.log('Validation failed: missing email')
+      return NextResponse.json(
+        { error: 'At least one email is required' },
         { status: 400 }
       )
     }
@@ -97,8 +105,8 @@ export async function POST(request: NextRequest) {
     // Create a new beta signup using our utility function
     const signupId = await createBetaSignup({
       fullName: name,
-      appleIdEmail: body.appleIdEmail || undefined,
-      googleEmail: body.googleEmail || undefined,
+      appleIdEmail: appleIdEmail || undefined,
+      googleEmail: googleEmail || undefined,
       betaTestInvites,
       appInvites,
       disclaimer,

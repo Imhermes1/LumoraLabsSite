@@ -36,6 +36,8 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
   const [debugInfo, setDebugInfo] = useState<string>('')
+  const [fieldErrors, setFieldErrors] = useState<{[key: string]: string}>({})
+  const [showBetaWarning, setShowBetaWarning] = useState(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target
@@ -49,17 +51,23 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
             [name]: checkbox.checked
           }
         }))
+        // Clear field error when they make a selection
+        setFieldErrors(prev => ({ ...prev, appInvites: '' }))
       } else if (name === 'disclaimer') {
         setFormData(prev => ({
           ...prev,
           disclaimer: checkbox.checked
         }))
+        // Clear field error when they check disclaimer
+        setFieldErrors(prev => ({ ...prev, disclaimer: '' }))
       }
     } else {
       setFormData(prev => ({
         ...prev,
         [name]: value
       }))
+      // Clear field error when they type
+      setFieldErrors(prev => ({ ...prev, [name]: '' }))
     }
   }
 
@@ -68,6 +76,27 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
       ...prev,
       betaTestInvites: value
     }))
+    
+    // Show warning if they select "No" to beta invites
+    if (value === 'No') {
+      setShowBetaWarning(true)
+    } else {
+      setShowBetaWarning(false)
+    }
+    
+    // Clear field error when they make a selection
+    setFieldErrors(prev => ({ ...prev, betaTestInvites: '' }))
+  }
+
+  // Function to check if form is valid
+  const isFormValid = () => {
+    return (
+      formData.fullName.trim() !== '' &&
+      (formData.googleEmail.trim() !== '' || formData.appleIdEmail.trim() !== '') &&
+      formData.betaTestInvites === 'Yes' && // Must be "Yes" for TestFlight
+      (formData.appInvites.macro || formData.appInvites.moodo) &&
+      formData.disclaimer
+    )
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -75,39 +104,38 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
     setIsSubmitting(true)
     setSubmitStatus('idle')
     setErrorMessage('')
+    setFieldErrors({})
 
-    // Validate required fields
-    if (!formData.fullName) {
-      setSubmitStatus('error')
-      setErrorMessage('Full Name is required')
-      setIsSubmitting(false)
-      return
+    // Validate required fields with specific error messages
+    const errors: {[key: string]: string} = {}
+    
+    if (!formData.fullName.trim()) {
+      errors.fullName = 'Full Name is required'
     }
 
-    if (!formData.googleEmail && !formData.appleIdEmail) {
-      setSubmitStatus('error')
-      setErrorMessage('Please provide either a Google Email or Apple ID Email')
-      setIsSubmitting(false)
-      return
+    if (!formData.googleEmail.trim() && !formData.appleIdEmail.trim()) {
+      errors.email = 'Please provide either a Google Email or Apple ID Email'
     }
 
     if (!formData.betaTestInvites) {
-      setSubmitStatus('error')
-      setErrorMessage('Please select whether you agree to receive Beta Test Invites')
-      setIsSubmitting(false)
-      return
+      errors.betaTestInvites = 'Please select whether you agree to receive Beta Test Invites'
+    } else if (formData.betaTestInvites === 'No') {
+      errors.betaTestInvites = 'You must agree to receive Beta Test Invites to participate in the TestFlight beta program'
     }
 
     if (!formData.appInvites.macro && !formData.appInvites.moodo) {
-      setSubmitStatus('error')
-      setErrorMessage('Please select at least one app invite')
-      setIsSubmitting(false)
-      return
+      errors.appInvites = 'Please select at least one app invite'
     }
 
     if (!formData.disclaimer) {
+      errors.disclaimer = 'You must agree to the disclaimer'
+    }
+
+    // If there are validation errors, show them and stop submission
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors)
       setSubmitStatus('error')
-      setErrorMessage('You must agree to the disclaimer')
+      setErrorMessage('Please fix the errors above')
       setIsSubmitting(false)
       return
     }
@@ -131,11 +159,8 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
         },
         body: JSON.stringify({
           name: formData.fullName,
-          email: formData.googleEmail || formData.appleIdEmail,
-          phone: '',
-          device: '',
-          experience: '',
-          expectations: '',
+          googleEmail: formData.googleEmail,
+          appleIdEmail: formData.appleIdEmail,
           betaTestInvites: formData.betaTestInvites,
           appInvites: formData.appInvites,
           disclaimer: formData.disclaimer
@@ -191,10 +216,10 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
           Thank you for joining our exclusive beta program. We'll be in touch soon with your early access details.
         </p>
         <button
-          onClick={() => setSubmitStatus('idle')}
+          onClick={() => window.location.href = '/'}
           className="glass-strong rounded-full px-6 py-3 text-white font-semibold hover:bg-lumora-purple/30 transition-all duration-300"
         >
-          Submit Another Application
+          Back to Home
         </button>
       </div>
     )
@@ -222,47 +247,68 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
             value={formData.fullName}
             onChange={handleInputChange}
             required
-            className="w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300"
+            className={`w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 transition-all duration-300 ${
+              fieldErrors.fullName 
+                ? 'focus:ring-red-500/50 border border-red-500/30' 
+                : 'focus:ring-lumora-purple/50'
+            }`}
             placeholder="Respondent's answer"
           />
+          {fieldErrors.fullName && (
+            <p className="text-red-400 text-xs mt-1">{fieldErrors.fullName}</p>
+          )}
         </div>
 
-        {/* Google Email */}
+        {/* Email Fields */}
         <div>
-          <label htmlFor="googleEmail" className="block text-white/80 text-sm font-medium mb-2">
-            Google Email
+          <label className="block text-white/80 text-sm font-medium mb-2">
+            Email Address *
           </label>
-          <input
-            type="email"
-            id="googleEmail"
-            name="googleEmail"
-            value={formData.googleEmail}
-            onChange={handleInputChange}
-            className="w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300"
-            placeholder="Respondent's answer"
-          />
-        </div>
+          <p className="text-white/50 text-xs mb-3">Please provide at least one email address</p>
+          
+          {/* Google Email */}
+          <div className="mb-3">
+            <input
+              type="email"
+              id="googleEmail"
+              name="googleEmail"
+              value={formData.googleEmail}
+              onChange={handleInputChange}
+              className={`w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 transition-all duration-300 ${
+                fieldErrors.email 
+                  ? 'focus:ring-red-500/50 border border-red-500/30' 
+                  : 'focus:ring-lumora-purple/50'
+              }`}
+              placeholder="Google Email (optional)"
+            />
+          </div>
 
-        {/* Apple ID Email */}
-        <div>
-          <label htmlFor="appleIdEmail" className="block text-white/80 text-sm font-medium mb-2">
-            Apple ID Email
-          </label>
-          <input
-            type="email"
-            id="appleIdEmail"
-            name="appleIdEmail"
-            value={formData.appleIdEmail}
-            onChange={handleInputChange}
-            className="w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300"
-            placeholder="Respondent's answer"
-          />
+          {/* Apple ID Email */}
+          <div>
+            <input
+              type="email"
+              id="appleIdEmail"
+              name="appleIdEmail"
+              value={formData.appleIdEmail}
+              onChange={handleInputChange}
+              className={`w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 transition-all duration-300 ${
+                fieldErrors.email 
+                  ? 'focus:ring-red-500/50 border border-red-500/30' 
+                  : 'focus:ring-lumora-purple/50'
+              }`}
+              placeholder="Apple ID Email (optional)"
+            />
+          </div>
+          
+          {fieldErrors.email && (
+            <p className="text-red-400 text-xs mt-1">{fieldErrors.email}</p>
+          )}
         </div>
 
         {/* Beta Test Invites */}
         <div>
           <label className="block text-white/80 text-sm font-medium mb-2">
-            I agree to receive Beta Test Invites
+            I agree to receive Beta Test Invites *
           </label>
           <p className="text-white/50 text-xs mb-3">(Respondents can select up to 1)</p>
           <div className="space-y-2">
@@ -289,12 +335,27 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
               <span className="text-white/70 text-sm">No</span>
             </label>
           </div>
+          {fieldErrors.betaTestInvites && (
+            <p className="text-red-400 text-xs mt-1">{fieldErrors.betaTestInvites}</p>
+          )}
         </div>
+
+        {/* Beta Warning */}
+        {showBetaWarning && (
+          <div className="glass rounded-xl p-4 border border-red-500/30">
+            <div className="flex items-center space-x-3">
+              <AlertCircle className="text-red-400" size={20} />
+              <p className="text-red-400 text-sm">
+                <strong>Important:</strong> TestFlight beta access requires email invitations. If you don't agree to receive beta invites, you cannot participate in the beta program.
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* App Invites */}
         <div>
           <label className="block text-white/80 text-sm font-medium mb-2">
-            App Invites
+            App Invites *
           </label>
           <p className="text-white/50 text-xs mb-3">(Respondents can select as many as they like)</p>
           <div className="space-y-3">
@@ -323,6 +384,9 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
               </span>
             </label>
           </div>
+          {fieldErrors.appInvites && (
+            <p className="text-red-400 text-xs mt-1">{fieldErrors.appInvites}</p>
+          )}
         </div>
 
         {/* Disclaimer */}
@@ -345,6 +409,9 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
             />
             <span className="text-white/70 text-sm">Agree</span>
           </label>
+          {fieldErrors.disclaimer && (
+            <p className="text-red-400 text-xs mt-1">{fieldErrors.disclaimer}</p>
+          )}
         </div>
 
         {/* Error Message */}
@@ -379,7 +446,7 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
         {/* Submit Button */}
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !isFormValid()}
           className="w-full glass-strong rounded-xl px-6 py-4 text-white font-semibold text-lg hover:bg-lumora-purple/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
         >
           {isSubmitting ? (
