@@ -12,9 +12,11 @@ export interface BetaSignup {
   id: string
   name: string
   email: string
-  device?: string
-  experience?: string
-  expectations?: string
+  betaTestInvites?: string
+  appInvites?: {
+    macro: boolean
+    moodo: boolean
+  }
   status: string
   signupDate: string
 }
@@ -35,9 +37,11 @@ export async function getBetaSignups(): Promise<BetaSignup[]> {
       id: page.id,
       name: page.properties.Name?.title?.[0]?.text?.content || '',
       email: page.properties.Email?.email || '',
-      device: page.properties.Device?.select?.name || '',
-      experience: page.properties.Experience?.rich_text?.[0]?.text?.content || '',
-      expectations: page.properties.Expectations?.rich_text?.[0]?.text?.content || '',
+      betaTestInvites: page.properties['Beta Test Invites']?.select?.name || '',
+      appInvites: {
+        macro: page.properties['App Invites - Macro']?.checkbox || false,
+        moodo: page.properties['App Invites - MooDo']?.checkbox || false,
+      },
       status: page.properties.Status?.select?.name || 'New',
       signupDate: page.properties['Signup Date']?.date?.start || '',
     }))
@@ -47,7 +51,16 @@ export async function getBetaSignups(): Promise<BetaSignup[]> {
   }
 }
 
-export async function createBetaSignup(signupData: Omit<BetaSignup, 'id' | 'signupDate'>): Promise<string | null> {
+export async function createBetaSignup(signupData: {
+  name: string
+  email: string
+  betaTestInvites?: string
+  appInvites?: {
+    macro: boolean
+    moodo: boolean
+  }
+  status: string
+}): Promise<string | null> {
   try {
     console.log('Creating beta signup with data:', signupData)
     console.log('Environment check in createBetaSignup:', {
@@ -74,31 +87,18 @@ export async function createBetaSignup(signupData: Omit<BetaSignup, 'id' | 'sign
         Email: {
           email: signupData.email,
         },
-
-        Device: signupData.device ? {
+        'Beta Test Invites': signupData.betaTestInvites ? {
           select: {
-            name: signupData.device,
+            name: signupData.betaTestInvites,
           },
         } : {
           select: null,
         },
-        Experience: {
-          rich_text: signupData.experience ? [
-            {
-              text: {
-                content: signupData.experience,
-              },
-            },
-          ] : [],
+        'App Invites - Macro': {
+          checkbox: signupData.appInvites?.macro || false,
         },
-        Expectations: {
-          rich_text: signupData.expectations ? [
-            {
-              text: {
-                content: signupData.expectations,
-              },
-            },
-          ] : [],
+        'App Invites - MooDo': {
+          checkbox: signupData.appInvites?.moodo || false,
         },
         Status: {
           select: {

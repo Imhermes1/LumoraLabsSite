@@ -20,9 +20,6 @@ export async function POST(request: NextRequest) {
     const { 
       name, 
       email, 
-      device, 
-      experience, 
-      expectations,
       betaTestInvites,
       appInvites,
       disclaimer
@@ -99,9 +96,8 @@ export async function POST(request: NextRequest) {
     const signupId = await createBetaSignup({
       name,
       email,
-      device: device || '',
-      experience: experience || '',
-      expectations: expectations || '',
+      betaTestInvites,
+      appInvites,
       status: 'New',
     })
 
