@@ -222,30 +222,30 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
               <p className="text-lumora-pink font-semibold text-sm">You're one of the first 25!</p>
             </div>
             <h3 className="text-white font-semibold text-xl mb-2">
-              Welcome to the Alpha! 🎉
+              Welcome to Lumora Labs Alpha! 🎉
             </h3>
             <p className="text-white/70 text-sm mb-4">
-              Congratulations! You've secured Alpha Tester status with exclusive benefits:
+              Congratulations! You're now part of our exclusive Alpha Program. Help us craft the future of extraordinary apps:
             </p>
             <div className="space-y-2 mb-6 text-left max-w-sm mx-auto">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-lumora-pink rounded-full"></div>
-                <span className="text-white/80 text-sm">Exclusive launch discount</span>
+                <span className="text-white/80 text-sm">Direct influence on Lumora Labs development</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-lumora-purple rounded-full"></div>
-                <span className="text-white/80 text-sm">Priority access to new features</span>
+                <span className="text-white/80 text-sm">Exclusive access to cutting-edge features</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-deep-purple rounded-full"></div>
-                <span className="text-white/80 text-sm">VIP support and exclusive perks</span>
+                <span className="text-white/80 text-sm">Premium benefits and lifetime advantages</span>
               </div>
             </div>
           </>
         ) : (
           <>
             <h3 className="text-white font-semibold text-xl mb-2">
-              Welcome to the Beta! 🎉
+              Welcome to Lumora Labs Beta! 🎉
             </h3>
             <p className="text-white/70 text-sm mb-6">
               Thank you for joining our exclusive beta program. We'll be in touch soon with your early access details.

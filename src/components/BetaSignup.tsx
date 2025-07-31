@@ -45,11 +45,11 @@ export default function BetaSignup() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Join the <span className="gradient-text">Revolution</span>
+            Join the <span className="gradient-text">Lumora Labs</span> Alpha Program
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Be among the first to experience the future of elegant, wellness-focused apps. 
-            Exclusive spots available for early access.
+            Be among the first to experience the future of elegantly crafted and intuitively powerful apps. 
+            Help us shape the world's most beautifully designed and best functioning applications.
           </p>
         </div>
 
@@ -63,28 +63,28 @@ export default function BetaSignup() {
                     <span className="text-lumora-pink font-bold text-lg">α</span>
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-xl">Alpha Tester Spots Available!</h3>
-                    <p className="text-white/80 text-sm">First 25 users get exclusive Alpha Tester benefits</p>
+                    <h3 className="text-white font-bold text-xl">Lumora Labs Alpha Program</h3>
+                    <p className="text-white/80 text-sm">Join the inner circle of extraordinary app development</p>
                   </div>
                 </div>
                 <div className="text-right">
                   <div className="text-lumora-pink font-bold text-2xl">{alphaTesterSpotsRemaining}</div>
-                  <div className="text-white/70 text-sm">spots left</div>
+                  <div className="text-white/70 text-sm">spots remaining</div>
                 </div>
               </div>
               
               <div className="grid md:grid-cols-3 gap-4 mb-4">
                 <div className="text-center">
-                  <div className="text-lumora-pink font-bold text-lg">Exclusive Discount</div>
-                  <div className="text-white/70 text-xs">Special Launch Offer</div>
+                  <div className="text-lumora-pink font-bold text-lg">Shape the Future</div>
+                  <div className="text-white/70 text-xs">Direct influence on development</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lumora-pink font-bold text-lg">Priority Access</div>
-                  <div className="text-white/70 text-xs">Before Everyone Else</div>
+                  <div className="text-lumora-pink font-bold text-lg">Exclusive Access</div>
+                  <div className="text-white/70 text-xs">Be the first to experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lumora-pink font-bold text-lg">VIP Treatment</div>
-                  <div className="text-white/70 text-xs">Premium Benefits</div>
+                  <div className="text-lumora-pink font-bold text-lg">Premium Benefits</div>
+                  <div className="text-white/70 text-xs">Lifetime advantages</div>
                 </div>
               </div>
             </div>
@@ -189,7 +189,7 @@ export default function BetaSignup() {
         <div className="text-center mt-8">
           <div className="glass rounded-2xl px-6 py-4 inline-block">
             <p className="text-lumora-pink font-semibold">
-              ⚡ Exclusive: Beta closes when we reach 100 participants
+              ⚡ Exclusive: Alpha Program closes when we reach 25 participants
             </p>
           </div>
         </div>
