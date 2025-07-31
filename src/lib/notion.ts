@@ -5,8 +5,8 @@ export const notion = new Client({
   auth: process.env.NOTION_API_TOKEN || '',
 })
 
-// You'll need to replace this with your actual database ID
-export const DATABASE_ID = 'your-database-id-here'
+// Your Notion database ID
+export const DATABASE_ID = '22b2ce9d9bf180a3868fd7a68da60bf0'
 
 export interface BetaSignup {
   id: string
