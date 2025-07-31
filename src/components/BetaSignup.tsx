@@ -48,10 +48,7 @@ export default function BetaSignup() {
             Join the <span className="gradient-text">Lumora Labs</span> Alpha Program
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Elegantly crafted. Beautifully designed. Purposefully built.
-          </p>
-          <p className="text-lg text-white/70 max-w-3xl mx-auto mt-4">
-            Help us shape the world's most intuitively powerful software.
+            Join us in building the future of beautifully simple digital experiences.
           </p>
         </div>
 
