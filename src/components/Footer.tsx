@@ -28,7 +28,7 @@ export default function Footer() {
 
             <p className="text-white/70 text-lg mb-6 max-w-md leading-relaxed">
               Where light meets innovation. Creating the world's most elegantly crafted and intuitively powerful apps 
-              exclusively for Apple, with Android coming soon.
+              for Apple and Android.
             </p>
 
             <div className="flex items-center space-x-2 text-white/60 mb-2">
@@ -113,14 +113,20 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col lg:flex-row justify-between items-center pt-8 border-t border-white/10">
           <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-4 lg:mb-0">
-            <Link href="#" className="text-white/60 hover:text-white text-sm transition-colors">
+            <Link href="/privacy-policy" className="text-white/60 hover:text-white text-sm transition-colors">
               Privacy Policy
             </Link>
-            <Link href="#" className="text-white/60 hover:text-white text-sm transition-colors">
+            <Link href="/terms-of-service" className="text-white/60 hover:text-white text-sm transition-colors">
               Terms of Service
             </Link>
-            <Link href="#" className="text-white/60 hover:text-white text-sm transition-colors">
+            <Link href="/beta-terms" className="text-white/60 hover:text-white text-sm transition-colors">
+              Beta Terms
+            </Link>
+            <Link href="/support" className="text-white/60 hover:text-white text-sm transition-colors">
               Support
+            </Link>
+            <Link href="/cookies" className="text-white/60 hover:text-white text-sm transition-colors">
+              Cookie Policy
             </Link>
           </div>
 
