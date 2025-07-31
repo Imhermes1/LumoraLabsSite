@@ -38,6 +38,7 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
   const [debugInfo, setDebugInfo] = useState<string>('')
   const [fieldErrors, setFieldErrors] = useState<{[key: string]: string}>({})
   const [showBetaWarning, setShowBetaWarning] = useState(false)
+  const [isAlphaTester, setIsAlphaTester] = useState(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target
@@ -175,6 +176,7 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
 
       if (response.ok) {
         setSubmitStatus('success')
+        setIsAlphaTester(data.isAlphaTester || false)
         setFormData({
           fullName: '',
           googleEmail: '',
@@ -209,12 +211,48 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
         <div className="w-16 h-16 bg-positive/20 rounded-full flex items-center justify-center mx-auto mb-4">
           <CheckCircle className="text-positive" size={32} />
         </div>
-        <h3 className="text-white font-semibold text-xl mb-2">
-          Welcome to the Beta! 🎉
-        </h3>
-        <p className="text-white/70 text-sm mb-6">
-          Thank you for joining our exclusive beta program. We'll be in touch soon with your early access details.
-        </p>
+        
+        {isAlphaTester ? (
+          <>
+            <div className="mb-4 p-4 bg-gradient-to-r from-lumora-pink/20 to-lumora-purple/20 rounded-2xl border border-lumora-pink/30">
+              <div className="flex items-center justify-center mb-2">
+                <span className="text-lumora-pink font-bold text-2xl mr-2">α</span>
+                <h3 className="text-white font-bold text-xl">Alpha Tester Status Unlocked!</h3>
+              </div>
+              <p className="text-lumora-pink font-semibold text-sm">You're one of the first 25!</p>
+            </div>
+            <h3 className="text-white font-semibold text-xl mb-2">
+              Welcome to the Alpha! 🎉
+            </h3>
+            <p className="text-white/70 text-sm mb-4">
+              Congratulations! You've secured Alpha Tester status with exclusive benefits:
+            </p>
+            <div className="space-y-2 mb-6 text-left max-w-sm mx-auto">
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-lumora-pink rounded-full"></div>
+                <span className="text-white/80 text-sm">50% discount at launch</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-lumora-purple rounded-full"></div>
+                <span className="text-white/80 text-sm">Priority early access</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-deep-purple rounded-full"></div>
+                <span className="text-white/80 text-sm">Direct support channel</span>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <h3 className="text-white font-semibold text-xl mb-2">
+              Welcome to the Beta! 🎉
+            </h3>
+            <p className="text-white/70 text-sm mb-6">
+              Thank you for joining our exclusive beta program. We'll be in touch soon with your early access details.
+            </p>
+          </>
+        )}
+        
         <button
           onClick={() => window.location.href = '/'}
           className="glass-strong rounded-full px-6 py-3 text-white font-semibold hover:bg-lumora-purple/30 transition-all duration-300"

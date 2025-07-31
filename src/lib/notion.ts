@@ -40,10 +40,21 @@ export async function getBetaSignups(): Promise<BetaSignup[]> {
       appInvites: page.properties['App Invites ']?.multi_select?.[0]?.name || '',
       disclaimer: page.properties['Disclaimer']?.checkbox || false,
       submissionTime: page.properties['Submission time']?.date?.start || '',
+      alphaTester: page.properties['Alpha Tester']?.rich_text?.[0]?.text?.content || 'No',
     }))
   } catch (error) {
     console.error('Error fetching beta signups:', error)
     return []
+  }
+}
+
+export async function getAlphaTesterCount(): Promise<number> {
+  try {
+    const signups = await getBetaSignups()
+    return signups.filter(signup => signup.alphaTester === 'Yes').length
+  } catch (error) {
+    console.error('Error getting alpha tester count:', error)
+    return 0
   }
 }
 
@@ -57,7 +68,7 @@ export async function createBetaSignup(signupData: {
     moodo: boolean
   }
   disclaimer?: boolean
-}): Promise<string | null> {
+}): Promise<{ id: string | null; isAlphaTester: boolean }> {
   try {
     console.log('Creating beta signup with data:', signupData)
     console.log('Environment check in createBetaSignup:', {
@@ -66,6 +77,10 @@ export async function createBetaSignup(signupData: {
       databaseId: DATABASE_ID,
       databaseIdLength: DATABASE_ID.length
     })
+
+    // Check current signup count to determine Alpha Tester status
+    const currentSignups = await getBetaSignups()
+    const isAlphaTester = currentSignups.length < 25
 
     const response = await notion.pages.create({
       parent: {
@@ -114,11 +129,21 @@ export async function createBetaSignup(signupData: {
             start: new Date().toISOString(),
           },
         },
+        'Alpha Tester': {
+          rich_text: [
+            {
+              text: {
+                content: isAlphaTester ? 'Yes' : 'No',
+              },
+            },
+          ],
+        },
       },
     })
 
     console.log('Successfully created beta signup with ID:', response.id)
-    return response.id
+    console.log('Alpha Tester status:', isAlphaTester)
+    return { id: response.id, isAlphaTester }
   } catch (error: any) {
     console.error('Error creating beta signup:', error)
     console.error('Error details:', {
@@ -127,6 +152,6 @@ export async function createBetaSignup(signupData: {
       status: error?.status,
       body: error?.body
     })
-    return null
+    return { id: null, isAlphaTester: false }
   }
 }

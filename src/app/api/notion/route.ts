@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createBetaSignup, getBetaSignups } from '@/lib/notion'
+import { createBetaSignup, getBetaSignups, getAlphaTesterCount } from '@/lib/notion'
 
 export async function POST(request: NextRequest) {
   try {
@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create a new beta signup using our utility function
-    const signupId = await createBetaSignup({
+    const signupResult = await createBetaSignup({
       fullName: name,
       appleIdEmail: appleIdEmail || undefined,
       googleEmail: googleEmail || undefined,
@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
       disclaimer,
     })
 
-    if (!signupId) {
+    if (!signupResult.id) {
       console.log('createBetaSignup returned null/undefined')
       return NextResponse.json(
         { error: 'Failed to create beta signup - function returned null' },
@@ -123,8 +123,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       { 
         success: true, 
-        message: 'Beta signup successful!',
-        id: signupId 
+        message: signupResult.isAlphaTester 
+          ? 'Congratulations! You\'re an Alpha Tester! 🎉' 
+          : 'Beta signup successful!',
+        id: signupResult.id,
+        isAlphaTester: signupResult.isAlphaTester
       },
       { status: 201 }
     )
@@ -147,10 +150,12 @@ export async function GET() {
   try {
     // Get all beta signups using our utility function
     const signups = await getBetaSignups()
+    const alphaTesterCount = await getAlphaTesterCount()
 
     return NextResponse.json({
       success: true,
       count: signups.length,
+      alphaTesterCount,
       entries: signups,
     })
   } catch (error) {

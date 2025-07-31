@@ -6,23 +6,37 @@ import BetaSignupModal from './BetaSignupModal'
 
 export default function BetaSignup() {
   const [totalBetaSignups, setTotalBetaSignups] = useState(38)
+  const [alphaTesterCount, setAlphaTesterCount] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const totalSlots = 100
+  const alphaTesterSlots = 25
+  const alphaTesterSpotsRemaining = Math.max(0, alphaTesterSlots - alphaTesterCount)
 
   const openBetaSignup = () => {
     setIsModalOpen(true)
   }
 
-  // Simulate occasional counter updates (optional for demo purposes)
+  // Fetch real data from API
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (Math.random() < 0.1) { // 10% chance every 30 seconds
-        setTotalBetaSignups(prev => Math.min(prev + 1, totalSlots))
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/api/notion')
+        const data = await response.json()
+        if (data.success) {
+          setTotalBetaSignups(data.count)
+          setAlphaTesterCount(data.alphaTesterCount)
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error)
       }
-    }, 30000)
+    }
 
+    fetchData()
+    
+    // Refresh data every 30 seconds
+    const interval = setInterval(fetchData, 30000)
     return () => clearInterval(interval)
-  }, [totalSlots])
+  }, [])
 
   const progressPercentage = (totalBetaSignups / totalSlots) * 100
 
@@ -40,6 +54,42 @@ export default function BetaSignup() {
         </div>
 
         <div className="glass-strong rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
+          {/* Alpha Tester Alert */}
+          {alphaTesterSpotsRemaining > 0 && (
+            <div className="mb-8 p-6 bg-gradient-to-r from-lumora-pink/20 to-lumora-purple/20 rounded-2xl border border-lumora-pink/30">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-lumora-pink/20 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-lumora-pink font-bold text-lg">α</span>
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-xl">Alpha Tester Spots Available!</h3>
+                    <p className="text-white/80 text-sm">First 25 users get exclusive benefits</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-lumora-pink font-bold text-2xl">{alphaTesterSpotsRemaining}</div>
+                  <div className="text-white/70 text-sm">spots left</div>
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-3 gap-4 mb-4">
+                <div className="text-center">
+                  <div className="text-lumora-pink font-bold text-lg">50% OFF</div>
+                  <div className="text-white/70 text-xs">Launch Discount</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lumora-pink font-bold text-lg">Early Access</div>
+                  <div className="text-white/70 text-xs">Before Public</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lumora-pink font-bold text-lg">Direct Support</div>
+                  <div className="text-white/70 text-xs">Priority Help</div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Progress Bar */}
           <div className="mb-8">
             <div className="flex justify-between items-center mb-3">
