@@ -86,10 +86,16 @@ export async function POST(request: NextRequest) {
       },
       { status: 201 }
     )
-  } catch (error) {
+  } catch (error: any) {
     console.error('Notion API error:', error)
+    console.error('Error details:', {
+      message: error?.message,
+      code: error?.code,
+      status: error?.status,
+      body: error?.body
+    })
     return NextResponse.json(
-      { error: 'Failed to submit beta signup' },
+      { error: 'Failed to submit beta signup', details: error?.message },
       { status: 500 }
     )
   }

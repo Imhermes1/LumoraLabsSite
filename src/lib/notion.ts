@@ -6,7 +6,7 @@ export const notion = new Client({
 })
 
 // Your Notion database ID
-export const DATABASE_ID = '22b2ce9d9bf180a3868fd7a68da60bf0'
+export const DATABASE_ID = process.env.NOTION_DATABASE_ID || '22b2ce9d9bf180a3868fd7a68da60bf0'
 
 export interface BetaSignup {
   id: string
@@ -51,6 +51,14 @@ export async function getBetaSignups(): Promise<BetaSignup[]> {
 
 export async function createBetaSignup(signupData: Omit<BetaSignup, 'id' | 'signupDate'>): Promise<string | null> {
   try {
+    console.log('Creating beta signup with data:', signupData)
+    console.log('Environment check in createBetaSignup:', {
+      hasToken: !!process.env.NOTION_API_TOKEN,
+      tokenLength: process.env.NOTION_API_TOKEN?.length,
+      databaseId: DATABASE_ID,
+      databaseIdLength: DATABASE_ID.length
+    })
+
     const response = await notion.pages.create({
       parent: {
         database_id: DATABASE_ID,
@@ -107,9 +115,16 @@ export async function createBetaSignup(signupData: Omit<BetaSignup, 'id' | 'sign
       },
     })
 
+    console.log('Successfully created beta signup with ID:', response.id)
     return response.id
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error creating beta signup:', error)
+    console.error('Error details:', {
+      message: error?.message,
+      code: error?.code,
+      status: error?.status,
+      body: error?.body
+    })
     return null
   }
 } 
