@@ -25,7 +25,7 @@ export async function getBetaSignups(): Promise<BetaSignup[]> {
       database_id: DATABASE_ID,
       sorts: [
         {
-          property: 'Signup Date',
+          property: 'Submission time',
           direction: 'descending',
         },
       ],
