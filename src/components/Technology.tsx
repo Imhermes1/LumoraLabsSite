@@ -70,8 +70,16 @@ export default function Technology() {
             const IconComponent = tech.icon
             return (
               <div key={index} className="glass-strong rounded-2xl p-6 hover:scale-105 transition-all duration-300">
-                <div className={`w-12 h-12 mb-4 bg-${tech.color}/20 rounded-xl flex items-center justify-center`}>
-                  <IconComponent className={`text-${tech.color}`} size={24} />
+                <div className={`w-12 h-12 mb-4 ${tech.color === 'lumora-pink' ? 'bg-lumora-pink/20' : 
+                                 tech.color === 'lumora-purple' ? 'bg-lumora-purple/20' :
+                                 tech.color === 'positive' ? 'bg-positive/20' :
+                                 tech.color === 'calm' ? 'bg-calm/20' :
+                                 tech.color === 'deep-purple' ? 'bg-deep-purple/20' : 'bg-lumora-purple/20'} rounded-xl flex items-center justify-center`}>
+                  <IconComponent className={`${tech.color === 'lumora-pink' ? 'text-lumora-pink' : 
+                                           tech.color === 'lumora-purple' ? 'text-lumora-purple' :
+                                           tech.color === 'positive' ? 'text-positive' :
+                                           tech.color === 'calm' ? 'text-calm' :
+                                           tech.color === 'deep-purple' ? 'text-deep-purple' : 'text-lumora-purple'}`} size={24} />
                 </div>
                 <h3 className="text-white font-semibold text-lg mb-2">{tech.title}</h3>
                 <p className="text-white/70">{tech.description}</p>
