@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { X, Sparkles, Star, Wand2, Crown, Users, Gift, Zap } from 'lucide-react'
 
 interface AlphaRevealModalProps {
@@ -14,13 +14,27 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
   const [showModalForm, setShowModalForm] = useState(false)
   const [showContent, setShowContent] = useState(false)
   const [showSpells, setShowSpells] = useState(false)
+  const [isClosing, setIsClosing] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
+  const handleClose = useCallback(() => {
+    if (isClosing) return // Prevent multiple rapid close calls
+    
+    setIsClosing(true)
+    onClose()
+    
+    // Reset closing state after a delay
+    setTimeout(() => {
+      setIsClosing(false)
+    }, 300)
+  }, [isClosing, onClose])
+
   useEffect(() => {
     if (isOpen) {
+      setIsClosing(false)
       document.body.classList.add('modal-open')
       setTimeout(() => setShowDissolutionParticles(true), 100)
       setTimeout(() => setShowModalForm(true), 1200)
@@ -46,7 +60,7 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-        onClick={onClose}
+        onClick={handleClose}
       />
 
       {/* Particles */}
@@ -122,7 +136,7 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
             </div>
             
             <button
-              onClick={onClose}
+              onClick={handleClose}
               className="bg-white/10 hover:bg-white/20 rounded-full p-3 text-white/70 hover:text-white transition-all duration-300 flex-shrink-0"
             >
               <X size={24} />
@@ -214,7 +228,7 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
                     Only a few magical spots remain. Will you be one of the chosen ones?
                   </p>
                   <button
-                    onClick={onClose}
+                    onClick={handleClose}
                     className="bg-purple-600 hover:bg-purple-700 rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border border-purple-500/30"
                   >
                     <span className="flex items-center">

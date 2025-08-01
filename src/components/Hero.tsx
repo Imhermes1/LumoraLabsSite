@@ -145,12 +145,7 @@ export default function Hero() {
       <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       
       {/* Alpha Reveal Modal */}
-      <AlphaRevealModal isOpen={isAlphaModalOpen} onClose={() => {
-        setIsAlphaModalOpen(false)
-        // Ensure wand is completely reset
-        setShowWand(false)
-        setWandTargetPosition(null)
-      }} />
+      <AlphaRevealModal isOpen={isAlphaModalOpen} onClose={() => setIsAlphaModalOpen(false)} />
       
       {/* Magical Wand Animation */}
       <MagicalWand 
