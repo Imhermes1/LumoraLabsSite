@@ -11,7 +11,6 @@ interface ContactModalProps {
 interface ContactFormData {
   name: string
   email: string
-  subject: string
   message: string
 }
 
@@ -19,7 +18,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
-    subject: '',
     message: ''
   })
   
@@ -42,7 +40,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     setErrorMessage('')
 
     // Basic validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setSubmitStatus('error')
       setErrorMessage('Please fill in all fields')
       setIsSubmitting(false)
@@ -65,7 +63,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         setFormData({
           name: '',
           email: '',
-          subject: '',
           message: ''
         })
         // Auto-close after 3 seconds
@@ -174,25 +171,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   </div>
                 </div>
 
-                {/* Subject Field */}
-                <div>
-                  <label htmlFor="subject" className="block text-white/80 text-sm font-medium mb-2">
-                    Subject *
-                  </label>
-                  <div className="relative">
-                    <MessageSquare className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/40" size={20} />
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full glass rounded-xl pl-12 pr-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300"
-                      placeholder="What's this about?"
-                    />
-                  </div>
-                </div>
+
 
                 {/* Message Field */}
                 <div>
