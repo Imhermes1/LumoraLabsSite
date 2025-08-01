@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
         database_id: originalDatabaseId,
       },
       properties: {
-        'name': {
+        'Name': {
           title: [
             {
               text: {
@@ -73,10 +73,10 @@ export async function POST(request: NextRequest) {
             },
           ],
         },
-        'email': {
+        'Email': {
           email: email,
         },
-        'message': {
+        'Message': {
           rich_text: [
             {
               text: {
@@ -85,22 +85,22 @@ export async function POST(request: NextRequest) {
             },
           ],
         },
-        'submission date': {
+        'Submission Date': {
           date: {
             start: new Date().toISOString(),
           },
         },
-        'status': {
+        'Status': {
           status: {
             name: 'New',
           },
         },
-        'priority': {
+        'Priority': {
           select: {
             name: priority || 'Medium',
           },
         },
-        'category': {
+        'Category': {
           select: {
             name: category || 'General Question',
           },
