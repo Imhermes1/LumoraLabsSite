@@ -38,8 +38,9 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Check if database ID is properly formatted
-    if (!CONTACT_DATABASE_ID.match(/^[a-f0-9]{32}$/)) {
+    // Check if database ID is properly formatted (with or without hyphens)
+    const cleanDatabaseId = CONTACT_DATABASE_ID.replace(/-/g, '')
+    if (!cleanDatabaseId.match(/^[a-f0-9]{32}$/)) {
       console.error('Invalid database ID format:', CONTACT_DATABASE_ID)
       return NextResponse.json(
         { error: 'Database configuration error. Please contact support.' },
@@ -48,9 +49,10 @@ export async function POST(request: NextRequest) {
     }
 
     // Create contact entry in Notion
+    console.log('Attempting to create contact entry with database ID:', cleanDatabaseId)
     const response = await notion.pages.create({
       parent: {
-        database_id: CONTACT_DATABASE_ID,
+        database_id: cleanDatabaseId,
       },
       properties: {
         'Name': {
