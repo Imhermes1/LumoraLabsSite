@@ -19,6 +19,7 @@ export default function BetaCount({ className = '' }: BetaCountProps) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [showContent, setShowContent] = useState(false)
+  const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
 
   useEffect(() => {
     const fetchCount = async () => {
@@ -27,6 +28,7 @@ export default function BetaCount({ className = '' }: BetaCountProps) {
         if (window.__preloadedBetaCount !== undefined) {
           setCount(window.__preloadedBetaCount)
           setLoading(false)
+          setLastUpdate(new Date())
           // If data is preloaded, show content sooner
           setTimeout(() => setShowContent(true), 500)
           return
@@ -38,6 +40,7 @@ export default function BetaCount({ className = '' }: BetaCountProps) {
         
         if (data.success) {
           setCount(data.count)
+          setLastUpdate(new Date())
         } else {
           setError(true)
         }
@@ -51,13 +54,19 @@ export default function BetaCount({ className = '' }: BetaCountProps) {
     // Fetch data immediately
     fetchCount()
 
+    // Set up real-time updates every 30 seconds
+    const interval = setInterval(fetchCount, 30000)
+
     // Show content after 2 seconds for smooth transition, or sooner if data is preloaded
     const showDelay = window.__preloadedBetaCount !== undefined ? 500 : 2000
     const timer = setTimeout(() => {
       setShowContent(true)
     }, showDelay)
 
-    return () => clearTimeout(timer)
+    return () => {
+      clearTimeout(timer)
+      clearInterval(interval)
+    }
   }, [])
 
   // Show enhanced loading animation for the first 2 seconds or until content is ready
@@ -103,26 +112,58 @@ export default function BetaCount({ className = '' }: BetaCountProps) {
     )
   }
 
-  const remaining = Math.max(0, 100 - (count || 0))
-  const percentage = Math.min(100, ((count || 0) / 100) * 100)
+  const remaining = Math.max(0, 5000 - (count || 0))
+  const percentage = Math.min(100, ((count || 0) / 5000) * 100)
+  const isNearCapacity = percentage > 80
+  const isCritical = percentage > 95
 
   return (
     <div className={`glass rounded-2xl p-4 inline-block ${className} animate-fade-in`}>
-      <p className="text-white/70 text-sm">
-        <span className="text-lumora-pink font-semibold">Exclusive Beta:</span> 
-        <span className="ml-2">{count}/{100} spots filled</span>
-      </p>
+      <div className="flex items-center justify-between mb-2">
+        <p className="text-white/70 text-sm">
+          <span className="text-lumora-pink font-semibold">Join {count?.toLocaleString()}+ people</span>
+        </p>
+        {lastUpdate && (
+          <div className="text-white/30 text-xs">
+            Live
+            <span className="ml-1 w-2 h-2 bg-green-400 rounded-full inline-block animate-pulse"></span>
+          </div>
+        )}
+      </div>
+      
+      <div className="mb-2">
+        <p className="text-white/90 text-lg font-bold">
+          {count?.toLocaleString()}/{5000} beta testers
+        </p>
+        <p className="text-white/60 text-xs">
+          {isCritical ? '🚨 Almost full!' : isNearCapacity ? '⚡ Filling fast!' : '✨ Limited spots available'}
+        </p>
+      </div>
+
       {count !== null && (
-        <div className="mt-2 w-full bg-white/10 rounded-full h-2">
+        <div className="mt-3 w-full bg-white/10 rounded-full h-3 overflow-hidden">
           <div 
-            className="bg-gradient-to-r from-lumora-pink to-lumora-purple h-2 rounded-full transition-all duration-1000 ease-out"
+            className={`h-3 rounded-full transition-all duration-1000 ease-out ${
+              isCritical 
+                ? 'bg-gradient-to-r from-red-500 to-red-400' 
+                : isNearCapacity 
+                ? 'bg-gradient-to-r from-yellow-500 to-orange-400'
+                : 'bg-gradient-to-r from-lumora-pink to-lumora-purple'
+            }`}
             style={{ width: `${percentage}%` }}
           ></div>
         </div>
       )}
+      
       {remaining > 0 && (
-        <p className="text-white/50 text-xs mt-1">
-          {remaining} spots remaining
+        <p className="text-white/50 text-xs mt-2">
+          {remaining.toLocaleString()} spots remaining
+        </p>
+      )}
+      
+      {isCritical && (
+        <p className="text-red-400 text-xs mt-1 font-semibold animate-pulse">
+          ⚡ Join now before we close!
         </p>
       )}
     </div>

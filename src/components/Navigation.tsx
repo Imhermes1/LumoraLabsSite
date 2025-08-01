@@ -77,40 +77,49 @@ export default function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white p-2"
+              className="glass rounded-xl p-2 text-white hover:bg-white/10 transition-all duration-200"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? (
+                <X size={24} className="transition-transform duration-200 rotate-90" />
+              ) : (
+                <Menu size={24} className="transition-transform duration-200" />
+              )}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden glass-strong mt-2 rounded-2xl p-4 space-y-4">
+          <div className="md:hidden glass-strong mt-2 rounded-2xl p-4 space-y-4 animate-fade-in">
             <button
               onClick={() => openComingSoonModal('apps')}
-              className="block w-full text-left text-white/80 hover:text-white transition-colors duration-200 py-2"
+              className="block w-full text-left text-white/80 hover:text-white transition-all duration-200 py-3 px-4 rounded-xl hover:bg-white/10 hover:scale-105"
             >
-              Apps
+              <span className="text-lg font-medium">Apps</span>
+              <span className="block text-xs text-white/50 mt-1">Coming Soon</span>
             </button>
             <button
               onClick={() => openComingSoonModal('beta')}
-              className="block w-full text-left text-white/80 hover:text-white transition-colors duration-200 py-2"
+              className="block w-full text-left text-white/80 hover:text-white transition-all duration-200 py-3 px-4 rounded-xl hover:bg-white/10 hover:scale-105"
             >
-              Beta
+              <span className="text-lg font-medium">Beta</span>
+              <span className="block text-xs text-white/50 mt-1">Join the waitlist</span>
             </button>
             <button
               onClick={() => openComingSoonModal('technology')}
-              className="block w-full text-left text-white/80 hover:text-white transition-colors duration-200 py-2"
+              className="block w-full text-left text-white/80 hover:text-white transition-all duration-200 py-3 px-4 rounded-xl hover:bg-white/10 hover:scale-105"
             >
-              Technology
+              <span className="text-lg font-medium">Technology</span>
+              <span className="block text-xs text-white/50 mt-1">Learn more</span>
             </button>
-            <button
-              onClick={openBetaSignup}
-              className="w-full glass rounded-full px-6 py-3 text-white font-medium hover:bg-lumora-purple/20 transition-all duration-200"
-            >
-              Join Beta
-            </button>
+            <div className="pt-2">
+              <button
+                onClick={openBetaSignup}
+                className="w-full glass rounded-full px-6 py-3 text-white font-medium hover:bg-lumora-purple/20 transition-all duration-200 btn-glass"
+              >
+                Join Beta
+              </button>
+            </div>
           </div>
         )}
 
