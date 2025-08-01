@@ -2,7 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* Font loading is handled by next/font in layout.tsx - no need for additional imports */
 
 :root {
   --lumora-pink: #FA73A6;
@@ -26,7 +26,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 body {
@@ -1559,5 +1559,57 @@ body.modal-open {
 @media (max-width: 768px) {
   html {
     font-size: 14px;
+  }
+}
+
+/* Performance optimizations - GPU acceleration hints */
+.animate-float-1,
+.animate-float-2,
+.animate-float-3,
+.animate-float-4,
+.animate-move-around-1,
+.animate-move-around-2,
+.animate-move-around-3,
+.animate-move-around-4,
+.animate-s-shape,
+.animate-random-path-1,
+.animate-random-path-2,
+.animate-center-float-1,
+.animate-center-float-2,
+.animate-pulse-glow,
+.animate-space-twinkle,
+.animate-nebula-drift,
+.animate-lumos-rays,
+.animate-magical-sparkle,
+.animate-light-burst,
+.animate-aparecium-glow,
+.animate-aparecium-sparkle,
+.animate-logo-glow,
+.animate-button-powerup,
+.animate-button-explosion,
+.animate-screen-flash,
+.animate-shockwave,
+.animate-rune-float,
+.animate-explosion-sparkle,
+.animate-convergence-sparkle,
+.animate-wand-approach,
+.animate-sparkle-float,
+.animate-window-form,
+.animate-dissolution-particle,
+.animate-sunlight-sweep {
+  will-change: transform, opacity, filter;
+  transform: translate3d(0, 0, 0); /* Force GPU layer */
+  backface-visibility: hidden;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

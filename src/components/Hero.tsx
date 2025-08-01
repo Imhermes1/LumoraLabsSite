@@ -1,9 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { ChevronDown, Wand2, Sparkles } from 'lucide-react'
-import BetaSignupModal from './BetaSignupModal'
-import AlphaRevealModal from './AlphaRevealModal'
+import { LazyBetaSignupModal, LazyAlphaRevealModal } from './LazyModals'
+import { OptimizedSparkleEffect, OptimizedRuneEffect, OptimizedShockwaveEffect } from './OptimizedAnimations'
 import BetaCount from './BetaCount'
 
 // Preload beta count data
@@ -138,10 +139,15 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Logo */}
         <div className="mb-1 flex justify-center -mt-2">
-          <img 
+          <Image 
             src="/images/Lumora-Labs-Logo-transparent.png" 
             alt="Lumora Labs Logo" 
+            width={208}
+            height={208}
+            priority
             className="h-35 md:h-40 lg:h-46 xl:h-52 w-auto opacity-95 hover:opacity-100 transition-all duration-300 animate-logo-glow"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
         </div>
         
@@ -199,125 +205,45 @@ export default function Hero() {
       </div>
 
       {/* Beta Signup Modal */}
-      <BetaSignupModal 
-        isOpen={isModalOpen} 
-        onClose={() => {
-          setIsModalOpen(false)
-          setIsBetaModalFromAlpha(false)
-        }} 
-        isFromAlpha={isBetaModalFromAlpha}
-      />
+      {isModalOpen && (
+        <LazyBetaSignupModal 
+          isOpen={isModalOpen} 
+          onClose={() => {
+            setIsModalOpen(false)
+            setIsBetaModalFromAlpha(false)
+          }} 
+          isFromAlpha={isBetaModalFromAlpha}
+        />
+      )}
       
       {/* Alpha Reveal Modal */}
-      <AlphaRevealModal 
-        isOpen={isAlphaModalOpen} 
-        onClose={() => setIsAlphaModalOpen(false)} 
-        onOpenBetaSignup={openBetaSignupFromAlpha}
-        onOpenRegularBetaSignup={openRegularBetaSignup}
-        prefectsStatus={prefectsProgramStatus}
-      />
+      {isAlphaModalOpen && (
+        <LazyAlphaRevealModal 
+          isOpen={isAlphaModalOpen} 
+          onClose={() => setIsAlphaModalOpen(false)} 
+          onOpenBetaSignup={openBetaSignupFromAlpha}
+          onOpenRegularBetaSignup={openRegularBetaSignup}
+          prefectsStatus={prefectsProgramStatus}
+        />
+      )}
       
       {/* Screen Flash Effect */}
       {explosionPhase === 'explosion' && (
-        <div className="fixed inset-0 bg-white/80 z-40 animate-screen-flash pointer-events-none"></div>
+        <div 
+          className="fixed inset-0 bg-white/80 z-40 animate-screen-flash pointer-events-none"
+          style={{ willChange: 'opacity' }}
+        />
       )}
       
       {/* Shockwave Effect */}
-      {explosionPhase === 'explosion' && (
-        <div className="fixed inset-0 z-45 pointer-events-none">
-          <div className="absolute left-1/2 top-1/2 w-0 h-0 border-2 border-yellow-400/60 rounded-full animate-shockwave"></div>
-          <div className="absolute left-1/2 top-1/2 w-0 h-0 border-2 border-purple-400/60 rounded-full animate-shockwave" style={{animationDelay: '0.1s'}}></div>
-          <div className="absolute left-1/2 top-1/2 w-0 h-0 border-2 border-pink-400/60 rounded-full animate-shockwave" style={{animationDelay: '0.2s'}}></div>
-        </div>
-      )}
+      {explosionPhase === 'explosion' && <OptimizedShockwaveEffect />}
       
       {/* Magical Runes */}
-      {explosionPhase === 'powerup' && (
-        <div className="fixed inset-0 pointer-events-none z-50">
-          {Array.from({ length: 8 }, (_, i) => (
-            <div
-              key={i}
-              className="absolute text-yellow-400/80 text-2xl animate-rune-float"
-              style={{
-                left: '50%',
-                top: '50%',
-                transform: `translate(-50%, -50%) rotate(${i * 45}deg) translateY(-80px)`,
-                animationDelay: `${i * 0.1}s`
-              }}
-            >
-              ✧
-            </div>
-          ))}
-        </div>
-      )}
+      {explosionPhase === 'powerup' && <OptimizedRuneEffect />}
       
-      {/* Explosion Sparkles */}
-      {explosionPhase === 'explosion' && (
-        <div className="fixed inset-0 pointer-events-none z-50">
-          {Array.from({ length: 120 }, (_, i) => {
-            const colors = ['yellow', 'pink', 'purple', 'blue', 'green', 'orange', 'cyan']
-            const color = colors[i % colors.length]
-            const size = Math.random() * 6 + 2
-            const delay = Math.random() * 0.3
-            
-            const sizeClass = Math.ceil(size) === 2 ? 'w-2 h-2' : 
-                             Math.ceil(size) === 3 ? 'w-3 h-3' : 
-                             Math.ceil(size) === 4 ? 'w-4 h-4' : 
-                             Math.ceil(size) === 5 ? 'w-5 h-5' : 'w-6 h-6'
-            const colorClass = color === 'yellow' ? 'bg-yellow-400' :
-                              color === 'pink' ? 'bg-pink-400' :
-                              color === 'purple' ? 'bg-purple-400' :
-                              color === 'blue' ? 'bg-blue-400' : 
-                              color === 'green' ? 'bg-green-400' :
-                              color === 'orange' ? 'bg-orange-400' : 'bg-cyan-400'
-            
-            return (
-              <div
-                key={i}
-                className={`absolute ${sizeClass} ${colorClass} rounded-full animate-explosion-sparkle`}
-                style={{
-                  left: '50%',
-                  top: '50%',
-                  animationDelay: `${delay}s`,
-                  animationDuration: '2s'
-                }}
-              />
-            )
-          })}
-        </div>
-      )}
-      
-      {/* Convergence Sparkles */}
-      {explosionPhase === 'convergence' && (
-        <div className="fixed inset-0 pointer-events-none z-50">
-          {Array.from({ length: 80 }, (_, i) => {
-            const colors = ['yellow', 'pink', 'purple', 'blue', 'green']
-            const color = colors[i % colors.length]
-            const size = Math.random() * 4 + 2
-            const delay = Math.random() * 0.5
-            
-            const sizeClass = Math.ceil(size) === 2 ? 'w-2 h-2' : 
-                             Math.ceil(size) === 3 ? 'w-3 h-3' : 
-                             Math.ceil(size) === 4 ? 'w-4 h-4' : 'w-5 h-5'
-            const colorClass = color === 'yellow' ? 'bg-yellow-400' :
-                              color === 'pink' ? 'bg-pink-400' :
-                              color === 'purple' ? 'bg-purple-400' :
-                              color === 'blue' ? 'bg-blue-400' : 'bg-green-400'
-            
-            return (
-              <div
-                key={i}
-                className={`absolute ${sizeClass} ${colorClass} rounded-full animate-convergence-sparkle`}
-                style={{
-                  left: '50%',
-                  top: '50%',
-                  animationDelay: `${delay}s`,
-                  animationDuration: '1.5s'
-                }}
-              />
-            )
-          })}
-        </div>
+      {/* Optimized Sparkle Effects */}
+      {(explosionPhase === 'explosion' || explosionPhase === 'convergence') && (
+        <OptimizedSparkleEffect phase={explosionPhase} />
       )}
     </div>
   )
