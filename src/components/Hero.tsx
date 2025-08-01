@@ -48,6 +48,9 @@ export default function Hero() {
     // Open the Alpha modal directly after wand animation
     setTimeout(() => {
       setIsAlphaModalOpen(true)
+      // Reset wand state to prevent re-triggering
+      setShowWand(false)
+      setWandTargetPosition(null)
     }, 500)
   }
 
@@ -142,7 +145,12 @@ export default function Hero() {
       <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       
       {/* Alpha Reveal Modal */}
-      <AlphaRevealModal isOpen={isAlphaModalOpen} onClose={() => setIsAlphaModalOpen(false)} />
+      <AlphaRevealModal isOpen={isAlphaModalOpen} onClose={() => {
+        setIsAlphaModalOpen(false)
+        // Ensure wand is completely reset
+        setShowWand(false)
+        setWandTargetPosition(null)
+      }} />
       
       {/* Magical Wand Animation */}
       <MagicalWand 

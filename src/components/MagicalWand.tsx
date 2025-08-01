@@ -39,7 +39,7 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
         }))
         setSparkles(newSparkles)
         
-        // Complete animation after sparkles
+                // Complete animation after sparkles
         setTimeout(() => {
           onTapComplete()
           setIsAnimating(false)
@@ -48,6 +48,14 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
       }, 2000)
     }
   }, [isVisible, isAnimating, onTapComplete])
+
+  // Reset animation state when visibility changes
+  useEffect(() => {
+    if (!isVisible) {
+      setIsAnimating(false)
+      setSparkles([])
+    }
+  }, [isVisible])
 
   if (!isVisible) return null
 
