@@ -7,7 +7,7 @@ const CONTACT_DATABASE_ID = process.env.NOTION_CONTACT_DATABASE_ID || ''
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, message } = body
+    const { name, email, message, priority, category } = body
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
 
     // If no contact database is configured, just return success
     if (!CONTACT_DATABASE_ID) {
-      console.log('Contact form submission (no database configured):', { name, email, message })
+      console.log('Contact form submission (no database configured):', { name, email, message, priority, category })
       return NextResponse.json(
         { 
           success: true, 
@@ -77,12 +77,12 @@ export async function POST(request: NextRequest) {
         },
         'Priority': {
           select: {
-            name: 'Medium',
+            name: priority || 'Medium',
           },
         },
         'Category': {
           select: {
-            name: 'General Question',
+            name: category || 'General Question',
           },
         },
       },

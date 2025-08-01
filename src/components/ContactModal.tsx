@@ -12,20 +12,24 @@ interface ContactFormData {
   name: string
   email: string
   message: string
+  priority: string
+  category: string
 }
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    priority: 'Medium',
+    category: 'General Question'
   })
   
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
@@ -63,7 +67,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         setFormData({
           name: '',
           email: '',
-          message: ''
+          message: '',
+          priority: 'Medium',
+          category: 'General Question'
         })
         // Auto-close after 3 seconds
         setTimeout(() => {
@@ -173,22 +179,62 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
 
 
-                {/* Message Field */}
-                <div>
-                  <label htmlFor="message" className="block text-white/80 text-sm font-medium mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={5}
-                    className="w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300 resize-none"
-                    placeholder="Tell us more about your inquiry..."
-                  />
-                </div>
+                                  {/* Message Field */}
+                  <div>
+                    <label htmlFor="message" className="block text-white/80 text-sm font-medium mb-2">
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={5}
+                      className="w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300 resize-none"
+                      placeholder="Tell us more about your inquiry..."
+                    />
+                  </div>
+
+                  {/* Priority Field */}
+                  <div>
+                    <label htmlFor="priority" className="block text-white/80 text-sm font-medium mb-2">
+                      Priority
+                    </label>
+                    <select
+                      id="priority"
+                      name="priority"
+                      value={formData.priority}
+                      onChange={handleInputChange}
+                      className="w-full glass rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300"
+                    >
+                      <option value="Low">Low</option>
+                      <option value="Medium">Medium</option>
+                      <option value="High">High</option>
+                      <option value="Urgent">Urgent</option>
+                    </select>
+                  </div>
+
+                  {/* Category Field */}
+                  <div>
+                    <label htmlFor="category" className="block text-white/80 text-sm font-medium mb-2">
+                      Category
+                    </label>
+                    <select
+                      id="category"
+                      name="category"
+                      value={formData.category}
+                      onChange={handleInputChange}
+                      className="w-full glass rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-lumora-purple/50 transition-all duration-300"
+                    >
+                      <option value="General Question">General Question</option>
+                      <option value="Feedback">Feedback</option>
+                      <option value="Account Error">Account Error</option>
+                      <option value="Apple / Android Fault">Apple / Android Fault</option>
+                      <option value="Prospects Program">Prospects Program</option>
+                      <option value="Beta Program">Beta Program</option>
+                    </select>
+                  </div>
 
                 {/* Error Message */}
                 {submitStatus === 'error' && (
