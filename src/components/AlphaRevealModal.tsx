@@ -105,7 +105,7 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
 
       <div className={`relative w-full max-w-4xl max-h-[90vh] transition-all duration-1000 transform-gpu ${showModalForm ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} onClick={(e) => e.stopPropagation()}>
         <div className="glass-strong rounded-3xl max-h-[90vh] overflow-hidden border border-purple-500/30 shadow-2xl">
-          <div className="max-h-[90vh] overflow-y-auto modal-scroll-container">
+          <div className="h-full overflow-y-auto modal-scroll-container">
             <div className="p-8 md:p-12">
               <div className="flex justify-between items-start mb-8">
                 <div className={`transition-all duration-1000 ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>

@@ -908,9 +908,9 @@ html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
-  max-height: 90vh;
   overflow-y: auto;
   overflow-x: hidden;
+  height: 100%;
 }
 
 .modal-scroll-container::-webkit-scrollbar {
