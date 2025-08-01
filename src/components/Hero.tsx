@@ -79,15 +79,17 @@ export default function Hero() {
     setIsModalOpen(true)
   }
 
+  const openRegularBetaSignup = () => {
+    console.log('openRegularBetaSignup called!')
+    console.log('Setting isBetaModalFromAlpha to false')
+    console.log('Setting isModalOpen to true')
+    setIsBetaModalFromAlpha(false)
+    setIsModalOpen(true)
+  }
+
   const openAlphaReveal = async () => {
     // Check if Prefects Program is full before proceeding
     const status = await checkPrefectsProgramStatus()
-    
-    if (status?.isFull) {
-      // Show a message that the Prefects Program is full
-      alert(`The Prefects Program is currently full (${status.currentCount}/${status.maxSpots} spots taken). Please try again later or contact us for more information.`)
-      return
-    }
     
     // Phase 1: Power-up
     setExplosionPhase('powerup')
@@ -108,6 +110,13 @@ export default function Hero() {
       setIsAlphaModalOpen(true)
       setIsButtonExploding(false)
       setExplosionPhase(null)
+      
+      // If Prefects Program is full, show popup after modal opens
+      if (status?.isFull) {
+        setTimeout(() => {
+          alert(`The Prefects Program is currently full (${status.currentCount}/${status.maxSpots} spots taken).\n\nJoin the Beta Program while spots last and keep a look out on our socials for future opportunities!`)
+        }, 500)
+      }
     }, 3500)
   }
 
@@ -218,6 +227,7 @@ export default function Hero() {
         isOpen={isAlphaModalOpen} 
         onClose={() => setIsAlphaModalOpen(false)} 
         onOpenBetaSignup={openBetaSignupFromAlpha}
+        onOpenRegularBetaSignup={openRegularBetaSignup}
         prefectsStatus={prefectsProgramStatus}
       />
       

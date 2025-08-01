@@ -7,6 +7,7 @@ interface AlphaRevealModalProps {
   isOpen: boolean
   onClose: () => void
   onOpenBetaSignup: () => void
+  onOpenRegularBetaSignup: () => void
   prefectsStatus?: {
     isFull: boolean
     currentCount: number
@@ -15,7 +16,7 @@ interface AlphaRevealModalProps {
   } | null
 }
 
-export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, prefectsStatus }: AlphaRevealModalProps) {
+export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, onOpenRegularBetaSignup, prefectsStatus }: AlphaRevealModalProps) {
   const [mounted, setMounted] = useState(false)
   const [showDissolutionParticles, setShowDissolutionParticles] = useState(false)
   const [showModalForm, setShowModalForm] = useState(false)
@@ -242,29 +243,51 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, pr
                   </h4>
                   <p className="text-white/70 text-sm mb-6">
                     {prefectsStatus?.isFull ? (
-                      "The Prefects Program is currently full. Please check back later for new spots."
+                      "The Prefects Program is currently full. Join the Beta Program while spots last and keep a look out on our socials for future opportunities!"
                     ) : (
                       "There wont be more spots available for the Prefects Program, once they are all taken."
                     )}
                   </p>
-                  <button
-                    onClick={() => {
-                      console.log('Join Prefects Program button clicked!')
-                      handleClose()
-                      onOpenBetaSignup()
-                    }}
-                    disabled={prefectsStatus?.isFull}
-                    className={`rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border border-purple-500/30 ${
-                      prefectsStatus?.isFull 
-                        ? 'bg-gray-600 cursor-not-allowed opacity-50' 
-                        : 'bg-purple-600 hover:bg-purple-700'
-                    }`}
-                  >
-                    <span className="flex items-center">
-                      <Wand2 className="mr-2" size={20} />
-                      {prefectsStatus?.isFull ? 'Prefects Program Full' : 'Join the Prefects Program'}
-                    </span>
-                  </button>
+                  {prefectsStatus?.isFull ? (
+                    <div className="space-y-4">
+                      <button
+                        disabled
+                        className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border border-gray-500/30 bg-gray-600 cursor-not-allowed opacity-50"
+                      >
+                        <span className="flex items-center">
+                          <Wand2 className="mr-2" size={20} />
+                          Prefects Program Full
+                        </span>
+                      </button>
+                                             <button
+                         onClick={() => {
+                           console.log('Join Beta Program button clicked!')
+                           handleClose()
+                           onOpenRegularBetaSignup()
+                         }}
+                         className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border border-lumora-purple/30 bg-lumora-purple hover:bg-lumora-purple/80"
+                       >
+                        <span className="flex items-center">
+                          ✨
+                          <span className="ml-2">Join Beta Program Instead</span>
+                        </span>
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        console.log('Join Prefects Program button clicked!')
+                        handleClose()
+                        onOpenBetaSignup()
+                      }}
+                      className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border border-purple-500/30 bg-purple-600 hover:bg-purple-700"
+                    >
+                      <span className="flex items-center">
+                        <Wand2 className="mr-2" size={20} />
+                        Join the Prefects Program
+                      </span>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
