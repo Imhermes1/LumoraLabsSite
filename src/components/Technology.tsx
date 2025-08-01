@@ -69,7 +69,7 @@ export default function Technology() {
           {technologies.map((tech, index) => {
             const IconComponent = tech.icon
             return (
-              <div key={index} className="glass-strong rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+              <div key={index} className="card-accent rounded-2xl p-6 hover:scale-105 transition-all duration-600">
                 <div className={`w-12 h-12 mb-4 ${tech.color === 'lumora-pink' ? 'bg-lumora-pink/20' : 
                                  tech.color === 'lumora-purple' ? 'bg-lumora-purple/20' :
                                  tech.color === 'positive' ? 'bg-positive/20' :
@@ -90,7 +90,7 @@ export default function Technology() {
 
         {/* Architecture & Development Practices */}
         <div className="grid lg:grid-cols-2 gap-8">
-          <div className="glass-strong rounded-2xl p-8">
+          <div className="card-accent rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-6">Development Architecture</h3>
             <div className="space-y-3">
               {architectureFeatures.map((feature, index) => (
@@ -102,24 +102,24 @@ export default function Technology() {
             </div>
           </div>
 
-          <div className="glass-strong rounded-2xl p-8">
+          <div className="card-accent rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-6">AI Innovation</h3>
             <div className="space-y-4">
-              <div className="glass rounded-xl p-4">
+              <div className="card-primary rounded-xl p-4">
                 <h4 className="text-lumora-pink font-semibold mb-2">MooDo AI</h4>
                 <p className="text-white/70 text-sm">
                   Emotional intelligence algorithms that learn from user behaviour patterns 
                   to optimise task recommendations and workflow adaptations.
                 </p>
               </div>
-              <div className="glass rounded-xl p-4">
+              <div className="card-secondary rounded-xl p-4">
                 <h4 className="text-positive font-semibold mb-2">Macro AI</h4>
                 <p className="text-white/70 text-sm">
                   Sophisticated natural language processing trained on Australian food culture, 
                   integrated with AUSNUT database for extraordinary local accuracy.
                 </p>
               </div>
-              <div className="glass rounded-xl p-4">
+              <div className="card-accent rounded-xl p-4">
                 <h4 className="text-calm font-semibold mb-2">Privacy AI</h4>
                 <p className="text-white/70 text-sm">
                   On-device processing ensures your personal data never leaves your device 
@@ -131,7 +131,7 @@ export default function Technology() {
         </div>
 
         {/* Apple Ecosystem Integration */}
-        <div className="mt-16 glass-strong rounded-2xl p-8 text-center">
+        <div className="mt-16 card-accent rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-bold text-white mb-4">Apple Ecosystem Excellence</h3>
           <p className="text-white/80 max-w-3xl mx-auto mb-6">
             Elegantly designed for Apple's ecosystem with intuitive integration across devices. 

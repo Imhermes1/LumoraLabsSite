@@ -45,7 +45,7 @@ export default function MooDo() {
       {/* Background gradient specific to MooDo */}
       <div className="absolute inset-0 bg-gradient-to-br from-lumora-pink/10 via-lumora-purple/10 to-deep-purple/10 rounded-3xl"></div>
 
-      <div className="relative z-10 glass-strong rounded-3xl p-8 md:p-12">
+      <div className="relative z-10 card-primary rounded-3xl p-8 md:p-12">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
 
           {/* Left Column - Content */}
@@ -85,14 +85,14 @@ export default function MooDo() {
             </div>
 
             {/* Beta CTA */}
-            <div className="glass rounded-2xl p-6 text-center">
+            <div className="card-primary rounded-2xl p-6 text-center">
               <p className="text-white/70 mb-2">MooDo Beta Program</p>
               <div className="text-2xl font-bold text-lumora-pink mb-2">
                 {betaCount}/50 <span className="text-lg text-white/60">spots filled</span>
               </div>
               <button
                 onClick={openBetaSignup}
-                className="w-full bg-gradient-to-r from-lumora-pink to-lumora-purple rounded-full py-3 px-6 text-white font-semibold hover:shadow-lg hover:shadow-lumora-purple/25 transition-all duration-300"
+                className="w-full btn-primary rounded-full py-3 px-6 text-white font-semibold transition-all duration-600"
               >
                 Join MooDo Beta
               </button>

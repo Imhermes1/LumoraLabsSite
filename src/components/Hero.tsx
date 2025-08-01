@@ -175,7 +175,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <button
               onClick={openBetaSignup}
-              className="glass-strong rounded-full px-8 py-4 text-white font-semibold text-lg hover:bg-lumora-purple/30 transition-all duration-300 btn-glass group"
+              className="btn-primary rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 btn-glass group"
             >
               Join Beta Program
               <span className="ml-2">✨</span>
@@ -185,10 +185,10 @@ export default function Hero() {
               id="aparecium-button"
               onClick={openAlphaReveal}
               disabled={isButtonExploding}
-              className={`relative border border-purple-500/50 rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 group overflow-hidden ${
+              className={`btn-accent rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group overflow-hidden ${
                 explosionPhase === 'powerup' ? 'animate-button-powerup' :
                 explosionPhase === 'explosion' ? 'animate-button-explosion' :
-                'hover:bg-purple-500/20 animate-aparecium-glow'
+                'animate-aparecium-glow'
               }`}
             >
               {/* Enhanced glowing effect */}

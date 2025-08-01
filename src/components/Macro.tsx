@@ -45,7 +45,7 @@ export default function CoreTrack() {
       {/* Background gradient specific to CoreTrack */}
       <div className="absolute inset-0 bg-gradient-to-br from-positive/10 via-calm/10 to-focused/10 rounded-3xl"></div>
 
-      <div className="relative z-10 glass-strong rounded-3xl p-8 md:p-12">
+      <div className="relative z-10 card-secondary rounded-3xl p-8 md:p-12">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
 
           {/* Left Column - App Preview */}
@@ -109,14 +109,14 @@ export default function CoreTrack() {
             </div>
 
             {/* Beta CTA */}
-            <div className="glass rounded-2xl p-6 text-center">
-                              <p className="text-white/70 mb-2">Macro Beta Program</p>
+            <div className="card-secondary rounded-2xl p-6 text-center">
+              <p className="text-white/70 mb-2">Macro Beta Program</p>
               <div className="text-2xl font-bold text-positive mb-2">
                 {betaCount}/50 <span className="text-lg text-white/60">spots filled</span>
               </div>
               <button
                 onClick={openBetaSignup}
-                className="w-full bg-gradient-to-r from-positive to-calm rounded-full py-3 px-6 text-white font-semibold hover:shadow-lg hover:shadow-positive/25 transition-all duration-300"
+                className="w-full btn-secondary rounded-full py-3 px-6 text-white font-semibold transition-all duration-600"
               >
                 Join Macro Beta
               </button>
