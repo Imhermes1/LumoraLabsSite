@@ -112,8 +112,8 @@ export default function BetaCount({ className = '' }: BetaCountProps) {
     )
   }
 
-  const remaining = Math.max(0, 5000 - (count || 0))
-  const percentage = Math.min(100, ((count || 0) / 5000) * 100)
+  const remaining = Math.max(0, 100 - (count || 0))
+  const percentage = Math.min(100, ((count || 0) / 100) * 100)
   const isNearCapacity = percentage > 80
   const isCritical = percentage > 95
 
@@ -121,7 +121,7 @@ export default function BetaCount({ className = '' }: BetaCountProps) {
     <div className={`glass rounded-2xl p-4 inline-block ${className} animate-fade-in`}>
       <div className="flex items-center justify-between mb-2">
         <p className="text-white/70 text-sm">
-          <span className="text-lumora-pink font-semibold">Join {count?.toLocaleString()}+ people</span>
+          <span className="text-lumora-pink font-semibold">Exclusive Beta Access</span>
         </p>
         {lastUpdate && (
           <div className="text-white/30 text-xs">
@@ -133,7 +133,7 @@ export default function BetaCount({ className = '' }: BetaCountProps) {
       
       <div className="mb-2">
         <p className="text-white/90 text-lg font-bold">
-          {count?.toLocaleString()}/{5000} beta testers
+          {count}/{100} spots filled
         </p>
         <p className="text-white/60 text-xs">
           {isCritical ? '🚨 Almost full!' : isNearCapacity ? '⚡ Filling fast!' : '✨ Limited spots available'}
@@ -157,7 +157,7 @@ export default function BetaCount({ className = '' }: BetaCountProps) {
       
       {remaining > 0 && (
         <p className="text-white/50 text-xs mt-2">
-          {remaining.toLocaleString()} spots remaining
+          {remaining} spots remaining
         </p>
       )}
       
