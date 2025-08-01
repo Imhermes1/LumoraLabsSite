@@ -936,7 +936,7 @@ html {
 /* Harry Potter Wand Design */
 .wand-container {
   position: relative;
-  transform: rotate(-45deg) translateY(-110px);
+  transform: rotate(-45deg) translateY(-200px);
 }
 
 .wand {

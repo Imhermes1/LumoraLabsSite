@@ -40,7 +40,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
       />
 
       {/* Modal */}
-      <div className="relative w-full max-w-6xl max-h-[90vh]">
+      <div className="relative w-full max-w-6xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
         <div className="glass-strong rounded-3xl max-h-[90vh] overflow-hidden">
           <div className="max-h-[90vh] overflow-y-auto modal-scroll-container">
             <div className="p-8 md:p-12">
