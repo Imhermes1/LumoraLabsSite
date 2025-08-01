@@ -57,8 +57,8 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
       <div className={`absolute transition-all duration-1000 transform-gpu ${
         isAnimating ? 'animate-wand-approach' : 'opacity-0'
       }`} style={{
-        left: targetPosition ? `${targetPosition.x - 9}px` : '50%',
-        top: targetPosition ? `${targetPosition.y - 110}px` : '50%',
+        left: targetPosition ? `${targetPosition.x}px` : '50%',
+        top: targetPosition ? `${targetPosition.y}px` : '50%',
         transform: targetPosition ? 'translate(-50%, -50%)' : 'translate(-50%, -50%)'
       }}>
         <div className="wand-container">

@@ -40,9 +40,10 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
       />
 
       {/* Modal */}
-      <div className="relative w-full max-w-6xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
-        <div className="glass-strong rounded-3xl max-h-[90vh] overflow-y-auto modal-scroll-container">
-          <div className="p-8 md:p-12">
+      <div className="relative w-full max-w-6xl max-h-[90vh]">
+        <div className="glass-strong rounded-3xl max-h-[90vh] overflow-hidden">
+          <div className="max-h-[90vh] overflow-y-auto modal-scroll-container">
+            <div className="p-8 md:p-12">
           
           {/* Header */}
           <div className="flex justify-between items-start mb-8">
@@ -177,6 +178,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
           <div className="mt-8 pt-6 border-t border-white/10 text-center">
             <BetaCount />
           </div>
+            </div>
           </div>
         </div>
       </div>
