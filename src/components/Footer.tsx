@@ -58,13 +58,13 @@ export default function Footer() {
                 onClick={() => document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' })}
                 className="block text-white/70 hover:text-lumora-pink transition-colors text-sm"
               >
-                MooDo - Smart Tasks based on your mental health
+                MooDo
               </button>
               <button 
                 onClick={() => document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' })}
                 className="block text-white/70 hover:text-lumora-pink transition-colors text-sm"
               >
-                Macro - Calorie Tracker & AI Nutritionist Coach with 95+% Accuracy
+                Macro
               </button>
               <button 
                 onClick={openBetaSignup}
