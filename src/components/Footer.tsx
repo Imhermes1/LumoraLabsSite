@@ -5,14 +5,20 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Mail, MapPin, Github, Twitter, Linkedin } from 'lucide-react'
 import BetaSignupModal from './BetaSignupModal'
+import ContactModal from './ContactModal'
 import Logo from './Logo'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
 
   const openBetaSignup = () => {
     setIsModalOpen(true)
+  }
+
+  const openContactModal = () => {
+    setIsContactModalOpen(true)
   }
 
   return (
@@ -79,18 +85,21 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
             <div className="space-y-3">
-              <Link href="#" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm">
+              <Link href="/about-us" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm">
                 About Us
               </Link>
-              <Link href="#" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm">
+              <Link href="/careers" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm">
                 Careers
               </Link>
-              <Link href="#" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm">
+              <Link href="/press-kit" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm">
                 Press Kit
               </Link>
-              <Link href="#" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm">
+              <button 
+                onClick={openContactModal}
+                className="block text-white/70 hover:text-lumora-pink transition-colors text-sm text-left w-full"
+              >
                 Contact
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -154,6 +163,9 @@ export default function Footer() {
 
         {/* Beta Signup Modal */}
         <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        
+        {/* Contact Modal */}
+        <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
       </div>
     </footer>
   )
