@@ -1461,28 +1461,28 @@ html {
 /* Convergence Sparkles - Come Back Together */
 @keyframes convergence-sparkle {
   0% {
-    transform: translate(-50%, -50%) scale(1) translateX(calc(400px + var(--random-x, 0px))) translateY(calc(400px + var(--random-y, 0px)));
-    opacity: 1;
-  }
-  25% {
-    transform: translate(-50%, -50%) scale(1.2) translateX(calc(300px + var(--random-x, 0px))) translateY(calc(300px + var(--random-y, 0px)));
-    opacity: 0.8;
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.5) translateX(calc(200px + var(--random-x, 0px))) translateY(calc(200px + var(--random-y, 0px)));
-    opacity: 0.6;
-  }
-  75% {
-    transform: translate(-50%, -50%) scale(1.2) translateX(calc(100px + var(--random-x, 0px))) translateY(calc(100px + var(--random-y, 0px)));
-    opacity: 0.4;
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
   }
   100% {
-    transform: translate(-50%, -50%) scale(0) translateX(0) translateY(0);
     opacity: 0;
+    transform: scale(0) rotate(360deg);
   }
 }
 
-/* Loading progress animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 @keyframes loading-progress {
   0% {
     width: 0%;
@@ -1536,7 +1536,15 @@ html {
 }
 
 .animate-convergence-sparkle {
-  animation: convergence-sparkle 1.5s ease-out forwards;
+  animation: convergence-sparkle 2s ease-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.animate-loading-progress {
+  animation: loading-progress 1s ease-out forwards;
 }
 
 /* Prevent background scroll when modal is open */

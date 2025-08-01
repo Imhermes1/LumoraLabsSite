@@ -98,12 +98,12 @@ export default function Hero() {
     // Phase 2: Explosion
     setTimeout(() => {
       setExplosionPhase('explosion')
-    }, 1000)
+    }, 300)
     
     // Phase 3: Convergence
     setTimeout(() => {
       setExplosionPhase('convergence')
-    }, 2000)
+    }, 600)
     
     // Phase 4: Modal Formation
     setTimeout(() => {
@@ -115,9 +115,9 @@ export default function Hero() {
       if (status?.isFull) {
         setTimeout(() => {
           alert(`The Prefects Program is currently full (${status.currentCount}/${status.maxSpots} spots taken).\n\nJoin the Beta Program while spots last and keep a look out on our socials for future opportunities!`)
-        }, 500)
+        }, 200)
       }
-    }, 3500)
+    }, 900)
   }
 
   const scrollToApps = () => {
