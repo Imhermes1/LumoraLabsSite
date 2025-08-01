@@ -39,7 +39,7 @@ export default function Footer() {
             <div className="flex items-center space-x-2 text-white/60">
               <Mail size={16} />
               <a href="mailto:luke@lumoralabs.io" className="text-sm hover:text-lumora-pink transition-colors">
-                luke@lumoralabs.io
+                lumos@lumoralabs.io
               </a>
             </div>
           </div>

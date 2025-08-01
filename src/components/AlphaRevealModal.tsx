@@ -7,9 +7,15 @@ interface AlphaRevealModalProps {
   isOpen: boolean
   onClose: () => void
   onOpenBetaSignup: () => void
+  prefectsStatus?: {
+    isFull: boolean
+    currentCount: number
+    maxSpots: number
+    adminOverride?: boolean
+  } | null
 }
 
-export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup }: AlphaRevealModalProps) {
+export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, prefectsStatus }: AlphaRevealModalProps) {
   const [mounted, setMounted] = useState(false)
   const [showDissolutionParticles, setShowDissolutionParticles] = useState(false)
   const [showModalForm, setShowModalForm] = useState(false)
@@ -223,10 +229,23 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup }: 
               <div className="text-center">
                 <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30">
                   <h4 className="text-white font-semibold text-xl mb-3">
-                    There are only 25 spots available for the Prefects Program
+                    {prefectsStatus ? (
+                      <>
+                        {prefectsStatus.currentCount}/{prefectsStatus.maxSpots} spots taken for the Prefects Program
+                        {prefectsStatus.adminOverride && (
+                          <div className="text-yellow-400 text-sm mt-1">Admin override active</div>
+                        )}
+                      </>
+                    ) : (
+                      "There are only 25 spots available for the Prefects Program"
+                    )}
                   </h4>
                   <p className="text-white/70 text-sm mb-6">
-                    There wont be more spots available for the Prefects Program, once they are all taken.
+                    {prefectsStatus?.isFull ? (
+                      "The Prefects Program is currently full. Please check back later for new spots."
+                    ) : (
+                      "There wont be more spots available for the Prefects Program, once they are all taken."
+                    )}
                   </p>
                   <button
                     onClick={() => {
@@ -234,11 +253,16 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup }: 
                       handleClose()
                       onOpenBetaSignup()
                     }}
-                    className="bg-purple-600 hover:bg-purple-700 rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border border-purple-500/30"
+                    disabled={prefectsStatus?.isFull}
+                    className={`rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border border-purple-500/30 ${
+                      prefectsStatus?.isFull 
+                        ? 'bg-gray-600 cursor-not-allowed opacity-50' 
+                        : 'bg-purple-600 hover:bg-purple-700'
+                    }`}
                   >
                     <span className="flex items-center">
                       <Wand2 className="mr-2" size={20} />
-                      Join the Prefects Program
+                      {prefectsStatus?.isFull ? 'Prefects Program Full' : 'Join the Prefects Program'}
                     </span>
                   </button>
                 </div>

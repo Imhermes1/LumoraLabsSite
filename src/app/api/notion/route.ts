@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createBetaSignup, getBetaSignups, getAlphaTesterCount } from '@/lib/notion'
+import { createBetaSignup, getBetaSignups, getAlphaTesterCount, getPrefectsProgramStatus } from '@/lib/notion'
 
 export async function POST(request: NextRequest) {
   try {
@@ -148,8 +148,20 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const { searchParams } = new URL(request.url)
+    const checkPrefects = searchParams.get('checkPrefects')
+    
+    if (checkPrefects === 'true') {
+      // Return Prefects Program status
+      const prefectsStatus = await getPrefectsProgramStatus()
+      return NextResponse.json({
+        success: true,
+        prefectsStatus
+      })
+    }
+    
     // Get all beta signups using our utility function
     const signups = await getBetaSignups()
     const alphaTesterCount = await getAlphaTesterCount()

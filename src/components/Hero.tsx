@@ -42,6 +42,12 @@ export default function Hero() {
   const [isBetaModalFromAlpha, setIsBetaModalFromAlpha] = useState(false)
   const [isButtonExploding, setIsButtonExploding] = useState(false)
   const [explosionPhase, setExplosionPhase] = useState<'powerup' | 'explosion' | 'convergence' | null>(null)
+  const [prefectsProgramStatus, setPrefectsProgramStatus] = useState<{
+    isFull: boolean
+    currentCount: number
+    maxSpots: number
+    adminOverride?: boolean
+  } | null>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -49,6 +55,20 @@ export default function Hero() {
 
   const openBetaSignup = () => {
     setIsModalOpen(true)
+  }
+
+  const checkPrefectsProgramStatus = async () => {
+    try {
+      const response = await fetch('/api/notion?checkPrefects=true')
+      const data = await response.json()
+      if (data.success) {
+        setPrefectsProgramStatus(data.prefectsStatus)
+        return data.prefectsStatus
+      }
+    } catch (error) {
+      console.error('Error checking Prefects Program status:', error)
+    }
+    return null
   }
 
   const openBetaSignupFromAlpha = () => {
@@ -59,7 +79,16 @@ export default function Hero() {
     setIsModalOpen(true)
   }
 
-  const openAlphaReveal = () => {
+  const openAlphaReveal = async () => {
+    // Check if Prefects Program is full before proceeding
+    const status = await checkPrefectsProgramStatus()
+    
+    if (status?.isFull) {
+      // Show a message that the Prefects Program is full
+      alert(`The Prefects Program is currently full (${status.currentCount}/${status.maxSpots} spots taken). Please try again later or contact us for more information.`)
+      return
+    }
+    
     // Phase 1: Power-up
     setExplosionPhase('powerup')
     setIsButtonExploding(true)
@@ -189,6 +218,7 @@ export default function Hero() {
         isOpen={isAlphaModalOpen} 
         onClose={() => setIsAlphaModalOpen(false)} 
         onOpenBetaSignup={openBetaSignupFromAlpha}
+        prefectsStatus={prefectsProgramStatus}
       />
       
       {/* Screen Flash Effect */}

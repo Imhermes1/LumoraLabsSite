@@ -59,6 +59,45 @@ export async function getAlphaTesterCount(): Promise<number> {
   }
 }
 
+export async function isPrefectsProgramFull(): Promise<boolean> {
+  try {
+    const alphaTesterCount = await getAlphaTesterCount()
+    return alphaTesterCount >= 25
+  } catch (error) {
+    console.error('Error checking if Prefects Program is full:', error)
+    return false
+  }
+}
+
+export async function getPrefectsProgramStatus(): Promise<{
+  isFull: boolean
+  currentCount: number
+  maxSpots: number
+  adminOverride?: boolean
+}> {
+  try {
+    const currentCount = await getAlphaTesterCount()
+    const isFull = currentCount >= 25
+    
+    // Check for admin override (you can set this via environment variable)
+    const adminOverride = process.env.PREFECTS_ADMIN_OVERRIDE === 'true'
+    
+    return {
+      isFull: isFull && !adminOverride,
+      currentCount,
+      maxSpots: 25,
+      adminOverride
+    }
+  } catch (error) {
+    console.error('Error getting Prefects Program status:', error)
+    return {
+      isFull: false,
+      currentCount: 0,
+      maxSpots: 25
+    }
+  }
+}
+
 export async function createBetaSignup(signupData: {
   fullName: string
   appleIdEmail?: string
