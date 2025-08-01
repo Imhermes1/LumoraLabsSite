@@ -132,17 +132,6 @@ export default function Hero() {
     }
   }
 
-  if (!mounted) {
-    return (
-      <section className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse">
-          <div className="h-8 bg-white/10 rounded w-96 mb-4"></div>
-          <div className="h-6 bg-white/10 rounded w-64"></div>
-        </div>
-      </section>
-    )
-  }
-
   return (
     <section className="relative min-h-screen flex items-center justify-center">
       {/* Content */}
@@ -175,7 +164,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <button
               onClick={openBetaSignup}
-              className="btn-primary rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 btn-glass group"
+              className="btn-primary rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group"
             >
               Join Beta Program
               <span className="ml-2">✨</span>

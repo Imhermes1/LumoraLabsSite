@@ -37,8 +37,8 @@ export default function Navigation() {
 
   return (
     <nav className={cn(
-      'fixed top-2 left-0 right-0 z-50 transition-all duration-600',
-      isScrolled ? 'nav-water-glass mx-4' : 'bg-transparent'
+      'fixed top-0 left-0 right-0 z-50 transition-all duration-600',
+      isScrolled ? 'bg-black/20 backdrop-blur-xl border-b border-white/10' : 'bg-transparent'
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-11">
@@ -67,7 +67,7 @@ export default function Navigation() {
             </button>
             <button
               onClick={openBetaSignup}
-              className="glass rounded-full px-6 py-2 text-white font-medium hover:bg-lumora-purple/20 transition-all duration-200 btn-glass"
+              className="bg-gradient-to-r from-lumora-pink to-lumora-purple rounded-full px-6 py-2 text-white font-medium hover:shadow-lg hover:shadow-lumora-purple/25 transition-all duration-200"
             >
               Join Beta
             </button>
@@ -77,7 +77,7 @@ export default function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="nav-water-glass rounded-xl p-2 text-white hover:bg-white/10 transition-all duration-600"
+              className="rounded-xl p-2 text-white hover:bg-white/10 transition-all duration-600"
             >
               {isMenuOpen ? (
                 <X size={24} className="transition-transform duration-200 rotate-90" />

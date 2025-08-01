@@ -72,7 +72,7 @@ export default function BetaCount({ className = '' }: BetaCountProps) {
   // Show enhanced loading animation for the first 2 seconds or until content is ready
   if (loading || !showContent) {
     return (
-      <div className={`glass rounded-2xl p-4 inline-block ${className}`}>
+      <div className={`rounded-2xl p-4 inline-block ${className}`}>
         <div className="flex items-center space-x-2">
           <div className="animate-pulse">
             <div className="h-4 bg-white/20 rounded w-32"></div>
@@ -103,7 +103,7 @@ export default function BetaCount({ className = '' }: BetaCountProps) {
 
   if (error) {
     return (
-      <div className={`glass rounded-2xl p-4 inline-block ${className}`}>
+      <div className={`rounded-2xl p-4 inline-block ${className}`}>
         <p className="text-white/70 text-sm">
           <span className="text-lumora-pink font-semibold">Exclusive Beta:</span> 
           <span className="ml-2">Join now</span>
