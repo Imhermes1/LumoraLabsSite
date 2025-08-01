@@ -26,10 +26,12 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
-      <Hero />
+      <section className="glass-hero section-transition">
+        <Hero />
+      </section>
 
-      {/* Apps Section - Hidden for social media promotion */}
-      {/* <section id="apps" className="py-16 md:py-24">
+      {/* Apps Section */}
+      <section id="apps" className="py-16 md:py-24 glass-apps section-transition">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -51,12 +53,18 @@ export default function Home() {
         </div>
       </section>
 
-      <BetaSignup />
+      <section className="glass section-transition">
+        <BetaSignup />
+      </section>
 
-      <Technology /> */}
+      <section className="glass-tech section-transition">
+        <Technology />
+      </section>
 
       {/* Footer */}
-      <Footer />
+      <section className="glass-footer section-transition">
+        <Footer />
+      </section>
     </main>
   )
 }
