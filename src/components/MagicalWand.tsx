@@ -80,13 +80,13 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
         </div>
       </div>
 
-      {/* Wand Glow - positioned at wand tip */}
+      {/* Wand Glow - positioned at button location */}
       {showGlow && targetPosition && (
         <div 
           className="absolute w-5 h-5 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-80 transition-opacity duration-600"
           style={{
-            left: `${targetPosition.x + wandTipOffset.x}px`,
-            top: `${targetPosition.y + wandTipOffset.y}px`,
+            left: `${targetPosition.x}px`,
+            top: `${targetPosition.y}px`,
             transform: 'translate(-50%, -50%)',
             boxShadow: '0 0 15px gold, 0 0 30px rgba(255, 215, 0, 0.6)',
             zIndex: 51
