@@ -177,7 +177,7 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
                     <h4 className="text-white font-semibold text-lg">Early Access</h4>
                   </div>
                   <p className="text-white/70 text-sm">
-                    Be amongst the first 25 users to experience our revolutionary apps before anyone else.
+                    Be amongst the first 25 users to experience our revolutionary apps.
                   </p>
                 </div>
 
