@@ -5,8 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import BetaSignupModal from './BetaSignupModal'
-import ComingSoonModal from './ComingSoonModal'
+import { LazyBetaSignupModal, LazyComingSoonModal } from './LazyModals'
 import Logo from './Logo'
 
 export default function Navigation() {
@@ -114,14 +113,18 @@ export default function Navigation() {
       </div>
 
         {/* Beta Signup Modal */}
-        <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        {isModalOpen && (
+          <LazyBetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        )}
         
         {/* Coming Soon Modal */}
-        <ComingSoonModal 
-          isOpen={isComingSoonModalOpen} 
-          onClose={() => setIsComingSoonModalOpen(false)} 
-          section={comingSoonSection}
-        />
+        {isComingSoonModalOpen && (
+          <LazyComingSoonModal 
+            isOpen={isComingSoonModalOpen} 
+            onClose={() => setIsComingSoonModalOpen(false)} 
+            section={comingSoonSection}
+          />
+        )}
     </nav>
   )
 }
