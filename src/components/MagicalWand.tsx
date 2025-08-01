@@ -57,29 +57,16 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
       <div className={`absolute transition-all duration-1000 transform-gpu ${
         isAnimating ? 'animate-wand-approach' : 'opacity-0'
       }`} style={{
-        left: targetPosition ? `${targetPosition.x - 90}px` : '50%',
-        top: targetPosition ? `${targetPosition.y - 15}px` : '50%',
+        left: targetPosition ? `${targetPosition.x - 9}px` : '50%',
+        top: targetPosition ? `${targetPosition.y - 110}px` : '50%',
         transform: targetPosition ? 'translate(-50%, -50%)' : 'translate(-50%, -50%)'
       }}>
-        <svg
-          id="hp-wand"
-          width="180"
-          height="30"
-          viewBox="0 0 180 30"
-          className="drop-shadow-2xl"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Handle */}
-          <ellipse cx="28" cy="15" rx="13" ry="13" fill="#412a23" stroke="#a0876c" strokeWidth="2"/>
-          {/* Handle ridge detailing */}
-          <ellipse cx="28" cy="15" rx="8" ry="8" fill="none" stroke="#a0876c" strokeWidth="2" />
-          {/* Wand shaft */}
-          <rect x="40" y="12" width="120" height="6" rx="3" fill="#90714e" stroke="#412a23" strokeWidth="2"/>
-          {/* Wand tip */}
-          <ellipse cx="160" cy="15" rx="5" ry="5" fill="#a0876c"/>
-          {/* Tip highlight for animation */}
-          <circle id="wand-glow" cx="165" cy="15" r="4" fill="gold" opacity="0"/>
-        </svg>
+        <div className="wand-container">
+          <div className="wand" id="hp-wand">
+            {/* Glow effect */}
+            <div className="wand-glow" id="wand-glow"></div>
+          </div>
+        </div>
       </div>
 
       {/* Sparkle dust particles */}

@@ -692,40 +692,36 @@ html {
 /* Harry Potter style wand animations - Optimized for 30fps */
 @keyframes wand-approach {
   0% {
-    transform: translate(-50%, -50%) translateX(-300px) rotate(-45deg);
+    transform: translate(-50%, -50%) translateX(-200px) rotate(-30deg);
     opacity: 0;
   }
-  20% {
-    transform: translate(-50%, -50%) translateX(-150px) rotate(-20deg);
+  25% {
+    transform: translate(-50%, -50%) translateX(-100px) rotate(-15deg);
     opacity: 1;
   }
-  40% {
-    transform: translate(-50%, -50%) translateX(-50px) rotate(-5deg);
+  50% {
+    transform: translate(-50%, -50%) translateX(-25px) rotate(-5deg);
     opacity: 1;
   }
-  60% {
+  65% {
     transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
-    opacity: 1;
-  }
-  70% {
-    transform: translate(-50%, -50%) translateX(10px) rotate(10deg);
     opacity: 1;
   }
   75% {
-    transform: translate(-50%, -50%) translateX(-5px) rotate(-5deg);
+    transform: translate(-50%, -50%) translateX(5px) rotate(5deg);
     opacity: 1;
   }
   80% {
-    transform: translate(-50%, -50%) translateX(5px) rotate(8deg);
+    transform: translate(-50%, -50%) translateX(-3px) rotate(-3deg);
     opacity: 1;
   }
   85% {
-    transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
+    transform: translate(-50%, -50%) translateX(2px) rotate(2deg);
     opacity: 0.8;
   }
   90% {
     transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
-    opacity: 0.4;
+    opacity: 0.5;
   }
   100% {
     transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
@@ -935,6 +931,60 @@ html {
 
 .modal-scroll-container::-webkit-scrollbar-thumb:hover {
   background: var(--deep-purple);
+}
+
+/* Harry Potter Wand Design */
+.wand-container {
+  position: relative;
+  transform: rotate(-45deg);
+}
+
+.wand {
+  width: 18px;
+  height: 220px;
+  background: linear-gradient(to top, #222 95%, #555 100%);
+  border-radius: 8px 8px 7px 7px / 28px 28px 50px 50px;
+  position: relative;
+  margin: 40px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.wand::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 3px;
+  bottom: 25px;
+  width: 12px;
+  height: 34px;
+  background: #222;
+  border-radius: 50% 50% 40% 40% / 75% 75% 28% 28%;
+}
+
+.wand::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 1px;
+  bottom: 3px;
+  width: 16px;
+  height: 18px;
+  background: #222;
+  border-radius: 40% 45% 50% 43% / 60% 85% 49% 36%;
+}
+
+.wand-glow {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, gold 0%, rgba(255, 215, 0, 0.6) 50%, transparent 100%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(.4,2,.3,1);
+  box-shadow: 0 0 15px gold;
 }
 
 /* Prevent background scroll when modal is open */
