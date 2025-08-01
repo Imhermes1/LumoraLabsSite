@@ -17,12 +17,12 @@ export default function MagicalWand({ onTapComplete, isVisible }: MagicalWandPro
       
       // Start wand animation after a delay
       setTimeout(() => {
-        // Create sparkles when wand taps
-        const newSparkles = Array.from({ length: 30 }, (_, i) => ({
+        // Create sparkles when wand taps - Reduced for better performance
+        const newSparkles = Array.from({ length: 15 }, (_, i) => ({
           id: i,
-          x: Math.random() * 300 - 150,
-          y: Math.random() * 300 - 150,
-          delay: Math.random() * 0.8
+          x: Math.random() * 200 - 100,
+          y: Math.random() * 200 - 100,
+          delay: Math.random() * 0.5
         }))
         setSparkles(newSparkles)
         
@@ -31,7 +31,7 @@ export default function MagicalWand({ onTapComplete, isVisible }: MagicalWandPro
           onTapComplete()
           setIsAnimating(false)
           setSparkles([])
-        }, 2500)
+        }, 2000)
       }, 2000)
     }
   }, [isVisible, isAnimating, onTapComplete])
@@ -41,7 +41,7 @@ export default function MagicalWand({ onTapComplete, isVisible }: MagicalWandPro
   return (
     <div className="fixed inset-0 pointer-events-none z-50">
       {/* Wand */}
-      <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-1000 ${
+      <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-1000 transform-gpu ${
         isAnimating ? 'animate-wand-approach' : 'opacity-0'
       }`}>
         <svg

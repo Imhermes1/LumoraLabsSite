@@ -10,9 +10,8 @@ interface AlphaRevealModalProps {
 
 export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalProps) {
   const [mounted, setMounted] = useState(false)
-  const [showWand, setShowWand] = useState(false)
-  const [showSpell, setShowSpell] = useState(false)
-  const [showSparkles, setShowSparkles] = useState(false)
+  const [showDissolutionParticles, setShowDissolutionParticles] = useState(false)
+  const [showModalForm, setShowModalForm] = useState(false)
   const [showContent, setShowContent] = useState(false)
   const [showSpells, setShowSpells] = useState(false)
 
@@ -23,17 +22,15 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
-      // Start the magical sequence
-      setTimeout(() => setShowWand(true), 100)
-      setTimeout(() => setShowSpell(true), 800)
-      setTimeout(() => setShowSparkles(true), 1200)
-      setTimeout(() => setShowContent(true), 2000)
-      setTimeout(() => setShowSpells(true), 2500)
+      // Start the magical dissolution sequence - Optimized timing
+      setTimeout(() => setShowDissolutionParticles(true), 100)
+      setTimeout(() => setShowModalForm(true), 1200)
+      setTimeout(() => setShowContent(true), 1500)
+      setTimeout(() => setShowSpells(true), 1800)
     } else {
       document.body.style.overflow = 'unset'
-      setShowWand(false)
-      setShowSpell(false)
-      setShowSparkles(false)
+      setShowDissolutionParticles(false)
+      setShowModalForm(false)
       setShowContent(false)
       setShowSpells(false)
     }
@@ -53,42 +50,29 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
         onClick={onClose}
       />
 
-      {/* Spell Casting Animation */}
-      {showWand && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-          <div className={`transition-all duration-1000 ${showWand ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}>
-            <Wand2 className="text-yellow-400 animate-spell-cast" size={48} />
-          </div>
-        </div>
-      )}
-
-      {/* Spell Effect */}
-      {showSpell && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-          <div className="animate-spell-burst">
-            <div className="w-4 h-4 bg-yellow-400 rounded-full animate-ping"></div>
-            <div className="w-6 h-6 bg-purple-400 rounded-full animate-ping" style={{animationDelay: '0.2s'}}></div>
-            <div className="w-8 h-8 bg-pink-400 rounded-full animate-ping" style={{animationDelay: '0.4s'}}></div>
-          </div>
-        </div>
-      )}
-
-      {/* Sparkles Combining Animation */}
-      {showSparkles && (
+      {/* Magical Dissolution Particles */}
+      {showDissolutionParticles && (
         <div className="absolute inset-0 z-10">
-          {/* Sparkles moving from corners to center */}
-          <div className="absolute top-0 left-0 animate-sparkle-to-center-1">
-            <Sparkles className="text-yellow-400" size={20} />
-          </div>
-          <div className="absolute top-0 right-0 animate-sparkle-to-center-2">
-            <Star className="text-blue-400" size={16} />
-          </div>
-          <div className="absolute bottom-0 left-0 animate-sparkle-to-center-3">
-            <Sparkles className="text-pink-400" size={24} />
-          </div>
-          <div className="absolute bottom-0 right-0 animate-sparkle-to-center-4">
-            <Star className="text-purple-400" size={18} />
-          </div>
+          {/* Particles forming from scattered positions - Reduced for performance */}
+          {Array.from({ length: 25 }, (_, i) => {
+            const colors = ['yellow', 'pink', 'purple', 'blue', 'green']
+            const color = colors[i % colors.length]
+            const size = Math.random() * 3 + 1
+            const delay = Math.random() * 0.5
+            
+            return (
+              <div
+                key={i}
+                className={`absolute w-${Math.ceil(size)} h-${Math.ceil(size)} bg-${color}-400 rounded-full animate-dissolution-particle`}
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${delay}s`,
+                  animationDuration: '1.5s'
+                }}
+              />
+            )
+          })}
           
           {/* Center sparkle explosion */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-sparkle-explosion">
@@ -119,7 +103,9 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
       )}
 
       {/* Modal */}
-      <div className="relative w-full max-w-4xl mx-4 max-h-[90vh] overflow-y-auto">
+      <div className={`relative w-full max-w-4xl mx-4 max-h-[90vh] overflow-y-auto transition-all duration-1000 transform-gpu ${
+        showModalForm ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+      }`}>
         <div className="glass-strong rounded-3xl p-8 md:p-12 border border-purple-500/30 shadow-2xl">
           
           {/* Header */}

@@ -18,11 +18,6 @@ export default function Hero() {
 
   useEffect(() => {
     setMounted(true)
-    
-    // Start wand animation after a delay
-    setTimeout(() => {
-      setShowWand(true)
-    }, 2000)
   }, [])
 
   const openBetaSignup = () => {
@@ -30,7 +25,8 @@ export default function Hero() {
   }
 
   const openAlphaReveal = () => {
-    setIsAlphaModalOpen(true)
+    // Start the magical wand animation sequence
+    setShowWand(true)
   }
 
   const handleWandTapComplete = () => {
@@ -39,6 +35,10 @@ export default function Hero() {
 
   const handleWindowFormComplete = () => {
     setAnimationComplete(true)
+    // Open the Alpha modal after window formation
+    setTimeout(() => {
+      setIsAlphaModalOpen(true)
+    }, 500)
   }
 
   const scrollToApps = () => {

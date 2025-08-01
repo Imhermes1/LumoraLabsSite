@@ -25,7 +25,7 @@ export default function MagicalWindow({ isVisible, onFormComplete }: MagicalWind
 
   return (
     <div className="fixed inset-0 pointer-events-none z-40">
-      <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
+      <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transform-gpu ${
         isForming ? 'animate-window-form' : 'opacity-0'
       }`}>
         <div className="relative">
