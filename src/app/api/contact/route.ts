@@ -38,6 +38,15 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Check if database ID is properly formatted
+    if (!CONTACT_DATABASE_ID.match(/^[a-f0-9]{32}$/)) {
+      console.error('Invalid database ID format:', CONTACT_DATABASE_ID)
+      return NextResponse.json(
+        { error: 'Database configuration error. Please contact support.' },
+        { status: 500 }
+      )
+    }
+
     // Create contact entry in Notion
     const response = await notion.pages.create({
       parent: {
@@ -106,6 +115,27 @@ export async function POST(request: NextRequest) {
       status: error?.status,
       body: error?.body
     })
+    
+    // Handle specific Notion errors
+    if (error?.code === 'object_not_found') {
+      return NextResponse.json(
+        { 
+          error: 'Database not found. Please ensure the database is shared with the integration.',
+          details: 'The contact database needs to be shared with your Notion integration. Please check your Notion settings.'
+        },
+        { status: 404 }
+      )
+    }
+    
+    if (error?.code === 'unauthorized') {
+      return NextResponse.json(
+        { 
+          error: 'Unauthorized access to database.',
+          details: 'Please check your Notion API key and database permissions.'
+        },
+        { status: 401 }
+      )
+    }
     
     return NextResponse.json(
       { error: 'Failed to submit contact form', details: error?.message },
