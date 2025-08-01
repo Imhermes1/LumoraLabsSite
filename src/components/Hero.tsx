@@ -136,8 +136,8 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center">
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Unified card with logo and text */}
-        <div className="glass rounded-2xl px-2 pt-0 pb-2 md:px-4 md:pt-0 md:pb-4 lg:px-6 lg:pt-0 lg:pb-6">
+        {/* Main content container with glowing outline */}
+        <div className="rounded-2xl px-2 pt-0 pb-2 md:px-4 md:pt-0 md:pb-4 lg:px-6 lg:pt-0 lg:pb-6 bg-black/20 backdrop-blur-sm border-2 border-lumora-pink/50 shadow-[0_0_20px_rgba(250,115,166,0.3)] hover:shadow-[0_0_30px_rgba(250,115,166,0.5)] transition-all duration-300">
           {/* Logo */}
           <div className="mb-1 flex justify-center -mt-2">
             <img 
@@ -164,7 +164,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <button
               onClick={openBetaSignup}
-              className="btn-primary rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group"
+              className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group bg-black/30 backdrop-blur-sm border-2 border-lumora-purple/60 shadow-[0_0_15px_rgba(179,64,217,0.4)] hover:shadow-[0_0_25px_rgba(179,64,217,0.6)] hover:scale-105"
             >
               Join Beta Program
               <span className="ml-2">✨</span>
@@ -174,7 +174,7 @@ export default function Hero() {
               id="aparecium-button"
               onClick={openAlphaReveal}
               disabled={isButtonExploding}
-              className={`btn-accent rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group overflow-hidden ${
+              className={`rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group overflow-hidden bg-black/30 backdrop-blur-sm border-2 border-deep-purple/60 shadow-[0_0_15px_rgba(140,38,242,0.4)] hover:shadow-[0_0_25px_rgba(140,38,242,0.6)] hover:scale-105 ${
                 explosionPhase === 'powerup' ? 'animate-button-powerup' :
                 explosionPhase === 'explosion' ? 'animate-button-explosion' :
                 'animate-aparecium-glow'

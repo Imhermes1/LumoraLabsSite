@@ -123,9 +123,9 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
 
       {/* Modal Content */}
       <div className={`relative w-full max-w-4xl max-h-[90vh] transition-all duration-1000 ${showModalForm ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-        <div className="bg-gray-900/95 backdrop-blur-md rounded-3xl border border-purple-500/30 shadow-2xl max-h-[90vh] flex flex-col">
+        <div className="bg-gray-900/95 backdrop-blur-md rounded-3xl border-2 border-lumora-purple/50 shadow-[0_0_30px_rgba(179,64,217,0.3)] max-h-[90vh] flex flex-col">
           {/* Header */}
-          <div className="flex justify-between items-start p-6 border-b border-purple-500/30 flex-shrink-0">
+          <div className="flex justify-between items-start p-6 border-b border-lumora-purple/30 flex-shrink-0">
             <div className={`transition-all duration-1000 ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
               <div className="flex items-center space-x-3 mb-2">
                 <div className="relative">
@@ -145,7 +145,7 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
             
             <button
               onClick={handleClose}
-              className="bg-white/10 hover:bg-white/20 rounded-full p-3 text-white/70 hover:text-white transition-all duration-300 flex-shrink-0"
+              className="bg-black/30 backdrop-blur-sm border-2 border-white/20 rounded-full p-3 text-white/70 hover:text-white transition-all duration-300 flex-shrink-0 shadow-[0_0_10px_rgba(255,255,255,0.2)] hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]"
             >
               <X size={24} />
             </button>
@@ -158,7 +158,7 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
               <div className="text-center mb-8">
                 <div className="relative mb-6">
                   <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-orange-400/20 to-red-400/20 rounded-2xl blur-xl"></div>
-                  <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-yellow-400/30">
+                  <div className="relative bg-black/30 backdrop-blur-sm rounded-2xl p-8 border-2 border-yellow-400/30 shadow-[0_0_15px_rgba(250,193,7,0.2)]">
                     <div className="flex items-center justify-center mb-4">
                       <Crown className="text-yellow-400 mr-3" size={32} />
                       <h3 className="text-2xl md:text-3xl font-bold text-white">
@@ -177,9 +177,9 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
 
               {/* Alpha Benefits */}
               <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30">
+                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-purple-500/40 shadow-[0_0_15px_rgba(168,85,247,0.2)] hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center mr-4 border border-purple-500/30">
                       <Zap className="text-purple-400" size={24} />
                     </div>
                     <h4 className="text-white font-semibold text-lg">Early Access</h4>
@@ -189,9 +189,9 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
                   </p>
                 </div>
 
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/30">
+                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-blue-500/40 shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center mr-4 border border-blue-500/30">
                       <Users className="text-blue-400" size={24} />
                     </div>
                     <h4 className="text-white font-semibold text-lg">Meaningful Impact</h4>
@@ -201,9 +201,9 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
                   </p>
                 </div>
 
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-green-500/30">
+                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-green-500/40 shadow-[0_0_15px_rgba(34,197,94,0.2)] hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all duration-300">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl flex items-center justify-center mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl flex items-center justify-center mr-4 border border-green-500/30">
                       <Gift className="text-green-400" size={24} />
                     </div>
                     <h4 className="text-white font-semibold text-lg">Prefects Benefits</h4>
@@ -213,9 +213,9 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
                   </p>
                 </div>
 
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-yellow-500/30">
+                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-yellow-500/40 shadow-[0_0_15px_rgba(250,193,7,0.2)] hover:shadow-[0_0_20px_rgba(250,193,7,0.3)] transition-all duration-300">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-xl flex items-center justify-center mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-xl flex items-center justify-center mr-4 border border-yellow-500/30">
                       <Star className="text-yellow-400" size={24} />
                     </div>
                     <h4 className="text-white font-semibold text-lg">Elite Tier</h4>
@@ -228,7 +228,7 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
 
               {/* Call to Action */}
               <div className="text-center">
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30">
+                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-purple-500/40 shadow-[0_0_15px_rgba(168,85,247,0.2)] hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300">
                   <h4 className="text-white font-semibold text-xl mb-3">
                     {prefectsStatus ? (
                       <>
@@ -252,21 +252,21 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
                     <div className="space-y-4">
                       <button
                         disabled
-                        className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border border-gray-500/30 bg-gray-600 cursor-not-allowed opacity-50"
+                        className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border-2 border-gray-500/30 bg-gray-600 cursor-not-allowed opacity-50"
                       >
                         <span className="flex items-center">
                           <Wand2 className="mr-2" size={20} />
                           Prefects Program Full
                         </span>
                       </button>
-                                             <button
-                         onClick={() => {
-                           console.log('Join Beta Program button clicked!')
-                           handleClose()
-                           onOpenRegularBetaSignup()
-                         }}
-                         className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border border-lumora-purple/30 bg-lumora-purple hover:bg-lumora-purple/80"
-                       >
+                      <button
+                        onClick={() => {
+                          console.log('Join Beta Program button clicked!')
+                          handleClose()
+                          onOpenRegularBetaSignup()
+                        }}
+                        className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border-2 border-lumora-purple/60 bg-black/30 backdrop-blur-sm shadow-[0_0_15px_rgba(179,64,217,0.3)] hover:shadow-[0_0_25px_rgba(179,64,217,0.5)] hover:scale-105"
+                      >
                         <span className="flex items-center">
                           ✨
                           <span className="ml-2">Join Beta Program Instead</span>
@@ -280,7 +280,7 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
                         handleClose()
                         onOpenBetaSignup()
                       }}
-                      className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border border-purple-500/30 bg-purple-600 hover:bg-purple-700"
+                      className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border-2 border-purple-500/60 bg-black/30 backdrop-blur-sm shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105"
                     >
                       <span className="flex items-center">
                         <Wand2 className="mr-2" size={20} />

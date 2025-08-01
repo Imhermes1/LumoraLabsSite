@@ -209,14 +209,14 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
 
   if (submitStatus === 'success') {
     return (
-      <div className="glass rounded-2xl p-8 text-center">
-        <div className="w-16 h-16 bg-positive/20 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 text-center border-2 border-positive/40 shadow-[0_0_15px_rgba(56,176,106,0.2)]">
+        <div className="w-16 h-16 bg-positive/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-positive/30">
           <CheckCircle className="text-positive" size={32} />
         </div>
         
         {isAlphaTester ? (
           <>
-            <div className="mb-4 p-4 bg-gradient-to-r from-lumora-pink/20 to-lumora-purple/20 rounded-2xl border border-lumora-pink/30">
+            <div className="mb-4 p-4 bg-gradient-to-r from-lumora-pink/20 to-lumora-purple/20 rounded-2xl border-2 border-lumora-pink/30 shadow-[0_0_10px_rgba(250,115,166,0.2)]">
               <div className="flex items-center justify-center mb-2">
                 <span className="text-lumora-pink font-bold text-2xl mr-2">α</span>
                 <h3 className="text-white font-bold text-xl">Prefects Program Status Unlocked!</h3>
@@ -243,7 +243,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
                 <span className="text-white/80 text-sm">Premium advantages</span>
               </div>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-lumora-pink/30 mb-6">
+            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 border-2 border-lumora-pink/30 shadow-[0_0_10px_rgba(250,115,166,0.2)] mb-6">
               <p className="text-lumora-pink font-semibold text-sm text-center">
                 We'll contact you soon with details about the exclusive Prefects chat channel and your early access credentials.
               </p>
@@ -262,7 +262,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
         
         <button
           onClick={() => window.location.href = '/'}
-          className="glass-strong rounded-full px-6 py-3 text-white font-semibold hover:bg-lumora-purple/30 transition-all duration-300"
+          className="bg-black/30 backdrop-blur-sm border-2 border-lumora-purple/60 rounded-full px-6 py-3 text-white font-semibold hover:bg-lumora-purple/30 transition-all duration-300 shadow-[0_0_15px_rgba(179,64,217,0.3)] hover:shadow-[0_0_20px_rgba(179,64,217,0.5)]"
         >
           Back to Home
         </button>
@@ -292,10 +292,10 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
             value={formData.fullName}
             onChange={handleInputChange}
             required
-            className={`w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 transition-all duration-300 ${
+            className={`w-full bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none border-2 transition-all duration-300 ${
               fieldErrors.fullName 
-                ? 'focus:ring-red-500/50 border border-red-500/30' 
-                : 'focus:ring-lumora-purple/50'
+                ? 'border-red-500/50 shadow-[0_0_10px_rgba(239,68,68,0.3)]' 
+                : 'border-lumora-purple/40 shadow-[0_0_10px_rgba(179,64,217,0.2)] focus:border-lumora-purple/60 focus:shadow-[0_0_15px_rgba(179,64,217,0.4)]'
             }`}
             placeholder="Respondent's answer"
           />
@@ -322,10 +322,10 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
               name="googleEmail"
               value={formData.googleEmail}
               onChange={handleInputChange}
-              className={`w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 transition-all duration-300 ${
+              className={`w-full bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none border-2 transition-all duration-300 ${
                 fieldErrors.email 
-                  ? 'focus:ring-red-500/50 border border-red-500/30' 
-                  : 'focus:ring-lumora-purple/50'
+                  ? 'border-red-500/50 shadow-[0_0_10px_rgba(239,68,68,0.3)]' 
+                  : 'border-lumora-purple/40 shadow-[0_0_10px_rgba(179,64,217,0.2)] focus:border-lumora-purple/60 focus:shadow-[0_0_15px_rgba(179,64,217,0.4)]'
               }`}
               placeholder="Enter your Google email"
             />
@@ -342,10 +342,10 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
               name="appleIdEmail"
               value={formData.appleIdEmail}
               onChange={handleInputChange}
-              className={`w-full glass rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 transition-all duration-300 ${
+              className={`w-full bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none border-2 transition-all duration-300 ${
                 fieldErrors.email 
-                  ? 'focus:ring-red-500/50 border border-red-500/30' 
-                  : 'focus:ring-lumora-purple/50'
+                  ? 'border-red-500/50 shadow-[0_0_10px_rgba(239,68,68,0.3)]' 
+                  : 'border-lumora-purple/40 shadow-[0_0_10px_rgba(179,64,217,0.2)] focus:border-lumora-purple/60 focus:shadow-[0_0_15px_rgba(179,64,217,0.4)]'
               }`}
               placeholder="Enter your Apple ID email"
             />
@@ -370,7 +370,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
                 value="Yes"
                 checked={formData.betaTestInvites === 'Yes'}
                 onChange={() => handleRadioChange('Yes')}
-                className="w-4 h-4 text-lumora-purple bg-white/10 border-white/30 focus:ring-lumora-purple/50"
+                className="w-4 h-4 text-lumora-purple bg-black/30 border-2 border-lumora-purple/40 focus:ring-lumora-purple/50 focus:ring-2 focus:ring-offset-0"
               />
               <span className="text-white/70 text-sm">Yes</span>
             </label>
@@ -381,7 +381,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
                 value="No"
                 checked={formData.betaTestInvites === 'No'}
                 onChange={() => handleRadioChange('No')}
-                className="w-4 h-4 text-lumora-purple bg-white/10 border-white/30 focus:ring-lumora-purple/50"
+                className="w-4 h-4 text-lumora-purple bg-black/30 border-2 border-lumora-purple/40 focus:ring-lumora-purple/50 focus:ring-2 focus:ring-offset-0"
               />
               <span className="text-white/70 text-sm">No</span>
             </label>
@@ -393,7 +393,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
 
         {/* Beta Warning */}
         {showBetaWarning && (
-          <div className="glass rounded-xl p-4 border border-red-500/30">
+          <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 border-2 border-red-500/40 shadow-[0_0_10px_rgba(239,68,68,0.2)]">
             <div className="flex items-center space-x-3">
               <AlertCircle className="text-red-400" size={20} />
               <p className="text-red-400 text-sm">
@@ -416,7 +416,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
                 name="macro"
                 checked={formData.appInvites.macro}
                 onChange={handleInputChange}
-                className="mt-1 w-4 h-4 text-lumora-purple bg-white/10 border-white/30 rounded focus:ring-lumora-purple/50 focus:ring-2"
+                className="mt-1 w-4 h-4 text-lumora-purple bg-black/30 border-2 border-lumora-purple/40 rounded focus:ring-lumora-purple/50 focus:ring-2 focus:ring-offset-0"
               />
               <span className="text-white/70 text-sm">
                 Macro - AI Calorie Tracker & Nutritionist Coach with 95+% Accuracy
@@ -428,7 +428,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
                 name="moodo"
                 checked={formData.appInvites.moodo}
                 onChange={handleInputChange}
-                className="mt-1 w-4 h-4 text-lumora-purple bg-white/10 border-white/30 rounded focus:ring-lumora-purple/50 focus:ring-2"
+                className="mt-1 w-4 h-4 text-lumora-purple bg-black/30 border-2 border-lumora-purple/40 rounded focus:ring-lumora-purple/50 focus:ring-2 focus:ring-offset-0"
               />
               <span className="text-white/70 text-sm">
                 MooDo - Smart Tasks based on your mental health
@@ -445,7 +445,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
           <label className="block text-white/80 text-sm font-medium mb-2">
             Disclaimer *
           </label>
-          <div className="glass rounded-xl p-4 mb-3">
+          <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 mb-3 border-2 border-lumora-purple/40 shadow-[0_0_10px_rgba(179,64,217,0.2)]">
             <p className="text-white/70 text-sm leading-relaxed">
               Beta access requires iOS 18+ or Android 13+ with compatible device. Limited availability subject to device compatibility, testing requirements, active participation commitment, and program terms. Beta software is in active development and may contain bugs, performance issues, and incomplete features.
             </p>
@@ -456,7 +456,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
               name="disclaimer"
               checked={formData.disclaimer}
               onChange={handleInputChange}
-              className="mt-1 w-4 h-4 text-lumora-purple bg-white/10 border-white/30 rounded focus:ring-lumora-purple/50 focus:ring-2"
+              className="mt-1 w-4 h-4 text-lumora-purple bg-black/30 border-2 border-lumora-purple/40 rounded focus:ring-lumora-purple/50 focus:ring-2 focus:ring-offset-0"
             />
             <span className="text-white/70 text-sm">Agree</span>
           </label>
@@ -467,7 +467,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
 
         {/* Error Message */}
         {submitStatus === 'error' && (
-          <div className="glass rounded-xl p-4 border border-red-500/30">
+          <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 border-2 border-red-500/40 shadow-[0_0_10px_rgba(239,68,68,0.2)]">
             <div className="flex items-center space-x-3">
               <AlertCircle className="text-red-400" size={20} />
               <p className="text-red-400 text-sm">{errorMessage}</p>
@@ -477,7 +477,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
 
         {/* Debug Information */}
         {debugInfo && (
-          <div className="glass rounded-xl p-4 border border-blue-500/30">
+          <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 border-2 border-blue-500/40 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
             <div className="flex items-center justify-between mb-2">
               <h4 className="text-blue-400 text-sm font-semibold">Debug Information:</h4>
               <button
@@ -498,7 +498,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
         <button
           type="submit"
           disabled={isSubmitting || !isFormValid()}
-          className="w-full glass-strong rounded-xl px-6 py-4 text-white font-semibold text-lg hover:bg-lumora-purple/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+          className="w-full bg-black/30 backdrop-blur-sm border-2 border-lumora-purple/60 rounded-xl px-6 py-4 text-white font-semibold text-lg hover:bg-lumora-purple/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(179,64,217,0.3)] hover:shadow-[0_0_25px_rgba(179,64,217,0.5)]"
         >
           {isSubmitting ? (
             <>

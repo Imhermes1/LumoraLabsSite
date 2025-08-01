@@ -45,7 +45,7 @@ export default function BetaSignup() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Join the <span className="gradient-text">Lumora Labs</span> Alpha Program
+            Join the <span className="gradient-text">Beta Program</span>
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
             Join us in building the future of beautifully simple digital experiences.
@@ -53,41 +53,6 @@ export default function BetaSignup() {
         </div>
 
         <div className="glass-strong rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
-          {/* Alpha Tester Alert */}
-          {alphaTesterSpotsRemaining > 0 && (
-            <div className="mb-8 p-6 bg-gradient-to-r from-lumora-pink/20 to-lumora-purple/20 rounded-2xl border border-lumora-pink/30">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-lumora-pink/20 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-lumora-pink font-bold text-lg">α</span>
-                  </div>
-                  <div>
-                    <h3 className="text-white font-bold text-xl">Lumora Labs Alpha Program</h3>
-                    <p className="text-white/80 text-sm">Be among the first to shape extraordinary app experiences</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-lumora-pink font-bold text-2xl">{alphaTesterSpotsRemaining}</div>
-                  <div className="text-white/70 text-sm">spots remaining</div>
-                </div>
-              </div>
-              
-              <div className="grid md:grid-cols-3 gap-4 mb-4">
-                <div className="text-center">
-                  <div className="text-lumora-pink font-bold text-lg">Shape the Future</div>
-                  <div className="text-white/70 text-xs">Direct influence on development</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lumora-pink font-bold text-lg">First to Experience</div>
-                  <div className="text-white/70 text-xs">Be among the first</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-lumora-pink font-bold text-lg">Lifetime Benefits</div>
-                  <div className="text-white/70 text-xs">Premium advantages</div>
-                </div>
-              </div>
-            </div>
-          )}
 
           {/* Progress Bar */}
           <div className="mb-8">
@@ -184,14 +149,7 @@ export default function BetaSignup() {
           </div>
         </div>
 
-        {/* Urgency Message */}
-        <div className="text-center mt-8">
-          <div className="glass rounded-2xl px-6 py-4 inline-block">
-            <p className="text-lumora-pink font-semibold">
-              ⚡ Exclusive: Alpha Program closes when we reach 25 participants
-            </p>
-          </div>
-        </div>
+
 
         {/* Beta Signup Modal */}
         <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

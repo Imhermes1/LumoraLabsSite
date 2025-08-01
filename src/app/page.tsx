@@ -52,10 +52,7 @@ export default function Home() {
         </div>
       </section> */}
 
-      {/* Beta Signup Section - Coming Soon */}
-      {/* <section className="glass section-transition">
-        <BetaSignup />
-      </section> */}
+
 
       {/* Technology Section - Coming Soon */}
       {/* <section className="glass section-transition">
