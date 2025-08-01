@@ -5,14 +5,24 @@ import { ChevronDown, Wand2, Sparkles } from 'lucide-react'
 import BetaSignupModal from './BetaSignupModal'
 import AlphaRevealModal from './AlphaRevealModal'
 import BetaCount from './BetaCount'
+import MagicalWand from './MagicalWand'
+import MagicalWindow from './MagicalWindow'
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isAlphaModalOpen, setIsAlphaModalOpen] = useState(false)
+  const [showWand, setShowWand] = useState(false)
+  const [showWindow, setShowWindow] = useState(false)
+  const [animationComplete, setAnimationComplete] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    
+    // Start wand animation after a delay
+    setTimeout(() => {
+      setShowWand(true)
+    }, 2000)
   }, [])
 
   const openBetaSignup = () => {
@@ -21,6 +31,14 @@ export default function Hero() {
 
   const openAlphaReveal = () => {
     setIsAlphaModalOpen(true)
+  }
+
+  const handleWandTapComplete = () => {
+    setShowWindow(true)
+  }
+
+  const handleWindowFormComplete = () => {
+    setAnimationComplete(true)
   }
 
   const scrollToApps = () => {
@@ -114,6 +132,18 @@ export default function Hero() {
       
       {/* Alpha Reveal Modal */}
       <AlphaRevealModal isOpen={isAlphaModalOpen} onClose={() => setIsAlphaModalOpen(false)} />
+      
+      {/* Magical Wand Animation */}
+      <MagicalWand 
+        isVisible={showWand} 
+        onTapComplete={handleWandTapComplete}
+      />
+      
+      {/* Magical Window Animation */}
+      <MagicalWindow 
+        isVisible={showWindow} 
+        onFormComplete={handleWindowFormComplete}
+      />
     </section>
   )
 }
