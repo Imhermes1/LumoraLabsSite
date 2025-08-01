@@ -11,6 +11,7 @@ export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isAlphaModalOpen, setIsAlphaModalOpen] = useState(false)
   const [isButtonExploding, setIsButtonExploding] = useState(false)
+  const [explosionPhase, setExplosionPhase] = useState<'powerup' | 'explosion' | 'convergence' | null>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -21,14 +22,26 @@ export default function Hero() {
   }
 
   const openAlphaReveal = () => {
-    // Start the button explosion animation
+    // Phase 1: Power-up
+    setExplosionPhase('powerup')
     setIsButtonExploding(true)
     
-    // Open the Alpha modal after the explosion animation
+    // Phase 2: Explosion
+    setTimeout(() => {
+      setExplosionPhase('explosion')
+    }, 1000)
+    
+    // Phase 3: Convergence
+    setTimeout(() => {
+      setExplosionPhase('convergence')
+    }, 2000)
+    
+    // Phase 4: Modal Formation
     setTimeout(() => {
       setIsAlphaModalOpen(true)
       setIsButtonExploding(false)
-    }, 1500)
+      setExplosionPhase(null)
+    }, 3500)
   }
 
   const scrollToApps = () => {
@@ -97,7 +110,9 @@ export default function Hero() {
               onClick={openAlphaReveal}
               disabled={isButtonExploding}
               className={`relative border border-purple-500/50 rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 group overflow-hidden ${
-                isButtonExploding ? 'animate-button-explosion' : 'hover:bg-purple-500/20 animate-aparecium-glow'
+                explosionPhase === 'powerup' ? 'animate-button-powerup' :
+                explosionPhase === 'explosion' ? 'animate-button-explosion' :
+                'hover:bg-purple-500/20 animate-aparecium-glow'
               }`}
             >
               {/* Enhanced glowing effect */}
@@ -127,10 +142,80 @@ export default function Hero() {
       {/* Alpha Reveal Modal */}
       <AlphaRevealModal isOpen={isAlphaModalOpen} onClose={() => setIsAlphaModalOpen(false)} />
       
-      {/* Button Explosion Sparkles */}
-      {isButtonExploding && (
+      {/* Screen Flash Effect */}
+      {explosionPhase === 'explosion' && (
+        <div className="fixed inset-0 bg-white/80 z-40 animate-screen-flash pointer-events-none"></div>
+      )}
+      
+      {/* Shockwave Effect */}
+      {explosionPhase === 'explosion' && (
+        <div className="fixed inset-0 z-45 pointer-events-none">
+          <div className="absolute left-1/2 top-1/2 w-0 h-0 border-2 border-yellow-400/60 rounded-full animate-shockwave"></div>
+          <div className="absolute left-1/2 top-1/2 w-0 h-0 border-2 border-purple-400/60 rounded-full animate-shockwave" style={{animationDelay: '0.1s'}}></div>
+          <div className="absolute left-1/2 top-1/2 w-0 h-0 border-2 border-pink-400/60 rounded-full animate-shockwave" style={{animationDelay: '0.2s'}}></div>
+        </div>
+      )}
+      
+      {/* Magical Runes */}
+      {explosionPhase === 'powerup' && (
         <div className="fixed inset-0 pointer-events-none z-50">
-          {Array.from({ length: 30 }, (_, i) => {
+          {Array.from({ length: 8 }, (_, i) => (
+            <div
+              key={i}
+              className="absolute text-yellow-400/80 text-2xl animate-rune-float"
+              style={{
+                left: '50%',
+                top: '50%',
+                transform: `translate(-50%, -50%) rotate(${i * 45}deg) translateY(-80px)`,
+                animationDelay: `${i * 0.1}s`
+              }}
+            >
+              ✧
+            </div>
+          ))}
+        </div>
+      )}
+      
+      {/* Explosion Sparkles */}
+      {explosionPhase === 'explosion' && (
+        <div className="fixed inset-0 pointer-events-none z-50">
+          {Array.from({ length: 120 }, (_, i) => {
+            const colors = ['yellow', 'pink', 'purple', 'blue', 'green', 'orange', 'cyan']
+            const color = colors[i % colors.length]
+            const size = Math.random() * 6 + 2
+            const delay = Math.random() * 0.3
+            
+            const sizeClass = Math.ceil(size) === 2 ? 'w-2 h-2' : 
+                             Math.ceil(size) === 3 ? 'w-3 h-3' : 
+                             Math.ceil(size) === 4 ? 'w-4 h-4' : 
+                             Math.ceil(size) === 5 ? 'w-5 h-5' : 'w-6 h-6'
+            const colorClass = color === 'yellow' ? 'bg-yellow-400' :
+                              color === 'pink' ? 'bg-pink-400' :
+                              color === 'purple' ? 'bg-purple-400' :
+                              color === 'blue' ? 'bg-blue-400' : 
+                              color === 'green' ? 'bg-green-400' :
+                              color === 'orange' ? 'bg-orange-400' : 'bg-cyan-400'
+            
+            return (
+              <div
+                key={i}
+                className={`absolute ${sizeClass} ${colorClass} rounded-full animate-explosion-sparkle`}
+                style={{
+                  left: '50%',
+                  top: '50%',
+                  animationDelay: `${delay}s`,
+                  animationDuration: '2s'
+                }}
+              />
+            )
+          })}
+        </div>
+      )}
+      
+      {/* Convergence Sparkles */}
+      {explosionPhase === 'convergence' && (
+        <div className="fixed inset-0 pointer-events-none z-50">
+          {Array.from({ length: 80 }, (_, i) => {
             const colors = ['yellow', 'pink', 'purple', 'blue', 'green']
             const color = colors[i % colors.length]
             const size = Math.random() * 4 + 2
@@ -147,7 +232,7 @@ export default function Hero() {
             return (
               <div
                 key={i}
-                className={`absolute ${sizeClass} ${colorClass} rounded-full animate-explosion-sparkle`}
+                className={`absolute ${sizeClass} ${colorClass} rounded-full animate-convergence-sparkle`}
                 style={{
                   left: '50%',
                   top: '50%',

@@ -1055,6 +1055,197 @@ html {
   animation: explosion-sparkle 1.5s ease-out forwards;
 }
 
+/* Super Dramatic Button Explosion Animations */
+
+/* Phase 1: Button Power-Up */
+@keyframes button-powerup {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  25% {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+  }
+  75% {
+    transform: scale(1.3);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 1);
+  }
+  100% {
+    transform: scale(1.4);
+    box-shadow: 0 0 60px rgba(255, 215, 0, 1);
+  }
+}
+
+/* Phase 2: Button Explosion */
+@keyframes button-explosion {
+  0% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(2);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(3);
+    opacity: 0.5;
+  }
+  75% {
+    transform: scale(4);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+/* Screen Flash Effect */
+@keyframes screen-flash {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Shockwave Effect */
+@keyframes shockwave {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    width: 200vw;
+    height: 200vh;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Magical Runes */
+@keyframes rune-float {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-80px) scale(0);
+  }
+  25% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(90deg) translateY(-80px) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) rotate(180deg) translateY(-80px) scale(1.2);
+  }
+  75% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) rotate(270deg) translateY(-80px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(360deg) translateY(-80px) scale(0);
+  }
+}
+
+/* Explosion Sparkles - Burst Outward */
+@keyframes explosion-sparkle {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(-50%, -50%) scale(1) rotate(90deg) translateX(calc(100px + var(--random-x, 0px))) translateY(calc(100px + var(--random-y, 0px)));
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5) rotate(180deg) translateX(calc(200px + var(--random-x, 0px))) translateY(calc(200px + var(--random-y, 0px)));
+    opacity: 0.8;
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(1) rotate(270deg) translateX(calc(300px + var(--random-x, 0px))) translateY(calc(300px + var(--random-y, 0px)));
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0) rotate(360deg) translateX(calc(400px + var(--random-x, 0px))) translateY(calc(400px + var(--random-y, 0px)));
+    opacity: 0;
+  }
+}
+
+/* Convergence Sparkles - Come Back Together */
+@keyframes convergence-sparkle {
+  0% {
+    transform: translate(-50%, -50%) scale(1) translateX(calc(400px + var(--random-x, 0px))) translateY(calc(400px + var(--random-y, 0px)));
+    opacity: 1;
+  }
+  25% {
+    transform: translate(-50%, -50%) scale(1.2) translateX(calc(300px + var(--random-x, 0px))) translateY(calc(300px + var(--random-y, 0px)));
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5) translateX(calc(200px + var(--random-x, 0px))) translateY(calc(200px + var(--random-y, 0px)));
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(1.2) translateX(calc(100px + var(--random-x, 0px))) translateY(calc(100px + var(--random-y, 0px)));
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0) translateX(0) translateY(0);
+    opacity: 0;
+  }
+}
+
+/* Animation Classes */
+.animate-button-powerup {
+  animation: button-powerup 1s ease-out forwards;
+  pointer-events: none;
+}
+
+.animate-button-explosion {
+  animation: button-explosion 1s ease-out forwards;
+  pointer-events: none;
+}
+
+.animate-screen-flash {
+  animation: screen-flash 0.5s ease-out forwards;
+}
+
+.animate-shockwave {
+  animation: shockwave 1s ease-out forwards;
+}
+
+.animate-rune-float {
+  animation: rune-float 1s ease-out forwards;
+}
+
+.animate-explosion-sparkle {
+  animation: explosion-sparkle 2s ease-out forwards;
+}
+
+.animate-convergence-sparkle {
+  animation: convergence-sparkle 1.5s ease-out forwards;
+}
+
 /* Prevent background scroll when modal is open */
 body.modal-open {
   overflow: hidden !important;
