@@ -175,7 +175,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <button
               onClick={openBetaSignup}
-              className="btn-primary rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 btn-glass group"
+              className="btn-primary rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group"
             >
               Join Beta Program
               <span className="ml-2">✨</span>
