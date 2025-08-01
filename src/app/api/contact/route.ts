@@ -55,9 +55,13 @@ export async function POST(request: NextRequest) {
     console.log('Database ID length:', cleanDatabaseId.length)
     console.log('Database ID format check:', cleanDatabaseId.match(/^[a-f0-9]{32}$/))
     
+    // Ensure the database ID is properly formatted without any hyphens
+    const finalDatabaseId = cleanDatabaseId.replace(/[^a-f0-9]/g, '')
+    console.log('Final database ID being sent to Notion:', finalDatabaseId)
+    
     const response = await notion.pages.create({
       parent: {
-        database_id: cleanDatabaseId,
+        database_id: finalDatabaseId,
       },
       properties: {
         'Name': {
