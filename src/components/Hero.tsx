@@ -31,6 +31,14 @@ export default function Hero() {
       y: rect.top + rect.height / 2
     }
     
+    // Debug: Log the button info
+    console.log('Aparecium button clicked:', {
+      buttonId: button.id,
+      buttonText: button.textContent?.trim(),
+      rect: rect,
+      targetPosition: targetPosition
+    })
+    
     // Start the magical wand animation sequence
     setShowWand(true)
     setWandTargetPosition(targetPosition)
@@ -105,6 +113,7 @@ export default function Hero() {
             </button>
 
             <button
+              id="aparecium-button"
               onClick={openAlphaReveal}
               className="relative border border-purple-500/50 rounded-full px-8 py-4 text-white font-semibold text-lg hover:bg-purple-500/20 transition-all duration-300 group overflow-hidden animate-aparecium-glow"
             >
