@@ -230,6 +230,7 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup }: 
                   </p>
                   <button
                     onClick={() => {
+                      console.log('Join Prefects Program button clicked!')
                       handleClose()
                       onOpenBetaSignup()
                     }}

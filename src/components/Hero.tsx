@@ -52,6 +52,9 @@ export default function Hero() {
   }
 
   const openBetaSignupFromAlpha = () => {
+    console.log('openBetaSignupFromAlpha called!')
+    console.log('Setting isBetaModalFromAlpha to true')
+    console.log('Setting isModalOpen to true')
     setIsBetaModalFromAlpha(true)
     setIsModalOpen(true)
   }
