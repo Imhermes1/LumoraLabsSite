@@ -6,6 +6,35 @@ import BetaSignupModal from './BetaSignupModal'
 import AlphaRevealModal from './AlphaRevealModal'
 import BetaCount from './BetaCount'
 
+// Preload beta count data
+let preloadedCount: number | null = null
+let preloadPromise: Promise<number | null> | null = null
+
+const preloadBetaCount = async (): Promise<number | null> => {
+  if (preloadedCount !== null) return preloadedCount
+  if (preloadPromise) return preloadPromise
+  
+  preloadPromise = fetch('/api/notion')
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        preloadedCount = data.count
+        return data.count
+      }
+      return null
+    })
+    .catch(() => null)
+  
+  return preloadPromise
+}
+
+// Start preloading immediately when this module is imported
+if (typeof window !== 'undefined') {
+  preloadBetaCount().then(count => {
+    window.__preloadedBetaCount = count
+  })
+}
+
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)

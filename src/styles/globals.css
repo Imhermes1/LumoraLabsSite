@@ -1215,6 +1215,32 @@ html {
   }
 }
 
+/* Loading progress animation */
+@keyframes loading-progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Fade-in animation for smooth content reveal */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
 /* Animation Classes */
 .animate-button-powerup {
   animation: button-powerup 1s ease-out forwards;
