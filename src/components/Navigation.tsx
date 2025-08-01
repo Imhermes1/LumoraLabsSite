@@ -38,7 +38,7 @@ export default function Navigation() {
   return (
     <nav className={cn(
       'fixed top-2 left-0 right-0 z-50 transition-all duration-600',
-      isScrolled ? 'nav-water-glass mx-4' : 'bg-black/10 backdrop-blur-sm'
+      isScrolled ? 'nav-water-glass mx-4' : 'bg-black/10 backdrop-blur-sm rounded-2xl mx-4'
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-11">
