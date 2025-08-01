@@ -19,13 +19,13 @@ export async function GET() {
     const cleanDatabaseId = CONTACT_DATABASE_ID.replace(/-/g, '')
     console.log('Clean Database ID:', cleanDatabaseId)
 
-    // Ensure the database ID is properly formatted without any hyphens
-    const finalDatabaseId = cleanDatabaseId.replace(/[^a-f0-9]/g, '')
-    console.log('Final Database ID being sent to Notion:', finalDatabaseId)
+    // Try with the original database ID format (with hyphens)
+    const originalDatabaseId = process.env.NOTION_CONTACT_DATABASE_ID || ''
+    console.log('Trying with original database ID format:', originalDatabaseId)
 
     // Try to retrieve the database
     const database = await notion.databases.retrieve({
-      database_id: finalDatabaseId,
+      database_id: originalDatabaseId,
     })
 
     console.log('Database retrieved successfully:', database)
