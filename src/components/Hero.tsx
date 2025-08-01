@@ -12,6 +12,7 @@ export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isAlphaModalOpen, setIsAlphaModalOpen] = useState(false)
   const [showWand, setShowWand] = useState(false)
+  const [wandTargetPosition, setWandTargetPosition] = useState<{ x: number; y: number } | null>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -21,9 +22,18 @@ export default function Hero() {
     setIsModalOpen(true)
   }
 
-  const openAlphaReveal = () => {
+  const openAlphaReveal = (event: React.MouseEvent<HTMLButtonElement>) => {
+    // Get button position for wand targeting
+    const button = event.currentTarget
+    const rect = button.getBoundingClientRect()
+    const targetPosition = {
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2
+    }
+    
     // Start the magical wand animation sequence
     setShowWand(true)
+    setWandTargetPosition(targetPosition)
   }
 
   const handleWandTapComplete = () => {
@@ -129,6 +139,7 @@ export default function Hero() {
       <MagicalWand 
         isVisible={showWand} 
         onTapComplete={handleWandTapComplete}
+        targetPosition={wandTargetPosition || undefined}
       />
       
 

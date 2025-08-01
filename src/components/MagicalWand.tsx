@@ -5,9 +5,10 @@ import { useState, useEffect } from 'react'
 interface MagicalWandProps {
   onTapComplete: () => void
   isVisible: boolean
+  targetPosition?: { x: number; y: number }
 }
 
-export default function MagicalWand({ onTapComplete, isVisible }: MagicalWandProps) {
+export default function MagicalWand({ onTapComplete, isVisible, targetPosition }: MagicalWandProps) {
   const [isAnimating, setIsAnimating] = useState(false)
   const [sparkles, setSparkles] = useState<Array<{ id: number; x: number; y: number; delay: number }>>([])
 
@@ -41,9 +42,13 @@ export default function MagicalWand({ onTapComplete, isVisible }: MagicalWandPro
   return (
     <div className="fixed inset-0 pointer-events-none z-50">
       {/* Wand */}
-      <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-1000 transform-gpu ${
+      <div className={`absolute transition-all duration-1000 transform-gpu ${
         isAnimating ? 'animate-wand-approach' : 'opacity-0'
-      }`}>
+      }`} style={{
+        left: targetPosition ? `${targetPosition.x - 20}px` : '50%',
+        top: targetPosition ? `${targetPosition.y - 15}px` : '50%',
+        transform: targetPosition ? 'translate(-50%, -50%)' : 'translate(-50%, -50%)'
+      }}>
         <svg
           width="80"
           height="280"
@@ -70,16 +75,7 @@ export default function MagicalWand({ onTapComplete, isVisible }: MagicalWandPro
             </linearGradient>
           </defs>
           
-          {/* Wand glow effect */}
-          <ellipse
-            cx="40"
-            cy="35"
-            rx="20"
-            ry="6"
-            fill="url(#wandGlow)"
-            className="animate-pulse"
-            opacity="0.5"
-          />
+
           
           {/* Wand tip - more pointed and elegant */}
           <path

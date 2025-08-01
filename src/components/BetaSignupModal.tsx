@@ -32,7 +32,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
   if (!mounted || !isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
@@ -40,7 +40,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
       />
 
       {/* Modal */}
-      <div className="relative w-full max-w-6xl mx-4 max-h-[90vh]">
+      <div className="relative w-full max-w-6xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
         <div className="glass-strong rounded-3xl max-h-[90vh] overflow-y-auto modal-scroll-container">
           <div className="p-8 md:p-12">
           

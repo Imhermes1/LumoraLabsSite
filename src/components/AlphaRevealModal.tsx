@@ -43,7 +43,7 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
   if (!mounted || !isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Magical Backdrop */}
       <div 
         className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-indigo-900/80 to-black/90 backdrop-blur-md"
@@ -103,9 +103,9 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
       )}
 
       {/* Modal */}
-      <div className={`relative w-full max-w-4xl mx-4 max-h-[90vh] transition-all duration-1000 transform-gpu ${
+      <div className={`relative w-full max-w-4xl max-h-[90vh] transition-all duration-1000 transform-gpu ${
         showModalForm ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-      }`}>
+      }`} onClick={(e) => e.stopPropagation()}>
         <div className="glass-strong rounded-3xl max-h-[90vh] overflow-y-auto modal-scroll-container border border-purple-500/30 shadow-2xl">
           <div className="p-8 md:p-12">
           
