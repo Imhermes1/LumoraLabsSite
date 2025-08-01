@@ -236,8 +236,6 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
                   </span>
                 </button>
               </div>
-            </div>
-            </div>
           </div>
         </div>
       </div>
