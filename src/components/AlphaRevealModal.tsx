@@ -154,14 +154,14 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
                     <div className="flex items-center justify-center mb-4">
                       <Crown className="text-yellow-400 mr-3" size={32} />
                       <h3 className="text-2xl md:text-3xl font-bold text-white">
-                        The <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Alpha Program</span>
+                        The <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Prefects Program</span>
                       </h3>
                     </div>
                     <p className="text-white/90 text-lg mb-4">
-                      Hidden from the eyes of ordinary users, there exists an exclusive circle of the first 25 chosen ones...
+                      Hidden from the eyes of ordinary users, there exists an exclusive circle of just 25 chosen ones...
                     </p>
                     <div className="text-yellow-400/80 text-sm font-mono">
-                      "Aparecium Revelio Alpha Testers"
+                      "Happiness can be found, even in the darkest of times, if one only remembers to turn on the light."
                     </div>
                   </div>
                 </div>
@@ -174,10 +174,10 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
                     <div className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center mr-4">
                       <Zap className="text-purple-400" size={24} />
                     </div>
-                    <h4 className="text-white font-semibold text-lg">First Access</h4>
+                    <h4 className="text-white font-semibold text-lg">Early Access</h4>
                   </div>
                   <p className="text-white/70 text-sm">
-                    Be among the first 25 to experience our revolutionary apps before anyone else. Your feedback shapes the future.
+                    Be amongst the first 25 users to experience our revolutionary apps before anyone else.
                   </p>
                 </div>
 
@@ -186,10 +186,10 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center mr-4">
                       <Users className="text-blue-400" size={24} />
                     </div>
-                    <h4 className="text-white font-semibold text-lg">Direct Influence</h4>
+                    <h4 className="text-white font-semibold text-lg">Meaningful Impact</h4>
                   </div>
                   <p className="text-white/70 text-sm">
-                    Your voice matters. Alpha testers have direct input on features, design, and the overall direction of our apps.
+                  Your input makes a difference. As a Prefect, your feedback helps us improve our apps' usability and experience.
                   </p>
                 </div>
 
@@ -198,10 +198,10 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
                     <div className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl flex items-center justify-center mr-4">
                       <Gift className="text-green-400" size={24} />
                     </div>
-                    <h4 className="text-white font-semibold text-lg">Lifetime Benefits</h4>
+                    <h4 className="text-white font-semibold text-lg">Prefects Benefits</h4>
                   </div>
                   <p className="text-white/70 text-sm">
-                    Exclusive perks, lifetime discounts, and special recognition as founding members of the Lumora Labs community.
+                  Enjoy future perks, potential discounts, and unique recognition as early members of the Lumora Labs community.
                   </p>
                 </div>
 
@@ -210,7 +210,7 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
                     <div className="w-12 h-12 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-xl flex items-center justify-center mr-4">
                       <Star className="text-yellow-400" size={24} />
                     </div>
-                    <h4 className="text-white font-semibold text-lg">Legendary Status</h4>
+                    <h4 className="text-white font-semibold text-lg">Elite Tier</h4>
                   </div>
                   <p className="text-white/70 text-sm">
                     Join an elite group of pioneers who helped build the future of mobile technology. Your name will be remembered.
@@ -222,10 +222,10 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
               <div className="text-center">
                 <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30">
                   <h4 className="text-white font-semibold text-xl mb-3">
-                    The First 25 Spots Are Almost Full...
+                    There are only 25 spots available for the Prefects Program
                   </h4>
                   <p className="text-white/70 text-sm mb-6">
-                    Only a few magical spots remain. Will you be one of the chosen ones?
+                    There wont be more spots available for the Prefects Program, once they are all taken.
                   </p>
                   <button
                     onClick={handleClose}
@@ -233,7 +233,7 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
                   >
                     <span className="flex items-center">
                       <Wand2 className="mr-2" size={20} />
-                      Join the Alpha Circle
+                      Join the Prefects Program
                     </span>
                   </button>
                 </div>
