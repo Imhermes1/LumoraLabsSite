@@ -689,27 +689,51 @@ html {
   animation: sparkle-explosion 1s ease-out forwards;
 }
 
-/* Wand animations - Optimized for 30fps */
+/* Harry Potter style wand animations - Optimized for 30fps */
 @keyframes wand-approach {
   0% {
-    transform: translate(-50%, -50%) translateX(-300px) rotate(-45deg);
+    transform: translate(-50%, -50%) translateX(-400px) rotate(-60deg);
     opacity: 0;
   }
-  20% {
-    transform: translate(-50%, -50%) translateX(-100px) rotate(-20deg);
+  15% {
+    transform: translate(-50%, -50%) translateX(-200px) rotate(-30deg);
     opacity: 1;
   }
-  40% {
+  30% {
+    transform: translate(-50%, -50%) translateX(-50px) rotate(-10deg);
+    opacity: 1;
+  }
+  45% {
     transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
     opacity: 1;
   }
-  60% {
-    transform: translate(-50%, -50%) translateX(5px) rotate(3deg);
+  55% {
+    transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
+    opacity: 1;
+  }
+  65% {
+    transform: translate(-50%, -50%) translateX(15px) rotate(15deg);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(-50%, -50%) translateX(-10px) rotate(-8deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-50%, -50%) translateX(8px) rotate(12deg);
     opacity: 1;
   }
   80% {
+    transform: translate(-50%, -50%) translateX(-5px) rotate(-5deg);
+    opacity: 1;
+  }
+  85% {
+    transform: translate(-50%, -50%) translateX(3px) rotate(3deg);
+    opacity: 0.8;
+  }
+  90% {
     transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
-    opacity: 0.5;
+    opacity: 0.4;
   }
   100% {
     transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
@@ -759,7 +783,7 @@ html {
 }
 
 .animate-wand-approach {
-  animation: wand-approach 3s ease-out forwards;
+  animation: wand-approach 3.5s ease-out forwards;
   will-change: transform, opacity;
 }
 
@@ -887,6 +911,37 @@ html {
 .btn-glass:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+}
+
+/* Modal scroll optimizations */
+.modal-scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--lumora-purple) rgba(255, 255, 255, 0.1);
+}
+
+.modal-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-scroll-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.modal-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--lumora-purple);
+  border-radius: 3px;
+}
+
+.modal-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: var(--deep-purple);
+}
+
+/* Prevent background scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }
 
 /* Responsive typography */

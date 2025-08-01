@@ -21,14 +21,14 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden'
+      document.body.classList.add('modal-open')
       // Start the magical dissolution sequence - Optimized timing
       setTimeout(() => setShowDissolutionParticles(true), 100)
       setTimeout(() => setShowModalForm(true), 1200)
       setTimeout(() => setShowContent(true), 1500)
       setTimeout(() => setShowSpells(true), 1800)
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.classList.remove('modal-open')
       setShowDissolutionParticles(false)
       setShowModalForm(false)
       setShowContent(false)
@@ -36,7 +36,7 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
     }
 
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.classList.remove('modal-open')
     }
   }, [isOpen])
 
@@ -103,10 +103,11 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
       )}
 
       {/* Modal */}
-      <div className={`relative w-full max-w-4xl mx-4 max-h-[90vh] overflow-y-auto transition-all duration-1000 transform-gpu ${
+      <div className={`relative w-full max-w-4xl mx-4 max-h-[90vh] transition-all duration-1000 transform-gpu ${
         showModalForm ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
       }`}>
-        <div className="glass-strong rounded-3xl p-8 md:p-12 border border-purple-500/30 shadow-2xl">
+        <div className="glass-strong rounded-3xl max-h-[90vh] overflow-y-auto modal-scroll-container border border-purple-500/30 shadow-2xl">
+          <div className="p-8 md:p-12">
           
           {/* Header */}
           <div className="flex justify-between items-start mb-8">
@@ -230,6 +231,7 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
                 </button>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

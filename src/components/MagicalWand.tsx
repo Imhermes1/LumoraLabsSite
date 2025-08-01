@@ -45,85 +45,88 @@ export default function MagicalWand({ onTapComplete, isVisible }: MagicalWandPro
         isAnimating ? 'animate-wand-approach' : 'opacity-0'
       }`}>
         <svg
-          width="120"
-          height="400"
-          viewBox="0 0 120 400"
+          width="80"
+          height="280"
+          viewBox="0 0 80 280"
           className="drop-shadow-2xl"
         >
-          {/* Wand handle - dark wood with golden accents */}
+          {/* Harry Potter style wand */}
           <defs>
-            <linearGradient id="wandHandle" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="wandWood" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" style={{ stopColor: '#8B4513', stopOpacity: 1 }} />
-              <stop offset="30%" style={{ stopColor: '#A0522D', stopOpacity: 1 }} />
-              <stop offset="70%" style={{ stopColor: '#8B4513', stopOpacity: 1 }} />
+              <stop offset="25%" style={{ stopColor: '#A0522D', stopOpacity: 1 }} />
+              <stop offset="50%" style={{ stopColor: '#8B4513', stopOpacity: 1 }} />
+              <stop offset="75%" style={{ stopColor: '#A0522D', stopOpacity: 1 }} />
               <stop offset="100%" style={{ stopColor: '#654321', stopOpacity: 1 }} />
             </linearGradient>
             <linearGradient id="wandTip" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{ stopColor: '#FFD700', stopOpacity: 1 }} />
-              <stop offset="50%" style={{ stopColor: '#FFA500', stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: '#FF8C00', stopOpacity: 1 }} />
+              <stop offset="0%" style={{ stopColor: '#DAA520', stopOpacity: 1 }} />
+              <stop offset="50%" style={{ stopColor: '#B8860B', stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: '#8B4513', stopOpacity: 1 }} />
             </linearGradient>
             <linearGradient id="wandGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{ stopColor: '#FFD700', stopOpacity: 0.8 }} />
-              <stop offset="100%" style={{ stopColor: '#FFA500', stopOpacity: 0.4 }} />
+              <stop offset="0%" style={{ stopColor: '#FFD700', stopOpacity: 0.6 }} />
+              <stop offset="100%" style={{ stopColor: '#FFA500', stopOpacity: 0.3 }} />
             </linearGradient>
           </defs>
           
           {/* Wand glow effect */}
           <ellipse
-            cx="60"
-            cy="50"
-            rx="25"
-            ry="8"
+            cx="40"
+            cy="35"
+            rx="20"
+            ry="6"
             fill="url(#wandGlow)"
             className="animate-pulse"
-            opacity="0.6"
+            opacity="0.5"
           />
           
-          {/* Wand tip */}
-          <ellipse
-            cx="60"
-            cy="50"
-            rx="8"
-            ry="4"
+          {/* Wand tip - more pointed and elegant */}
+          <path
+            d="M 40 35 L 36 25 L 44 25 Z"
             fill="url(#wandTip)"
             className="animate-pulse"
           />
           
-          {/* Wand shaft */}
+          {/* Main wand shaft - natural wood grain */}
           <rect
-            x="56"
-            y="50"
-            width="8"
-            height="300"
-            fill="url(#wandHandle)"
-            rx="4"
+            x="37"
+            y="35"
+            width="6"
+            height="200"
+            fill="url(#wandWood)"
+            rx="3"
           />
           
-          {/* Golden bands */}
-          <rect x="54" y="80" width="12" height="3" fill="#FFD700" rx="1.5" />
-          <rect x="54" y="120" width="12" height="3" fill="#FFD700" rx="1.5" />
-          <rect x="54" y="160" width="12" height="3" fill="#FFD700" rx="1.5" />
-          <rect x="54" y="200" width="12" height="3" fill="#FFD700" rx="1.5" />
-          <rect x="54" y="240" width="12" height="3" fill="#FFD700" rx="1.5" />
-          <rect x="54" y="280" width="12" height="3" fill="#FFD700" rx="1.5" />
+          {/* Wood grain details */}
+          <path d="M 37 45 Q 40 47 43 45" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
+          <path d="M 37 65 Q 40 67 43 65" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
+          <path d="M 37 85 Q 40 87 43 85" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
+          <path d="M 37 105 Q 40 107 43 105" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
+          <path d="M 37 125 Q 40 127 43 125" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
+          <path d="M 37 145 Q 40 147 43 145" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
+          <path d="M 37 165 Q 40 167 43 165" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
+          <path d="M 37 185 Q 40 187 43 185" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
           
-          {/* Handle grip */}
+          {/* Subtle golden accent band */}
+          <rect x="36" y="120" width="8" height="2" fill="#DAA520" rx="1" opacity="0.8" />
+          
+          {/* Handle grip - leather wrapped */}
           <rect
-            x="52"
-            y="320"
-            width="16"
-            height="60"
+            x="35"
+            y="235"
+            width="10"
+            height="35"
             fill="#654321"
-            rx="8"
+            rx="5"
           />
           
-          {/* Handle grip texture */}
-          <rect x="54" y="330" width="12" height="2" fill="#8B4513" rx="1" />
-          <rect x="54" y="340" width="12" height="2" fill="#8B4513" rx="1" />
-          <rect x="54" y="350" width="12" height="2" fill="#8B4513" rx="1" />
-          <rect x="54" y="360" width="12" height="2" fill="#8B4513" rx="1" />
-          <rect x="54" y="370" width="12" height="2" fill="#8B4513" rx="1" />
+          {/* Leather grip texture */}
+          <rect x="36" y="240" width="8" height="1" fill="#8B4513" rx="0.5" />
+          <rect x="36" y="245" width="8" height="1" fill="#8B4513" rx="0.5" />
+          <rect x="36" y="250" width="8" height="1" fill="#8B4513" rx="0.5" />
+          <rect x="36" y="255" width="8" height="1" fill="#8B4513" rx="0.5" />
+          <rect x="36" y="260" width="8" height="1" fill="#8B4513" rx="0.5" />
         </svg>
       </div>
 

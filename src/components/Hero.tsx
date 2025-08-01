@@ -6,15 +6,12 @@ import BetaSignupModal from './BetaSignupModal'
 import AlphaRevealModal from './AlphaRevealModal'
 import BetaCount from './BetaCount'
 import MagicalWand from './MagicalWand'
-import MagicalWindow from './MagicalWindow'
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isAlphaModalOpen, setIsAlphaModalOpen] = useState(false)
   const [showWand, setShowWand] = useState(false)
-  const [showWindow, setShowWindow] = useState(false)
-  const [animationComplete, setAnimationComplete] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -30,12 +27,7 @@ export default function Hero() {
   }
 
   const handleWandTapComplete = () => {
-    setShowWindow(true)
-  }
-
-  const handleWindowFormComplete = () => {
-    setAnimationComplete(true)
-    // Open the Alpha modal after window formation
+    // Open the Alpha modal directly after wand animation
     setTimeout(() => {
       setIsAlphaModalOpen(true)
     }, 500)
@@ -139,11 +131,7 @@ export default function Hero() {
         onTapComplete={handleWandTapComplete}
       />
       
-      {/* Magical Window Animation */}
-      <MagicalWindow 
-        isVisible={showWindow} 
-        onFormComplete={handleWindowFormComplete}
-      />
+
     </section>
   )
 }

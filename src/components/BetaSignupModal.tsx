@@ -19,13 +19,13 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden'
+      document.body.classList.add('modal-open')
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.classList.remove('modal-open')
     }
 
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.classList.remove('modal-open')
     }
   }, [isOpen])
 
@@ -40,8 +40,9 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
       />
 
       {/* Modal */}
-      <div className="relative w-full max-w-6xl mx-4 max-h-[90vh] overflow-y-auto">
-        <div className="glass-strong rounded-3xl p-8 md:p-12">
+      <div className="relative w-full max-w-6xl mx-4 max-h-[90vh]">
+        <div className="glass-strong rounded-3xl max-h-[90vh] overflow-y-auto modal-scroll-container">
+          <div className="p-8 md:p-12">
           
           {/* Header */}
           <div className="flex justify-between items-start mb-8">
@@ -175,6 +176,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
           {/* Footer */}
           <div className="mt-8 pt-6 border-t border-white/10 text-center">
             <BetaCount />
+          </div>
           </div>
         </div>
       </div>
