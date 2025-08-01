@@ -90,8 +90,8 @@ export async function POST(request: NextRequest) {
             start: new Date().toISOString(),
           },
         },
-        'Status': {
-          select: {
+        'status': {
+          status: {
             name: 'New',
           },
         },
