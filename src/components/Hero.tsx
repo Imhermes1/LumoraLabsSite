@@ -93,7 +93,6 @@ export default function Hero() {
               
               {/* Content */}
               <span className="relative flex items-center">
-                <Wand2 className="mr-2 text-purple-400 group-hover:text-pink-400 transition-colors duration-300 animate-aparecium-sparkle" size={20} />
                 Aparecium
                 <Sparkles className="ml-2 text-yellow-400 animate-aparecium-sparkle" size={16} />
               </span>

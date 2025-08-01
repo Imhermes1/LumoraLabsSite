@@ -10,6 +10,9 @@ interface AlphaRevealModalProps {
 
 export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalProps) {
   const [mounted, setMounted] = useState(false)
+  const [showWand, setShowWand] = useState(false)
+  const [showSpell, setShowSpell] = useState(false)
+  const [showSparkles, setShowSparkles] = useState(false)
   const [showContent, setShowContent] = useState(false)
   const [showSpells, setShowSpells] = useState(false)
 
@@ -21,10 +24,16 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
     if (isOpen) {
       document.body.style.overflow = 'hidden'
       // Start the magical sequence
-      setTimeout(() => setShowContent(true), 500)
-      setTimeout(() => setShowSpells(true), 1000)
+      setTimeout(() => setShowWand(true), 100)
+      setTimeout(() => setShowSpell(true), 800)
+      setTimeout(() => setShowSparkles(true), 1200)
+      setTimeout(() => setShowContent(true), 2000)
+      setTimeout(() => setShowSpells(true), 2500)
     } else {
       document.body.style.overflow = 'unset'
+      setShowWand(false)
+      setShowSpell(false)
+      setShowSparkles(false)
       setShowContent(false)
       setShowSpells(false)
     }
@@ -43,6 +52,53 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
         className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-indigo-900/80 to-black/90 backdrop-blur-md"
         onClick={onClose}
       />
+
+      {/* Spell Casting Animation */}
+      {showWand && (
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+          <div className={`transition-all duration-1000 ${showWand ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}>
+            <Wand2 className="text-yellow-400 animate-spell-cast" size={48} />
+          </div>
+        </div>
+      )}
+
+      {/* Spell Effect */}
+      {showSpell && (
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+          <div className="animate-spell-burst">
+            <div className="w-4 h-4 bg-yellow-400 rounded-full animate-ping"></div>
+            <div className="w-6 h-6 bg-purple-400 rounded-full animate-ping" style={{animationDelay: '0.2s'}}></div>
+            <div className="w-8 h-8 bg-pink-400 rounded-full animate-ping" style={{animationDelay: '0.4s'}}></div>
+          </div>
+        </div>
+      )}
+
+      {/* Sparkles Combining Animation */}
+      {showSparkles && (
+        <div className="absolute inset-0 z-10">
+          {/* Sparkles moving from corners to center */}
+          <div className="absolute top-0 left-0 animate-sparkle-to-center-1">
+            <Sparkles className="text-yellow-400" size={20} />
+          </div>
+          <div className="absolute top-0 right-0 animate-sparkle-to-center-2">
+            <Star className="text-blue-400" size={16} />
+          </div>
+          <div className="absolute bottom-0 left-0 animate-sparkle-to-center-3">
+            <Sparkles className="text-pink-400" size={24} />
+          </div>
+          <div className="absolute bottom-0 right-0 animate-sparkle-to-center-4">
+            <Star className="text-purple-400" size={18} />
+          </div>
+          
+          {/* Center sparkle explosion */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-sparkle-explosion">
+            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
+            <div className="w-3 h-3 bg-purple-400 rounded-full animate-ping" style={{animationDelay: '0.1s'}}></div>
+            <div className="w-4 h-4 bg-pink-400 rounded-full animate-ping" style={{animationDelay: '0.2s'}}></div>
+            <div className="w-2 h-2 bg-blue-400 rounded-full animate-ping" style={{animationDelay: '0.3s'}}></div>
+          </div>
+        </div>
+      )}
 
       {/* Floating Magical Particles */}
       {showSpells && (

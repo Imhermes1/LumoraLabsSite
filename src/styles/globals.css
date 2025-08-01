@@ -547,6 +547,148 @@ html {
   animation: aparecium-reveal 1.5s ease-out forwards;
 }
 
+/* Spell casting animations */
+@keyframes spell-cast {
+  0% {
+    transform: translateX(-100px) rotate(-45deg);
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(-50px) rotate(-30deg);
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(0px) rotate(0deg);
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(20px) rotate(15deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(0px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes spell-burst {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle-to-center-1 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(50vw, 50vh);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle-to-center-2 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50vw, 50vh);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle-to-center-3 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(50vw, -50vh);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle-to-center-4 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50vw, -50vh);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle-explosion {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-spell-cast {
+  animation: spell-cast 2s ease-out forwards;
+}
+
+.animate-spell-burst {
+  animation: spell-burst 1.5s ease-out forwards;
+}
+
+.animate-sparkle-to-center-1 {
+  animation: sparkle-to-center-1 1.5s ease-out forwards;
+}
+
+.animate-sparkle-to-center-2 {
+  animation: sparkle-to-center-2 1.5s ease-out forwards;
+}
+
+.animate-sparkle-to-center-3 {
+  animation: sparkle-to-center-3 1.5s ease-out forwards;
+}
+
+.animate-sparkle-to-center-4 {
+  animation: sparkle-to-center-4 1.5s ease-out forwards;
+}
+
+.animate-sparkle-explosion {
+  animation: sparkle-explosion 1s ease-out forwards;
+}
+
 /* Enhanced logo glow animation with inner white/yellow glow */
 @keyframes logo-glow {
   0% {
