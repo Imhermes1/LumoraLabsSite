@@ -59,6 +59,12 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
 
   if (!isVisible) return null
 
+  // Calculate wand tip position
+  const wandTipOffset = {
+    x: Math.cos(45 * Math.PI / 180) * 100, // 100px is the translateY offset
+    y: -Math.sin(45 * Math.PI / 180) * 100
+  }
+
   return (
     <div className="fixed inset-0 pointer-events-none z-50">
       {/* Wand */}
@@ -90,13 +96,21 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
         const color = colors[sparkle.id % colors.length]
         const size = sizes[sparkle.id % sizes.length]
         
+        // Calculate sparkle position relative to wand tip
+        const sparkleX = targetPosition ? 
+          targetPosition.x + wandTipOffset.x + sparkle.x : 
+          `calc(50% + ${sparkle.x}px)`
+        const sparkleY = targetPosition ? 
+          targetPosition.y + wandTipOffset.y + sparkle.y : 
+          `calc(50% + ${sparkle.y}px)`
+        
         return (
           <div
             key={sparkle.id}
             className={`absolute ${size} bg-gradient-to-r ${color} rounded-full animate-sparkle-float`}
             style={{
-              left: targetPosition ? `calc(${targetPosition.x}px + ${sparkle.x}px)` : `calc(50% + ${sparkle.x}px)`,
-              top: targetPosition ? `calc(${targetPosition.y}px + ${sparkle.y}px)` : `calc(50% + ${sparkle.y}px)`,
+              left: typeof sparkleX === 'number' ? `${sparkleX}px` : sparkleX,
+              top: typeof sparkleY === 'number' ? `${sparkleY}px` : sparkleY,
               animationDelay: `${sparkle.delay}s`,
               animationDuration: '2.5s'
             }}
