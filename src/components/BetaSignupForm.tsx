@@ -219,33 +219,33 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
             <div className="mb-4 p-4 bg-gradient-to-r from-lumora-pink/20 to-lumora-purple/20 rounded-2xl border border-lumora-pink/30">
               <div className="flex items-center justify-center mb-2">
                 <span className="text-lumora-pink font-bold text-2xl mr-2">α</span>
-                <h3 className="text-white font-bold text-xl">Alpha Tester Status Unlocked!</h3>
+                <h3 className="text-white font-bold text-xl">Prefects Program Status Unlocked!</h3>
               </div>
               <p className="text-lumora-pink font-semibold text-sm">You're one of the first 25!</p>
             </div>
             <h3 className="text-white font-semibold text-xl mb-2">
-              Welcome to Lumora Labs Alpha! 🎉
+              Welcome to the Prefects Program! 🎉
             </h3>
             <p className="text-white/70 text-sm mb-4">
-              Congratulations! You've secured your spot in our exclusive Alpha program. We'll be opening a private chat channel specifically for Alpha members where you can directly influence our development process.
+              Congratulations! You've secured your spot in our exclusive Prefects Program. We'll be opening a private chat channel specifically for Prefects members where you can influence our development process.
             </p>
             <div className="space-y-2 mb-6 text-left max-w-sm mx-auto">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-lumora-pink rounded-full"></div>
-                <span className="text-white/80 text-sm">Exclusive Alpha chat channel access</span>
+                <span className="text-white/80 text-sm">Exclusive Prefects chat channel access</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-lumora-purple rounded-full"></div>
-                <span className="text-white/80 text-sm">Direct influence on product development</span>
+                <span className="text-white/80 text-sm">Influence on product development</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-deep-purple rounded-full"></div>
-                <span className="text-white/80 text-sm">Lifetime premium advantages</span>
+                <span className="text-white/80 text-sm">Premium advantages</span>
               </div>
             </div>
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-lumora-pink/30 mb-6">
               <p className="text-lumora-pink font-semibold text-sm text-center">
-                We'll contact you soon with details about the exclusive Alpha chat channel and your early access credentials.
+                We'll contact you soon with details about the exclusive Prefects chat channel and your early access credentials.
               </p>
             </div>
           </>
