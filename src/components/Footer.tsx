@@ -33,7 +33,7 @@ export default function Footer() {
 
             <div className="flex items-center space-x-2 text-white/60 mb-2">
               <MapPin size={16} />
-              <span className="text-sm">Melbourne, VIC, Australia</span>
+              <span className="text-sm">Melbourne, Australia</span>
             </div>
 
             <div className="flex items-center space-x-2 text-white/60">
@@ -52,13 +52,13 @@ export default function Footer() {
                 onClick={() => document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' })}
                 className="block text-white/70 hover:text-lumora-pink transition-colors text-sm"
               >
-                MooDo - Mood Management
+                MooDo - Smart Tasks based on your mental health
               </button>
               <button 
                 onClick={() => document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' })}
                 className="block text-white/70 hover:text-lumora-pink transition-colors text-sm"
               >
-                Macro - Nutrition AI
+                Macro - Calorie Tracker & AI Nutritionist Coach with 95+% Accuracy
               </button>
               <button 
                 onClick={openBetaSignup}
@@ -100,7 +100,7 @@ export default function Footer() {
           <h3 className="text-2xl font-bold text-white mb-4">Ready to Experience the Future?</h3>
           <p className="text-white/70 mb-6 max-w-2xl mx-auto">
             Join our exclusive beta program and be among the first to experience elegant, 
-            AI-powered apps that enhance your productivity and wellness.
+            apps that enhance your productivity and wellness.
           </p>
           <button
             onClick={openBetaSignup}
