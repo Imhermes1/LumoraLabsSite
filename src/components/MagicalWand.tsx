@@ -58,7 +58,7 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
         isAnimating ? 'animate-wand-approach' : 'opacity-0'
       }`} style={{
         left: targetPosition ? `${targetPosition.x}px` : '50%',
-        top: targetPosition ? `${targetPosition.y + 200}px` : '50%',
+        top: targetPosition ? `${targetPosition.y}px` : '50%',
         transform: targetPosition ? 'translate(-50%, -50%)' : 'translate(-50%, -50%)'
       }}>
         <div className="wand-container">
