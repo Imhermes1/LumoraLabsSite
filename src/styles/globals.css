@@ -692,43 +692,35 @@ html {
 /* Harry Potter style wand animations - Optimized for 30fps */
 @keyframes wand-approach {
   0% {
-    transform: translate(-50%, -50%) translateX(-400px) rotate(-60deg);
+    transform: translate(-50%, -50%) translateX(-300px) rotate(-45deg);
     opacity: 0;
   }
-  15% {
-    transform: translate(-50%, -50%) translateX(-200px) rotate(-30deg);
+  20% {
+    transform: translate(-50%, -50%) translateX(-150px) rotate(-20deg);
     opacity: 1;
   }
-  30% {
-    transform: translate(-50%, -50%) translateX(-50px) rotate(-10deg);
+  40% {
+    transform: translate(-50%, -50%) translateX(-50px) rotate(-5deg);
     opacity: 1;
   }
-  45% {
+  60% {
     transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
-    opacity: 1;
-  }
-  55% {
-    transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
-    opacity: 1;
-  }
-  65% {
-    transform: translate(-50%, -50%) translateX(15px) rotate(15deg);
     opacity: 1;
   }
   70% {
-    transform: translate(-50%, -50%) translateX(-10px) rotate(-8deg);
+    transform: translate(-50%, -50%) translateX(10px) rotate(10deg);
     opacity: 1;
   }
   75% {
-    transform: translate(-50%, -50%) translateX(8px) rotate(12deg);
-    opacity: 1;
-  }
-  80% {
     transform: translate(-50%, -50%) translateX(-5px) rotate(-5deg);
     opacity: 1;
   }
+  80% {
+    transform: translate(-50%, -50%) translateX(5px) rotate(8deg);
+    opacity: 1;
+  }
   85% {
-    transform: translate(-50%, -50%) translateX(3px) rotate(3deg);
+    transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
     opacity: 0.8;
   }
   90% {

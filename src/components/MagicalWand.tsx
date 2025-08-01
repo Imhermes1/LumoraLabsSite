@@ -18,6 +18,18 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
       
       // Start wand animation after a delay
       setTimeout(() => {
+        // Trigger wand glow animation
+        const wand = document.getElementById("hp-wand");
+        const glow = document.getElementById("wand-glow");
+        
+        if (wand && glow) {
+          glow.style.opacity = "1";
+          glow.style.transition = "opacity 0.6s cubic-bezier(.4,2,.3,1)";
+          setTimeout(() => {
+            glow.style.opacity = "0";
+          }, 600);
+        }
+        
         // Create sparkles when wand taps - Reduced for better performance
         const newSparkles = Array.from({ length: 15 }, (_, i) => ({
           id: i,
@@ -45,84 +57,28 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
       <div className={`absolute transition-all duration-1000 transform-gpu ${
         isAnimating ? 'animate-wand-approach' : 'opacity-0'
       }`} style={{
-        left: targetPosition ? `${targetPosition.x - 20}px` : '50%',
+        left: targetPosition ? `${targetPosition.x - 90}px` : '50%',
         top: targetPosition ? `${targetPosition.y - 15}px` : '50%',
         transform: targetPosition ? 'translate(-50%, -50%)' : 'translate(-50%, -50%)'
       }}>
         <svg
-          width="80"
-          height="280"
-          viewBox="0 0 80 280"
+          id="hp-wand"
+          width="180"
+          height="30"
+          viewBox="0 0 180 30"
           className="drop-shadow-2xl"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Harry Potter style wand */}
-          <defs>
-            <linearGradient id="wandWood" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{ stopColor: '#8B4513', stopOpacity: 1 }} />
-              <stop offset="25%" style={{ stopColor: '#A0522D', stopOpacity: 1 }} />
-              <stop offset="50%" style={{ stopColor: '#8B4513', stopOpacity: 1 }} />
-              <stop offset="75%" style={{ stopColor: '#A0522D', stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: '#654321', stopOpacity: 1 }} />
-            </linearGradient>
-            <linearGradient id="wandTip" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{ stopColor: '#DAA520', stopOpacity: 1 }} />
-              <stop offset="50%" style={{ stopColor: '#B8860B', stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: '#8B4513', stopOpacity: 1 }} />
-            </linearGradient>
-            <linearGradient id="wandGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{ stopColor: '#FFD700', stopOpacity: 0.6 }} />
-              <stop offset="100%" style={{ stopColor: '#FFA500', stopOpacity: 0.3 }} />
-            </linearGradient>
-          </defs>
-          
-
-          
-          {/* Wand tip - more pointed and elegant */}
-          <path
-            d="M 40 35 L 36 25 L 44 25 Z"
-            fill="url(#wandTip)"
-            className="animate-pulse"
-          />
-          
-          {/* Main wand shaft - natural wood grain */}
-          <rect
-            x="37"
-            y="35"
-            width="6"
-            height="200"
-            fill="url(#wandWood)"
-            rx="3"
-          />
-          
-          {/* Wood grain details */}
-          <path d="M 37 45 Q 40 47 43 45" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
-          <path d="M 37 65 Q 40 67 43 65" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
-          <path d="M 37 85 Q 40 87 43 85" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
-          <path d="M 37 105 Q 40 107 43 105" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
-          <path d="M 37 125 Q 40 127 43 125" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
-          <path d="M 37 145 Q 40 147 43 145" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
-          <path d="M 37 165 Q 40 167 43 165" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
-          <path d="M 37 185 Q 40 187 43 185" stroke="#654321" strokeWidth="0.5" fill="none" opacity="0.6" />
-          
-          {/* Subtle golden accent band */}
-          <rect x="36" y="120" width="8" height="2" fill="#DAA520" rx="1" opacity="0.8" />
-          
-          {/* Handle grip - leather wrapped */}
-          <rect
-            x="35"
-            y="235"
-            width="10"
-            height="35"
-            fill="#654321"
-            rx="5"
-          />
-          
-          {/* Leather grip texture */}
-          <rect x="36" y="240" width="8" height="1" fill="#8B4513" rx="0.5" />
-          <rect x="36" y="245" width="8" height="1" fill="#8B4513" rx="0.5" />
-          <rect x="36" y="250" width="8" height="1" fill="#8B4513" rx="0.5" />
-          <rect x="36" y="255" width="8" height="1" fill="#8B4513" rx="0.5" />
-          <rect x="36" y="260" width="8" height="1" fill="#8B4513" rx="0.5" />
+          {/* Handle */}
+          <ellipse cx="28" cy="15" rx="13" ry="13" fill="#412a23" stroke="#a0876c" strokeWidth="2"/>
+          {/* Handle ridge detailing */}
+          <ellipse cx="28" cy="15" rx="8" ry="8" fill="none" stroke="#a0876c" strokeWidth="2" />
+          {/* Wand shaft */}
+          <rect x="40" y="12" width="120" height="6" rx="3" fill="#90714e" stroke="#412a23" strokeWidth="2"/>
+          {/* Wand tip */}
+          <ellipse cx="160" cy="15" rx="5" ry="5" fill="#a0876c"/>
+          {/* Tip highlight for animation */}
+          <circle id="wand-glow" cx="165" cy="15" r="4" fill="gold" opacity="0"/>
         </svg>
       </div>
 
