@@ -11,6 +11,7 @@ interface MagicalWandProps {
 export default function MagicalWand({ onTapComplete, isVisible, targetPosition }: MagicalWandProps) {
   const [isAnimating, setIsAnimating] = useState(false)
   const [sparkles, setSparkles] = useState<Array<{ id: number; x: number; y: number; delay: number }>>([])
+  const [showGlow, setShowGlow] = useState(false)
 
   useEffect(() => {
     if (isVisible && !isAnimating) {
@@ -18,17 +19,13 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
       
       // Start wand animation after a delay
       setTimeout(() => {
-        // Trigger wand glow animation
-        const wand = document.getElementById("hp-wand");
-        const glow = document.getElementById("wand-glow");
+        // Show glow at wand tip
+        setShowGlow(true)
         
-        if (wand && glow) {
-          glow.style.opacity = "1";
-          glow.style.transition = "opacity 0.6s cubic-bezier(.4,2,.3,1)";
-          setTimeout(() => {
-            glow.style.opacity = "0";
-          }, 600);
-        }
+        // Hide glow after a delay
+        setTimeout(() => {
+          setShowGlow(false)
+        }, 600)
         
         // Create sparkles when wand taps - Reduced for better performance
         const newSparkles = Array.from({ length: 15 }, (_, i) => ({
@@ -54,6 +51,7 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
     if (!isVisible) {
       setIsAnimating(false)
       setSparkles([])
+      setShowGlow(false)
     }
   }, [isVisible])
 
@@ -77,11 +75,24 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
       }}>
         <div className="wand-container">
           <div className="wand" id="hp-wand">
-            {/* Glow effect */}
-            <div className="wand-glow" id="wand-glow"></div>
+            {/* Remove the glow from here - we'll position it separately */}
           </div>
         </div>
       </div>
+
+      {/* Wand Glow - positioned at wand tip */}
+      {showGlow && targetPosition && (
+        <div 
+          className="absolute w-5 h-5 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-80 transition-opacity duration-600"
+          style={{
+            left: `${targetPosition.x + wandTipOffset.x}px`,
+            top: `${targetPosition.y + wandTipOffset.y}px`,
+            transform: 'translate(-50%, -50%)',
+            boxShadow: '0 0 15px gold, 0 0 30px rgba(255, 215, 0, 0.6)',
+            zIndex: 51
+          }}
+        />
+      )}
 
       {/* Sparkle dust particles */}
       {sparkles.map((sparkle) => {

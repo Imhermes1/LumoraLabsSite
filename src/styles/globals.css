@@ -989,7 +989,7 @@ html {
   position: absolute;
   top: -10px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-100px);
   width: 20px;
   height: 20px;
   background: radial-gradient(circle, gold 0%, rgba(255, 215, 0, 0.6) 50%, transparent 100%);
