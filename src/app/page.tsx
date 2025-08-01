@@ -26,12 +26,12 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="glass-hero section-transition">
+      <section className="glass section-transition">
         <Hero />
       </section>
 
       {/* Apps Section */}
-      <section id="apps" className="py-16 md:py-24 glass-apps section-transition">
+      <section id="apps" className="py-16 md:py-24 glass section-transition">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -57,12 +57,12 @@ export default function Home() {
         <BetaSignup />
       </section>
 
-      <section className="glass-tech section-transition">
+      <section className="glass section-transition">
         <Technology />
       </section>
 
       {/* Footer */}
-      <section className="glass-footer section-transition">
+      <section className="glass section-transition">
         <Footer />
       </section>
     </main>

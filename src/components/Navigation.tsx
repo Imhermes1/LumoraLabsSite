@@ -37,8 +37,8 @@ export default function Navigation() {
 
   return (
     <nav className={cn(
-      'fixed top-2 left-0 right-0 z-50 transition-all duration-300',
-      isScrolled ? 'glass-strong' : 'bg-transparent'
+      'fixed top-2 left-0 right-0 z-50 transition-all duration-600',
+      isScrolled ? 'nav-water-glass mx-4' : 'bg-transparent'
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-11">
@@ -77,7 +77,7 @@ export default function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="glass rounded-xl p-2 text-white hover:bg-white/10 transition-all duration-200"
+              className="nav-water-glass rounded-xl p-2 text-white hover:bg-white/10 transition-all duration-600"
             >
               {isMenuOpen ? (
                 <X size={24} className="transition-transform duration-200 rotate-90" />
@@ -90,7 +90,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden glass-strong mt-2 rounded-2xl p-4 space-y-4 animate-fade-in">
+          <div className="md:hidden nav-water-glass mt-2 rounded-2xl p-4 space-y-4 animate-fade-in">
             <button
               onClick={() => openComingSoonModal('apps')}
               className="block w-full text-left text-white/80 hover:text-white transition-all duration-200 py-3 px-4 rounded-xl hover:bg-white/10 hover:scale-105"
