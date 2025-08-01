@@ -95,8 +95,8 @@ export default function MagicalWand({ onTapComplete, isVisible, targetPosition }
             key={sparkle.id}
             className={`absolute ${size} bg-gradient-to-r ${color} rounded-full animate-sparkle-float`}
             style={{
-              left: `calc(50% + ${sparkle.x}px)`,
-              top: `calc(50% + ${sparkle.y}px)`,
+              left: targetPosition ? `calc(${targetPosition.x}px + ${sparkle.x}px)` : `calc(50% + ${sparkle.x}px)`,
+              top: targetPosition ? `calc(${targetPosition.y}px + ${sparkle.y}px)` : `calc(50% + ${sparkle.y}px)`,
               animationDelay: `${sparkle.delay}s`,
               animationDuration: '2.5s'
             }}
