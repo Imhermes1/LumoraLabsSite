@@ -18,11 +18,12 @@ export default function Footer() {
   }
 
   const openContactModal = () => {
+    console.log('Contact modal opening...')
     setIsContactModalOpen(true)
   }
 
   return (
-    <footer className="relative py-16 border-t border-white/10">
+    <footer className="relative py-16 border-t border-white/10 z-10">
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,18 +86,18 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
             <div className="space-y-3">
-              <Link href="/about-us" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm">
+              <Link href="/about-us" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm cursor-pointer">
                 About Us
               </Link>
-              <Link href="/careers" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm">
+              <Link href="/careers" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm cursor-pointer">
                 Careers
               </Link>
-              <Link href="/press-kit" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm">
+              <Link href="/press-kit" className="block text-white/70 hover:text-lumora-pink transition-colors text-sm cursor-pointer">
                 Press Kit
               </Link>
               <button 
                 onClick={openContactModal}
-                className="block text-white/70 hover:text-lumora-pink transition-colors text-sm text-left w-full"
+                className="block text-white/70 hover:text-lumora-pink transition-colors text-sm text-left w-full cursor-pointer"
               >
                 Contact
               </button>
