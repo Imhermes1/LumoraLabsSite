@@ -294,8 +294,8 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
             required
             className={`w-full bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none border-2 transition-all duration-300 ${
               fieldErrors.fullName 
-                ? 'border-red-500/50 shadow-[0_0_10px_rgba(239,68,68,0.3)]' 
-                : 'border-lumora-purple/40 shadow-[0_0_10px_rgba(179,64,217,0.2)] focus:border-lumora-purple/60 focus:shadow-[0_0_15px_rgba(179,64,217,0.4)]'
+                ? 'border-red-500/70 shadow-[0_0_20px_rgba(239,68,68,0.5)]' 
+                : 'border-lumora-purple/60 shadow-[0_0_20px_rgba(179,64,217,0.4)] focus:border-lumora-purple/80 focus:shadow-[0_0_30px_rgba(179,64,217,0.6)]'
             }`}
             placeholder="Respondent's answer"
           />
@@ -324,8 +324,8 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
               onChange={handleInputChange}
               className={`w-full bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none border-2 transition-all duration-300 ${
                 fieldErrors.email 
-                  ? 'border-red-500/50 shadow-[0_0_10px_rgba(239,68,68,0.3)]' 
-                  : 'border-lumora-purple/40 shadow-[0_0_10px_rgba(179,64,217,0.2)] focus:border-lumora-purple/60 focus:shadow-[0_0_15px_rgba(179,64,217,0.4)]'
+                  ? 'border-red-500/70 shadow-[0_0_20px_rgba(239,68,68,0.5)]' 
+                  : 'border-lumora-purple/60 shadow-[0_0_20px_rgba(179,64,217,0.4)] focus:border-lumora-purple/80 focus:shadow-[0_0_30px_rgba(179,64,217,0.6)]'
               }`}
               placeholder="Enter your Google email"
             />
@@ -344,8 +344,8 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
               onChange={handleInputChange}
               className={`w-full bg-black/30 backdrop-blur-sm rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none border-2 transition-all duration-300 ${
                 fieldErrors.email 
-                  ? 'border-red-500/50 shadow-[0_0_10px_rgba(239,68,68,0.3)]' 
-                  : 'border-lumora-purple/40 shadow-[0_0_10px_rgba(179,64,217,0.2)] focus:border-lumora-purple/60 focus:shadow-[0_0_15px_rgba(179,64,217,0.4)]'
+                  ? 'border-red-500/70 shadow-[0_0_20px_rgba(239,68,68,0.5)]' 
+                  : 'border-lumora-purple/60 shadow-[0_0_20px_rgba(179,64,217,0.4)] focus:border-lumora-purple/80 focus:shadow-[0_0_30px_rgba(179,64,217,0.6)]'
               }`}
               placeholder="Enter your Apple ID email"
             />
@@ -498,7 +498,7 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
         <button
           type="submit"
           disabled={isSubmitting || !isFormValid()}
-          className="w-full bg-black/30 backdrop-blur-sm border-2 border-lumora-purple/60 rounded-xl px-6 py-4 text-white font-semibold text-lg hover:bg-lumora-purple/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(179,64,217,0.3)] hover:shadow-[0_0_25px_rgba(179,64,217,0.5)]"
+          className="w-full bg-black/30 backdrop-blur-sm border-2 border-lumora-purple/80 rounded-xl px-6 py-4 text-white font-semibold text-lg hover:bg-lumora-purple/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 shadow-[0_0_25px_rgba(179,64,217,0.5)] hover:shadow-[0_0_40px_rgba(179,64,217,0.7)]"
         >
           {isSubmitting ? (
             <>

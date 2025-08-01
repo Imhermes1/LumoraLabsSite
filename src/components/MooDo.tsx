@@ -45,7 +45,7 @@ export default function MooDo() {
       {/* Background gradient specific to MooDo */}
       <div className="absolute inset-0 bg-gradient-to-br from-lumora-pink/10 via-lumora-purple/10 to-deep-purple/10 rounded-3xl"></div>
 
-      <div className="relative z-10 bg-black/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 border-2 border-lumora-pink/50 shadow-[0_0_20px_rgba(250,115,166,0.3)] hover:shadow-[0_0_30px_rgba(250,115,166,0.5)] transition-all duration-300">
+      <div className="relative z-10 bg-black/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 border-2 border-lumora-pink/80 shadow-[0_0_30px_rgba(250,115,166,0.5)] hover:shadow-[0_0_45px_rgba(250,115,166,0.7)] transition-all duration-300">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
 
           {/* Left Column - Content */}
@@ -69,9 +69,9 @@ export default function MooDo() {
               {features.map((feature, index) => {
                 const IconComponent = feature.icon
                 return (
-                  <div key={index} className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 hover:bg-black/40 transition-all duration-300 border-2 border-lumora-pink/30 shadow-[0_0_10px_rgba(250,115,166,0.2)] hover:shadow-[0_0_15px_rgba(250,115,166,0.3)]">
+                  <div key={index} className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 hover:bg-black/40 transition-all duration-300 border-2 border-lumora-pink/50 shadow-[0_0_20px_rgba(250,115,166,0.4)] hover:shadow-[0_0_30px_rgba(250,115,166,0.6)]">
                     <div className="flex items-start space-x-3">
-                      <div className="p-2 bg-lumora-pink/20 rounded-lg border border-lumora-pink/30">
+                      <div className="p-2 bg-lumora-pink/20 rounded-lg border border-lumora-pink/50">
                         <IconComponent size={20} className="text-lumora-pink" />
                       </div>
                       <div>
@@ -85,14 +85,14 @@ export default function MooDo() {
             </div>
 
             {/* Beta CTA */}
-            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 text-center border-2 border-lumora-purple/40 shadow-[0_0_15px_rgba(179,64,217,0.2)] hover:shadow-[0_0_20px_rgba(179,64,217,0.3)] transition-all duration-300">
+            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 text-center border-2 border-lumora-purple/60 shadow-[0_0_25px_rgba(179,64,217,0.4)] hover:shadow-[0_0_35px_rgba(179,64,217,0.6)] transition-all duration-300">
               <p className="text-white/70 mb-2">MooDo Beta Program</p>
               <div className="text-2xl font-bold text-lumora-pink mb-2">
                 {betaCount}/50 <span className="text-lg text-white/60">spots filled</span>
               </div>
               <button
                 onClick={openBetaSignup}
-                className="w-full bg-black/30 backdrop-blur-sm border-2 border-lumora-purple/60 rounded-full py-3 px-6 text-white font-semibold transition-all duration-600 shadow-[0_0_15px_rgba(179,64,217,0.3)] hover:shadow-[0_0_25px_rgba(179,64,217,0.5)] hover:scale-105"
+                className="w-full bg-black/30 backdrop-blur-sm border-2 border-lumora-purple/80 rounded-full py-3 px-6 text-white font-semibold transition-all duration-600 shadow-[0_0_25px_rgba(179,64,217,0.5)] hover:shadow-[0_0_40px_rgba(179,64,217,0.7)] hover:scale-105"
               >
                 Join MooDo Beta
               </button>
@@ -101,10 +101,10 @@ export default function MooDo() {
 
           {/* Right Column - App Preview */}
           <div className="relative">
-            <div className="bg-black/30 backdrop-blur-sm rounded-3xl p-8 h-96 flex items-center justify-center border-2 border-deep-purple/40 shadow-[0_0_15px_rgba(140,38,242,0.2)] hover:shadow-[0_0_20px_rgba(140,38,242,0.3)] transition-all duration-300">
+            <div className="bg-black/30 backdrop-blur-sm rounded-3xl p-8 h-96 flex items-center justify-center border-2 border-deep-purple/60 shadow-[0_0_25px_rgba(140,38,242,0.4)] hover:shadow-[0_0_35px_rgba(140,38,242,0.6)] transition-all duration-300">
               {/* Placeholder for app screenshot */}
               <div className="text-center">
-                <div className="w-32 h-32 mx-auto mb-4 bg-black/30 backdrop-blur-sm rounded-3xl flex items-center justify-center border border-lumora-pink/30">
+                <div className="w-32 h-32 mx-auto mb-4 bg-black/30 backdrop-blur-sm rounded-3xl flex items-center justify-center border border-lumora-pink/50">
                   <Heart size={48} className="text-lumora-pink animate-pulse" />
                 </div>
                 <p className="text-white/70 text-sm">
@@ -116,10 +116,10 @@ export default function MooDo() {
             </div>
 
             {/* Floating UI Elements */}
-            <div className="absolute -top-4 -left-4 bg-black/30 backdrop-blur-sm rounded-2xl p-3 border-2 border-lumora-pink/40 shadow-[0_0_10px_rgba(250,115,166,0.2)]">
+            <div className="absolute -top-4 -left-4 bg-black/30 backdrop-blur-sm rounded-2xl p-3 border-2 border-lumora-pink/60 shadow-[0_0_20px_rgba(250,115,166,0.4)]">
               <p className="text-lumora-pink text-sm font-semibold">😊 Positive Mode</p>
             </div>
-            <div className="absolute -bottom-4 -right-4 bg-black/30 backdrop-blur-sm rounded-2xl p-3 border-2 border-calm/40 shadow-[0_0_10px_rgba(56,144,240,0.2)]">
+            <div className="absolute -bottom-4 -right-4 bg-black/30 backdrop-blur-sm rounded-2xl p-3 border-2 border-calm/60 shadow-[0_0_20px_rgba(56,144,240,0.4)]">
               <p className="text-calm text-sm font-semibold">🎯 5 tasks optimized</p>
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function MooDo() {
               'Students & Academics',
               'Remote Workers'
             ].map((audience, index) => (
-              <span key={index} className="bg-black/30 backdrop-blur-sm rounded-full px-4 py-2 text-white/80 text-sm border border-lumora-pink/30 shadow-[0_0_8px_rgba(250,115,166,0.2)]">
+              <span key={index} className="bg-black/30 backdrop-blur-sm rounded-full px-4 py-2 text-white/80 text-sm border border-lumora-pink/50 shadow-[0_0_15px_rgba(250,115,166,0.3)]">
                 {audience}
               </span>
             ))}

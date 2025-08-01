@@ -42,7 +42,7 @@ export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }
 
       {/* Modal Content */}
       <div className="relative w-full max-w-6xl max-h-[90vh]">
-        <div className="bg-gray-900/95 backdrop-blur-md rounded-3xl border-2 border-lumora-purple/50 shadow-[0_0_30px_rgba(179,64,217,0.3)] max-h-[90vh] flex flex-col">
+        <div className="bg-gray-900/95 backdrop-blur-md rounded-3xl border-2 border-lumora-purple/80 shadow-[0_0_40px_rgba(179,64,217,0.5)] max-h-[90vh] flex flex-col">
           {/* Header */}
           <div className="flex justify-between items-start p-6 border-b border-lumora-purple/30 flex-shrink-0">
             <div>
@@ -57,7 +57,7 @@ export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }
             
             <button
               onClick={onClose}
-              className="bg-black/30 backdrop-blur-sm border-2 border-white/20 rounded-full p-3 text-white/70 hover:text-white transition-all duration-300 flex-shrink-0 shadow-[0_0_10px_rgba(255,255,255,0.2)] hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]"
+              className="bg-black/30 backdrop-blur-sm border-2 border-white/40 rounded-full p-3 text-white/70 hover:text-white transition-all duration-300 flex-shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.6)]"
             >
               <X size={24} />
             </button>
@@ -72,9 +72,9 @@ export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }
                 
                 {/* App Cards */}
                 <div className="space-y-4">
-                  <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-lumora-pink/40 shadow-[0_0_15px_rgba(250,115,166,0.2)] hover:shadow-[0_0_20px_rgba(250,115,166,0.3)] transition-all duration-300">
+                  <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-lumora-pink/60 shadow-[0_0_25px_rgba(250,115,166,0.4)] hover:shadow-[0_0_35px_rgba(250,115,166,0.6)] transition-all duration-300">
                     <div className="flex items-center space-x-4 mb-4">
-                      <div className="w-12 h-12 bg-lumora-pink/20 rounded-2xl flex items-center justify-center border border-lumora-pink/30">
+                      <div className="w-12 h-12 bg-lumora-pink/20 rounded-2xl flex items-center justify-center border border-lumora-pink/50">
                         <Heart className="text-lumora-pink" size={24} />
                       </div>
                       <div>
@@ -91,9 +91,9 @@ export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }
                     </div>
                   </div>
 
-                  <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-positive/40 shadow-[0_0_15px_rgba(56,176,106,0.2)] hover:shadow-[0_0_20px_rgba(56,176,106,0.3)] transition-all duration-300">
+                  <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-positive/60 shadow-[0_0_25px_rgba(56,176,106,0.4)] hover:shadow-[0_0_35px_rgba(56,176,106,0.6)] transition-all duration-300">
                     <div className="flex items-center space-x-4 mb-4">
-                      <div className="w-12 h-12 bg-positive/20 rounded-2xl flex items-center justify-center border border-positive/30">
+                      <div className="w-12 h-12 bg-positive/20 rounded-2xl flex items-center justify-center border border-positive/50">
                         <Smartphone className="text-positive" size={24} />
                       </div>
                       <div>
@@ -112,7 +112,7 @@ export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }
                 </div>
 
                 {/* Benefits */}
-                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-lumora-purple/40 shadow-[0_0_15px_rgba(179,64,217,0.2)] hover:shadow-[0_0_20px_rgba(179,64,217,0.3)] transition-all duration-300">
+                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-lumora-purple/60 shadow-[0_0_25px_rgba(179,64,217,0.4)] hover:shadow-[0_0_35px_rgba(179,64,217,0.6)] transition-all duration-300">
                   <h3 className="text-white font-semibold mb-4 flex items-center">
                     <Sparkles className="mr-2 text-lumora-purple" size={20} />
                     Beta Benefits
@@ -138,8 +138,8 @@ export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }
                 </div>
 
                 {/* Placeholder Image */}
-                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 text-center border-2 border-deep-purple/40 shadow-[0_0_15px_rgba(140,38,242,0.2)] hover:shadow-[0_0_20px_rgba(140,38,242,0.3)] transition-all duration-300">
-                  <div className="w-32 h-32 mx-auto mb-4 bg-black/30 backdrop-blur-sm rounded-3xl flex items-center justify-center border border-deep-purple/30">
+                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 text-center border-2 border-deep-purple/60 shadow-[0_0_25px_rgba(140,38,242,0.4)] hover:shadow-[0_0_35px_rgba(140,38,242,0.6)] transition-all duration-300">
+                  <div className="w-32 h-32 mx-auto mb-4 bg-black/30 backdrop-blur-sm rounded-3xl flex items-center justify-center border border-deep-purple/50">
                     <div className="text-center">
                       <Sparkles size={32} className="text-lumora-purple mx-auto mb-2 animate-pulse" />
                       <p className="text-white/50 text-xs">App Preview</p>
@@ -155,8 +155,8 @@ export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }
 
               {/* Right Side - Custom Form */}
               <div className="lg:border-l lg:border-white/10 lg:pl-8">
-                <div className="bg-black/30 backdrop-blur-sm rounded-2xl overflow-hidden border-2 border-lumora-pink/40 shadow-[0_0_15px_rgba(250,115,166,0.2)] hover:shadow-[0_0_20px_rgba(250,115,166,0.3)] transition-all duration-300">
-                  <div className="p-6 bg-gradient-to-r from-lumora-pink/10 to-lumora-purple/10 text-center border-b border-lumora-pink/20">
+                <div className="bg-black/30 backdrop-blur-sm rounded-2xl overflow-hidden border-2 border-lumora-pink/60 shadow-[0_0_25px_rgba(250,115,166,0.4)] hover:shadow-[0_0_35px_rgba(250,115,166,0.6)] transition-all duration-300">
+                  <div className="p-6 bg-gradient-to-r from-lumora-pink/10 to-lumora-purple/10 text-center border-b border-lumora-pink/30">
                     <h3 className="text-white font-semibold text-lg mb-2">
                       Sign up for the beta
                     </h3>

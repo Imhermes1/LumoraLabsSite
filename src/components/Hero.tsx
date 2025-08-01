@@ -133,72 +133,69 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center">
+    <div className="relative py-16 flex items-center justify-center">
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Main content container with glowing outline */}
-        <div className="rounded-2xl px-2 pt-0 pb-2 md:px-4 md:pt-0 md:pb-4 lg:px-6 lg:pt-0 lg:pb-6 bg-black/20 backdrop-blur-sm border-2 border-lumora-pink/50 shadow-[0_0_20px_rgba(250,115,166,0.3)] hover:shadow-[0_0_30px_rgba(250,115,166,0.5)] transition-all duration-300">
-          {/* Logo */}
-          <div className="mb-1 flex justify-center -mt-2">
-            <img 
-              src="/images/Lumora-Labs-Logo-transparent.png" 
-              alt="Lumora Labs Logo" 
-              className="h-35 md:h-40 lg:h-46 xl:h-52 w-auto opacity-95 hover:opacity-100 transition-all duration-300 animate-logo-glow"
-            />
-          </div>
-          
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Crafting the{' '}
-            <span className="gradient-text bg-gradient-to-r from-lumora-pink via-lumora-purple to-deep-purple">
-              Future
-            </span>
-            <br />
-            of Extraordinary Apps
-          </h1>
-
-          <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed">
-            Lumora Labs creates the world's most elegantly crafted and intuitively powerful apps 
-            for Apple and Android
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <button
-              onClick={openBetaSignup}
-              className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group bg-black/30 backdrop-blur-sm border-2 border-lumora-purple/60 shadow-[0_0_15px_rgba(179,64,217,0.4)] hover:shadow-[0_0_25px_rgba(179,64,217,0.6)] hover:scale-105"
-            >
-              Join Beta Program
-              <span className="ml-2">✨</span>
-            </button>
-
-            <button
-              id="aparecium-button"
-              onClick={openAlphaReveal}
-              disabled={isButtonExploding}
-              className={`rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group overflow-hidden bg-black/30 backdrop-blur-sm border-2 border-deep-purple/60 shadow-[0_0_15px_rgba(140,38,242,0.4)] hover:shadow-[0_0_25px_rgba(140,38,242,0.6)] hover:scale-105 ${
-                explosionPhase === 'powerup' ? 'animate-button-powerup' :
-                explosionPhase === 'explosion' ? 'animate-button-explosion' :
-                'animate-aparecium-glow'
-              }`}
-            >
-              {/* Enhanced glowing effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-purple-500/20 rounded-full blur-sm group-hover:blur-md transition-all duration-300"></div>
-              
-              {/* Content */}
-              <span className="relative flex items-center">
-                Aparecium
-                <Sparkles className="ml-2 text-yellow-400 animate-aparecium-sparkle" size={16} />
-              </span>
-              
-              {/* Enhanced magical sparkle effects */}
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
-              <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-pink-400 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
-              <div className="absolute top-1/2 -right-2 w-1 h-1 bg-purple-400 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
-            </button>
-          </div>
-
-          {/* Beta Status */}
-          <BetaCount />
+        {/* Logo */}
+        <div className="mb-1 flex justify-center -mt-2">
+          <img 
+            src="/images/Lumora-Labs-Logo-transparent.png" 
+            alt="Lumora Labs Logo" 
+            className="h-35 md:h-40 lg:h-46 xl:h-52 w-auto opacity-95 hover:opacity-100 transition-all duration-300 animate-logo-glow"
+          />
         </div>
+        
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          Crafting the{' '}
+          <span className="gradient-text bg-gradient-to-r from-lumora-pink via-lumora-purple to-deep-purple">
+            Future
+          </span>
+          <br />
+          of Extraordinary Apps
+        </h1>
+
+        <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed">
+          Lumora Labs creates the world's most elegantly crafted and intuitively powerful apps 
+          for Apple and Android
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+          <button
+            onClick={openBetaSignup}
+            className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group bg-black/30 backdrop-blur-sm border-2 border-lumora-purple/80 shadow-[0_0_20px_rgba(179,64,217,0.6)] hover:shadow-[0_0_30px_rgba(179,64,217,0.8)] hover:scale-105"
+          >
+            Join Beta Program
+            <span className="ml-2">✨</span>
+          </button>
+
+          <button
+            id="aparecium-button"
+            onClick={openAlphaReveal}
+            disabled={isButtonExploding}
+            className={`rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group overflow-hidden bg-black/30 backdrop-blur-sm border-2 border-deep-purple/80 shadow-[0_0_20px_rgba(140,38,242,0.6)] hover:shadow-[0_0_30px_rgba(140,38,242,0.8)] hover:scale-105 ${
+              explosionPhase === 'powerup' ? 'animate-button-powerup' :
+              explosionPhase === 'explosion' ? 'animate-button-explosion' :
+              'animate-aparecium-glow'
+            }`}
+          >
+            {/* Enhanced glowing effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-purple-500/20 rounded-full blur-sm group-hover:blur-md transition-all duration-300"></div>
+            
+            {/* Content */}
+            <span className="relative flex items-center">
+              Aparecium
+              <Sparkles className="ml-2 text-yellow-400 animate-aparecium-sparkle" size={16} />
+            </span>
+            
+            {/* Enhanced magical sparkle effects */}
+            <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
+            <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-pink-400 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+            <div className="absolute top-1/2 -right-2 w-1 h-1 bg-purple-400 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+          </button>
+        </div>
+
+        {/* Beta Status */}
+        <BetaCount />
       </div>
 
       {/* Beta Signup Modal */}
@@ -322,6 +319,6 @@ export default function Hero() {
           })}
         </div>
       )}
-    </section>
+    </div>
   )
 }
