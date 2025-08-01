@@ -227,21 +227,26 @@ export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaS
               Welcome to Lumora Labs Alpha! 🎉
             </h3>
             <p className="text-white/70 text-sm mb-4">
-              Thanks for helping us create experiences that are elegantly crafted, beautifully designed, and purposefully built.
+              Congratulations! You've secured your spot in our exclusive Alpha program. We'll be opening a private chat channel specifically for Alpha members where you can directly influence our development process.
             </p>
             <div className="space-y-2 mb-6 text-left max-w-sm mx-auto">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-lumora-pink rounded-full"></div>
-                <span className="text-white/80 text-sm">Shape the future of intuitive software</span>
+                <span className="text-white/80 text-sm">Exclusive Alpha chat channel access</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-lumora-purple rounded-full"></div>
-                <span className="text-white/80 text-sm">Be among the first to experience</span>
+                <span className="text-white/80 text-sm">Direct influence on product development</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-deep-purple rounded-full"></div>
                 <span className="text-white/80 text-sm">Lifetime premium advantages</span>
               </div>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-lumora-pink/30 mb-6">
+              <p className="text-lumora-pink font-semibold text-sm text-center">
+                We'll contact you soon with details about the exclusive Alpha chat channel and your early access credentials.
+              </p>
             </div>
           </>
         ) : (
