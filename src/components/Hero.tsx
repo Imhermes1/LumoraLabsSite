@@ -5,14 +5,12 @@ import { ChevronDown, Wand2, Sparkles } from 'lucide-react'
 import BetaSignupModal from './BetaSignupModal'
 import AlphaRevealModal from './AlphaRevealModal'
 import BetaCount from './BetaCount'
-import MagicalWand from './MagicalWand'
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isAlphaModalOpen, setIsAlphaModalOpen] = useState(false)
-  const [showWand, setShowWand] = useState(false)
-  const [wandTargetPosition, setWandTargetPosition] = useState<{ x: number; y: number } | null>(null)
+  const [isButtonExploding, setIsButtonExploding] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -22,36 +20,15 @@ export default function Hero() {
     setIsModalOpen(true)
   }
 
-  const openAlphaReveal = (event: React.MouseEvent<HTMLButtonElement>) => {
-    // Get button position for wand targeting
-    const button = event.currentTarget
-    const rect = button.getBoundingClientRect()
-    const targetPosition = {
-      x: rect.left + rect.width / 2,
-      y: rect.top + rect.height / 2
-    }
+  const openAlphaReveal = () => {
+    // Start the button explosion animation
+    setIsButtonExploding(true)
     
-    // Debug: Log the button info
-    console.log('Aparecium button clicked:', {
-      buttonId: button.id,
-      buttonText: button.textContent?.trim(),
-      rect: rect,
-      targetPosition: targetPosition
-    })
-    
-    // Start the magical wand animation sequence
-    setShowWand(true)
-    setWandTargetPosition(targetPosition)
-  }
-
-  const handleWandTapComplete = () => {
-    // Open the Alpha modal directly after wand animation
+    // Open the Alpha modal after the explosion animation
     setTimeout(() => {
       setIsAlphaModalOpen(true)
-      // Reset wand state to prevent re-triggering
-      setShowWand(false)
-      setWandTargetPosition(null)
-    }, 500)
+      setIsButtonExploding(false)
+    }, 1500)
   }
 
   const scrollToApps = () => {
@@ -118,7 +95,10 @@ export default function Hero() {
             <button
               id="aparecium-button"
               onClick={openAlphaReveal}
-              className="relative border border-purple-500/50 rounded-full px-8 py-4 text-white font-semibold text-lg hover:bg-purple-500/20 transition-all duration-300 group overflow-hidden animate-aparecium-glow"
+              disabled={isButtonExploding}
+              className={`relative border border-purple-500/50 rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 group overflow-hidden ${
+                isButtonExploding ? 'animate-button-explosion' : 'hover:bg-purple-500/20 animate-aparecium-glow'
+              }`}
             >
               {/* Enhanced glowing effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-purple-500/20 rounded-full blur-sm group-hover:blur-md transition-all duration-300"></div>
@@ -147,14 +127,38 @@ export default function Hero() {
       {/* Alpha Reveal Modal */}
       <AlphaRevealModal isOpen={isAlphaModalOpen} onClose={() => setIsAlphaModalOpen(false)} />
       
-      {/* Magical Wand Animation */}
-      <MagicalWand 
-        isVisible={showWand} 
-        onTapComplete={handleWandTapComplete}
-        targetPosition={wandTargetPosition || undefined}
-      />
-      
-
+      {/* Button Explosion Sparkles */}
+      {isButtonExploding && (
+        <div className="fixed inset-0 pointer-events-none z-50">
+          {Array.from({ length: 30 }, (_, i) => {
+            const colors = ['yellow', 'pink', 'purple', 'blue', 'green']
+            const color = colors[i % colors.length]
+            const size = Math.random() * 4 + 2
+            const delay = Math.random() * 0.5
+            
+            const sizeClass = Math.ceil(size) === 2 ? 'w-2 h-2' : 
+                             Math.ceil(size) === 3 ? 'w-3 h-3' : 
+                             Math.ceil(size) === 4 ? 'w-4 h-4' : 'w-5 h-5'
+            const colorClass = color === 'yellow' ? 'bg-yellow-400' :
+                              color === 'pink' ? 'bg-pink-400' :
+                              color === 'purple' ? 'bg-purple-400' :
+                              color === 'blue' ? 'bg-blue-400' : 'bg-green-400'
+            
+            return (
+              <div
+                key={i}
+                className={`absolute ${sizeClass} ${colorClass} rounded-full animate-explosion-sparkle`}
+                style={{
+                  left: '50%',
+                  top: '50%',
+                  animationDelay: `${delay}s`,
+                  animationDuration: '1.5s'
+                }}
+              />
+            )
+          })}
+        </div>
+      )}
     </section>
   )
 }
