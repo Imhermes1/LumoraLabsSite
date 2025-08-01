@@ -8,9 +8,10 @@ import BetaCount from './BetaCount'
 interface BetaSignupModalProps {
   isOpen: boolean
   onClose: () => void
+  isFromAlpha?: boolean
 }
 
-export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProps) {
+export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }: BetaSignupModalProps) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -166,7 +167,7 @@ export default function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProp
                   
                   {/* Custom Beta Signup Form */}
                   <div className="p-6">
-                    <BetaSignupForm />
+                    <BetaSignupForm isFromAlpha={isFromAlpha} />
                   </div>
                 </div>
               </div>

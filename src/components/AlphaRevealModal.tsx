@@ -6,9 +6,10 @@ import { X, Sparkles, Star, Wand2, Crown, Users, Gift, Zap } from 'lucide-react'
 interface AlphaRevealModalProps {
   isOpen: boolean
   onClose: () => void
+  onOpenBetaSignup: () => void
 }
 
-export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalProps) {
+export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup }: AlphaRevealModalProps) {
   const [mounted, setMounted] = useState(false)
   const [showDissolutionParticles, setShowDissolutionParticles] = useState(false)
   const [showModalForm, setShowModalForm] = useState(false)
@@ -228,7 +229,10 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
                     There wont be more spots available for the Prefects Program, once they are all taken.
                   </p>
                   <button
-                    onClick={handleClose}
+                    onClick={() => {
+                      handleClose()
+                      onOpenBetaSignup()
+                    }}
                     className="bg-purple-600 hover:bg-purple-700 rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border border-purple-500/30"
                   >
                     <span className="flex items-center">

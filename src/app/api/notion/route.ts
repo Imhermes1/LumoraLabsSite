@@ -23,7 +23,8 @@ export async function POST(request: NextRequest) {
       googleEmail,
       betaTestInvites,
       appInvites,
-      disclaimer
+      disclaimer,
+      isFromAlpha
     } = body
 
     console.log('Environment check:', {
@@ -110,6 +111,7 @@ export async function POST(request: NextRequest) {
       betaTestInvites,
       appInvites,
       disclaimer,
+      isFromAlpha: isFromAlpha || false
     })
 
     if (!signupResult.id) {

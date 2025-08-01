@@ -69,6 +69,7 @@ export async function createBetaSignup(signupData: {
     moodo: boolean
   }
   disclaimer?: boolean
+  isFromAlpha?: boolean
 }): Promise<{ id: string | null; isAlphaTester: boolean }> {
   try {
     console.log('Creating beta signup with data:', signupData)
@@ -80,8 +81,10 @@ export async function createBetaSignup(signupData: {
     })
 
     // Check current signup count to determine Alpha Tester status
+    // Only give Alpha Tester status if they signed up through the Alpha modal AND are within the first 25
     const currentSignups = await getBetaSignups()
-    const isAlphaTester = currentSignups.length < 25
+    const currentAlphaTesters = currentSignups.filter(signup => signup.alphaTester === 'Yes').length
+    const isAlphaTester = Boolean(signupData.isFromAlpha && currentAlphaTesters < 25)
 
     const response = await notion.pages.create({
       parent: {

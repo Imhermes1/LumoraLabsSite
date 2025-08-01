@@ -39,6 +39,7 @@ export default function Hero() {
   const [mounted, setMounted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isAlphaModalOpen, setIsAlphaModalOpen] = useState(false)
+  const [isBetaModalFromAlpha, setIsBetaModalFromAlpha] = useState(false)
   const [isButtonExploding, setIsButtonExploding] = useState(false)
   const [explosionPhase, setExplosionPhase] = useState<'powerup' | 'explosion' | 'convergence' | null>(null)
 
@@ -47,6 +48,11 @@ export default function Hero() {
   }, [])
 
   const openBetaSignup = () => {
+    setIsModalOpen(true)
+  }
+
+  const openBetaSignupFromAlpha = () => {
+    setIsBetaModalFromAlpha(true)
     setIsModalOpen(true)
   }
 
@@ -166,10 +172,21 @@ export default function Hero() {
       </div>
 
       {/* Beta Signup Modal */}
-      <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <BetaSignupModal 
+        isOpen={isModalOpen} 
+        onClose={() => {
+          setIsModalOpen(false)
+          setIsBetaModalFromAlpha(false)
+        }} 
+        isFromAlpha={isBetaModalFromAlpha}
+      />
       
       {/* Alpha Reveal Modal */}
-      <AlphaRevealModal isOpen={isAlphaModalOpen} onClose={() => setIsAlphaModalOpen(false)} />
+      <AlphaRevealModal 
+        isOpen={isAlphaModalOpen} 
+        onClose={() => setIsAlphaModalOpen(false)} 
+        onOpenBetaSignup={openBetaSignupFromAlpha}
+      />
       
       {/* Screen Flash Effect */}
       {explosionPhase === 'explosion' && (

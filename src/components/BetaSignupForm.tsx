@@ -17,9 +17,10 @@ interface FormData {
 
 interface BetaSignupFormProps {
   onSuccess?: () => void
+  isFromAlpha?: boolean
 }
 
-export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
+export default function BetaSignupForm({ onSuccess, isFromAlpha = false }: BetaSignupFormProps) {
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     googleEmail: '',
@@ -164,7 +165,8 @@ export default function BetaSignupForm({ onSuccess }: BetaSignupFormProps) {
           appleIdEmail: formData.appleIdEmail,
           betaTestInvites: formData.betaTestInvites,
           appInvites: formData.appInvites,
-          disclaimer: formData.disclaimer
+          disclaimer: formData.disclaimer,
+          isFromAlpha: isFromAlpha
         }),
       })
 
