@@ -26,6 +26,9 @@ export default function Home() {
         <Hero />
       </section>
 
+      {/* Temporary spacer to test scroll */}
+      <div className="h-screen"></div>
+
       {/* Apps Section - Coming Soon */}
       {/* <section id="apps" className="py-16 md:py-24 glass section-transition">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

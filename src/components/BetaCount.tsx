@@ -118,7 +118,7 @@ export default function BetaCount({ className = '' }: BetaCountProps) {
   const isCritical = percentage > 95
 
   return (
-    <div className={`glass rounded-2xl p-4 inline-block ${className} animate-fade-in`}>
+    <div className={`card-primary rounded-2xl p-4 inline-block ${className} animate-fade-in`}>
       <div className="flex items-center justify-between mb-2">
         <p className="text-white/70 text-sm">
           <span className="text-lumora-pink font-semibold">Exclusive Beta Access</span>
