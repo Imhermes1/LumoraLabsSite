@@ -60,10 +60,17 @@ export default function AlphaRevealModal({ isOpen, onClose }: AlphaRevealModalPr
             const size = Math.random() * 3 + 1
             const delay = Math.random() * 0.5
             
+            const sizeClass = Math.ceil(size) === 1 ? 'w-1 h-1' : 
+                             Math.ceil(size) === 2 ? 'w-2 h-2' : 'w-3 h-3'
+            const colorClass = color === 'yellow' ? 'bg-yellow-400' :
+                              color === 'pink' ? 'bg-pink-400' :
+                              color === 'purple' ? 'bg-purple-400' :
+                              color === 'blue' ? 'bg-blue-400' : 'bg-green-400'
+            
             return (
               <div
                 key={i}
-                className={`absolute w-${Math.ceil(size)} h-${Math.ceil(size)} bg-${color}-400 rounded-full animate-dissolution-particle`}
+                className={`absolute ${sizeClass} ${colorClass} rounded-full animate-dissolution-particle`}
                 style={{
                   left: `${Math.random() * 100}%`,
                   top: `${Math.random() * 100}%`,
