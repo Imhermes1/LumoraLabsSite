@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 interface CountdownOverlayProps {
   targetDate: Date
@@ -46,7 +47,7 @@ export default function CountdownOverlay({
 
   return (
     <>
-      {/* Frosted Glass Backdrop */}
+      {/* Frosted Glass Backdrop - Edge to Edge */}
       <div className="fixed inset-0 bg-white/10 backdrop-blur-xl z-[9999]" />
       
       {/* Animated Sparkles */}
@@ -67,14 +68,22 @@ export default function CountdownOverlay({
         ))}
       </div>
       
-      {/* Magical Content */}
-      <div className="fixed inset-0 z-[10001] flex items-center justify-center p-4">
-        <div className="text-center space-y-8">
+      {/* Magical Content - Edge to Edge */}
+      <div className="fixed inset-0 z-[10001] flex items-center justify-center">
+        <div className="text-center space-y-8 w-full h-full flex flex-col justify-center">
+          {/* Lumora Labs Logo */}
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/images/Lumora-Labs-Logo-transparent.png"
+              alt="Lumora Labs"
+              width={200}
+              height={80}
+              className="w-48 md:w-64 h-auto animate-logo-glow"
+            />
+          </div>
+
           {/* Magical Message */}
           <div className="space-y-4">
-            <div className="text-6xl md:text-8xl animate-bounce">
-              ✨
-            </div>
             <h1 className="text-3xl md:text-5xl font-bold text-white/90 tracking-wider">
               Something Magical
             </h1>
@@ -130,9 +139,9 @@ export default function CountdownOverlay({
             </div>
           )}
 
-          {/* Subtle Hint */}
-          <div className="text-white/30 text-sm font-light">
-            ✨ Lumora Labs ✨
+          {/* Bold Lumora Labs Text */}
+          <div className="text-white/60 text-lg font-bold tracking-wider">
+            Lumora Labs
           </div>
         </div>
       </div>
