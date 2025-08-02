@@ -19,6 +19,62 @@ export default function CountdownOverlay({
     seconds: 0
   })
   const [isExpired, setIsExpired] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  // Prevent bypass attempts
+  useEffect(() => {
+    // Disable right-click context menu
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault()
+      return false
+    }
+
+    // Disable F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+C
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.key === 'u') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'C') ||
+        (e.ctrlKey && e.key === 'S') ||
+        (e.ctrlKey && e.key === 'P')
+      ) {
+        e.preventDefault()
+        return false
+      }
+    }
+
+    // Disable text selection
+    const handleSelectStart = (e: Event) => {
+      e.preventDefault()
+      return false
+    }
+
+    // Disable drag and drop
+    const handleDragStart = (e: DragEvent) => {
+      e.preventDefault()
+      return false
+    }
+
+    // Add event listeners
+    document.addEventListener('contextmenu', handleContextMenu)
+    document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('selectstart', handleSelectStart)
+    document.addEventListener('dragstart', handleDragStart)
+
+    // Set loaded state after a small delay to ensure overlay appears first
+    const timer = setTimeout(() => {
+      setIsLoaded(true)
+    }, 100)
+
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu)
+      document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('selectstart', handleSelectStart)
+      document.removeEventListener('dragstart', handleDragStart)
+      clearTimeout(timer)
+    }
+  }, [])
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -47,11 +103,14 @@ export default function CountdownOverlay({
 
   return (
     <>
-      {/* Frosted Glass Backdrop - Edge to Edge */}
-      <div className="fixed inset-0 bg-white/10 backdrop-blur-xl z-[9999]" />
+      {/* Bulletproof Overlay - Always Show */}
+      <div 
+        data-overlay="countdown"
+        className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen bg-white/10 backdrop-blur-xl z-[9999] select-none" 
+      />
       
       {/* Animated Sparkles */}
-      <div className="fixed inset-0 z-[10000] pointer-events-none">
+      <div className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[10000] pointer-events-none select-none">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
@@ -68,8 +127,8 @@ export default function CountdownOverlay({
         ))}
       </div>
       
-      {/* Magical Content - Edge to Edge */}
-      <div className="fixed inset-0 z-[10001] flex items-center justify-center">
+      {/* Magical Content - Bulletproof */}
+      <div className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[10001] flex items-center justify-center select-none">
         <div className="text-center space-y-8 w-full h-full flex flex-col justify-center">
           {/* Lumora Labs Logo */}
           <div className="flex justify-center mb-8">
