@@ -90,6 +90,24 @@ export default function RootLayout({
                     });
                 });
               }
+              
+              // Prevent main content flash
+              document.addEventListener('DOMContentLoaded', function() {
+                const mainContent = document.querySelector('.main-content');
+                if (mainContent) {
+                  mainContent.style.opacity = '0';
+                  mainContent.style.visibility = 'hidden';
+                }
+                
+                // Show main content after overlay is ready
+                setTimeout(function() {
+                  if (mainContent) {
+                    mainContent.style.opacity = '1';
+                    mainContent.style.visibility = 'visible';
+                    mainContent.style.transition = 'opacity 0.5s ease-in-out';
+                  }
+                }, 2000); // 2 second delay to ensure overlay is fully loaded
+              });
             `,
           }}
         />
@@ -101,7 +119,7 @@ export default function RootLayout({
           isVisible={true}
         />
         
-        <div className="min-h-screen">
+        <div className="min-h-screen main-content" style={{ opacity: 0, visibility: 'hidden' }}>
           {children}
         </div>
         
