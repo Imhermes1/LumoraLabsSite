@@ -3,6 +3,7 @@ import './globals.css'
 import { cn } from '@/lib/utils'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { LazyCountdownOverlay } from '@/components/LazyModals'
 
 // Use system fonts as fallback when Google Fonts fail to load
 const fontClass = 'font-sans'
@@ -53,6 +54,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // Set target date to 24 hours from 12:00 PM Melbourne time
+  const now = new Date()
+  const melbourneTime = new Date(now.toLocaleString("en-US", {timeZone: "Australia/Melbourne"}))
+  const targetDate = new Date(melbourneTime)
+  targetDate.setHours(12, 0, 0, 0) // Set to 12:00 PM
+  targetDate.setDate(targetDate.getDate() + 1) // Add 24 hours
+  
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -90,6 +98,13 @@ export default function RootLayout({
         <div className="min-h-screen">
           {children}
         </div>
+        
+        {/* Countdown Overlay */}
+        <LazyCountdownOverlay
+          targetDate={targetDate}
+          isVisible={true}
+        />
+        
         <Analytics />
         <SpeedInsights />
       </body>
