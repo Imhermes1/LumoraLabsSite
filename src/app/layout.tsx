@@ -107,49 +107,6 @@ export default function RootLayout({
         
         <Analytics />
         <SpeedInsights />
-        
-        {/* Bulletproof Protection Script */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Prevent bypass attempts
-              document.addEventListener('DOMContentLoaded', function() {
-                // Disable right-click
-                document.addEventListener('contextmenu', function(e) {
-                  e.preventDefault();
-                  return false;
-                });
-                
-                // Disable keyboard shortcuts
-                document.addEventListener('keydown', function(e) {
-                  if (e.key === 'F12' || 
-                      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-                      (e.ctrlKey && e.key === 'u') ||
-                      (e.ctrlKey && e.shiftKey && e.key === 'C') ||
-                      (e.ctrlKey && e.key === 'S') ||
-                      (e.ctrlKey && e.key === 'P')) {
-                    e.preventDefault();
-                    return false;
-                  }
-                });
-                
-                // Disable text selection
-                document.addEventListener('selectstart', function(e) {
-                  e.preventDefault();
-                  return false;
-                });
-                
-                // Ensure overlay is always on top
-                setInterval(function() {
-                  const overlay = document.querySelector('[data-overlay="countdown"]');
-                  if (overlay) {
-                    overlay.style.zIndex = '999999';
-                  }
-                }, 100);
-              });
-            `,
-          }}
-        />
       </body>
     </html>
   )

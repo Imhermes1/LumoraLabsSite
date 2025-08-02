@@ -103,32 +103,30 @@ export default function CountdownOverlay({
 
   return (
     <>
-      {/* Bulletproof Overlay - Always Show */}
+      {/* Single Bulletproof Overlay with Everything */}
       <div 
         data-overlay="countdown"
-        className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen bg-white/10 backdrop-blur-xl z-[9999] select-none" 
-      />
-      
-      {/* Animated Sparkles */}
-      <div className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[10000] pointer-events-none select-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute animate-sparkle"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          >
-            <div className="w-2 h-2 bg-gradient-to-r from-lumora-pink to-lumora-purple rounded-full opacity-80 animate-pulse" />
-          </div>
-        ))}
-      </div>
-      
-      {/* Magical Content - Bulletproof */}
-      <div className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[10001] flex items-center justify-center select-none">
+        className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen bg-white/10 backdrop-blur-xl z-[9999] select-none flex items-center justify-center"
+      >
+        {/* Animated Sparkles */}
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute animate-sparkle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${2 + Math.random() * 2}s`
+              }}
+            >
+              <div className="w-2 h-2 bg-gradient-to-r from-lumora-pink to-lumora-purple rounded-full opacity-80 animate-pulse" />
+            </div>
+          ))}
+        </div>
+        
+        {/* Magical Content */}
         <div className="text-center space-y-8 w-full h-full flex flex-col justify-center">
           {/* Lumora Labs Logo */}
           <div className="flex justify-center mb-8">
