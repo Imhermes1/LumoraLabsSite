@@ -103,10 +103,27 @@ export default function CountdownOverlay({
 
   return (
     <>
-      {/* Single Bulletproof Overlay with Everything */}
+      {/* Bulletproof Full Screen Overlay */}
       <div 
         data-overlay="countdown"
-        className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen bg-white/10 backdrop-blur-xl z-[9999] select-none flex items-center justify-center"
+        className="fixed inset-0 w-screen h-screen bg-white/10 backdrop-blur-xl z-[9999] select-none flex items-center justify-center"
+        style={{
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          right: '0',
+          bottom: '0',
+          width: '100vw',
+          height: '100vh',
+          minHeight: '100vh',
+          maxHeight: '100vh',
+          zIndex: 9999,
+          overflow: 'hidden',
+          margin: '0',
+          padding: '0',
+          border: 'none',
+          outline: 'none'
+        }}
       >
         {/* Animated Sparkles */}
         <div className="absolute inset-0 pointer-events-none">

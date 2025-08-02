@@ -54,12 +54,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // Set target date to 24 hours from 12:00 PM Melbourne time
-  const now = new Date()
-  const melbourneTime = new Date(now.toLocaleString("en-US", {timeZone: "Australia/Melbourne"}))
-  const targetDate = new Date(melbourneTime)
-  targetDate.setHours(12, 0, 0, 0) // Set to 12:00 PM
-  targetDate.setDate(targetDate.getDate() + 1) // Add 24 hours
+  // Set target date to 6:00 PM Monday, August 4th, 2025 (Melbourne time)
+  const targetDate = new Date('2025-08-04T18:00:00+10:00') // 6:00 PM Melbourne time (AEST)
   
   return (
     <html lang="en" className="scroll-smooth">
