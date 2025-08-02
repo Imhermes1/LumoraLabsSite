@@ -139,10 +139,7 @@ export default function CountdownOverlay({
             </div>
           )}
 
-          {/* Bold Lumora Labs Text */}
-          <div className="text-white/60 text-lg font-bold tracking-wider">
-            Lumora Labs
-          </div>
+
         </div>
       </div>
     </>

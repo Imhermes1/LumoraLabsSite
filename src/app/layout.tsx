@@ -95,15 +95,15 @@ export default function RootLayout({
         />
       </head>
       <body className={cn(fontClass, 'antialiased')}>
-        <div className="min-h-screen">
-          {children}
-        </div>
-        
-        {/* Countdown Overlay */}
+        {/* Countdown Overlay - Load First */}
         <LazyCountdownOverlay
           targetDate={targetDate}
           isVisible={true}
         />
+        
+        <div className="min-h-screen">
+          {children}
+        </div>
         
         <Analytics />
         <SpeedInsights />
