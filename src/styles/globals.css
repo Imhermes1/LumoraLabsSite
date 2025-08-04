@@ -1632,3 +1632,168 @@ body.modal-open {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================
+   MOBILE-ONLY PERFORMANCE OPTIMIZATIONS
+   ========================================== */
+
+/* Mobile devices only - improved performance */
+@media (max-width: 768px) {
+  /* Simplify background animation on mobile */
+  body {
+    animation: gradientShiftMobile 20s ease-in-out infinite;
+    background-attachment: scroll; /* Fix iOS background-attachment issues */
+  }
+  
+  /* Lighter mobile background animation */
+  @keyframes gradientShiftMobile {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  /* Reduce backdrop-blur intensity on mobile for better performance */
+  .glass {
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .glass:hover {
+    backdrop-filter: blur(10px);
+    transform: translateY(-1px);
+  }
+  
+  .glass-strong {
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .glass-strong:hover {
+    backdrop-filter: blur(12px);
+    transform: translateY(-1px);
+  }
+  
+  /* Simplify button animations on mobile */
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent {
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-accent:hover {
+    backdrop-filter: blur(10px);
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 
+      0 4px 16px 0 rgba(0, 212, 255, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Optimize card animations for mobile */
+  .card-primary,
+  .card-secondary,
+  .card-accent {
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+  }
+  
+  .card-primary:hover,
+  .card-secondary:hover,
+  .card-accent:hover {
+    backdrop-filter: blur(10px);
+    transform: translateY(-2px);
+  }
+  
+  /* Optimize heavy animation elements */
+  .animate-float {
+    animation: floatMobile 4s ease-in-out infinite;
+  }
+  
+  @keyframes floatMobile {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Disable complex animations on mobile */
+  .animate-subtle-glow {
+    animation: none;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+  }
+  
+  /* Improve touch targets */
+  button, .btn-primary, .btn-secondary, .btn-accent {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 24px;
+  }
+  
+  /* Optimize text rendering on mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+  }
+  
+  /* Force hardware acceleration for frequently animated elements */
+  .glass,
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent,
+  .card-primary,
+  .card-secondary,
+  .card-accent {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Touch devices only - remove hover effects */
+@media (hover: none) and (pointer: coarse) {
+  .glass:hover,
+  .glass-strong:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-accent:hover,
+  .card-primary:hover,
+  .card-secondary:hover,
+  .card-accent:hover {
+    transform: none;
+    box-shadow: inherit;
+  }
+  
+  /* Add active states instead of hover */
+  .glass:active,
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-accent:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Very small screens - further optimizations */
+@media (max-width: 480px) {
+  /* Minimal animations on very small screens */
+  body {
+    animation: none;
+    background: linear-gradient(135deg, #0F0C29 0%, #302B63 100%);
+  }
+  
+  /* Reduce blur effects even more */
+  .glass,
+  .glass-strong,
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent {
+    backdrop-filter: blur(5px);
+  }
+  
+  /* Simplify shadows */
+  .glass,
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+}

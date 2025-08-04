@@ -43,6 +43,7 @@ export default function Hero() {
   const [isBetaModalFromAlpha, setIsBetaModalFromAlpha] = useState(false)
   const [isButtonExploding, setIsButtonExploding] = useState(false)
   const [explosionPhase, setExplosionPhase] = useState<'powerup' | 'explosion' | 'convergence' | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
   const [prefectsProgramStatus, setPrefectsProgramStatus] = useState<{
     isFull: boolean
     currentCount: number
@@ -52,6 +53,18 @@ export default function Hero() {
 
   useEffect(() => {
     setMounted(true)
+    
+    // Detect mobile devices for performance optimization
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile)
+    }
   }, [])
 
   const openBetaSignup = () => {
@@ -92,6 +105,11 @@ export default function Hero() {
     // Check if Prefects Program is full before proceeding
     const status = await checkPrefectsProgramStatus()
     
+    // Use lighter animation on mobile devices
+    const powerUpDuration = isMobile ? 200 : 300
+    const explosionDuration = isMobile ? 400 : 600
+    const totalDuration = isMobile ? 600 : 900
+    
     // Phase 1: Power-up
     setExplosionPhase('powerup')
     setIsButtonExploding(true)
@@ -99,12 +117,12 @@ export default function Hero() {
     // Phase 2: Explosion
     setTimeout(() => {
       setExplosionPhase('explosion')
-    }, 300)
+    }, powerUpDuration)
     
     // Phase 3: Convergence
     setTimeout(() => {
       setExplosionPhase('convergence')
-    }, 600)
+    }, explosionDuration)
     
     // Phase 4: Modal Formation
     setTimeout(() => {
@@ -118,7 +136,7 @@ export default function Hero() {
           alert(`The Prefects Program is currently full (${status.currentCount}/${status.maxSpots} spots taken).\n\nJoin the Beta Program while spots last and keep a look out on our socials for future opportunities!`)
         }, 200)
       }
-    }, 900)
+    }, totalDuration)
   }
 
   const scrollToApps = () => {
@@ -235,13 +253,13 @@ export default function Hero() {
         />
       )}
       
-      {/* Shockwave Effect */}
-      {explosionPhase === 'explosion' && <OptimizedShockwaveEffect />}
+      {/* Shockwave Effect - Desktop only */}
+      {!isMobile && explosionPhase === 'explosion' && <OptimizedShockwaveEffect />}
       
-      {/* Magical Runes */}
-      {explosionPhase === 'powerup' && <OptimizedRuneEffect />}
+      {/* Magical Runes - Desktop only */}
+      {!isMobile && explosionPhase === 'powerup' && <OptimizedRuneEffect />}
       
-      {/* Optimized Sparkle Effects */}
+      {/* Optimized Sparkle Effects - Lighter on mobile */}
       {(explosionPhase === 'explosion' || explosionPhase === 'convergence') && (
         <OptimizedSparkleEffect phase={explosionPhase} />
       )}
