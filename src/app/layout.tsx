@@ -3,7 +3,7 @@ import './globals.css'
 import { cn } from '@/lib/utils'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { LazyCountdownOverlay } from '@/components/LazyModals'
+
 
 // Use system fonts as fallback when Google Fonts fail to load
 const fontClass = 'font-sans'
@@ -54,9 +54,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // Set target date to 6:00 PM Monday, August 4th, 2025 (Melbourne time)
-  const targetDate = new Date('2025-08-04T18:00:00+10:00') // 6:00 PM Melbourne time (AEST)
-  
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -86,36 +83,12 @@ export default function RootLayout({
                     });
                 });
               }
-              
-              // Prevent main content flash
-              document.addEventListener('DOMContentLoaded', function() {
-                const mainContent = document.querySelector('.main-content');
-                if (mainContent) {
-                  mainContent.style.opacity = '0';
-                  mainContent.style.visibility = 'hidden';
-                }
-                
-                // Show main content after overlay is ready
-                setTimeout(function() {
-                  if (mainContent) {
-                    mainContent.style.opacity = '1';
-                    mainContent.style.visibility = 'visible';
-                    mainContent.style.transition = 'opacity 0.5s ease-in-out';
-                  }
-                }, 2000); // 2 second delay to ensure overlay is fully loaded
-              });
             `,
           }}
         />
       </head>
       <body className={cn(fontClass, 'antialiased')}>
-        {/* Countdown Overlay - Load First with Bulletproof Protection */}
-        <LazyCountdownOverlay
-          targetDate={targetDate}
-          isVisible={true}
-        />
-        
-        <div className="min-h-screen main-content" style={{ opacity: 0, visibility: 'hidden' }}>
+        <div className="min-h-screen">
           {children}
         </div>
         
