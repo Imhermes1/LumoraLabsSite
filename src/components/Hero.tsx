@@ -123,99 +123,54 @@ export default function Hero() {
         <div className="h-[32rem] w-[32rem] rounded-full bg-gradient-to-br from-lumora-purple/15 via-transparent to-transparent blur-3xl" />
       </div>
 
-      <div className="mx-auto flex max-w-6xl flex-col gap-16 px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] lg:items-start">
-          <div className="space-y-8 text-center">
-            <div className="inline-flex items-center gap-3 rounded-full border border-black/50 bg-slate-950/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white/70">
-              Lumora Labs
-            </div>
+      <div className="mx-auto flex max-w-6xl flex-col gap-20 px-6 lg:px-8">
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
+          <div className="relative h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+            <Image
+              src="/images/Lumora_logo_new.png"
+              alt="Lumora Labs Logo"
+              fill
+              priority
+              className="object-contain"
+              sizes="(max-width: 640px) 96px, (max-width: 1024px) 112px, 128px"
+            />
+          </div>
+          <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-[3.5rem]">
+            Clean, <span className="text-vibrant">vibrant</span> software crafted with <span className="text-vibrant">light</span>
+          </h1>
+          <p className="max-w-xl text-pretty text-lg text-white/70 sm:text-xl">
+            We build calm, luminous tools that help people feel organised, nourished, and in control.
+            Every detail balances clarity with a hint of magic—because progress should feel effortless.
+          </p>
 
-            <div className="mx-auto flex flex-col items-center gap-6">
-              <div className="relative h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
-                <Image
-                  src="/images/Lumora logo new.png"
-                  alt="Lumora Labs Logo"
-                  fill
-                  priority
-                  className="object-contain"
-                  sizes="(max-width: 640px) 96px, (max-width: 1024px) 112px, 128px"
-                />
-              </div>
-              <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-[3.5rem]">
-                Clean, <span className="text-vibrant">vibrant</span> software crafted with <span className="text-vibrant">light</span>
-              </h1>
-              <p className="max-w-xl text-pretty text-lg text-white/70 sm:text-xl">
-                We build calm, luminous tools that help people feel organised, nourished, and in control.
-                Every detail balances clarity with a hint of magic—because progress should feel effortless.
-              </p>
-            </div>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <button
+              onClick={openBetaSignup}
+              className="group inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 bg-white px-6 py-3 text-base font-semibold text-slate-900 shadow-[0_18px_40px_-18px_rgba(148,163,184,0.65)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-slate-900 hover:shadow-[0_22px_45px_-16px_rgba(148,163,184,0.75)]"
+            >
+              <span className="text-vibrant">Join the beta</span>
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+            </button>
 
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <button
-                onClick={openBetaSignup}
-                className="group inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 bg-white px-6 py-3 text-base font-semibold text-slate-900 shadow-[0_18px_40px_-18px_rgba(148,163,184,0.65)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-slate-900 hover:shadow-[0_22px_45px_-16px_rgba(148,163,184,0.75)]"
-              >
-                <span className="text-vibrant">Join the beta</span>
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </button>
+            <button
+              onClick={openAlphaReveal}
+              className="group inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 bg-transparent px-6 py-3 text-base font-semibold text-white transition duration-200 hover:border-slate-900 hover:bg-white/10"
+            >
+              <span className="text-vibrant">Aparecium preview</span>
+              <Wand2 className="ml-2 h-4 w-4" />
+            </button>
 
-              <button
-                onClick={openAlphaReveal}
-                className="group inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 bg-transparent px-6 py-3 text-base font-semibold text-white transition duration-200 hover:border-slate-900 hover:bg-white/10"
-              >
-                <span className="text-vibrant">Aparecium preview</span>
-                <Wand2 className="ml-2 h-4 w-4" />
-              </button>
-
-              <button
-                onClick={() => openComingSoon('technology')}
-                className="inline-flex items-center justify-center rounded-full border border-black/60 bg-slate-950/70 px-6 py-3 text-base font-medium text-white transition duration-200 hover:border-black hover:bg-slate-900/80"
-              >
-                <span className="text-vibrant">Technology roadmap</span>
-                <Sparkles className="ml-2 h-4 w-4" />
-              </button>
-            </div>
-
-            <div className="mx-auto max-w-sm">
-              <BetaCount variant="hero" />
-            </div>
+            <button
+              onClick={() => openComingSoon('technology')}
+              className="inline-flex items-center justify-center rounded-full border border-black/60 bg-slate-950/70 px-6 py-3 text-base font-medium text-white transition duration-200 hover:border-black hover:bg-slate-900/80"
+            >
+              <span className="text-vibrant">Technology roadmap</span>
+              <Sparkles className="ml-2 h-4 w-4" />
+            </button>
           </div>
 
-          <div className="space-y-6">
-            <div className="rounded-3xl border border-black/60 bg-slate-950/80 p-8 backdrop-blur-xl shadow-[0_26px_64px_-32px_rgba(15,23,42,0.82)]">
-              <div className="flex items-center gap-3 text-left">
-                <Sparkles className="h-5 w-5 text-lumora-pink" />
-                <p className="text-sm font-medium uppercase tracking-[0.3em] text-white/60">
-                  Design Pillars
-                </p>
-              </div>
-
-              <h2 className="mt-4 text-2xl font-semibold text-white">
-                Professional at first glance, unforgettable in motion.
-              </h2>
-
-              <p className="mt-3 text-white/65">
-                Our craft focuses on focus, calm rhythms, and purposeful colour. Each interaction keeps the
-                interface quiet while letting moments of Lumora light guide the way.
-              </p>
-
-              <div className="mt-8 grid gap-5 sm:grid-cols-2">
-                {highlightItems.map(({ title, description, icon: Icon }) => (
-                  <div
-                    key={title}
-                  className="group rounded-2xl border border-black/60 bg-slate-950/70 p-5 transition duration-200 hover:border-black hover:bg-slate-900/80"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white">
-                        <Icon className="h-4 w-4" />
-                      </span>
-                      <span className="text-base font-semibold text-white">{title}</span>
-                    </div>
-                    <p className="mt-3 text-sm text-white/65">{description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="w-full max-w-sm">
+            <BetaCount variant="hero" />
           </div>
         </div>
 
@@ -260,6 +215,39 @@ export default function Hero() {
                 </div>
                 <ArrowRight className="mt-6 h-4 w-4 text-white/50 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white" />
               </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-3xl border border-black/60 bg-slate-950/80 p-8 backdrop-blur-xl shadow-[0_26px_64px_-32px_rgba(15,23,42,0.82)]">
+          <div className="flex flex-col gap-4 text-center sm:text-left">
+            <div className="flex items-center justify-center gap-3 text-white/60 sm:justify-start">
+              <Sparkles className="h-5 w-5 text-lumora-pink" />
+              <p className="text-sm font-medium uppercase tracking-[0.3em]">Design Pillars</p>
+            </div>
+            <h2 className="text-2xl font-semibold text-white">
+              Professional at first glance, unforgettable in motion.
+            </h2>
+            <p className="text-white/65">
+              Our craft focuses on focus, calm rhythms, and purposeful colour. Each interaction keeps the
+              interface quiet while letting moments of Lumora light guide the way.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-5 sm:grid-cols-2">
+            {highlightItems.map(({ title, description, icon: Icon }) => (
+              <div
+                key={title}
+                className="group rounded-2xl border border-black/60 bg-slate-950/70 p-5 transition duration-200 hover:border-black hover:bg-slate-900/80"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white">
+                    <Icon className="h-4 w-4" />
+                  </span>
+                  <span className="text-base font-semibold text-white">{title}</span>
+                </div>
+                <p className="mt-3 text-sm text-white/65">{description}</p>
+              </div>
             ))}
           </div>
         </div>

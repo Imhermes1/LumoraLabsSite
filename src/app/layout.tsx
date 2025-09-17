@@ -57,8 +57,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/images/Lumora%20logo%20new.png" />
-        <link rel="apple-touch-icon" href="/images/Lumora%20logo%20new.png" />
+        <link rel="icon" href="/images/Lumora_logo_new.png" />
+        <link rel="apple-touch-icon" href="/images/Lumora_logo_new.png" />
         
         {/* Performance optimizations */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -67,7 +67,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//vitals.vercel-insights.com" />
         
         {/* Preload critical images */}
-        <link rel="preload" as="image" href="/images/Lumora%20logo%20new.png" />
+        <link rel="preload" as="image" href="/images/Lumora_logo_new.png" />
         
         <script
           dangerouslySetInnerHTML={{

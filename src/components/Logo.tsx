@@ -42,7 +42,7 @@ export default function Logo({
         sizeClasses[size]
       )}>
         <Image
-          src="/images/Lumora logo new.png"
+          src="/images/Lumora_logo_new.png"
           alt="Lumora Labs"
           fill
           className="object-contain drop-shadow-sm"
