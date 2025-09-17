@@ -174,7 +174,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-black/60 bg-slate-950/80 p-8 backdrop-blur-xl shadow-[0_26px_64px_-32px_rgba(15,23,42,0.82)]">
+        <div className="rounded-3xl border border-black/25 bg-white/12 p-8 backdrop-blur-2xl shadow-[0_26px_64px_-32px_rgba(15,23,42,0.4)]">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.3em] text-white/60">Explore</p>
@@ -185,14 +185,14 @@ export default function Hero() {
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={() => openComingSoon('apps')}
-                className="inline-flex items-center gap-2 rounded-full border border-black/60 bg-slate-950/70 px-4 py-2 text-sm font-medium text-white/80 transition hover:border-black hover:bg-slate-900/80"
+                className="inline-flex items-center gap-2 rounded-full border border-black/30 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:border-black/50 hover:bg-white/20"
               >
                 <span className="text-vibrant">Upcoming apps</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
               <button
                 onClick={() => openComingSoon('beta')}
-                className="inline-flex items-center gap-2 rounded-full border border-black/60 bg-slate-950/70 px-4 py-2 text-sm font-medium text-white/80 transition hover:border-black hover:bg-slate-900/80"
+                className="inline-flex items-center gap-2 rounded-full border border-black/30 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:border-black/50 hover:bg-white/20"
               >
                 <span className="text-vibrant">Beta waitlist</span>
                 <Zap className="h-4 w-4" />
@@ -205,7 +205,7 @@ export default function Hero() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="group flex flex-col justify-between rounded-2xl border border-black/60 bg-slate-950/70 px-5 py-6 transition duration-200 hover:border-black hover:bg-slate-900/80"
+                className="group flex flex-col justify-between rounded-2xl border border-black/25 bg-white/10 px-5 py-6 transition duration-200 hover:border-black/45 hover:bg-white/20"
               >
                 <div>
                   <p className="text-sm font-medium text-white">
@@ -219,7 +219,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-black/60 bg-slate-950/80 p-8 backdrop-blur-xl shadow-[0_26px_64px_-32px_rgba(15,23,42,0.82)]">
+        <div className="rounded-3xl border border-black/25 bg-white/12 p-8 backdrop-blur-2xl shadow-[0_26px_64px_-32px_rgba(15,23,42,0.4)]">
           <div className="flex flex-col gap-4 text-center sm:text-left">
             <div className="flex items-center justify-center gap-3 text-white/60 sm:justify-start">
               <Sparkles className="h-5 w-5 text-lumora-pink" />
@@ -238,7 +238,7 @@ export default function Hero() {
             {highlightItems.map(({ title, description, icon: Icon }) => (
               <div
                 key={title}
-                className="group rounded-2xl border border-black/60 bg-slate-950/70 p-5 transition duration-200 hover:border-black hover:bg-slate-900/80"
+                className="group rounded-2xl border border-black/30 bg-white/10 p-5 transition duration-200 hover:border-black/50 hover:bg-white/20"
               >
                 <div className="flex items-center gap-3">
                   <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white">

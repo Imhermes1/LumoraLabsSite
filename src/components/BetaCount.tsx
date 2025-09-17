@@ -49,8 +49,8 @@ export default function BetaCount({ variant = 'modal' }: BetaCountProps) {
 
   const containerBase =
     variant === 'hero'
-      ? 'rounded-3xl border border-black/60 bg-slate-950/85 p-5 backdrop-blur-xl shadow-[0_20px_60px_-24px_rgba(15,23,42,0.7)]'
-      : 'rounded-2xl border border-black/50 bg-slate-950/80 p-5 backdrop-blur-lg shadow-[0_18px_52px_-26px_rgba(15,23,42,0.68)]'
+      ? 'rounded-3xl border border-black/25 bg-white/12 p-5 backdrop-blur-2xl shadow-[0_20px_60px_-24px_rgba(15,23,42,0.4)]'
+      : 'rounded-2xl border border-black/30 bg-white/10 p-5 backdrop-blur-xl shadow-[0_18px_52px_-26px_rgba(15,23,42,0.35)]'
 
   const labelTone = variant === 'hero' ? 'text-white/70' : 'text-white/65'
   const captionTone = 'text-white/55'

@@ -133,17 +133,20 @@ export default function AboutUsPage() {
                   <Heart className="text-lumora-pink" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold text-xl">MooDo</h3>
-                  <p className="text-white/60 text-sm">Smart Tasks based on your mental health</p>
+                  <h3 className="text-white font-semibold text-xl">Micro</h3>
+                  <p className="text-white/60 text-sm">Apple Calendar & Reminders, reimagined</p>
                 </div>
               </div>
               <p className="text-white/70 leading-relaxed">
-                Transformative task management that adapts to your emotional rhythm. 
-                Work with your emotions, not against them. MooDo understands that your 
-                productivity is deeply connected to your mental well-being.
+                Micro brings your Apple Calendar, Reminders, and daily habits into one intuitive space. 
+                It layers gentle guidance and wellbeing prompts over the native apps you already trust, 
+                so planning the week, tracking routines, and staying accountable feels effortless.
+              </p>
+              <p className="mt-4 text-white/50 text-sm">
+                <em>MooDo is now open-source. We’re sharing its ideas with the community while investing our product craft in Micro.</em>
               </p>
             </div>
-            
+
             <div className="glass rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-positive/20 rounded-2xl flex items-center justify-center mr-4">
@@ -151,13 +154,14 @@ export default function AboutUsPage() {
                 </div>
                 <div>
                   <h3 className="text-white font-semibold text-xl">Macro</h3>
-                  <p className="text-white/60 text-sm">AI Calorie Tracker & Nutritionist Coach</p>
+                  <p className="text-white/60 text-sm">Smart nutrition tracking with an AI coach</p>
                 </div>
               </div>
               <p className="text-white/70 leading-relaxed">
-                Powered by GPT-4, delivering precise nutrition tracking built for the way 
-                Australians eat. Macro combines cutting-edge AI with deep nutritional 
-                knowledge to help you achieve your health goals.
+                Macro helps you understand what to eat next. Its AI coach suggests balanced meals, 
+                builds practical grocery lists, and adapts to your goals and dietary preferences. 
+                Track macros with ease, get bite-sized guidance, and make healthier choices without 
+                overthinking every meal.
               </p>
             </div>
           </div>

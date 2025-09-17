@@ -1,14 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import { Zap, Database, Mic2, MapPin, TrendingUp } from 'lucide-react'
+import { ChefHat, Database, ShoppingBag, Sparkles, TrendingUp } from 'lucide-react'
 import BetaSignupModal from './BetaSignupModal'
 
 const features = [
   {
-    icon: Zap,
-    title: 'GPT-4 AI Integration',
-    description: 'Sophisticated natural language processing optimised for Australian accents and food culture'
+    icon: ChefHat,
+    title: 'AI Meal Coach',
+    description: 'Personalised meal plans and quick suggestions that fit your goals and schedule'
   },
   {
     icon: Database,
@@ -16,19 +16,19 @@ const features = [
     description: "Australia's official food composition database for precision local accuracy"
   },
   {
-    icon: MapPin,
-    title: 'Local Brand Recognition',
-    description: "Instantly recognises 50+ Australian brands including Woolworths, Coles, McDonald's Australia"
+    icon: ShoppingBag,
+    title: 'Smart Grocery Planning',
+    description: 'Turn meal ideas into practical grocery lists with local brand recommendations'
   },
   {
-    icon: Mic2,
-    title: 'Voice-First Interface',
-    description: 'Effortless speech recognition with Australian accent optimisation'
+    icon: Sparkles,
+    title: 'Helpful Nudges',
+    description: 'Guidance that adapts as you log meals, helping you make better choices over time'
   },
   {
     icon: TrendingUp,
-    title: 'Personalised AI Coaching',
-    description: 'Intelligent nutrition advice that learns your preferences and goals'
+    title: 'Progress You Can Feel',
+    description: 'Track macros and see clear insights so you stay motivated without obsessing over numbers'
   }
 ]
 
@@ -54,7 +54,7 @@ export default function CoreTrack() {
               {/* Placeholder for app screenshot */}
               <div className="text-center">
                 <div className="w-32 h-32 mx-auto mb-4 bg-black/30 backdrop-blur-sm rounded-3xl flex items-center justify-center border border-positive/30">
-                  <Zap size={48} className="text-positive animate-pulse" />
+                  <ChefHat size={48} className="text-positive animate-pulse" />
                 </div>
                 <p className="text-white/70 text-sm">
                   App screenshot placeholder
@@ -80,11 +80,11 @@ export default function CoreTrack() {
                 Core <span className="gradient-text bg-gradient-to-r from-positive to-focused bg-clip-text text-transparent">Track</span>
               </h2>
               <p className="text-xl md:text-2xl text-positive font-semibold mb-4">
-                The intelligent way to track what you eat
+                The intelligent way to eat well, every day
               </p>
               <p className="text-white/80 text-lg leading-relaxed">
-                Powered by GPT-4, CoreTrack delivers precise, intuitive tracking built for the way Australians eat. 
-                A nutrition experience that feels natural, local, and uniquely helpful.
+                Macro’s AI coach helps you decide what to eat next, prepare smarter meals, and stay on track. 
+                Log food in seconds, receive balanced meal ideas, and let personalised guidance do the heavy lifting.
               </p>
             </div>
 
