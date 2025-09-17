@@ -339,7 +339,7 @@ export default function PrivacyPolicy() {
                 </ul>
               </section>
 
-              <div className="border-t border-white/20 pt-8 mt-12">
+              <div className="border-t border-black/40 pt-8 mt-12">
                 <p className="text-white/60 text-center">
                   <strong>This Privacy Policy is governed by Australian law and complies with the Privacy Act 1988 (Cth) and the Australian Privacy Principles.</strong>
                 </p>

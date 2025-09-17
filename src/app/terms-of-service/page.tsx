@@ -388,7 +388,7 @@ export default function TermsOfService() {
                 </div>
               </section>
 
-              <div className="border-t border-white/20 pt-8 mt-12">
+              <div className="border-t border-black/40 pt-8 mt-12">
                 <p className="text-white/60 text-center">
                   <strong>These Terms are governed by Australian law and designed to comply with the Australian Consumer Law and other applicable regulations.</strong>
                 </p>

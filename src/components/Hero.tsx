@@ -126,7 +126,7 @@ export default function Hero() {
       <div className="mx-auto flex max-w-6xl flex-col gap-16 px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] lg:items-start">
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white/60">
+            <div className="inline-flex items-center gap-3 rounded-full border border-black/50 bg-slate-950/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white/70">
               Lumora Labs
             </div>
 
@@ -140,7 +140,7 @@ export default function Hero() {
                 className="h-16 w-auto opacity-95"
               />
               <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-[3.5rem]">
-                Clean, vibrant software crafted with light
+                Clean, <span className="text-vibrant">vibrant</span> software crafted with <span className="text-vibrant">light</span>
               </h1>
             </div>
 
@@ -152,25 +152,25 @@ export default function Hero() {
             <div className="flex flex-wrap items-center gap-3">
               <button
                 onClick={openBetaSignup}
-                className="group inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-base font-semibold text-slate-900 shadow-[0_18px_40px_-18px_rgba(148,163,184,0.65)] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-16px_rgba(148,163,184,0.75)]"
+                className="group inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 bg-white px-6 py-3 text-base font-semibold text-slate-900 shadow-[0_18px_40px_-18px_rgba(148,163,184,0.65)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-slate-900 hover:shadow-[0_22px_45px_-16px_rgba(148,163,184,0.75)]"
               >
-                Join the beta
+                <span className="text-vibrant">Join the beta</span>
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </button>
 
               <button
                 onClick={openAlphaReveal}
-                className="group inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent px-6 py-3 text-base font-semibold text-white/80 transition duration-200 hover:border-white/40 hover:text-white"
+                className="group inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 bg-transparent px-6 py-3 text-base font-semibold text-white transition duration-200 hover:border-slate-900 hover:bg-white/10"
               >
-                Aparecium preview
+                <span className="text-vibrant">Aparecium preview</span>
                 <Wand2 className="ml-2 h-4 w-4" />
               </button>
 
               <button
                 onClick={() => openComingSoon('technology')}
-                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-base font-medium text-white/70 transition duration-200 hover:border-white/30 hover:text-white"
+                className="inline-flex items-center justify-center rounded-full border border-black/60 bg-slate-950/70 px-6 py-3 text-base font-medium text-white transition duration-200 hover:border-black hover:bg-slate-900/80"
               >
-                Technology roadmap
+                <span className="text-vibrant">Technology roadmap</span>
                 <Sparkles className="ml-2 h-4 w-4" />
               </button>
             </div>
@@ -181,7 +181,7 @@ export default function Hero() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-[0_25px_60px_-35px_rgba(15,23,42,0.9)]">
+            <div className="rounded-3xl border border-black/60 bg-slate-950/80 p-8 backdrop-blur-xl shadow-[0_26px_64px_-32px_rgba(15,23,42,0.82)]">
               <div className="flex items-center gap-3 text-left">
                 <Sparkles className="h-5 w-5 text-lumora-pink" />
                 <p className="text-sm font-medium uppercase tracking-[0.3em] text-white/60">
@@ -202,7 +202,7 @@ export default function Hero() {
                 {highlightItems.map(({ title, description, icon: Icon }) => (
                   <div
                     key={title}
-                    className="group rounded-2xl border border-white/10 bg-slate-950/40 p-5 transition duration-200 hover:border-white/30 hover:bg-slate-900/60"
+                  className="group rounded-2xl border border-black/60 bg-slate-950/70 p-5 transition duration-200 hover:border-black hover:bg-slate-900/80"
                   >
                     <div className="flex items-center gap-3">
                       <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white">
@@ -218,7 +218,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-[0_25px_60px_-35px_rgba(15,23,42,0.9)]">
+        <div className="rounded-3xl border border-black/60 bg-slate-950/80 p-8 backdrop-blur-xl shadow-[0_26px_64px_-32px_rgba(15,23,42,0.82)]">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.3em] text-white/60">Explore</p>
@@ -229,16 +229,16 @@ export default function Hero() {
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={() => openComingSoon('apps')}
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/75 transition hover:border-white/40 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-black/60 bg-slate-950/70 px-4 py-2 text-sm font-medium text-white/80 transition hover:border-black hover:bg-slate-900/80"
               >
-                Upcoming apps
+                <span className="text-vibrant">Upcoming apps</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
               <button
                 onClick={() => openComingSoon('beta')}
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/75 transition hover:border-white/40 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-black/60 bg-slate-950/70 px-4 py-2 text-sm font-medium text-white/80 transition hover:border-black hover:bg-slate-900/80"
               >
-                Beta waitlist
+                <span className="text-vibrant">Beta waitlist</span>
                 <Zap className="h-4 w-4" />
               </button>
             </div>
@@ -249,10 +249,12 @@ export default function Hero() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="group flex flex-col justify-between rounded-2xl border border-white/10 bg-slate-950/40 px-5 py-6 transition duration-200 hover:border-white/30 hover:bg-slate-900/60"
+                className="group flex flex-col justify-between rounded-2xl border border-black/60 bg-slate-950/70 px-5 py-6 transition duration-200 hover:border-black hover:bg-slate-900/80"
               >
                 <div>
-                  <p className="text-sm font-medium text-white">{link.label}</p>
+                  <p className="text-sm font-medium text-white">
+                    <span className="text-vibrant">{link.label}</span>
+                  </p>
                   <p className="mt-2 text-sm text-white/60">{link.description}</p>
                 </div>
                 <ArrowRight className="mt-6 h-4 w-4 text-white/50 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white" />

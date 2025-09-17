@@ -302,14 +302,14 @@ export default function Support() {
                     <Mail size={20} className="mr-2" />
                     Email Support
                   </a>
-                  <button className="border border-white/30 rounded-full px-8 py-3 text-white font-semibold hover:bg-white/10 transition-all duration-300">
+                  <button className="border border-black/60 rounded-full px-8 py-3 text-white font-semibold hover:border-black hover:bg-slate-900/80 transition-all duration-300">
                     Start Live Chat
                   </button>
                 </div>
               </div>
             </div>
 
-            <div className="border-t border-white/20 pt-8 mt-12">
+            <div className="border-t border-black/40 pt-8 mt-12">
               <p className="text-white/60 text-center">
                 <strong>This support page complies with Australian Consumer Law and outlines your rights as a consumer. We're committed to providing excellent service while respecting your privacy and data protection rights.</strong>
               </p>

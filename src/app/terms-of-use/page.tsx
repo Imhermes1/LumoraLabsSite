@@ -142,7 +142,7 @@ export default function TermsOfUse() {
                 </div>
               </section>
 
-              <div className="mt-12 p-6 glass rounded-xl border border-white/10">
+              <div className="mt-12 p-6 glass rounded-xl border border-black/60">
                 <p className="text-white/60 text-sm text-center">
                   By using our website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use.
                 </p>

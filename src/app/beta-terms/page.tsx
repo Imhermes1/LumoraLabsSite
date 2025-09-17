@@ -426,7 +426,7 @@ export default function BetaTerms() {
                 </div>
               </section>
 
-              <div className="border-t border-white/20 pt-8 mt-12">
+              <div className="border-t border-black/40 pt-8 mt-12">
                 <p className="text-white/60 text-center">
                   <strong>These Beta Terms are governed by Australian law and comply with applicable consumer protection and privacy regulations.</strong>
                 </p>

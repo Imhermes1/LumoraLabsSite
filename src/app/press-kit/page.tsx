@@ -60,8 +60,8 @@ export default function PressKitPage() {
                 </p>
               </div>
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-lumora-pink/20 to-lumora-purple/20 rounded-2xl blur-xl"></div>
-                <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                <div className="absolute inset-0 bg-gradient-to-r from-lumora-pink/30 to-lumora-purple/25 rounded-2xl blur-xl"></div>
+                <div className="relative rounded-2xl border border-black/60 bg-slate-950/80 p-8 backdrop-blur-xl">
                   <div className="text-center">
                     <Camera className="text-lumora-purple mx-auto mb-4" size={48} />
                     <h3 className="text-white font-semibold text-xl mb-2">High-Quality Assets</h3>
@@ -84,7 +84,7 @@ export default function PressKitPage() {
             What's Coming
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass rounded-2xl p-8 text-center">
+            <div className="glass rounded-2xl p-8 text-center border-black/60">
               <div className="w-16 h-16 bg-gradient-to-r from-lumora-pink/20 to-lumora-purple/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Camera className="text-lumora-pink" size={32} />
               </div>
@@ -95,7 +95,7 @@ export default function PressKitPage() {
               </p>
             </div>
             
-            <div className="glass rounded-2xl p-8 text-center">
+            <div className="glass rounded-2xl p-8 text-center border-black/60">
               <div className="w-16 h-16 bg-gradient-to-r from-lumora-purple/20 to-deep-purple/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <FileText className="text-lumora-purple" size={32} />
               </div>
@@ -106,7 +106,7 @@ export default function PressKitPage() {
               </p>
             </div>
             
-            <div className="glass rounded-2xl p-8 text-center">
+            <div className="glass rounded-2xl p-8 text-center border-black/60">
               <div className="w-16 h-16 bg-gradient-to-r from-deep-purple/20 to-lumora-pink/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Download className="text-deep-purple" size={32} />
               </div>

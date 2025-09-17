@@ -430,7 +430,7 @@ export default function CookiePolicy() {
                 </ul>
               </section>
 
-              <div className="border-t border-white/20 pt-8 mt-12">
+              <div className="border-t border-black/40 pt-8 mt-12">
                 <p className="text-white/60 text-center">
                   <strong>This Cookies Policy is designed to comply with Australian privacy laws and provide clear information about our cookie practices. For the most current version, please visit our website.</strong>
                 </p>
