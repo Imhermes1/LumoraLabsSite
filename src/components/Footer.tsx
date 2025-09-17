@@ -77,9 +77,6 @@ export default function Footer() {
               <Link href="/about-us" className="transition hover:text-vibrant">
                 <span className="text-vibrant">About us</span>
               </Link>
-              <Link href="/careers" className="transition hover:text-vibrant">
-                <span className="text-vibrant">Careers</span>
-              </Link>
               <Link href="/press-kit" className="transition hover:text-vibrant">
                 <span className="text-vibrant">Press kit</span>
               </Link>
@@ -101,6 +98,9 @@ export default function Footer() {
               >
                 <span className="text-vibrant">Beta program</span>
               </button>
+              <Link href="/apps" className="transition hover:text-vibrant">
+                <span className="text-vibrant">Apps</span>
+              </Link>
               <Link href="/support" className="transition hover:text-vibrant">
                 <span className="text-vibrant">Support</span>
               </Link>

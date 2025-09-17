@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { X, Sparkles, Star, Wand2, Crown, Users, Gift, Zap } from 'lucide-react'
+import { X, Sparkles, Star, Wand2, Crown, Users, Zap, Gift } from 'lucide-react'
 
 interface AlphaRevealModalProps {
   isOpen: boolean
@@ -123,9 +123,9 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
 
       {/* Modal Content */}
       <div className={`relative w-full max-w-4xl max-h-[90vh] transition-all duration-1000 ${showModalForm ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-        <div className="bg-gray-900/95 backdrop-blur-md rounded-3xl border-2 border-lumora-purple/50 shadow-[0_0_30px_rgba(179,64,217,0.3)] max-h-[90vh] flex flex-col">
+        <div className="rounded-3xl border border-black/12 bg-[rgba(24,28,36,0.92)] backdrop-blur-xl shadow-[0_26px_64px_-30px_rgba(15,23,42,0.65)] max-h-[90vh] flex flex-col">
           {/* Header */}
-          <div className="flex justify-between items-start p-6 border-b border-lumora-purple/30 flex-shrink-0">
+          <div className="flex justify-between items-start p-6 border-b border-black/15 flex-shrink-0">
             <div className={`transition-all duration-1000 ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
               <div className="flex items-center space-x-3 mb-2">
                 <div className="relative">
@@ -145,7 +145,7 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
             
             <button
               onClick={handleClose}
-              className="bg-black/30 backdrop-blur-sm border-2 border-white/20 rounded-full p-3 text-white/70 hover:text-white transition-all duration-300 flex-shrink-0 shadow-[0_0_10px_rgba(255,255,255,0.2)] hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]"
+              className="rounded-full border border-white/30 bg-[rgba(24,28,36,0.4)] p-3 text-white/70 transition-all duration-300 hover:border-white/60 hover:text-white"
             >
               <X size={24} />
             </button>
@@ -158,7 +158,7 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
               <div className="text-center mb-8">
                 <div className="relative mb-6">
                   <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-orange-400/20 to-red-400/20 rounded-2xl blur-xl"></div>
-                  <div className="relative bg-black/30 backdrop-blur-sm rounded-2xl p-8 border-2 border-yellow-400/30 shadow-[0_0_15px_rgba(250,193,7,0.2)]">
+                  <div className="relative rounded-2xl border border-black/20 bg-[rgba(24,28,36,0.6)] p-8 shadow-[0_24px_60px_-35px_rgba(250,193,7,0.4)]">
                     <div className="flex items-center justify-center mb-4">
                       <Crown className="text-yellow-400 mr-3" size={32} />
                       <h3 className="text-2xl md:text-3xl font-bold text-white">
@@ -177,7 +177,7 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
 
               {/* Alpha Benefits */}
               <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-purple-500/40 shadow-[0_0_15px_rgba(168,85,247,0.2)] hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300">
+                <div className="rounded-2xl border border-black/15 bg-[rgba(24,28,36,0.12)] p-6 transition-colors duration-300">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center mr-4 border border-purple-500/30">
                       <Zap className="text-purple-400" size={24} />
@@ -189,7 +189,7 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
                   </p>
                 </div>
 
-                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-blue-500/40 shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300">
+                <div className="rounded-2xl border border-black/15 bg-[rgba(24,28,36,0.12)] p-6 transition-colors duration-300">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center mr-4 border border-blue-500/30">
                       <Users className="text-blue-400" size={24} />

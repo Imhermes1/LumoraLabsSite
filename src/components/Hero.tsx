@@ -53,31 +53,26 @@ export default function Hero() {
   const highlightItems: Array<{
     title: string
     description: string
-    keyword: string
     icon: LucideIcon
   }> = [
     {
       title: 'Clarity First',
       description: 'Interfaces stripped back to the essentials so every action feels immediate and intentional.',
-      keyword: 'essentials',
       icon: SunMedium,
     },
     {
       title: 'Light-Led Interactions',
       description: 'Moments of delight guide people through the flow without overwhelming the senses.',
-      keyword: 'flow',
       icon: Sparkles,
     },
     {
       title: 'Practical Magic',
       description: 'Purposeful features shaped with craft, so the technology fades and the outcome shines.',
-      keyword: 'shines',
       icon: Wand2,
     },
     {
       title: 'Future Fluent',
       description: 'A design language ready for new platforms while feeling familiar on day one.',
-      keyword: 'familiar',
       icon: Compass,
     },
   ]
@@ -89,9 +84,9 @@ export default function Hero() {
       description: 'Our purpose and principles',
     },
     {
-      label: 'Careers',
-      href: '/careers',
-      description: 'Build with Lumora',
+      label: 'Apps',
+      href: '/apps',
+      description: 'Explore Micro & Macro',
     },
     {
       label: 'Press Kit',
@@ -99,9 +94,9 @@ export default function Hero() {
       description: 'Brand assets & story',
     },
     {
-      label: 'Support',
-      href: '/support',
-      description: 'We are here to help',
+      label: 'Privacy',
+      href: '/privacy-policy',
+      description: 'How we handle data',
     },
   ]
 
@@ -233,11 +228,8 @@ export default function Hero() {
               <p className="text-sm font-medium uppercase tracking-[0.3em]">Design</p>
             </div>
             <h2 className="text-2xl font-semibold text-white">
-              Professional at first glance, unforgettable in motion.
+              Purposeful, calming interfaces that feel beautifully simple and move exactly how they should.
             </h2>
-            <p className="text-white/70">
-              Our craft focuses on focus, calm rhythms, and purposeful colour. Each interaction keeps the interface quiet while letting moments of Lumora light guide the way.
-            </p>
           </div>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-2">

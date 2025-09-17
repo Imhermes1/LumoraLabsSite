@@ -52,7 +52,7 @@ export default function BetaSignup() {
           </p>
         </div>
 
-        <div className="glass-strong rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
+        <div className="rounded-3xl border border-black/12 bg-[rgba(24,28,36,0.1)] p-8 md:p-12 max-w-4xl mx-auto backdrop-blur-xl shadow-[0_26px_64px_-35px_rgba(15,23,42,0.6)]">
 
           {/* Progress Bar */}
           <div className="mb-8">
@@ -63,7 +63,7 @@ export default function BetaSignup() {
               </span>
             </div>
 
-            <div className="glass rounded-full h-3 overflow-hidden">
+            <div className="rounded-full h-3 overflow-hidden border border-black/20 bg-[rgba(24,28,36,0.25)]">
               <div 
                 className="h-full bg-gradient-to-r from-lumora-pink to-lumora-purple transition-all duration-1000 ease-out"
                 style={{ width: `${progressPercentage}%` }}
@@ -75,53 +75,61 @@ export default function BetaSignup() {
             </p>
           </div>
 
-          {/* Benefits */}
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="glass rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 mx-auto mb-4 bg-lumora-pink/20 rounded-xl flex items-center justify-center">
-                <Star className="text-lumora-pink" size={24} />
+          {/* App Cards */}
+          <div className="grid gap-6 mb-8">
+            <div className="rounded-3xl border border-black/15 bg-[rgba(24,28,36,0.12)] p-6 md:p-8 backdrop-blur-xl shadow-[0_24px_60px_-35px_rgba(15,23,42,0.55)]">
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl border border-positive/40 bg-positive/15 flex items-center justify-center">
+                    <Star className="text-positive" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold text-lg">Macro</h3>
+                    <p className="text-white/60 text-sm">Smarter nutrition with an AI coach</p>
+                  </div>
+                </div>
+                <span className="text-positive text-sm font-semibold">22/50 filled</span>
               </div>
-              <h3 className="text-white font-semibold mb-2">Exclusive Early Access</h3>
-              <p className="text-white/70 text-sm">
-                Be the first to experience extraordinary features before public launch
+              <p className="mt-4 text-sm text-white/70">
+                Macro suggests <span className="text-vibrant">balanced meals</span>, adapts grocery lists to your preferences, and highlights
+                progress in a way that keeps you motivated—not meticulous.
               </p>
             </div>
 
-            <div className="glass rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 mx-auto mb-4 bg-lumora-purple/20 rounded-xl flex items-center justify-center">
-                <Users className="text-lumora-purple" size={24} />
+            <div className="rounded-3xl border border-black/15 bg-[rgba(24,28,36,0.12)] p-6 md:p-8 backdrop-blur-xl shadow-[0_24px_60px_-35px_rgba(15,23,42,0.55)]">
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl border border-lumora-pink/40 bg-lumora-pink/15 flex items-center justify-center">
+                    <Gift className="text-lumora-pink" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold text-lg">Micro</h3>
+                    <p className="text-white/60 text-sm">Calendars, tasks, and habits working as one</p>
+                  </div>
+                </div>
+                <span className="text-lumora-pink text-sm font-semibold">16/50 filled</span>
               </div>
-              <h3 className="text-white font-semibold mb-2">Direct Influence</h3>
-              <p className="text-white/70 text-sm">
-                Your feedback directly shapes product development and feature roadmap
-              </p>
-            </div>
-
-            <div className="glass rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 mx-auto mb-4 bg-deep-purple/20 rounded-xl flex items-center justify-center">
-                <Gift className="text-deep-purple" size={24} />
-              </div>
-              <h3 className="text-white font-semibold mb-2">Lifetime Benefits</h3>
-              <p className="text-white/70 text-sm">
-                50% discount on premium features for life, exclusive community access
+              <p className="mt-4 text-sm text-white/70">
+                Micro layers <span className="text-vibrant">gentle prompts</span> and <span className="text-vibrant">clarity</span> over the services you already trust,
+                helping you plan, prioritise, and reflect without bouncing between apps.
               </p>
             </div>
           </div>
 
           {/* Requirements */}
-          <div className="glass rounded-2xl p-6 mb-8">
-            <h3 className="text-white font-semibold mb-3">Beta Requirements:</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <p className="text-white/70 text-sm">• iOS 18+ or Android 13+</p>
-                <p className="text-white/70 text-sm">• 2-3 hours per week testing</p>
-                <p className="text-white/70 text-sm">• Weekly feedback sessions</p>
-              </div>
-              <div className="space-y-2">
-                <p className="text-white/70 text-sm">• NDA agreement required</p>
-                <p className="text-white/70 text-sm">• Active community participation</p>
-                <p className="text-white/70 text-sm">• Bug reports and suggestions</p>
-              </div>
+          <div className="rounded-3xl border border-black/15 bg-[rgba(24,28,36,0.12)] p-6 mb-8 backdrop-blur-xl shadow-[0_24px_60px_-35px_rgba(15,23,42,0.55)]">
+            <h3 className="text-white font-semibold mb-3">Beta requirements</h3>
+            <div className="grid md:grid-cols-2 gap-4 text-sm text-white/70">
+              <ul className="space-y-2">
+                <li>• iOS 18+ or Android 13+</li>
+                <li>• 2-3 hours per week testing</li>
+                <li>• Weekly feedback sessions</li>
+              </ul>
+              <ul className="space-y-2">
+                <li>• NDA agreement required</li>
+                <li>• Active community participation</li>
+                <li>• Bug reports and suggestions</li>
+              </ul>
             </div>
           </div>
 
@@ -140,7 +148,7 @@ export default function BetaSignup() {
             </p>
             
             {/* Privacy Notice */}
-            <div className="mt-6 p-4 glass rounded-xl">
+            <div className="mt-6 rounded-2xl border border-black/15 bg-[rgba(24,28,36,0.12)] p-4">
               <p className="text-white/60 text-xs text-center">
                 Your data is securely stored in Notion and used solely for beta program management. 
                 We respect your privacy and will never share your information with third parties.
