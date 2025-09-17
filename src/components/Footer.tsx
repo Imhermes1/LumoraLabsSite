@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Mail, MapPin, Github, Twitter, Linkedin } from 'lucide-react'
 import BetaSignupModal from './BetaSignupModal'
@@ -16,113 +15,131 @@ export default function Footer() {
   const openBetaSignup = () => {
     setIsModalOpen(true)
   }
-
   const openContactModal = () => {
-    console.log('Contact modal opening...')
     setIsContactModalOpen(true)
   }
 
   return (
-    <footer className="border-t border-gray-200 py-12 mt-20">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Main Footer Content */}
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+    <footer className="relative mt-24 border-t border-white/10 pb-12 pt-16">
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-white/10 via-transparent to-transparent" />
 
-          {/* Company Info */}
-          <div className="md:col-span-2">
-            <Logo size="md" className="mb-4" />
-            <p className="text-gray-600 mb-4 max-w-md leading-relaxed">
-              Where light meets innovation. Creating elegantly crafted and intuitively powerful apps
-              for Apple and Android.
+      <div className="max-w-6xl px-6 sm:px-8 lg:px-10 mx-auto">
+        <div className="relative mb-14 overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-[0_25px_60px_-35px_rgba(15,23,42,0.8)] md:flex md:items-center md:justify-between">
+          <div className="max-w-xl">
+            <p className="text-xs font-medium uppercase tracking-[0.35em] text-white/60">Stay close to the light</p>
+            <h2 className="mt-4 text-3xl font-semibold text-white">
+              Receive a curated glimpse into the products we are shaping at Lumora Labs.
+            </h2>
+            <p className="mt-3 text-white/65">
+              Product updates, design stories, and the occasional piece of practical magic—never spam.
             </p>
-            <div className="flex items-center space-x-2 text-gray-500 mb-2">
-              <MapPin size={16} />
-              <span className="text-sm">Melbourne, Australia</span>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3 md:mt-0 md:flex-shrink-0 md:justify-end">
+            <button
+              onClick={openBetaSignup}
+              className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-[0_18px_40px_-18px_rgba(148,163,184,0.6)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_45px_-16px_rgba(148,163,184,0.7)]"
+            >
+              Join the beta
+            </button>
+            <button
+              onClick={openContactModal}
+              className="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-white/75 transition hover:border-white/40 hover:text-white"
+            >
+              Talk with us
+            </button>
+          </div>
+        </div>
+
+        <div className="grid gap-12 md:grid-cols-4">
+          <div className="md:col-span-2 space-y-4">
+            <Logo size="md" />
+            <p className="max-w-md text-sm leading-relaxed text-white/65">
+              Lumora Labs creates quietly confident experiences that bring light to everyday wellbeing. We are based in Melbourne and build for people everywhere.
+            </p>
+            <div className="flex items-center gap-3 text-white/60 text-sm">
+              <MapPin size={16} className="text-white/50" />
+              Melbourne, Australia
             </div>
-            <div className="flex items-center space-x-2 text-gray-500">
-              <Mail size={16} />
-              <a href="mailto:lumos@lumoralabs.io" className="text-sm hover:text-purple-600 transition-colors">
+            <div className="flex items-center gap-3 text-white/60 text-sm">
+              <Mail size={16} className="text-white/50" />
+              <a
+                href="mailto:lumos@lumoralabs.io"
+                className="transition hover:text-white"
+              >
                 lumos@lumoralabs.io
               </a>
             </div>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Company</h3>
-            <div className="space-y-2">
-              <Link href="/about-us" className="block text-gray-600 hover:text-purple-600 transition-colors text-sm">
-                About Us
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">Company</h3>
+            <div className="flex flex-col gap-2 text-sm text-white/60">
+              <Link href="/about-us" className="transition hover:text-white">
+                About us
               </Link>
-              <Link href="/careers" className="block text-gray-600 hover:text-purple-600 transition-colors text-sm">
+              <Link href="/careers" className="transition hover:text-white">
                 Careers
               </Link>
-              <Link href="/press-kit" className="block text-gray-600 hover:text-purple-600 transition-colors text-sm">
-                Press Kit
+              <Link href="/press-kit" className="transition hover:text-white">
+                Press kit
               </Link>
               <button
                 onClick={openContactModal}
-                className="block text-gray-600 hover:text-purple-600 transition-colors text-sm text-left"
+                className="text-left transition hover:text-white"
               >
                 Contact
               </button>
             </div>
           </div>
 
-          {/* Product Links */}
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Product</h3>
-            <div className="space-y-2">
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">Product</h3>
+            <div className="flex flex-col gap-2 text-sm text-white/60">
               <button
                 onClick={openBetaSignup}
-                className="block text-gray-600 hover:text-purple-600 transition-colors text-sm text-left"
+                className="text-left transition hover:text-white"
               >
-                Beta Program
+                Beta program
               </button>
-              <Link href="/support" className="block text-gray-600 hover:text-purple-600 transition-colors text-sm">
+              <Link href="/support" className="transition hover:text-white">
                 Support
+              </Link>
+              <Link href="/terms-of-use" className="transition hover:text-white">
+                Terms of use
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-200">
-          {/* Legal Links */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-4 md:mb-0">
-            <Link href="/privacy-policy" className="text-gray-500 hover:text-gray-700 text-sm transition-colors">
+        <div className="mt-14 flex flex-col gap-6 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap gap-4 text-xs text-white/50">
+            <Link href="/privacy-policy" className="transition hover:text-white">
               Privacy
             </Link>
-            <Link href="/terms-of-service" className="text-gray-500 hover:text-gray-700 text-sm transition-colors">
+            <Link href="/terms-of-service" className="transition hover:text-white">
               Terms
             </Link>
-            <Link href="/cookies" className="text-gray-500 hover:text-gray-700 text-sm transition-colors">
+            <Link href="/cookies" className="transition hover:text-white">
               Cookies
             </Link>
           </div>
-
-          {/* Social Links */}
-          <div className="flex items-center space-x-4">
-            <Link href="#" className="text-gray-500 hover:text-purple-600 transition-colors">
+          <div className="flex gap-4 text-white/60">
+            <Link href="#" className="transition hover:text-white">
               <Twitter size={18} />
             </Link>
-            <Link href="#" className="text-gray-500 hover:text-purple-600 transition-colors">
+            <Link href="#" className="transition hover:text-white">
               <Linkedin size={18} />
             </Link>
-            <Link href="#" className="text-gray-500 hover:text-purple-600 transition-colors">
+            <Link href="#" className="transition hover:text-white">
               <Github size={18} />
             </Link>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="text-center mt-8">
-          <p className="text-gray-500 text-sm">
-            © {currentYear} Lumora Labs. Made with ✨ in Australia.
-          </p>
+        <div className="mt-6 text-center text-xs text-white/45">
+          © {currentYear} Lumora Labs. Made with ✨ in Australia.
         </div>
 
-        {/* Modals */}
         <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
       </div>

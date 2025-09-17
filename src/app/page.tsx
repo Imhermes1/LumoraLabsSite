@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect } from 'react'
-import FloatingNav from '@/components/FloatingNav'
 import Hero from '@/components/Hero'
 import Footer from '@/components/Footer'
 
@@ -17,14 +16,8 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="min-h-screen">
-      {/* Floating Navigation */}
-      <FloatingNav />
-
-      {/* Hero Section */}
+    <main className="min-h-screen flex flex-col">
       <Hero />
-
-      {/* Footer */}
       <Footer />
     </main>
   )

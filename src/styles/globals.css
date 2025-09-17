@@ -35,20 +35,13 @@ body {
 }
 
 body {
-  background: linear-gradient(135deg, #fafafa 0%, #ffffff 25%, #f8f9fa 50%, #ffffff 75%, #fafafa 100%);
-  background-size: 200% 200%;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(236, 72, 153, 0.18), transparent 52%),
+    radial-gradient(circle at 82% 12%, rgba(124, 58, 237, 0.22), transparent 55%),
+    radial-gradient(circle at 50% 85%, rgba(56, 189, 248, 0.12), transparent 60%),
+    #070a16;
   background-attachment: fixed;
   min-height: 100vh;
-  animation: subtleGradientShift 20s ease-in-out infinite;
-}
-
-@keyframes subtleGradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
 }
 
 /* Enhanced Glass morphism utilities */

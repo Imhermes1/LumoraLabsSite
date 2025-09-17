@@ -1,9 +1,18 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
-import { Sparkles, Info, Wand2 } from 'lucide-react'
-import { LazyBetaSignupModal, LazyAlphaRevealModal } from './LazyModals'
+import {
+  ArrowRight,
+  Compass,
+  Sparkles,
+  SunMedium,
+  Wand2,
+  Zap
+} from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
+import { LazyBetaSignupModal, LazyAlphaRevealModal, LazyComingSoonModal } from './LazyModals'
 import BetaCount from './BetaCount'
 
 // Preload beta count data
@@ -36,13 +45,60 @@ if (typeof window !== 'undefined') {
 }
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isAlphaModalOpen, setIsAlphaModalOpen] = useState(false)
+  const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false)
+  const [comingSoonSection, setComingSoonSection] = useState<'apps' | 'beta' | 'technology'>('apps')
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const highlightItems: Array<{
+    title: string
+    description: string
+    icon: LucideIcon
+  }> = [
+    {
+      title: 'Clarity First',
+      description: 'Interfaces stripped back to the essentials so every action feels immediate and intentional.',
+      icon: SunMedium,
+    },
+    {
+      title: 'Light-Led Interactions',
+      description: 'Moments of delight guide people through the experience without overwhelming the senses.',
+      icon: Sparkles,
+    },
+    {
+      title: 'Practical Magic',
+      description: 'Purposeful features shaped with craft, so the technology fades and the outcome shines.',
+      icon: Wand2,
+    },
+    {
+      title: 'Future Fluent',
+      description: 'A design language ready for new platforms while feeling familiar on day one.',
+      icon: Compass,
+    },
+  ]
+
+  const quickLinks = [
+    {
+      label: 'About Lumora',
+      href: '/about-us',
+      description: 'Our purpose and principles',
+    },
+    {
+      label: 'Careers',
+      href: '/careers',
+      description: 'Build with Lumora',
+    },
+    {
+      label: 'Press Kit',
+      href: '/press-kit',
+      description: 'Brand assets & story',
+    },
+    {
+      label: 'Support',
+      href: '/support',
+      description: 'We are here to help',
+    },
+  ]
 
   const openBetaSignup = () => {
     setIsModalOpen(true)
@@ -52,69 +108,164 @@ export default function Hero() {
     setIsAlphaModalOpen(true)
   }
 
+  const openComingSoon = (section: 'apps' | 'beta' | 'technology') => {
+    setComingSoonSection(section)
+    setIsComingSoonModalOpen(true)
+  }
+
   return (
-    <div id="hero" className="min-h-screen flex items-center justify-center py-20">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        {/* Logo */}
-        <div className="mb-12">
-          <Image
-            src="/images/Lumora-Labs-Logo-transparent.png"
-            alt="Lumora Labs Logo"
-            width={120}
-            height={120}
-            priority
-            className="w-24 h-24 md:w-32 md:h-32 mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300 animate-subtle-float"
-          />
+    <section className="relative isolate overflow-hidden pb-24 pt-32 sm:pb-28 sm:pt-36">
+      <div className="pointer-events-none absolute inset-x-0 top-[-28rem] -z-20 flex justify-center blur-3xl">
+        <div className="aspect-[6/3] w-[68rem] bg-gradient-to-br from-lumora-pink/25 via-lumora-purple/25 to-transparent opacity-70" />
+      </div>
+
+      <div className="absolute inset-y-0 right-[-12rem] top-20 -z-10 hidden lg:block">
+        <div className="h-[32rem] w-[32rem] rounded-full bg-gradient-to-br from-lumora-purple/15 via-transparent to-transparent blur-3xl" />
+      </div>
+
+      <div className="mx-auto flex max-w-6xl flex-col gap-16 px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] lg:items-start">
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white/60">
+              Lumora Labs
+            </div>
+
+            <div className="flex items-center gap-4">
+              <Image
+                src="/images/Lumora-Labs-Logo-transparent.png"
+                alt="Lumora Labs Logo"
+                width={88}
+                height={88}
+                priority
+                className="h-16 w-auto opacity-95"
+              />
+              <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-[3.5rem]">
+                Clean, vibrant software crafted with light
+              </h1>
+            </div>
+
+            <p className="max-w-xl text-pretty text-lg text-white/70 sm:text-xl">
+              We build calm, luminous tools that help people feel organised, nourished, and in control.
+              Every detail balances clarity with a hint of magic—because progress should feel effortless.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                onClick={openBetaSignup}
+                className="group inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-base font-semibold text-slate-900 shadow-[0_18px_40px_-18px_rgba(148,163,184,0.65)] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_22px_45px_-16px_rgba(148,163,184,0.75)]"
+              >
+                Join the beta
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </button>
+
+              <button
+                onClick={openAlphaReveal}
+                className="group inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent px-6 py-3 text-base font-semibold text-white/80 transition duration-200 hover:border-white/40 hover:text-white"
+              >
+                Aparecium preview
+                <Wand2 className="ml-2 h-4 w-4" />
+              </button>
+
+              <button
+                onClick={() => openComingSoon('technology')}
+                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-base font-medium text-white/70 transition duration-200 hover:border-white/30 hover:text-white"
+              >
+                Technology roadmap
+                <Sparkles className="ml-2 h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="max-w-sm">
+              <BetaCount variant="hero" />
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-[0_25px_60px_-35px_rgba(15,23,42,0.9)]">
+              <div className="flex items-center gap-3 text-left">
+                <Sparkles className="h-5 w-5 text-lumora-pink" />
+                <p className="text-sm font-medium uppercase tracking-[0.3em] text-white/60">
+                  Design Pillars
+                </p>
+              </div>
+
+              <h2 className="mt-4 text-2xl font-semibold text-white">
+                Professional at first glance, unforgettable in motion.
+              </h2>
+
+              <p className="mt-3 text-white/65">
+                Our craft focuses on focus, calm rhythms, and purposeful colour. Each interaction keeps the
+                interface quiet while letting moments of Lumora light guide the way.
+              </p>
+
+              <div className="mt-8 grid gap-5 sm:grid-cols-2">
+                {highlightItems.map(({ title, description, icon: Icon }) => (
+                  <div
+                    key={title}
+                    className="group rounded-2xl border border-white/10 bg-slate-950/40 p-5 transition duration-200 hover:border-white/30 hover:bg-slate-900/60"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white">
+                        <Icon className="h-4 w-4" />
+                      </span>
+                      <span className="text-base font-semibold text-white">{title}</span>
+                    </div>
+                    <p className="mt-3 text-sm text-white/65">{description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
-        <h1 className="text-hero text-gray-900 mb-6">
-          Crafting the{' '}
-          <span className="gradient-text relative">
-            Future
-            <span className="absolute -top-2 -right-2 text-yellow-400 animate-gentle-sparkle">✨</span>
-          </span>
-          <br />
-          of Extraordinary Apps
-        </h1>
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-[0_25px_60px_-35px_rgba(15,23,42,0.9)]">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-white/60">Explore</p>
+              <h3 className="mt-2 text-2xl font-semibold text-white">
+                Buttons, not menus. Choose where the light takes you.
+              </h3>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <button
+                onClick={() => openComingSoon('apps')}
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/75 transition hover:border-white/40 hover:text-white"
+              >
+                Upcoming apps
+                <ArrowRight className="h-4 w-4" />
+              </button>
+              <button
+                onClick={() => openComingSoon('beta')}
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/75 transition hover:border-white/40 hover:text-white"
+              >
+                Beta waitlist
+                <Zap className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
 
-        <p className="text-subtitle text-gray-600 mb-12 max-w-3xl mx-auto">
-          Where light meets innovation. Creating elegantly crafted and intuitively powerful apps
-          for Apple and Android.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <button
-            onClick={openBetaSignup}
-            className="btn-primary-clean text-lg px-8 py-4 flex items-center gap-2"
-          >
-            <Sparkles size={20} />
-            Join Beta Program
-          </button>
-
-          <button
-            onClick={openAlphaReveal}
-            className="btn-secondary-clean text-lg px-8 py-4 flex items-center gap-2 animate-gentle-glow"
-          >
-            <Wand2 size={20} />
-            Aparecium
-          </button>
-        </div>
-
-        {/* Beta Status */}
-        <div className="card-clean max-w-md mx-auto">
-          <BetaCount />
+          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {quickLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="group flex flex-col justify-between rounded-2xl border border-white/10 bg-slate-950/40 px-5 py-6 transition duration-200 hover:border-white/30 hover:bg-slate-900/60"
+              >
+                <div>
+                  <p className="text-sm font-medium text-white">{link.label}</p>
+                  <p className="mt-2 text-sm text-white/60">{link.description}</p>
+                </div>
+                <ArrowRight className="mt-6 h-4 w-4 text-white/50 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white" />
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Beta Signup Modal */}
       {isModalOpen && (
-        <LazyBetaSignupModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-        />
+        <LazyBetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       )}
 
-      {/* Alpha Reveal Modal */}
       {isAlphaModalOpen && (
         <LazyAlphaRevealModal
           isOpen={isAlphaModalOpen}
@@ -129,6 +280,14 @@ export default function Hero() {
           }}
         />
       )}
-    </div>
+
+      {isComingSoonModalOpen && (
+        <LazyComingSoonModal
+          isOpen={isComingSoonModalOpen}
+          onClose={() => setIsComingSoonModalOpen(false)}
+          section={comingSoonSection}
+        />
+      )}
+    </section>
   )
 }
