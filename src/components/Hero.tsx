@@ -53,26 +53,31 @@ export default function Hero() {
   const highlightItems: Array<{
     title: string
     description: string
+    keyword: string
     icon: LucideIcon
   }> = [
     {
       title: 'Clarity First',
       description: 'Interfaces stripped back to the essentials so every action feels immediate and intentional.',
+      keyword: 'essentials',
       icon: SunMedium,
     },
     {
       title: 'Light-Led Interactions',
-      description: 'Moments of delight guide people through the experience without overwhelming the senses.',
+      description: 'Moments of delight guide people through the flow without overwhelming the senses.',
+      keyword: 'flow',
       icon: Sparkles,
     },
     {
       title: 'Practical Magic',
       description: 'Purposeful features shaped with craft, so the technology fades and the outcome shines.',
+      keyword: 'shines',
       icon: Wand2,
     },
     {
       title: 'Future Fluent',
       description: 'A design language ready for new platforms while feeling familiar on day one.',
+      keyword: 'familiar',
       icon: Compass,
     },
   ]
@@ -138,7 +143,7 @@ export default function Hero() {
           <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-[3.5rem]">
             Clean, <span className="text-vibrant">vibrant</span> software crafted with <span className="text-vibrant">light</span>
           </h1>
-          <p className="max-w-xl text-pretty text-lg text-white/70 sm:text-xl">
+          <p className="max-w-xl text-pretty text-lg text-white/80 sm:text-xl">
             We build calm, luminous tools that help people feel organised, nourished, and in control.
             Every detail balances clarity with a hint of magic—because progress should feel effortless.
           </p>
@@ -174,7 +179,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-black/25 bg-white/12 p-8 backdrop-blur-2xl shadow-[0_26px_64px_-32px_rgba(15,23,42,0.4)]">
+        <div className="rounded-3xl border border-black/10 bg-[rgba(24,28,36,0.08)] p-8 backdrop-blur-xl shadow-[0_20px_60px_-35px_rgba(15,23,42,0.45)]">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.3em] text-white/60">Explore</p>
@@ -185,14 +190,14 @@ export default function Hero() {
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={() => openComingSoon('apps')}
-                className="inline-flex items-center gap-2 rounded-full border border-black/30 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:border-black/50 hover:bg-white/20"
+                className="inline-flex items-center gap-2 rounded-full border border-black/15 bg-[rgba(255,255,255,0.1)] px-4 py-2 text-sm font-medium text-white/85 transition hover:border-black/30 hover:bg-[rgba(255,255,255,0.18)]"
               >
                 <span className="text-vibrant">Upcoming apps</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
               <button
                 onClick={() => openComingSoon('beta')}
-                className="inline-flex items-center gap-2 rounded-full border border-black/30 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:border-black/50 hover:bg-white/20"
+                className="inline-flex items-center gap-2 rounded-full border border-black/15 bg-[rgba(255,255,255,0.1)] px-4 py-2 text-sm font-medium text-white/85 transition hover:border-black/30 hover:bg-[rgba(255,255,255,0.18)]"
               >
                 <span className="text-vibrant">Beta waitlist</span>
                 <Zap className="h-4 w-4" />
@@ -205,7 +210,7 @@ export default function Hero() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="group flex flex-col justify-between rounded-2xl border border-black/25 bg-white/10 px-5 py-6 transition duration-200 hover:border-black/45 hover:bg-white/20"
+                className="group flex flex-col justify-between rounded-2xl border border-black/10 bg-[rgba(24,28,36,0.08)] px-5 py-6 transition duration-200 hover:border-black/20 hover:bg-[rgba(24,28,36,0.15)]"
               >
                 <div>
                   <p className="text-sm font-medium text-white">
@@ -219,18 +224,19 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-black/25 bg-white/12 p-8 backdrop-blur-2xl shadow-[0_26px_64px_-32px_rgba(15,23,42,0.4)]">
+        <div className="rounded-3xl border border-black/10 bg-[rgba(24,28,36,0.08)] p-8 backdrop-blur-xl shadow-[0_20px_60px_-35px_rgba(15,23,42,0.45)]">
           <div className="flex flex-col gap-4 text-center sm:text-left">
-            <div className="flex items-center justify-center gap-3 text-white/60 sm:justify-start">
-              <Sparkles className="h-5 w-5 text-lumora-pink" />
-              <p className="text-sm font-medium uppercase tracking-[0.3em]">Design Pillars</p>
+            <div className="flex items-center justify-center gap-3 text-white/70 sm:justify-start">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-lumora-pink via-lumora-purple to-lumora-blue text-white">
+                <Sparkles className="h-4 w-4" />
+              </span>
+              <p className="text-sm font-medium uppercase tracking-[0.3em]">Design</p>
             </div>
             <h2 className="text-2xl font-semibold text-white">
               Professional at first glance, unforgettable in motion.
             </h2>
-            <p className="text-white/65">
-              Our craft focuses on focus, calm rhythms, and purposeful colour. Each interaction keeps the
-              interface quiet while letting moments of Lumora light guide the way.
+            <p className="text-white/70">
+              Our craft focuses on focus, calm rhythms, and purposeful colour. Each interaction keeps the interface quiet while letting moments of Lumora light guide the way.
             </p>
           </div>
 
@@ -238,15 +244,15 @@ export default function Hero() {
             {highlightItems.map(({ title, description, icon: Icon }) => (
               <div
                 key={title}
-                className="group rounded-2xl border border-black/30 bg-white/10 p-5 transition duration-200 hover:border-black/50 hover:bg-white/20"
+                className="group rounded-2xl border border-black/12 bg-[rgba(24,28,36,0.1)] p-5 transition duration-200 hover:border-black/25 hover:bg-[rgba(24,28,36,0.18)]"
               >
                 <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-lumora-pink via-lumora-purple to-lumora-blue text-white">
                     <Icon className="h-4 w-4" />
                   </span>
-                  <span className="text-base font-semibold text-white">{title}</span>
+                  <span className="text-base font-semibold text-vibrant">{title}</span>
                 </div>
-                <p className="mt-3 text-sm text-white/65">{description}</p>
+                <p className="mt-3 text-sm text-white/70">{description}</p>
               </div>
             ))}
           </div>
