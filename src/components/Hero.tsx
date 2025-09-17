@@ -125,7 +125,7 @@ export default function Hero() {
 
       <div className="mx-auto flex max-w-6xl flex-col gap-20 px-6 lg:px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-          <div className="relative h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+          <div className="relative h-[7.5rem] w-[7.5rem] sm:h-[8.75rem] sm:w-[8.75rem] lg:h-[10rem] lg:w-[10rem]">
             <Image
               src="/images/Lumora_logo_new.png"
               alt="Lumora Labs Logo"
@@ -156,7 +156,7 @@ export default function Hero() {
               onClick={openAlphaReveal}
               className="group inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 bg-transparent px-6 py-3 text-base font-semibold text-white transition duration-200 hover:border-slate-900 hover:bg-white/10"
             >
-              <span className="text-vibrant">Aparecium preview</span>
+              <span className="text-vibrant">Aparecium</span>
               <Wand2 className="ml-2 h-4 w-4" />
             </button>
 
@@ -164,7 +164,7 @@ export default function Hero() {
               onClick={() => openComingSoon('technology')}
               className="inline-flex items-center justify-center rounded-full border border-black/60 bg-slate-950/70 px-6 py-3 text-base font-medium text-white transition duration-200 hover:border-black hover:bg-slate-900/80"
             >
-              <span className="text-vibrant">Technology roadmap</span>
+              <span className="text-vibrant">Lumora roadmap</span>
               <Sparkles className="ml-2 h-4 w-4" />
             </button>
           </div>
