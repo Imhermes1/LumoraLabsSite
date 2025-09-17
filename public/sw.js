@@ -7,7 +7,7 @@ const staticAssets = [
   '/',
   '/offline.html',
   '/images/Lumora-Labs-Logo.png',
-  '/images/Lumora-Labs-Logo-transparent.png'
+  '/images/Lumora logo new.png'
 ];
 
 // Install event - Cache static assets
@@ -85,7 +85,7 @@ self.addEventListener('fetch', (event) => {
         .catch(() => {
           // Fallback for images
           if (request.destination === 'image') {
-            return caches.match('/images/Lumora-Labs-Logo-transparent.png');
+            return caches.match('/images/Lumora logo new.png');
           }
         })
     );

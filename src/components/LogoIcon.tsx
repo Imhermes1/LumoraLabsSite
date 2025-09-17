@@ -30,7 +30,7 @@ export default function LogoIcon({
       className
     )}>
       <Image
-        src="/images/Lumora-Labs-Logo-transparent.png"
+        src="/images/Lumora logo new.png"
         alt="Lumora Labs"
         fill
         className="object-contain drop-shadow-sm"

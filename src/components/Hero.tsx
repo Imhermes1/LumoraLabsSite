@@ -125,31 +125,32 @@ export default function Hero() {
 
       <div className="mx-auto flex max-w-6xl flex-col gap-16 px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] lg:items-start">
-          <div className="space-y-8">
+          <div className="space-y-8 text-center">
             <div className="inline-flex items-center gap-3 rounded-full border border-black/50 bg-slate-950/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white/70">
               Lumora Labs
             </div>
 
-            <div className="flex items-center gap-4">
-              <Image
-                src="/images/Lumora-Labs-Logo-transparent.png"
-                alt="Lumora Labs Logo"
-                width={88}
-                height={88}
-                priority
-                className="h-16 w-auto opacity-95"
-              />
+            <div className="mx-auto flex flex-col items-center gap-6">
+              <div className="relative h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+                <Image
+                  src="/images/Lumora logo new.png"
+                  alt="Lumora Labs Logo"
+                  fill
+                  priority
+                  className="object-contain"
+                  sizes="(max-width: 640px) 96px, (max-width: 1024px) 112px, 128px"
+                />
+              </div>
               <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-[3.5rem]">
                 Clean, <span className="text-vibrant">vibrant</span> software crafted with <span className="text-vibrant">light</span>
               </h1>
+              <p className="max-w-xl text-pretty text-lg text-white/70 sm:text-xl">
+                We build calm, luminous tools that help people feel organised, nourished, and in control.
+                Every detail balances clarity with a hint of magic—because progress should feel effortless.
+              </p>
             </div>
 
-            <p className="max-w-xl text-pretty text-lg text-white/70 sm:text-xl">
-              We build calm, luminous tools that help people feel organised, nourished, and in control.
-              Every detail balances clarity with a hint of magic—because progress should feel effortless.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <button
                 onClick={openBetaSignup}
                 className="group inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 bg-white px-6 py-3 text-base font-semibold text-slate-900 shadow-[0_18px_40px_-18px_rgba(148,163,184,0.65)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-slate-900 hover:shadow-[0_22px_45px_-16px_rgba(148,163,184,0.75)]"
@@ -175,7 +176,7 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="max-w-sm">
+            <div className="mx-auto max-w-sm">
               <BetaCount variant="hero" />
             </div>
           </div>
