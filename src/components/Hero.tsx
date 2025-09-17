@@ -152,116 +152,65 @@ export default function Hero() {
   }
 
   return (
-    <div className="relative py-16 flex items-center justify-center">
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div id="hero" className="min-h-screen flex items-center justify-center py-20">
+      <div className="max-w-4xl mx-auto px-6 text-center">
         {/* Logo */}
-        <div className="mb-1 flex justify-center -mt-2">
-          <Image 
-            src="/images/Lumora-Labs-Logo-transparent.png" 
-            alt="Lumora Labs Logo" 
-            width={208}
-            height={208}
+        <div className="mb-12">
+          <Image
+            src="/images/Lumora-Labs-Logo-transparent.png"
+            alt="Lumora Labs Logo"
+            width={120}
+            height={120}
             priority
-            className="h-35 md:h-40 lg:h-46 xl:h-52 w-auto opacity-95 hover:opacity-100 transition-all duration-300 animate-logo-glow"
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+            className="w-24 h-24 md:w-32 md:h-32 mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300 animate-subtle-float"
           />
         </div>
-        
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+
+        <h1 className="text-hero text-gray-900 mb-6">
           Crafting the{' '}
-          <span className="gradient-text bg-gradient-to-r from-lumora-pink via-lumora-purple to-deep-purple">
+          <span className="gradient-text relative">
             Future
+            <span className="absolute -top-2 -right-2 text-yellow-400 animate-gentle-sparkle">✨</span>
           </span>
           <br />
           of Extraordinary Apps
         </h1>
 
-        <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed">
-          Lumora Labs creates the world's most elegantly crafted and intuitively powerful apps 
-          for Apple and Android
+        <p className="text-subtitle text-gray-600 mb-12 max-w-3xl mx-auto">
+          Where light meets innovation. Creating elegantly crafted and intuitively powerful apps
+          for Apple and Android.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
           <button
             onClick={openBetaSignup}
-            className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group bg-black/30 backdrop-blur-sm border-2 border-lumora-purple/80 shadow-[0_0_20px_rgba(179,64,217,0.6)] hover:shadow-[0_0_30px_rgba(179,64,217,0.8)] hover:scale-105"
+            className="btn-primary-clean text-lg px-8 py-4 flex items-center gap-2"
           >
+            <Sparkles size={20} />
             Join Beta Program
-            <span className="ml-2">✨</span>
           </button>
 
           <button
-            id="aparecium-button"
-            onClick={openAlphaReveal}
-            disabled={isButtonExploding}
-            className={`rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-600 group overflow-hidden bg-black/30 backdrop-blur-sm border-2 border-deep-purple/80 shadow-[0_0_20px_rgba(140,38,242,0.6)] hover:shadow-[0_0_30px_rgba(140,38,242,0.8)] hover:scale-105 ${
-              explosionPhase === 'powerup' ? 'animate-button-powerup' :
-              explosionPhase === 'explosion' ? 'animate-button-explosion' :
-              'animate-aparecium-glow'
-            }`}
+            onClick={openBetaSignup}
+            className="btn-secondary-clean text-lg px-8 py-4 flex items-center gap-2"
           >
-            {/* Enhanced glowing effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-purple-500/20 rounded-full blur-sm group-hover:blur-md transition-all duration-300"></div>
-            
-            {/* Content */}
-            <span className="relative flex items-center">
-              Aparecium
-              <Sparkles className="ml-2 text-yellow-400 animate-aparecium-sparkle" size={16} />
-            </span>
-            
-            {/* Enhanced magical sparkle effects */}
-            <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
-            <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-pink-400 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
-            <div className="absolute top-1/2 -right-2 w-1 h-1 bg-purple-400 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+            <Star size={20} />
+            Learn More
           </button>
         </div>
 
         {/* Beta Status */}
-        <BetaCount />
+        <div className="card-clean max-w-md mx-auto">
+          <BetaCount />
+        </div>
       </div>
 
       {/* Beta Signup Modal */}
       {isModalOpen && (
-        <LazyBetaSignupModal 
-          isOpen={isModalOpen} 
-          onClose={() => {
-            setIsModalOpen(false)
-            setIsBetaModalFromAlpha(false)
-          }} 
-          isFromAlpha={isBetaModalFromAlpha}
+        <LazyBetaSignupModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
         />
-      )}
-      
-      {/* Alpha Reveal Modal */}
-      {isAlphaModalOpen && (
-        <LazyAlphaRevealModal 
-          isOpen={isAlphaModalOpen} 
-          onClose={() => setIsAlphaModalOpen(false)} 
-          onOpenBetaSignup={openBetaSignupFromAlpha}
-          onOpenRegularBetaSignup={openRegularBetaSignup}
-          prefectsStatus={prefectsProgramStatus}
-        />
-      )}
-      
-      {/* Screen Flash Effect */}
-      {explosionPhase === 'explosion' && (
-        <div 
-          className="fixed inset-0 bg-white/80 z-40 animate-screen-flash pointer-events-none"
-          style={{ willChange: 'opacity' }}
-        />
-      )}
-      
-      {/* Shockwave Effect - Desktop only */}
-      {!isMobile && explosionPhase === 'explosion' && <OptimizedShockwaveEffect />}
-      
-      {/* Magical Runes - Desktop only */}
-      {!isMobile && explosionPhase === 'powerup' && <OptimizedRuneEffect />}
-      
-      {/* Optimized Sparkle Effects - Lighter on mobile */}
-      {(explosionPhase === 'explosion' || explosionPhase === 'convergence') && (
-        <OptimizedSparkleEffect phase={explosionPhase} />
       )}
     </div>
   )

@@ -8,20 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Lumora Labs Brand Colors
-        'lumora-pink': '#FA73A6',
-        'lumora-purple': '#B340D9', 
-        'deep-purple': '#8C26F2',
-        'soft-pink': '#D95ABF',
-        // Mood-based colors
-        'positive': '#38B06A',
-        'calm': '#3890F0', 
-        'focused': '#667DEB',
-        'stressed': '#E84D3D',
-        'creative': '#8F45AE',
-        // Neutral colors
-        'glass-white': 'rgba(255, 255, 255, 0.15)',
-        'glass-border': 'rgba(255, 255, 255, 0.2)',
+        // Clean Lumora Colors
+        'lumora-purple': '#7c3aed',
+        'lumora-pink': '#ec4899',
+        'accent-light': '#a855f7',
+        // Clean Neutrals
+        'text-primary': '#1f2937',
+        'text-secondary': '#6b7280',
+        'background-light': '#ffffff',
+        'background-subtle': '#f9fafb',
+        'border-light': '#e5e7eb',
+        'shadow-light': 'rgba(0, 0, 0, 0.05)',
+        'shadow-medium': 'rgba(0, 0, 0, 0.1)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

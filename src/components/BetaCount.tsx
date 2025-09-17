@@ -43,51 +43,25 @@ export default function BetaCount() {
 
   if (isLoading) {
     return (
-      <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 border-2 border-lumora-purple/40 shadow-[0_0_10px_rgba(179,64,217,0.2)] hover:shadow-[0_0_15px_rgba(179,64,217,0.3)] transition-all duration-300">
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center space-x-2">
-            <Users className="text-lumora-purple" size={16} />
-            <span className="text-white/70 text-sm">Beta Program</span>
-          </div>
-          <div className="flex items-center space-x-1">
-            <div className="w-4 h-4 bg-lumora-purple rounded-full animate-pulse"></div>
-            <span className="text-lumora-pink font-semibold text-sm">Loading...</span>
-          </div>
+      <div className="text-center">
+        <div className="flex items-center justify-center space-x-2 mb-2">
+          <Users className="text-purple-600" size={20} />
+          <span className="text-gray-700 font-medium">Beta Program</span>
         </div>
-        
-        {/* Animated Loading Bar */}
-        <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-lumora-pink via-lumora-purple to-deep-purple animate-pulse"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+        <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+          <div className="h-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse"></div>
         </div>
-        
-        <div className="flex justify-between items-center mt-2">
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-1">
-              <div className="w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
-              <span className="text-white/50 text-xs">Loading Alpha...</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <div className="w-2 h-2 bg-blue-400 rounded-full animate-ping" style={{animationDelay: '0.3s'}}></div>
-              <span className="text-white/50 text-xs">Loading Beta...</span>
-            </div>
-          </div>
-          <div className="flex space-x-1">
-            <div className="w-1 h-1 bg-lumora-pink rounded-full animate-bounce"></div>
-            <div className="w-1 h-1 bg-lumora-purple rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-            <div className="w-1 h-1 bg-deep-purple rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-          </div>
-        </div>
+        <p className="text-gray-500 text-sm mt-2">Loading...</p>
       </div>
     )
   }
 
   if (count === null) {
     return (
-      <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 border-2 border-lumora-purple/40 shadow-[0_0_10px_rgba(179,64,217,0.2)] hover:shadow-[0_0_15px_rgba(179,64,217,0.3)] transition-all duration-300">
+      <div className="text-center">
         <div className="flex items-center justify-center space-x-2">
-          <Users className="text-lumora-purple" size={16} />
-          <span className="text-white/70 text-sm">Beta Program Active</span>
+          <Users className="text-purple-600" size={20} />
+          <span className="text-gray-700 font-medium">Beta Program Active</span>
         </div>
       </div>
     )
@@ -103,38 +77,27 @@ export default function BetaCount() {
   const totalProgressPercentage = (totalProgress / totalSlots) * 100
 
   return (
-    <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 border-2 border-lumora-purple/40 shadow-[0_0_10px_rgba(179,64,217,0.2)] hover:shadow-[0_0_15px_rgba(179,64,217,0.3)] transition-all duration-300">
-      <div className="flex items-center justify-between mb-2">
-        <div className="flex items-center space-x-2">
-          <Users className="text-lumora-purple" size={16} />
-          <span className="text-white/70 text-sm">Beta Program</span>
-        </div>
-        <div className="flex items-center space-x-1">
-          <TrendingUp className="text-lumora-pink" size={14} />
-          <span className="text-lumora-pink font-semibold text-sm">{count}/{totalSlots}</span>
+    <div className="text-center">
+      <div className="flex items-center justify-center space-x-2 mb-3">
+        <Users className="text-purple-600" size={20} />
+        <span className="text-gray-700 font-medium">Beta Program</span>
+        <div className="flex items-center space-x-1 ml-3">
+          <TrendingUp className="text-pink-500" size={16} />
+          <span className="text-pink-500 font-semibold">{count}/{totalSlots}</span>
         </div>
       </div>
-      
+
       {/* Progress Bar */}
-      <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden relative">
-        {/* Alpha section (golden/white) - first 25% */}
-        <div 
-          className="absolute left-0 top-0 h-full bg-gradient-to-r from-yellow-400 to-white transition-all duration-1000 ease-out"
-          style={{ width: `${alphaProgress}%` }}
-        ></div>
-        
-        {/* Beta section (blue/green gradient) - remaining 75% */}
-        <div 
-          className="absolute left-0 top-0 h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-1000 ease-out"
-          style={{ width: `${totalProgress}%` }}
+      <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden mb-2">
+        <div
+          className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-1000 ease-out"
+          style={{ width: `${totalProgressPercentage}%` }}
         ></div>
       </div>
-      
-      <div className="flex justify-between items-center mt-2">
-        <span className="text-white/50 text-xs">
-          {totalSlots - count} spots remaining
-        </span>
-      </div>
+
+      <p className="text-gray-500 text-sm">
+        {totalSlots - count} spots remaining
+      </p>
     </div>
   )
 }
