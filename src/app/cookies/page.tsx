@@ -5,26 +5,24 @@ import { ArrowLeft, Shield, Settings, Eye, Lock } from 'lucide-react'
 
 export default function CookiePolicy() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-deep-purple via-black to-black">
-      {/* Navigation */}
-      <div className="fixed top-0 left-0 right-0 z-50 glass-strong">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center h-16">
-            <Link 
-              href="/"
-              className="flex items-center text-white/80 hover:text-white transition-colors"
-            >
-              <ArrowLeft size={20} className="mr-2" />
-              Back to Home
-            </Link>
-          </div>
-        </div>
+    <div className="relative isolate min-h-screen overflow-hidden pb-24 pt-32">
+      <div className="pointer-events-none absolute inset-x-0 top-[-28rem] -z-10 flex justify-center blur-3xl">
+        <div className="aspect-[6/3] w-[70rem] bg-gradient-to-br from-lumora-pink/20 via-lumora-purple/20 to-transparent opacity-70" />
+      </div>
+      <div className="absolute inset-y-0 right-[-14rem] top-16 -z-10 hidden lg:block">
+        <div className="h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-lumora-purple/15 via-transparent to-transparent blur-3xl" />
       </div>
 
-      {/* Content */}
-      <div className="pt-20 pb-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="glass-strong rounded-3xl p-8 md:p-12">
+      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          className="inline-flex items-center text-white/60 transition-colors hover:text-white"
+        >
+          <ArrowLeft size={20} className="mr-2" />
+          Back to Home
+        </Link>
+
+        <div className="mt-10 glass-strong rounded-3xl p-8 md:p-12">
             <div className="prose prose-invert prose-lg max-w-none">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">
                 Cookies Policy
@@ -440,7 +438,6 @@ export default function CookiePolicy() {
             </div>
           </div>
         </div>
-      </div>
     </div>
   )
 } 

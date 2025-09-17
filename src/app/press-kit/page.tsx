@@ -10,36 +10,40 @@ export const metadata: Metadata = {
 
 export default function PressKitPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
-      {/* Header */}
-      <div className="relative pt-32 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link 
-            href="/"
-            className="inline-flex items-center text-white/70 hover:text-white transition-colors mb-8"
-          >
-            <ArrowLeft size={20} className="mr-2" />
-            Back to Home
-          </Link>
-          
-          <div className="text-center">
-            <div className="mb-8">
-              <Clock className="text-lumora-pink mx-auto mb-4" size={64} />
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Press Kit - <span className="gradient-text">Coming Soon</span>
-            </h1>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-              We're preparing comprehensive press resources for journalists and media outlets. 
-              Stay tuned for high-quality assets and company information.
-            </p>
-          </div>
-        </div>
+    <div className="relative isolate min-h-screen overflow-hidden pb-24 pt-32">
+      <div className="pointer-events-none absolute inset-x-0 top-[-28rem] -z-10 flex justify-center blur-3xl">
+        <div className="aspect-[6/3] w-[70rem] bg-gradient-to-br from-lumora-pink/20 via-lumora-purple/20 to-transparent opacity-70" />
       </div>
+      <div className="absolute inset-y-0 right-[-12rem] top-16 -z-10 hidden lg:block">
+        <div className="h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-lumora-purple/15 via-transparent to-transparent blur-3xl" />
+      </div>
+
+      {/* Header */}
+      <header className="mx-auto mb-16 max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          className="mb-8 inline-flex items-center text-white/60 transition-colors hover:text-white"
+        >
+          <ArrowLeft size={20} className="mr-2" />
+          Back to Home
+        </Link>
+
+        <div className="text-center">
+          <div className="mb-8 flex justify-center">
+            <Clock className="text-lumora-pink" size={64} />
+          </div>
+          <h1 className="text-4xl font-semibold text-white sm:text-5xl md:text-6xl">
+            Press Kit - <span className="gradient-text">Coming Soon</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl">
+            We're preparing comprehensive press resources for journalists and media outlets. Stay tuned for high-quality assets and company information.
+          </p>
+        </div>
+      </header>
 
       {/* Content */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="glass rounded-3xl p-8 md:p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -75,7 +79,7 @@ export default function PressKitPage() {
 
       {/* What's Coming */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
             What's Coming
           </h2>
@@ -118,7 +122,7 @@ export default function PressKitPage() {
 
       {/* Contact Section */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="glass-strong rounded-3xl p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Need Press Information Now?
@@ -146,4 +150,4 @@ export default function PressKitPage() {
       </section>
     </div>
   )
-} 
+}
