@@ -45,15 +45,15 @@ export default function CoreTrack() {
       {/* Background gradient specific to CoreTrack */}
       <div className="absolute inset-0 bg-gradient-to-br from-positive/10 via-calm/10 to-focused/10 rounded-3xl"></div>
 
-      <div className="relative z-10 bg-black/30 backdrop-blur-sm rounded-3xl p-8 md:p-12 border-2 border-positive/50 shadow-[0_0_20px_rgba(56,176,106,0.3)] hover:shadow-[0_0_30px_rgba(56,176,106,0.5)] transition-all duration-300">
+      <div className="relative z-10 rounded-3xl bg-[rgba(24,28,36,0.85)] p-8 md:p-12 border border-positive/30 shadow-[0_20px_60px_-25px_rgba(15,23,42,0.55)] backdrop-blur">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
 
           {/* Left Column - App Preview */}
           <div className="relative order-2 md:order-1">
-            <div className="bg-black/30 backdrop-blur-sm rounded-3xl p-8 h-96 flex items-center justify-center border-2 border-deep-purple/40 shadow-[0_0_15px_rgba(140,38,242,0.2)] hover:shadow-[0_0_20px_rgba(140,38,242,0.3)] transition-all duration-300">
+            <div className="rounded-3xl bg-[rgba(24,28,36,0.75)] p-8 h-96 flex items-center justify-center border border-deep-purple/40 shadow-[0_18px_45px_-30px_rgba(56,64,74,0.65)]">
               {/* Placeholder for app screenshot */}
               <div className="text-center">
-                <div className="w-32 h-32 mx-auto mb-4 bg-black/30 backdrop-blur-sm rounded-3xl flex items-center justify-center border border-positive/30">
+                <div className="w-32 h-32 mx-auto mb-4 rounded-3xl flex items-center justify-center border border-positive/40 bg-[rgba(30,36,45,0.9)]">
                   <ChefHat size={48} className="text-positive animate-pulse" />
                 </div>
                 <p className="text-white/70 text-sm">
@@ -65,10 +65,10 @@ export default function CoreTrack() {
             </div>
 
             {/* Floating UI Elements */}
-            <div className="absolute -top-4 -left-4 bg-black/30 backdrop-blur-sm rounded-2xl p-3 border-2 border-positive/40 shadow-[0_0_10px_rgba(56,176,106,0.2)]">
+            <div className="absolute -top-4 -left-4 rounded-2xl bg-[rgba(26,32,40,0.9)] p-3 border border-positive/40 shadow-[0_12px_24px_-18px_rgba(56,176,106,0.5)]">
               <p className="text-positive text-sm font-semibold">🥗 Woolworths Chicken</p>
             </div>
-            <div className="absolute -bottom-4 -right-4 bg-black/30 backdrop-blur-sm rounded-2xl p-3 border-2 border-calm/40 shadow-[0_0_10px_rgba(56,144,240,0.2)]">
+            <div className="absolute -bottom-4 -right-4 rounded-2xl bg-[rgba(26,32,40,0.9)] p-3 border border-calm/40 shadow-[0_12px_24px_-18px_rgba(56,144,240,0.5)]">
               <p className="text-calm text-sm font-semibold">🎯 95% Accuracy</p>
             </div>
           </div>
@@ -82,8 +82,8 @@ export default function CoreTrack() {
               <p className="text-xl md:text-2xl text-positive font-semibold mb-4">
                 The intelligent way to eat well, every day
               </p>
-              <p className="text-white/80 text-lg leading-relaxed">
-                Macro’s AI coach helps you decide what to eat next, prepare smarter meals, and stay on track. 
+              <p className="text-white/85 text-lg leading-relaxed">
+                Macro’s AI coach helps you decide what to eat next, prepare smarter meals, and stay on track.
                 Log food in seconds, receive balanced meal ideas, and let personalised guidance do the heavy lifting.
               </p>
             </div>
@@ -93,14 +93,14 @@ export default function CoreTrack() {
               {features.map((feature) => {
                 const IconComponent = feature.icon
                 return (
-                  <div key={feature.title} className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 hover:bg-black/40 transition-all duration-300 border-2 border-positive/30 shadow-[0_0_10px_rgba(56,176,106,0.2)] hover:shadow-[0_0_15px_rgba(56,176,106,0.3)]">
+                  <div key={feature.title} className="rounded-2xl border border-white/10 bg-[rgba(26,30,38,0.8)] p-4 transition-all duration-300 hover:border-white/20 hover:bg-[rgba(30,36,45,0.85)]">
                     <div className="flex items-start space-x-3">
-                      <div className="p-2 bg-positive/20 rounded-lg border border-positive/30">
-                        <IconComponent size={20} className="text-positive" />
+                      <div className="p-2 rounded-lg border border-positive/40 bg-[rgba(20,25,32,0.9)]">
+                        <IconComponent size={20} className="text-positive drop-shadow" />
                       </div>
                       <div>
                         <h3 className="text-white font-semibold mb-1">{feature.title}</h3>
-                        <p className="text-white/70 text-sm">{feature.description}</p>
+                        <p className="text-white/75 text-sm">{feature.description}</p>
                       </div>
                     </div>
                   </div>
@@ -109,14 +109,14 @@ export default function CoreTrack() {
             </div>
 
             {/* Beta CTA */}
-            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 text-center border-2 border-lumora-purple/40 shadow-[0_0_15px_rgba(179,64,217,0.2)] hover:shadow-[0_0_20px_rgba(179,64,217,0.3)] transition-all duration-300">
+            <div className="rounded-2xl border border-lumora-purple/40 bg-[rgba(30,24,41,0.82)] p-6 text-center shadow-[0_18px_45px_-30px_rgba(140,38,242,0.55)]">
               <p className="text-white/70 mb-2">Macro Beta Program</p>
               <div className="text-2xl font-bold text-positive mb-2">
                 {betaCount}/50 <span className="text-lg text-white/60">spots filled</span>
               </div>
               <button
                 onClick={openBetaSignup}
-                className="w-full bg-black/30 backdrop-blur-sm border-2 border-lumora-purple/60 rounded-full py-3 px-6 text-white font-semibold transition-all duration-600 shadow-[0_0_15px_rgba(179,64,217,0.3)] hover:shadow-[0_0_25px_rgba(179,64,217,0.5)] hover:scale-105"
+                className="w-full rounded-full border border-lumora-purple/60 bg-[rgba(30,24,41,0.9)] py-3 px-6 text-white font-semibold transition-all duration-300 hover:border-lumora-purple hover:bg-[rgba(36,28,47,0.95)] hover:shadow-[0_0_25px_rgba(179,64,217,0.45)]"
               >
                 Join Macro Beta
               </button>
@@ -128,15 +128,15 @@ export default function CoreTrack() {
         <div className="mt-8 pt-8 border-t border-white/10">
           <h3 className="text-white font-semibold mb-4">Australian Market:</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 text-center border-2 border-positive/40 shadow-[0_0_10px_rgba(56,176,106,0.2)] hover:shadow-[0_0_15px_rgba(56,176,106,0.3)] transition-all duration-300">
+            <div className="rounded-2xl border border-positive/35 bg-[rgba(26,32,40,0.85)] p-4 text-center shadow-[0_16px_40px_-30px_rgba(56,176,106,0.55)]">
               <div className="text-2xl font-bold text-positive mb-1">$2.4B</div>
               <p className="text-white/70 text-sm">Australian Health Market</p>
             </div>
-            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 text-center border-2 border-calm/40 shadow-[0_0_10px_rgba(56,144,240,0.2)] hover:shadow-[0_0_15px_rgba(56,144,240,0.3)] transition-all duration-300">
+            <div className="rounded-2xl border border-calm/35 bg-[rgba(26,32,40,0.85)] p-4 text-center shadow-[0_16px_40px_-30px_rgba(56,144,240,0.55)]">
               <div className="text-2xl font-bold text-calm mb-1">8.2%</div>
               <p className="text-white/70 text-sm">Annual Growth Rate</p>
             </div>
-            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 text-center border-2 border-focused/40 shadow-[0_0_10px_rgba(102,125,235,0.2)] hover:shadow-[0_0_15px_rgba(102,125,235,0.3)] transition-all duration-300">
+            <div className="rounded-2xl border border-focused/35 bg-[rgba(26,32,40,0.85)] p-4 text-center shadow-[0_16px_40px_-30px_rgba(102,125,235,0.55)]">
               <div className="text-2xl font-bold text-focused mb-1">2.3M</div>
               <p className="text-white/70 text-sm">Target Users</p>
             </div>
