@@ -86,9 +86,6 @@ export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }
                       Macro suggests <span className="text-vibrant">balanced meals</span>, adapts grocery lists to your preferences, and keeps
                       you progressing without obsessing over every gram.
                     </p>
-                    <div className="mt-3 text-sky-300 text-sm font-medium">
-                      22/50 beta spots filled
-                    </div>
                   </div>
 
                   <div className="rounded-3xl border border-black/15 bg-[rgba(24,28,36,0.12)] p-6 transition-colors duration-300">
@@ -105,9 +102,6 @@ export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }
                       Micro layers <span className="text-vibrant">gentle prompts</span> over your calendar so planning, prioritising, and
                       building routines feels effortless.
                     </p>
-                    <div className="mt-3 text-lumora-pink text-sm font-medium">
-                      16/50 beta spots filled
-                    </div>
                   </div>
                 </div>
 
