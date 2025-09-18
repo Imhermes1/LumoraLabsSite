@@ -137,7 +137,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-6 text-center text-xs text-white/55">
-          © {currentYear} Lumora Labs. Made with ✨ in Australia.
+          © {currentYear} Lumora Labs. Made with Love in Australia.
         </div>
 
         <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
