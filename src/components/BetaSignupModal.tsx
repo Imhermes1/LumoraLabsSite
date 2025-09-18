@@ -74,8 +74,8 @@ export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }
                 <div className="space-y-4">
                   <div className="rounded-3xl border border-black/15 bg-[rgba(24,28,36,0.12)] p-6 transition-colors duration-300">
                     <div className="flex items-center space-x-4 mb-4">
-                      <div className="w-12 h-12 bg-positive/20 rounded-2xl flex items-center justify-center border border-positive/50">
-                        <Smartphone className="text-positive" size={24} />
+                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center border border-sky-400/60 bg-sky-500/15">
+                        <Smartphone className="text-sky-300" size={24} />
                       </div>
                       <div>
                         <h3 className="text-white font-semibold text-lg">Macro</h3>
@@ -86,7 +86,7 @@ export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }
                       Macro suggests <span className="text-vibrant">balanced meals</span>, adapts grocery lists to your preferences, and keeps
                       you progressing without obsessing over every gram.
                     </p>
-                    <div className="mt-3 text-positive text-sm font-medium">
+                    <div className="mt-3 text-sky-300 text-sm font-medium">
                       22/50 beta spots filled
                     </div>
                   </div>
@@ -127,30 +127,12 @@ export default function BetaSignupModal({ isOpen, onClose, isFromAlpha = false }
                       <p className="text-white/70 text-sm">Direct influence on product development</p>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-deep-purple rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-white/70 text-sm">50% lifetime discount on premium features</p>
-                    </div>
-                    <div className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-positive rounded-full mt-2 flex-shrink-0"></div>
                       <p className="text-white/70 text-sm">Exclusive community access</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Placeholder Image */}
-                <div className="rounded-3xl border border-black/15 bg-[rgba(24,28,36,0.12)] p-8 text-center backdrop-blur-xl shadow-[0_24px_60px_-35px_rgba(15,23,42,0.55)] transition-colors duration-300">
-                  <div className="w-32 h-32 mx-auto mb-4 bg-black/30 backdrop-blur-sm rounded-3xl flex items-center justify-center border border-deep-purple/50">
-                    <div className="text-center">
-                      <Sparkles size={32} className="text-lumora-purple mx-auto mb-2 animate-pulse" />
-                      <p className="text-white/50 text-xs">App Preview</p>
-                    </div>
-                  </div>
-                  <p className="text-white/70 text-sm">
-                    Experience the future of productivity
-                    <br />
-                    <span className="text-white/50 text-xs">Screenshots coming soon</span>
-                  </p>
-                </div>
               </div>
 
               {/* Right Side - Custom Form */}

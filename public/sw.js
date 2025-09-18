@@ -1,13 +1,12 @@
-const CACHE_NAME = 'lumora-labs-v2';
-const STATIC_CACHE = 'lumora-static-v2';
-const DYNAMIC_CACHE = 'lumora-dynamic-v2';
+const CACHE_NAME = 'lumora-labs-v3';
+const STATIC_CACHE = 'lumora-static-v3';
+const DYNAMIC_CACHE = 'lumora-dynamic-v3';
 
 // Assets to cache on install
 const staticAssets = [
   '/',
   '/offline.html',
-  '/images/Lumora-Labs-Logo.png',
-  '/images/Lumora_logo_new.png'
+  '/images/lumoralabs_logo.png'
 ];
 
 // Install event - Cache static assets
@@ -85,7 +84,7 @@ self.addEventListener('fetch', (event) => {
         .catch(() => {
           // Fallback for images
           if (request.destination === 'image') {
-            return caches.match('/images/Lumora_logo_new.png');
+            return caches.match('/images/lumoralabs_logo.png');
           }
         })
     );

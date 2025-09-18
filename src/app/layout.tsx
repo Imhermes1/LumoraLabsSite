@@ -57,8 +57,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/images/Lumora_logo_new.png" />
-        <link rel="apple-touch-icon" href="/images/Lumora_logo_new.png" />
+        <link rel="icon" href="/images/lumoralabs_logo.png" />
+        <link rel="apple-touch-icon" href="/images/lumoralabs_logo.png" />
         
         {/* Performance optimizations */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -67,21 +67,34 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//vitals.vercel-insights.com" />
         
         {/* Preload critical images */}
-        <link rel="preload" as="image" href="/images/Lumora_logo_new.png" />
+        <link rel="preload" as="image" href="/images/lumoralabs_logo.png" />
         
         <script
           dangerouslySetInnerHTML={{
             __html: `
+              const isProd = ${process.env.NODE_ENV === 'production'};
               if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js')
-                    .then(function(registration) {
-                      console.log('SW registered: ', registration);
+                if (isProd) {
+                  window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js')
+                      .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                      })
+                      .catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                      });
+                  });
+                } else {
+                  navigator.serviceWorker.getRegistrations()
+                    .then(function(registrations) {
+                      registrations.forEach(function(registration) {
+                        registration.unregister();
+                      });
                     })
-                    .catch(function(registrationError) {
-                      console.log('SW registration failed: ', registrationError);
+                    .catch(function(error) {
+                      console.log('SW unregister failed: ', error);
                     });
-                });
+                }
               }
             `,
           }}

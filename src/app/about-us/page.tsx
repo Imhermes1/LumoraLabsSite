@@ -54,9 +54,9 @@ export default function AboutUsPage() {
                     delightful to use.
                   </p>
                   <p className="text-white/80 text-lg leading-relaxed">
-                    Based in Melbourne, Australia, we're a team of designers, developers, and
-                    innovators who are committed to pushing the boundaries of what's possible
-                    in mobile technology.
+                  Based in Melbourne, Australia, I lead Lumora Labs as a one-person studio—
+                  designing, developing, and refining the apps that bring our vision for mobile
+                  technology to life.
                   </p>
                 </div>
                 <div className="relative">

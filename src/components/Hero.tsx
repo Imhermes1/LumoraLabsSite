@@ -55,27 +55,27 @@ export default function Hero() {
     description: string
     icon: LucideIcon
   }> = [
-    {
-      title: 'Clarity First',
-      description: 'Interfaces stripped back to the essentials so every action feels immediate and intentional.',
-      icon: SunMedium,
-    },
-    {
-      title: 'Light-Led Interactions',
-      description: 'Moments of delight guide people through the flow without overwhelming the senses.',
-      icon: Sparkles,
-    },
-    {
-      title: 'Practical Magic',
-      description: 'Purposeful features shaped with craft, so the technology fades and the outcome shines.',
-      icon: Wand2,
-    },
-    {
-      title: 'Future Fluent',
-      description: 'A design language ready for new platforms while feeling familiar on day one.',
-      icon: Compass,
-    },
-  ]
+      {
+        title: 'Clarity First',
+        description: 'Interfaces stripped back to the essentials so every action feels immediate and intentional.',
+        icon: SunMedium,
+      },
+      {
+        title: 'Light-Led Interactions',
+        description: 'Moments of delight guide people through the flow without overwhelming the senses.',
+        icon: Sparkles,
+      },
+      {
+        title: 'Practical Magic',
+        description: 'Purposeful features shaped with craft, so the technology fades and the outcome shines.',
+        icon: Wand2,
+      },
+      {
+        title: 'Future Fluent',
+        description: 'A design language ready for new platforms while feeling familiar on day one.',
+        icon: Compass,
+      },
+    ]
 
   const quickLinks = [
     {
@@ -127,7 +127,7 @@ export default function Hero() {
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
           <div className="relative h-[7.5rem] w-[7.5rem] sm:h-[8.75rem] sm:w-[8.75rem] lg:h-[10rem] lg:w-[10rem]">
             <Image
-              src="/images/Lumora_logo_new.png"
+              src="/images/lumoralabs_logo.png"
               alt="Lumora Labs Logo"
               fill
               priority
@@ -139,8 +139,8 @@ export default function Hero() {
             Clean, <span className="text-vibrant">vibrant</span> software crafted with <span className="text-vibrant">light</span>
           </h1>
           <p className="max-w-xl text-pretty text-lg text-white/80 sm:text-xl">
-            We build calm, luminous tools that help people feel organised, nourished, and in control.
-            Every detail balances clarity with a hint of magic—because progress should feel effortless.
+            Our purpose is to shape serene digital experiences that help you feel <span className="text-vibrant">centered</span>, <span className="text-vibrant">capable</span>, and <span className="text-vibrant">clear</span>.
+            We achieve this by ensuring every interaction is a delicate blend of <span className="text-vibrant">simplicity</span> and <span className="text-vibrant">surprise</span>, making your progress feel truly <span className="text-vibrant">effortless</span>.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3">
@@ -156,7 +156,7 @@ export default function Hero() {
               onClick={openAlphaReveal}
               className="group inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 bg-transparent px-6 py-3 text-base font-semibold text-white transition duration-200 hover:border-slate-900 hover:bg-white/10"
             >
-              <span className="text-vibrant">Aparecium</span>
+              <span className="text-vibrant">Revelio</span>
               <Wand2 className="ml-2 h-4 w-4" />
             </button>
 
@@ -175,45 +175,34 @@ export default function Hero() {
         </div>
 
         <div className="rounded-3xl border border-black/10 bg-[rgba(24,28,36,0.08)] p-8 backdrop-blur-xl shadow-[0_20px_60px_-35px_rgba(15,23,42,0.45)]">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.3em] text-white/60">Explore</p>
-              <h3 className="mt-2 text-2xl font-semibold text-white">
-                Buttons, not menus. Choose where the light takes you.
-              </h3>
+          <div className="flex flex-col gap-4 text-center sm:text-left">
+            <div className="flex items-center justify-center gap-3 text-white/70 sm:justify-start">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-lumora-pink via-lumora-purple to-lumora-blue text-white">
+                <Compass className="h-4 w-4" />
+              </span>
+              <p className="text-sm font-medium uppercase tracking-[0.3em]">Explore</p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <button
-                onClick={() => openComingSoon('apps')}
-                className="inline-flex items-center gap-2 rounded-full border border-black/15 bg-[rgba(255,255,255,0.1)] px-4 py-2 text-sm font-medium text-white/85 transition hover:border-black/30 hover:bg-[rgba(255,255,255,0.18)]"
-              >
-                <span className="text-vibrant">Upcoming apps</span>
-                <ArrowRight className="h-4 w-4" />
-              </button>
-              <button
-                onClick={() => openComingSoon('beta')}
-                className="inline-flex items-center gap-2 rounded-full border border-black/15 bg-[rgba(255,255,255,0.1)] px-4 py-2 text-sm font-medium text-white/85 transition hover:border-black/30 hover:bg-[rgba(255,255,255,0.18)]"
-              >
-                <span className="text-vibrant">Beta waitlist</span>
-                <Zap className="h-4 w-4" />
-              </button>
-            </div>
+            <h2 className="text-2xl font-semibold text-white">
+              Buttons and swipes, not menus and clutter. Choose where the light takes you.
+            </h2>
           </div>
 
-          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {quickLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="group flex flex-col justify-between rounded-2xl border border-black/10 bg-[rgba(24,28,36,0.08)] px-5 py-6 transition duration-200 hover:border-black/20 hover:bg-[rgba(24,28,36,0.15)]"
+                className="group rounded-2xl border border-black/12 bg-[rgba(24,28,36,0.1)] p-5 transition duration-200 hover:border-black/25 hover:bg-[rgba(24,28,36,0.18)]"
               >
-                <div>
-                  <p className="text-sm font-medium text-white">
-                    <span className="text-vibrant">{link.label}</span>
-                  </p>
-                  <p className="mt-2 text-sm text-white/60">{link.description}</p>
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-semibold text-white">
+                      <span className="text-vibrant">{link.label}</span>
+                    </p>
+                    <p className="mt-2 text-sm text-white/70">{link.description}</p>
+                  </div>
+                  <ArrowRight className="h-4 w-4 flex-shrink-0 text-white/50 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white" />
                 </div>
-                <ArrowRight className="mt-6 h-4 w-4 text-white/50 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white" />
               </Link>
             ))}
           </div>

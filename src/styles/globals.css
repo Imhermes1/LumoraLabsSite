@@ -637,7 +637,7 @@ html {
   animation: light-burst 6s ease-in-out infinite;
 }
 
-/* Aparecium button specific animations */
+/* Revelio button specific animations */
 @keyframes aparecium-glow {
   0%, 100% {
     box-shadow: 0 0 10px rgba(168, 85, 247, 0.4),

@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
-import { X, Sparkles, Star, Wand2, Crown, Users, Zap, Gift } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { X, Wand2, Crown, Users, Zap, Gift, Star } from 'lucide-react'
 
 interface AlphaRevealModalProps {
   isOpen: boolean
@@ -18,42 +18,16 @@ interface AlphaRevealModalProps {
 
 export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, onOpenRegularBetaSignup, prefectsStatus }: AlphaRevealModalProps) {
   const [mounted, setMounted] = useState(false)
-  const [showDissolutionParticles, setShowDissolutionParticles] = useState(false)
-  const [showModalForm, setShowModalForm] = useState(false)
-  const [showContent, setShowContent] = useState(false)
-  const [showSpells, setShowSpells] = useState(false)
-  const [isClosing, setIsClosing] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  const handleClose = useCallback(() => {
-    if (isClosing) return // Prevent multiple rapid close calls
-    
-    setIsClosing(true)
-    onClose()
-    
-    // Reset closing state after a delay
-    setTimeout(() => {
-      setIsClosing(false)
-    }, 300)
-  }, [isClosing, onClose])
-
   useEffect(() => {
     if (isOpen) {
-      setIsClosing(false)
       document.body.classList.add('modal-open')
-      setTimeout(() => setShowDissolutionParticles(true), 100)
-      setTimeout(() => setShowModalForm(true), 1200)
-      setTimeout(() => setShowContent(true), 1500)
-      setTimeout(() => setShowSpells(true), 1800)
     } else {
       document.body.classList.remove('modal-open')
-      setShowDissolutionParticles(false)
-      setShowModalForm(false)
-      setShowContent(false)
-      setShowSpells(false)
     }
 
     return () => {
@@ -64,230 +38,184 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
   if (!mounted || !isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-        onClick={handleClose}
+    <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8">
+      <div
+        className="absolute inset-0 bg-slate-950/50 backdrop-blur-xl"
+        onClick={onClose}
       />
 
-      {/* Particles */}
-      {showDissolutionParticles && (
-        <div className="absolute inset-0 pointer-events-none">
-          {Array.from({ length: 25 }, (_, i) => {
-            const colors = ['yellow', 'pink', 'purple', 'blue', 'green']
-            const color = colors[i % colors.length]
-            const size = Math.random() * 3 + 1
-            const delay = Math.random() * 0.5
-            
-            const sizeClass = Math.ceil(size) === 1 ? 'w-1 h-1' : 
-                             Math.ceil(size) === 2 ? 'w-2 h-2' : 'w-3 h-3'
-            const colorClass = color === 'yellow' ? 'bg-yellow-400' :
-                              color === 'pink' ? 'bg-pink-400' :
-                              color === 'purple' ? 'bg-purple-400' :
-                              color === 'blue' ? 'bg-blue-400' : 'bg-green-400'
-            
-            return (
-              <div
-                key={i}
-                className={`absolute ${sizeClass} ${colorClass} rounded-full animate-dissolution-particle`}
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${delay}s`,
-                  animationDuration: '1.5s'
-                }}
-              />
-            )
-          })}
-        </div>
-      )}
+      <div className="relative w-full max-w-4xl">
+        <div className="absolute inset-x-12 top-0 -translate-y-1/2 h-48 rounded-full bg-gradient-to-r from-lumora-pink/25 via-lumora-purple/25 to-transparent blur-3xl" />
 
-      {/* Floating Spells */}
-      {showSpells && (
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 animate-bounce">
-            <Sparkles className="text-yellow-400/60" size={20} />
-          </div>
-          <div className="absolute top-1/3 right-1/3 animate-pulse">
-            <Star className="text-blue-400/60" size={16} />
-          </div>
-          <div className="absolute bottom-1/3 left-1/3 animate-spin">
-            <Sparkles className="text-pink-400/60" size={24} />
-          </div>
-          <div className="absolute bottom-1/4 right-1/4 animate-bounce">
-            <Star className="text-purple-400/60" size={18} />
-          </div>
-        </div>
-      )}
+        <div className="relative overflow-hidden rounded-[2.25rem] border border-white/10 bg-[rgba(18,21,30,0.92)] shadow-[0_32px_90px_-40px_rgba(10,13,24,0.85)]">
+          <div className="absolute inset-x-8 top-0 h-48 bg-gradient-to-br from-lumora-purple/20 via-transparent to-transparent blur-3xl" />
 
-      {/* Modal Content */}
-      <div className={`relative w-full max-w-4xl max-h-[90vh] transition-all duration-1000 ${showModalForm ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-        <div className="rounded-3xl border border-black/12 bg-[rgba(24,28,36,0.92)] backdrop-blur-xl shadow-[0_26px_64px_-30px_rgba(15,23,42,0.65)] max-h-[90vh] flex flex-col">
-          {/* Header */}
-          <div className="flex justify-between items-start p-6 border-b border-black/15 flex-shrink-0">
-            <div className={`transition-all duration-1000 ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
-              <div className="flex items-center space-x-3 mb-2">
-                <div className="relative">
-                  <Wand2 className="text-yellow-400 animate-pulse" size={32} />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-ping"></div>
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white">
-                  <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent">
-                    Aparecium
-                  </span>
+          <div className="relative flex max-h-[90vh] flex-col overflow-hidden">
+            {/* Header */}
+            <div className="flex items-start justify-between gap-6 border-b border-white/5 px-8 py-7">
+              <div className="space-y-4">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.4em] text-white/60">
+                  <Wand2 className="h-3.5 w-3.5 text-vibrant" />
+                  Prefects Program
+                </span>
+                <h2 className="text-3xl font-bold text-white sm:text-[2.5rem]">
+                  Revelio opens the <span className="text-vibrant">Prefects circle</span>
                 </h2>
+                <p className="max-w-2xl text-base text-white/70 sm:text-lg">
+                  The charm uncovers a private cohort of visionaries who help shape Lumora Labs before the rest of the world catches on.
+                </p>
               </div>
-              <p className="text-white/80 text-lg">
-                The spell has revealed a hidden truth about Lumora Labs...
-              </p>
+              <button
+                onClick={onClose}
+                className="rounded-full border border-white/15 bg-white/5 p-2.5 text-white/70 transition hover:border-white/40 hover:text-white"
+              >
+                <X size={20} />
+              </button>
             </div>
-            
-            <button
-              onClick={handleClose}
-              className="rounded-full border border-white/30 bg-[rgba(24,28,36,0.4)] p-3 text-white/70 transition-all duration-300 hover:border-white/60 hover:text-white"
-            >
-              <X size={24} />
-            </button>
-          </div>
 
-          {/* Scrollable Content */}
-          <div className="flex-1 overflow-y-auto p-6">
-            <div className={`${showContent ? 'animate-aparecium-reveal' : 'opacity-0 translate-y-4'}`}>
-              {/* Alpha Program Reveal */}
-              <div className="text-center mb-8">
-                <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-orange-400/20 to-red-400/20 rounded-2xl blur-xl"></div>
-                  <div className="relative rounded-2xl border border-black/20 bg-[rgba(24,28,36,0.6)] p-8 shadow-[0_24px_60px_-35px_rgba(250,193,7,0.4)]">
-                    <div className="flex items-center justify-center mb-4">
-                      <Crown className="text-yellow-400 mr-3" size={32} />
-                      <h3 className="text-2xl md:text-3xl font-bold text-white">
-                        The <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Prefects Program</span>
-                      </h3>
-                    </div>
-                    <p className="text-white/90 text-lg mb-4">
-                      Hidden from the eyes of ordinary users, there exists an exclusive circle of just 25 chosen ones...
-                    </p>
-                    <div className="text-yellow-400/80 text-sm font-mono">
-                      "Happiness can be found, even in the darkest of times, if one only remembers to turn on the light."
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Alpha Benefits */}
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="rounded-2xl border border-black/15 bg-[rgba(24,28,36,0.12)] p-6 transition-colors duration-300">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center mr-4 border border-purple-500/30">
-                      <Zap className="text-purple-400" size={24} />
-                    </div>
-                    <h4 className="text-white font-semibold text-lg">Early Access</h4>
-                  </div>
-                  <p className="text-white/70 text-sm">
-                    Be amongst the first 25 users to experience our revolutionary apps.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-black/15 bg-[rgba(24,28,36,0.12)] p-6 transition-colors duration-300">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center mr-4 border border-blue-500/30">
-                      <Users className="text-blue-400" size={24} />
-                    </div>
-                    <h4 className="text-white font-semibold text-lg">Meaningful Impact</h4>
-                  </div>
-                  <p className="text-white/70 text-sm">
-                  Your input makes a difference. As a Prefect, your feedback helps us improve our apps' usability and experience.
-                  </p>
-                </div>
-
-                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-green-500/40 shadow-[0_0_15px_rgba(34,197,94,0.2)] hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all duration-300">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl flex items-center justify-center mr-4 border border-green-500/30">
-                      <Gift className="text-green-400" size={24} />
-                    </div>
-                    <h4 className="text-white font-semibold text-lg">Prefects Benefits</h4>
-                  </div>
-                  <p className="text-white/70 text-sm">
-                  Enjoy future perks, potential discounts, and unique recognition as early members of the Lumora Labs community.
-                  </p>
-                </div>
-
-                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-yellow-500/40 shadow-[0_0_15px_rgba(250,193,7,0.2)] hover:shadow-[0_0_20px_rgba(250,193,7,0.3)] transition-all duration-300">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-xl flex items-center justify-center mr-4 border border-yellow-500/30">
-                      <Star className="text-yellow-400" size={24} />
-                    </div>
-                    <h4 className="text-white font-semibold text-lg">Elite Tier</h4>
-                  </div>
-                  <p className="text-white/70 text-sm">
-                    Join an elite group of pioneers who helped build the future of mobile technology. Your name will be remembered.
-                  </p>
-                </div>
-              </div>
-
-              {/* Call to Action */}
-              <div className="text-center">
-                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-purple-500/40 shadow-[0_0_15px_rgba(168,85,247,0.2)] hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300">
-                  <h4 className="text-white font-semibold text-xl mb-3">
-                    {prefectsStatus ? (
-                      <>
-                        {prefectsStatus.currentCount}/{prefectsStatus.maxSpots} spots taken for the Prefects Program
-                        {prefectsStatus.adminOverride && (
-                          <div className="text-yellow-400 text-sm mt-1">Admin override active</div>
+            {/* Content */}
+            <div className="flex-1 overflow-y-auto px-8 py-8">
+              <div className="grid gap-8 lg:grid-cols-[1.25fr_1fr]">
+                <div className="space-y-7">
+                  <div className="rounded-3xl border border-white/10 bg-[rgba(24,28,36,0.65)] p-6 shadow-[0_20px_55px_-35px_rgba(15,23,42,0.65)]">
+                    <div className="flex flex-wrap items-center justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-yellow-400/60 bg-yellow-500/10">
+                          <Crown className="h-6 w-6 text-yellow-400" />
+                        </span>
+                        <div>
+                          <h3 className="text-xl font-semibold text-white">The Prefects Oath</h3>
+                          <p className="text-sm text-white/60">Only twenty-five spots, each reserved for someone who moves in step with the light.</p>
+                        </div>
+                      </div>
+                      <div className="rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm text-white/70">
+                        {prefectsStatus ? (
+                          <span>
+                            {prefectsStatus.currentCount}/{prefectsStatus.maxSpots} claimed
+                          </span>
+                        ) : (
+                          'Limited availability'
                         )}
-                      </>
-                    ) : (
-                      "There are only 25 spots available for the Prefects Program"
-                    )}
-                  </h4>
-                  <p className="text-white/70 text-sm mb-6">
-                    {prefectsStatus?.isFull ? (
-                      "The Prefects Program is currently full. Join the Beta Program while spots last and keep a look out on our socials for future opportunities!"
-                    ) : (
-                      "There wont be more spots available for the Prefects Program, once they are all taken."
-                    )}
-                  </p>
-                  {prefectsStatus?.isFull ? (
-                    <div className="space-y-4">
-                      <button
-                        disabled
-                        className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border-2 border-gray-500/30 bg-gray-600 cursor-not-allowed opacity-50"
-                      >
-                        <span className="flex items-center">
-                          <Wand2 className="mr-2" size={20} />
-                          Prefects Program Full
-                        </span>
-                      </button>
-                      <button
-                        onClick={() => {
-                          console.log('Join Beta Program button clicked!')
-                          handleClose()
-                          onOpenRegularBetaSignup()
-                        }}
-                        className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border-2 border-lumora-purple/60 bg-black/30 backdrop-blur-sm shadow-[0_0_15px_rgba(179,64,217,0.3)] hover:shadow-[0_0_25px_rgba(179,64,217,0.5)] hover:scale-105"
-                      >
-                        <span className="flex items-center">
-                          ✨
-                          <span className="ml-2">Join Beta Program Instead</span>
-                        </span>
-                      </button>
+                      </div>
                     </div>
-                  ) : (
-                    <button
-                      onClick={() => {
-                        console.log('Join Prefects Program button clicked!')
-                        handleClose()
-                        onOpenBetaSignup()
-                      }}
-                      className="rounded-full px-8 py-4 text-white font-semibold text-lg transition-all duration-300 border-2 border-purple-500/60 bg-black/30 backdrop-blur-sm shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:scale-105"
-                    >
-                      <span className="flex items-center">
-                        <Wand2 className="mr-2" size={20} />
-                        Join the Prefects Program
+                    <p className="mt-5 text-sm text-white/80">
+                      <span className="font-semibold text-vibrant">
+                        “Happiness can be found, even in the darkest of times, if one only remembers to turn on the light.”
                       </span>
-                    </button>
-                  )}
+                    </p>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {[{
+                      title: 'Early Access',
+                      description: 'Be amongst the first to experience and influence every luminous release.',
+                      icon: (
+                        <span className="text-emerald-300">
+                          <Zap className="h-5 w-5" />
+                        </span>
+                      ),
+                      accent: 'from-emerald-400/25 to-lumora-blue/20'
+                    }, {
+                      title: 'Meaningful Impact',
+                      description: "Every insight adjusts the product roadmap, ensuring Lumora stays human-led.",
+                      icon: (
+                        <span className="text-sky-300">
+                          <Users className="h-5 w-5" />
+                        </span>
+                      ),
+                      accent: 'from-sky-400/25 to-lumora-purple/20'
+                    }, {
+                      title: 'Prefects Privileges',
+                      description: 'Special drops, gratitude perks, and early recognition as the circle grows.',
+                      icon: (
+                        <span className="text-pink-300">
+                          <Gift className="h-5 w-5" />
+                        </span>
+                      ),
+                      accent: 'from-lumora-pink/25 to-lumora-purple/20'
+                    }, {
+                      title: 'Legacy of Light',
+                      description: 'Your name, etched as one of the first who believed in luminous software.',
+                      icon: (
+                        <span className="text-amber-300">
+                          <Star className="h-5 w-5" />
+                        </span>
+                      ),
+                      accent: 'from-amber-400/25 to-orange-400/20'
+                    }].map((item) => (
+                      <div
+                        key={item.title}
+                        className="group rounded-2xl border border-white/10 bg-[rgba(24,28,36,0.55)] p-5 transition-colors duration-300 hover:border-white/25 hover:bg-[rgba(30,36,45,0.7)]"
+                      >
+                        <div className="flex items-start gap-3">
+                          <span className={`flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-gradient-to-br ${item.accent}`}>
+                            {item.icon}
+                          </span>
+                          <div>
+                            <h4 className="text-base font-semibold text-white">{item.title}</h4>
+                            <p className="mt-1 text-sm text-white/65">{item.description}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <div className="rounded-3xl border border-white/10 bg-[rgba(24,28,36,0.65)] p-6 shadow-[0_20px_55px_-35px_rgba(15,23,42,0.65)]">
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-semibold text-white">
+                        {prefectsStatus?.isFull
+                          ? 'All Prefect seats are currently filled'
+                          : 'Reserve your prefect seat before the circle closes'}
+                      </h3>
+                      <p className="text-sm text-white/65">
+                        {prefectsStatus?.isFull
+                          ? 'Join the broader beta to keep the luminous insights flowing. We will reach out when a seat reopens.'
+                          : 'Once all twenty-five are spoken for, the spell seals. Claim your place while the light is warm.'}
+                      </p>
+                      {prefectsStatus?.adminOverride && (
+                        <div className="rounded-2xl border border-yellow-400/40 bg-yellow-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-yellow-200">
+                          Admin override active
+                        </div>
+                      )}
+                    </div>
+                    <div className="mt-6 space-y-3">
+                      {prefectsStatus?.isFull ? (
+                        <>
+                          <button
+                            disabled
+                            className="flex w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-base font-semibold text-white/50"
+                          >
+                            <Wand2 className="h-4 w-4" />
+                            Prefects Program Full
+                          </button>
+                          <button
+                            onClick={() => {
+                              onClose()
+                              onOpenRegularBetaSignup()
+                            }}
+                            className="flex w-full items-center justify-center gap-2 rounded-full border border-lumora-purple/60 bg-gradient-to-r from-lumora-purple/30 to-lumora-pink/20 px-6 py-3 text-base font-semibold text-white transition hover:shadow-[0_0_25px_rgba(179,64,217,0.45)]"
+                          >
+                            <span className="text-lg">✨</span>
+                            Join the beta instead
+                          </button>
+                        </>
+                      ) : (
+                        <button
+                          onClick={() => {
+                            onClose()
+                            onOpenBetaSignup()
+                          }}
+                          className="flex w-full items-center justify-center gap-2 rounded-full border border-lumora-purple/60 bg-gradient-to-r from-lumora-purple/40 via-lumora-pink/30 to-lumora-blue/30 px-6 py-3 text-base font-semibold text-white transition hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]"
+                        >
+                          <Wand2 className="h-4 w-4" />
+                          Join the Prefects Program
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -296,4 +224,4 @@ export default function AlphaRevealModal({ isOpen, onClose, onOpenBetaSignup, on
       </div>
     </div>
   )
-} 
+}
