@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { Brain, Mic, Cloud, TrendingUp, Heart } from 'lucide-react'
-import BetaSignupModal from './BetaSignupModal'
 
 const features = [
   {
@@ -33,12 +32,6 @@ const features = [
 ]
 
 export default function MooDo() {
-  const [betaCount, setBetaCount] = useState(16)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const openBetaSignup = () => {
-    setIsModalOpen(true)
-  }
 
   return (
     <div className="relative">
@@ -82,20 +75,6 @@ export default function MooDo() {
                   </div>
                 )
               })}
-            </div>
-
-            {/* Beta CTA */}
-            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 text-center border-2 border-lumora-purple/60 shadow-[0_0_25px_rgba(179,64,217,0.4)] hover:shadow-[0_0_35px_rgba(179,64,217,0.6)] transition-all duration-300">
-              <p className="text-white/70 mb-2">MooDo Beta Program</p>
-              <div className="text-2xl font-bold text-lumora-pink mb-2">
-                {betaCount}/50 <span className="text-lg text-white/60">spots filled</span>
-              </div>
-              <button
-                onClick={openBetaSignup}
-                className="w-full bg-black/30 backdrop-blur-sm border-2 border-lumora-purple/80 rounded-full py-3 px-6 text-white font-semibold transition-all duration-600 shadow-[0_0_25px_rgba(179,64,217,0.5)] hover:shadow-[0_0_40px_rgba(179,64,217,0.7)] hover:scale-105"
-              >
-                Join MooDo Beta
-              </button>
             </div>
           </div>
 
@@ -143,9 +122,6 @@ export default function MooDo() {
           </div>
         </div>
       </div>
-
-      {/* Beta Signup Modal */}
-      <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }

@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { ChefHat, Database, ShoppingBag, Sparkles, TrendingUp } from 'lucide-react'
-import BetaSignupModal from './BetaSignupModal'
 
 const features = [
   {
@@ -33,12 +32,6 @@ const features = [
 ]
 
 export default function CoreTrack() {
-  const [betaCount, setBetaCount] = useState(22)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const openBetaSignup = () => {
-    setIsModalOpen(true)
-  }
 
   return (
     <div className="relative">
@@ -107,20 +100,6 @@ export default function CoreTrack() {
                 )
               })}
             </div>
-
-            {/* Beta CTA */}
-            <div className="rounded-2xl border border-lumora-purple/40 bg-[rgba(30,24,41,0.82)] p-6 text-center shadow-[0_18px_45px_-30px_rgba(140,38,242,0.55)]">
-              <p className="text-white/70 mb-2">Macro Beta Program</p>
-              <div className="text-2xl font-bold text-positive mb-2">
-                {betaCount}/50 <span className="text-lg text-white/60">spots filled</span>
-              </div>
-              <button
-                onClick={openBetaSignup}
-                className="w-full rounded-full border border-lumora-purple/60 bg-[rgba(30,24,41,0.9)] py-3 px-6 text-white font-semibold transition-all duration-300 hover:border-lumora-purple hover:bg-[rgba(36,28,47,0.95)] hover:shadow-[0_0_25px_rgba(179,64,217,0.45)]"
-              >
-                Join Macro Beta
-              </button>
-            </div>
           </div>
         </div>
 
@@ -143,9 +122,6 @@ export default function CoreTrack() {
           </div>
         </div>
       </div>
-
-      {/* Beta Signup Modal */}
-      <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }

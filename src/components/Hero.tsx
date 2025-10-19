@@ -12,43 +12,11 @@ import {
   Zap
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import { LazyBetaSignupModal, LazyAlphaRevealModal, LazyComingSoonModal } from './LazyModals'
-import BetaCount from './BetaCount'
-
-// Preload beta count data
-let preloadedCount: number | null = null
-let preloadPromise: Promise<number | null> | null = null
-
-const preloadBetaCount = async (): Promise<number | null> => {
-  if (preloadedCount !== null) return preloadedCount
-  if (preloadPromise) return preloadPromise
-
-  preloadPromise = fetch('/api/notion')
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        preloadedCount = data.count
-        return data.count
-      }
-      return null
-    })
-    .catch(() => null)
-
-  return preloadPromise
-}
-
-// Start preloading immediately when this module is imported
-if (typeof window !== 'undefined') {
-  preloadBetaCount().then(count => {
-    window.__preloadedBetaCount = count
-  })
-}
+import { LazyComingSoonModal } from './LazyModals'
 
 export default function Hero() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isAlphaModalOpen, setIsAlphaModalOpen] = useState(false)
   const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false)
-  const [comingSoonSection, setComingSoonSection] = useState<'apps' | 'beta' | 'technology'>('apps')
+  const [comingSoonSection, setComingSoonSection] = useState<'apps' | 'technology'>('apps')
 
   const highlightItems: Array<{
     title: string
@@ -100,15 +68,7 @@ export default function Hero() {
     },
   ]
 
-  const openBetaSignup = () => {
-    setIsModalOpen(true)
-  }
-
-  const openAlphaReveal = () => {
-    setIsAlphaModalOpen(true)
-  }
-
-  const openComingSoon = (section: 'apps' | 'beta' | 'technology') => {
+  const openComingSoon = (section: 'apps' | 'technology') => {
     setComingSoonSection(section)
     setIsComingSoonModalOpen(true)
   }
@@ -145,32 +105,12 @@ export default function Hero() {
 
           <div className="flex flex-wrap items-center justify-center gap-3">
             <button
-              onClick={openBetaSignup}
-              className="group inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 bg-white px-6 py-3 text-base font-semibold text-slate-900 shadow-[0_18px_40px_-18px_rgba(148,163,184,0.65)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-slate-900 hover:shadow-[0_22px_45px_-16px_rgba(148,163,184,0.75)]"
-            >
-              <span className="text-vibrant">Join the beta</span>
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </button>
-
-            <button
-              onClick={openAlphaReveal}
-              className="group inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 bg-transparent px-6 py-3 text-base font-semibold text-white transition duration-200 hover:border-slate-900 hover:bg-white/10"
-            >
-              <span className="text-vibrant">Revelio</span>
-              <Wand2 className="ml-2 h-4 w-4" />
-            </button>
-
-            <button
               onClick={() => openComingSoon('technology')}
               className="inline-flex items-center justify-center rounded-full border border-black/60 bg-slate-950/70 px-6 py-3 text-base font-medium text-white transition duration-200 hover:border-black hover:bg-slate-900/80"
             >
               <span className="text-vibrant">Lumora roadmap</span>
               <Sparkles className="ml-2 h-4 w-4" />
             </button>
-          </div>
-
-          <div className="w-full max-w-sm">
-            <BetaCount variant="hero" />
           </div>
         </div>
 
@@ -239,25 +179,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {isModalOpen && (
-        <LazyBetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      )}
-
-      {isAlphaModalOpen && (
-        <LazyAlphaRevealModal
-          isOpen={isAlphaModalOpen}
-          onClose={() => setIsAlphaModalOpen(false)}
-          onOpenBetaSignup={() => {
-            setIsAlphaModalOpen(false)
-            setIsModalOpen(true)
-          }}
-          onOpenRegularBetaSignup={() => {
-            setIsAlphaModalOpen(false)
-            setIsModalOpen(true)
-          }}
-        />
-      )}
 
       {isComingSoonModalOpen && (
         <LazyComingSoonModal

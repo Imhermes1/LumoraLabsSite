@@ -2,22 +2,16 @@
 
 import { useState } from 'react'
 import { Menu, X, Mail, Users, Sparkles } from 'lucide-react'
-import { LazyBetaSignupModal, LazyComingSoonModal } from './LazyModals'
+import { LazyComingSoonModal } from './LazyModals'
 
 export default function FloatingNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false)
-  const [comingSoonSection, setComingSoonSection] = useState<'apps' | 'beta' | 'technology'>('apps')
+  const [comingSoonSection, setComingSoonSection] = useState<'apps' | 'technology'>('apps')
 
-  const openComingSoonModal = (section: 'apps' | 'beta' | 'technology') => {
+  const openComingSoonModal = (section: 'apps' | 'technology') => {
     setComingSoonSection(section)
     setIsComingSoonModalOpen(true)
-    setIsMenuOpen(false)
-  }
-
-  const openBetaSignup = () => {
-    setIsModalOpen(true)
     setIsMenuOpen(false)
   }
 
@@ -37,16 +31,6 @@ export default function FloatingNav() {
         className={`fab fab-menu ${isMenuOpen ? 'fab-primary' : ''}`}
       >
         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
-
-      {/* Beta Signup FAB */}
-      <button
-        onClick={openBetaSignup}
-        className={`fab fab-beta fab-primary transition-all duration-300 ${
-          isMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'
-        }`}
-      >
-        <Sparkles size={20} />
       </button>
 
       {/* Contact FAB */}
@@ -88,23 +72,12 @@ export default function FloatingNav() {
               >
                 Technology
               </button>
-              <hr className="border-gray-200" />
-              <button
-                onClick={openBetaSignup}
-                className="block w-full text-left font-medium text-purple-600 py-2 px-3 rounded-lg hover:bg-purple-50"
-              >
-                Join Beta
-              </button>
             </div>
           </div>
         </div>
       )}
 
       {/* Modals */}
-      {isModalOpen && (
-        <LazyBetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      )}
-
       {isComingSoonModalOpen && (
         <LazyComingSoonModal
           isOpen={isComingSoonModalOpen}

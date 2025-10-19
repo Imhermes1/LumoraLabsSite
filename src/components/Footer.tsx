@@ -3,18 +3,13 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Mail, MapPin, Github, Twitter, Linkedin } from 'lucide-react'
-import BetaSignupModal from './BetaSignupModal'
 import ContactModal from './ContactModal'
 import Logo from './Logo'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
 
-  const openBetaSignup = () => {
-    setIsModalOpen(true)
-  }
   const openContactModal = () => {
     setIsContactModalOpen(true)
   }
@@ -35,12 +30,6 @@ export default function Footer() {
             </p>
           </div>
           <div className="mt-6 flex flex-wrap gap-3 md:mt-0 md:flex-shrink-0 md:justify-end">
-            <button
-              onClick={openBetaSignup}
-              className="inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-[0_18px_40px_-18px_rgba(148,163,184,0.6)] transition hover:-translate-y-0.5 hover:border-slate-900 hover:shadow-[0_20px_45px_-16px_rgba(148,163,184,0.7)]"
-            >
-              <span className="text-vibrant">Join the beta</span>
-            </button>
             <button
               onClick={openContactModal}
               className="inline-flex items-center justify-center rounded-full border-2 border-slate-900/80 px-5 py-3 text-sm font-semibold text-white transition hover:border-slate-900 hover:bg-white/10"
@@ -92,12 +81,6 @@ export default function Footer() {
           <div className="space-y-3">
             <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Product</h3>
             <div className="flex flex-col gap-2 text-sm text-white/70">
-              <button
-                onClick={openBetaSignup}
-                className="text-left transition hover:text-vibrant"
-              >
-                <span className="text-vibrant">Beta program</span>
-              </button>
               <Link href="/apps" className="transition hover:text-vibrant">
                 <span className="text-vibrant">Apps</span>
               </Link>
@@ -140,7 +123,6 @@ export default function Footer() {
           © {currentYear} Lumora Labs. Made with Love in Australia.
         </div>
 
-        <BetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
       </div>
     </footer>

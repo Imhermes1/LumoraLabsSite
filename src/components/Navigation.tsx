@@ -5,23 +5,18 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { LazyBetaSignupModal, LazyComingSoonModal } from './LazyModals'
+import { LazyComingSoonModal } from './LazyModals'
 import Logo from './Logo'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false)
-  const [comingSoonSection, setComingSoonSection] = useState<'apps' | 'beta' | 'technology'>('apps')
+  const [comingSoonSection, setComingSoonSection] = useState<'apps' | 'technology'>('apps')
 
-  const openComingSoonModal = (section: 'apps' | 'beta' | 'technology') => {
+  const openComingSoonModal = (section: 'apps' | 'technology') => {
     setComingSoonSection(section)
     setIsComingSoonModalOpen(true)
     setIsMenuOpen(false)
-  }
-
-  const openBetaSignup = () => {
-    setIsModalOpen(true)
   }
 
   return (
@@ -41,22 +36,10 @@ export default function Navigation() {
                 Apps
               </button>
               <button
-                onClick={() => openComingSoonModal('beta')}
-                className="text-white/80 hover:text-white transition-colors duration-200"
-              >
-                Beta
-              </button>
-              <button
                 onClick={() => openComingSoonModal('technology')}
                 className="text-white/80 hover:text-white transition-colors duration-200"
               >
                 Technology
-              </button>
-              <button
-                onClick={openBetaSignup}
-                className="bg-gradient-to-r from-lumora-pink to-lumora-purple rounded-full px-6 py-2 text-white font-medium hover:shadow-lg hover:shadow-lumora-purple/25 transition-all duration-200"
-              >
-                Join Beta
               </button>
             </div>
 
@@ -86,36 +69,16 @@ export default function Navigation() {
                 <span className="block text-xs text-white/50 mt-1">Coming Soon</span>
               </button>
               <button
-                onClick={() => openComingSoonModal('beta')}
-                className="block w-full text-left text-white/80 hover:text-white transition-all duration-200 py-3 px-4 rounded-xl hover:bg-white/10 hover:scale-105"
-              >
-                <span className="text-lg font-medium">Beta</span>
-                <span className="block text-xs text-white/50 mt-1">Join the waitlist</span>
-              </button>
-              <button
                 onClick={() => openComingSoonModal('technology')}
                 className="block w-full text-left text-white/80 hover:text-white transition-all duration-200 py-3 px-4 rounded-xl hover:bg-white/10 hover:scale-105"
               >
                 <span className="text-lg font-medium">Technology</span>
                 <span className="block text-xs text-white/50 mt-1">Learn more</span>
               </button>
-              <div className="pt-2">
-                <button
-                  onClick={openBetaSignup}
-                  className="w-full glass rounded-full px-6 py-3 text-white font-medium hover:bg-lumora-purple/20 transition-all duration-200 btn-glass"
-                >
-                  Join Beta
-                </button>
-              </div>
             </div>
           )}
         </div>
       </div>
-
-        {/* Beta Signup Modal */}
-        {isModalOpen && (
-          <LazyBetaSignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-        )}
         
         {/* Coming Soon Modal */}
         {isComingSoonModalOpen && (

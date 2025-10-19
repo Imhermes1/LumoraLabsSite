@@ -1,26 +1,15 @@
 'use client'
 
 import { X } from 'lucide-react'
-import BetaSignupModal from './BetaSignupModal'
 import { useState } from 'react'
 
 interface ComingSoonModalProps {
   isOpen: boolean
   onClose: () => void
-  section: 'apps' | 'beta' | 'technology'
+  section: 'apps' | 'technology'
 }
 
 export default function ComingSoonModal({ isOpen, onClose, section }: ComingSoonModalProps) {
-  const [isBetaModalOpen, setIsBetaModalOpen] = useState(false)
-
-  const openBetaSignup = () => {
-    setIsBetaModalOpen(true)
-  }
-
-  const closeBetaSignup = () => {
-    setIsBetaModalOpen(false)
-    onClose()
-  }
 
   const getSectionInfo = () => {
     switch (section) {
@@ -29,12 +18,6 @@ export default function ComingSoonModal({ isOpen, onClose, section }: ComingSoon
           title: 'Our Apps',
           description: 'Discover MooDo and Macro - our elegantly crafted apps designed to transform your productivity and nutrition tracking.',
           icon: '📱'
-        }
-      case 'beta':
-        return {
-          title: 'Beta Program',
-          description: 'Join our exclusive beta program and be among the first to experience the future of wellness-focused apps.',
-          icon: '✨'
         }
       case 'technology':
         return {
@@ -97,26 +80,9 @@ export default function ComingSoonModal({ isOpen, onClose, section }: ComingSoon
                 🚧 More Information Coming Soon
               </span>
             </div>
-
-            {/* CTA */}
-            <div className="space-y-3">
-              <button
-                onClick={openBetaSignup}
-                className="w-full bg-gradient-to-r from-lumora-pink to-lumora-purple rounded-full px-6 py-3 text-white font-semibold hover:shadow-lg hover:shadow-lumora-purple/25 transition-all duration-300"
-              >
-                Join Beta Program
-              </button>
-              
-              <p className="text-white/50 text-xs">
-                Be the first to know when we launch
-              </p>
-            </div>
           </div>
         </div>
       </div>
-
-      {/* Beta Signup Modal */}
-      <BetaSignupModal isOpen={isBetaModalOpen} onClose={closeBetaSignup} />
     </>
   )
 } 
