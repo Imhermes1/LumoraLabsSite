@@ -24,9 +24,9 @@ const textSizes = {
   xl: 'text-3xl sm:text-4xl'
 }
 
-export default function Logo({ 
-  size = 'md', 
-  showText = true, 
+export default function Logo({
+  size = 'md',
+  showText = true,
   className,
   href = '/',
   onClick
@@ -52,7 +52,7 @@ export default function Logo({
       </div>
       {showText && (
         <span className={cn(
-          'font-bold text-white group-hover:text-lumora-purple/90 transition-colors duration-200',
+          'font-bold text-black group-hover:text-lumora-purple/90 transition-colors duration-200',
           textSizes[size]
         )}>
           Lumora Labs

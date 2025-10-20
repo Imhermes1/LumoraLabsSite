@@ -104,7 +104,6 @@ lumora-labs-nextjs/
 │   ├── components/            # React components
 │   │   ├── Navigation.tsx     # Header navigation
 │   │   ├── Hero.tsx          # Hero section
-│   │   ├── MooDo.tsx         # MooDo app showcase
 │   │   ├── CoreTrack.tsx     # Macro app showcase
 │   │   ├── BetaSignup.tsx    # Beta program signup
 │   │   ├── Technology.tsx    # Technology section

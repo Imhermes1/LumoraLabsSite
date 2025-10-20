@@ -7,16 +7,20 @@ import Footer from '@/components/Footer'
 export default function Home() {
   useEffect(() => {
     // Add smooth scrolling behavior
-    document.documentElement.style.scrollBehavior = 'smooth'
+    if (typeof window !== 'undefined') {
+      document.documentElement.style.scrollBehavior = 'smooth'
+    }
 
     // Cleanup
     return () => {
-      document.documentElement.style.scrollBehavior = 'auto'
+      if (typeof window !== 'undefined') {
+        document.documentElement.style.scrollBehavior = 'auto'
+      }
     }
   }, [])
 
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="flex flex-col">
       <Hero />
       <Footer />
     </main>

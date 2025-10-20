@@ -5,19 +5,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { LazyComingSoonModal } from './LazyModals'
 import Logo from './Logo'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false)
-  const [comingSoonSection, setComingSoonSection] = useState<'apps' | 'technology'>('apps')
-
-  const openComingSoonModal = (section: 'apps' | 'technology') => {
-    setComingSoonSection(section)
-    setIsComingSoonModalOpen(true)
-    setIsMenuOpen(false)
-  }
 
   return (
     <nav className="fixed top-2 left-0 right-0 z-50 mx-4">
@@ -29,18 +20,18 @@ export default function Navigation() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <button
-                onClick={() => openComingSoonModal('apps')}
+              <Link
+                href="/apps"
                 className="text-white/80 hover:text-white transition-colors duration-200"
               >
                 Apps
-              </button>
-              <button
-                onClick={() => openComingSoonModal('technology')}
+              </Link>
+              <Link
+                href="/about-us"
                 className="text-white/80 hover:text-white transition-colors duration-200"
               >
-                Technology
-              </button>
+                About
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -61,33 +52,24 @@ export default function Navigation() {
           {/* Mobile Navigation */}
           {isMenuOpen && (
             <div className="md:hidden mt-4 space-y-4 animate-fade-in">
-              <button
-                onClick={() => openComingSoonModal('apps')}
+              <Link
+                href="/apps"
                 className="block w-full text-left text-white/80 hover:text-white transition-all duration-200 py-3 px-4 rounded-xl hover:bg-white/10 hover:scale-105"
               >
                 <span className="text-lg font-medium">Apps</span>
-                <span className="block text-xs text-white/50 mt-1">Coming Soon</span>
-              </button>
-              <button
-                onClick={() => openComingSoonModal('technology')}
+                <span className="block text-xs text-white/50 mt-1">Explore our apps</span>
+              </Link>
+              <Link
+                href="/about-us"
                 className="block w-full text-left text-white/80 hover:text-white transition-all duration-200 py-3 px-4 rounded-xl hover:bg-white/10 hover:scale-105"
               >
-                <span className="text-lg font-medium">Technology</span>
+                <span className="text-lg font-medium">About</span>
                 <span className="block text-xs text-white/50 mt-1">Learn more</span>
-              </button>
+              </Link>
             </div>
           )}
         </div>
       </div>
-        
-        {/* Coming Soon Modal */}
-        {isComingSoonModalOpen && (
-          <LazyComingSoonModal 
-            isOpen={isComingSoonModalOpen} 
-            onClose={() => setIsComingSoonModalOpen(false)} 
-            section={comingSoonSection}
-          />
-        )}
     </nav>
   )
 }

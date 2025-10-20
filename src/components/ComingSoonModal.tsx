@@ -16,7 +16,7 @@ export default function ComingSoonModal({ isOpen, onClose, section }: ComingSoon
       case 'apps':
         return {
           title: 'Our Apps',
-          description: 'Discover MooDo and Macro - our elegantly crafted apps designed to transform your productivity and nutrition tracking.',
+          description: 'Discover Macro and Micro! Our elegantly crafted apps designed to transform your productivity and nutrition tracking.',
           icon: '📱'
         }
       case 'technology':
@@ -41,7 +41,7 @@ export default function ComingSoonModal({ isOpen, onClose, section }: ComingSoon
   return (
     <>
       {/* Backdrop */}
-      <div 
+      <div
         className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
         onClick={onClose}
       />
