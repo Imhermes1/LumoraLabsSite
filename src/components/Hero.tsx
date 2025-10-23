@@ -10,6 +10,7 @@ import {
   Zap
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import RevealOnScroll from '@/components/RevealOnScroll'
 
 export default function Hero() {
 
@@ -71,7 +72,7 @@ export default function Hero() {
 
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 lg:px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-          <div className="relative h-[7.5rem] w-[7.5rem] sm:h-[8.75rem] sm:w-[8.75rem] lg:h-[10rem] lg:w-[10rem]">
+          <div className="relative h-[7.5rem] w-[7.5rem] sm:h-[8.75rem] sm:w-[8.75rem] lg:h-[10rem] lg:w-[10rem] animate-fade-in">
             <Image
               src="/images/lumoralabs_logo.png"
               alt="Lumora Labs Logo"
@@ -90,70 +91,74 @@ export default function Hero() {
 
         </div>
 
-        <div className="rounded-3xl border border-gray-200/50 bg-white/60 p-6 backdrop-blur-xl shadow-[0_20px_60px_-35px_rgba(0,0,0,0.1)]">
-          <div className="flex flex-col gap-3 text-center sm:text-left">
-            <div className="flex items-center justify-center gap-3 text-gray-600 sm:justify-start">
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-lumora-pink via-lumora-purple to-lumora-blue text-white">
-                <Compass className="h-4 w-4" />
-              </span>
-              <p className="text-sm font-medium uppercase tracking-[0.3em]">Explore</p>
-            </div>
-            <h2 className="text-3xl font-semibold text-gray-800">
-              Buttons and swipes, not menus and clutter. Choose where the light takes you.
-            </h2>
-          </div>
-
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {quickLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="group rounded-2xl border border-gray-200/60 bg-white/40 p-4 transition duration-200 hover:border-gray-300/80 hover:bg-white/60"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="text-base font-semibold text-gray-800">
-                      <span className="text-vibrant">{link.label}</span>
-                    </p>
-                    <p className="mt-1 text-sm text-gray-600">{link.description}</p>
-                  </div>
-                  <ArrowRight className="h-4 w-4 flex-shrink-0 text-gray-500 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-gray-700" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div className="rounded-3xl border border-gray-200/50 bg-white/60 p-6 backdrop-blur-xl shadow-[0_20px_60px_-35px_rgba(0,0,0,0.1)]">
-          <div className="flex flex-col gap-3 text-center sm:text-left">
-            <div className="flex items-center justify-center gap-3 text-gray-600 sm:justify-start">
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-lumora-pink via-lumora-purple to-lumora-blue text-white">
-                <Wand2 className="h-4 w-4" />
-              </span>
-              <p className="text-sm font-medium uppercase tracking-[0.3em]">Design</p>
-            </div>
-            <h2 className="text-3xl font-semibold text-gray-800">
-              Purposeful, calming interfaces that feel beautifully simple and move exactly how they should.
-            </h2>
-          </div>
-
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {highlightItems.map(({ title, description, icon: Icon }) => (
-              <div
-                key={title}
-                className="group rounded-2xl border border-gray-200/60 bg-white/40 p-4 transition duration-200 hover:border-gray-300/80 hover:bg-white/60"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-lumora-pink via-lumora-purple to-lumora-blue text-white">
-                    <Icon className="h-4 w-4" />
-                  </span>
-                  <span className="text-lg font-semibold text-vibrant">{title}</span>
-                </div>
-                <p className="mt-2 text-sm text-gray-600">{description}</p>
+        <RevealOnScroll>
+          <div className="rounded-3xl border border-gray-200/50 bg-white/60 p-6 backdrop-blur-xl shadow-[0_20px_60px_-35px_rgba(0,0,0,0.1)]">
+            <div className="flex flex-col gap-3 text-center sm:text-left">
+              <div className="flex items-center justify-center gap-3 text-gray-600 sm:justify-start">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-lumora-pink via-lumora-purple to-lumora-blue text-white">
+                  <Compass className="h-4 w-4" />
+                </span>
+                <p className="text-sm font-medium uppercase tracking-[0.3em]">Explore</p>
               </div>
-            ))}
+              <h2 className="text-3xl font-semibold text-gray-800">
+                Buttons and swipes, not menus and clutter. Choose where the light takes you.
+              </h2>
+            </div>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="group rounded-2xl border border-gray-200/60 bg-white/40 p-4 transition-all duration-300 hover:border-gray-300/80 hover:bg-white/60 hover:scale-105 hover:shadow-lg"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="text-base font-semibold text-gray-800">
+                        <span className="text-vibrant">{link.label}</span>
+                      </p>
+                      <p className="mt-1 text-sm text-gray-600">{link.description}</p>
+                    </div>
+                    <ArrowRight className="h-4 w-4 flex-shrink-0 text-gray-500 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-gray-700" />
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        </RevealOnScroll>
+
+        <RevealOnScroll>
+          <div className="rounded-3xl border border-gray-200/50 bg-white/60 p-6 backdrop-blur-xl shadow-[0_20px_60px_-35px_rgba(0,0,0,0.1)]">
+            <div className="flex flex-col gap-3 text-center sm:text-left">
+              <div className="flex items-center justify-center gap-3 text-gray-600 sm:justify-start">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-lumora-pink via-lumora-purple to-lumora-blue text-white">
+                  <Wand2 className="h-4 w-4" />
+                </span>
+                <p className="text-sm font-medium uppercase tracking-[0.3em]">Design</p>
+              </div>
+              <h2 className="text-3xl font-semibold text-gray-800">
+                Purposeful, calming interfaces that feel beautifully simple and move exactly how they should.
+              </h2>
+            </div>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {highlightItems.map(({ title, description, icon: Icon }) => (
+                <div
+                  key={title}
+                  className="group rounded-2xl border border-gray-200/60 bg-white/40 p-4 transition-all duration-300 hover:border-gray-300/80 hover:bg-white/60 hover:scale-105 hover:shadow-lg"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-lumora-pink via-lumora-purple to-lumora-blue text-white transition-transform duration-300 group-hover:rotate-12">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <span className="text-lg font-semibold text-vibrant">{title}</span>
+                  </div>
+                  <p className="mt-2 text-sm text-gray-600">{description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </RevealOnScroll>
       </div>
 
     </section>
