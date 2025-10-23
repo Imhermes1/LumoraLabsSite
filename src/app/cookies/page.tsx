@@ -1,5 +1,6 @@
+import React from 'react'
 import Link from 'next/link'
-import { ArrowLeft, Shield, Settings, Eye, Lock } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 
 export default function CookiePolicy() {
   return (
@@ -21,7 +22,9 @@ export default function CookiePolicy() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
             Cookies Policy
           </h1>
-          <p className="text-gray-600">Cookie policy content will be added here.</p>
+          <p className="text-gray-600 text-lg">
+            Our cookie policy is currently being updated. Please check back soon or contact us at lumos@lumoralabs.io for more information.
+          </p>
         </div>
       </div>
     </div>

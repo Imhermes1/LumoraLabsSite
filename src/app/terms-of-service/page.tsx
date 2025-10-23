@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
@@ -21,7 +22,9 @@ export default function TermsOfService() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
             Terms of Service
           </h1>
-          <p className="text-gray-600">Terms of service content will be added here.</p>
+          <p className="text-gray-600 text-lg">
+            Our terms of service are currently being updated. Please check back soon or contact us at lumos@lumoralabs.io for more information.
+          </p>
         </div>
       </div>
     </div>

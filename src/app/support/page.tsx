@@ -1,5 +1,6 @@
+import React from 'react'
 import Link from 'next/link'
-import { ArrowLeft, Mail, MessageCircle, HelpCircle, Shield, Bug, Star, Clock, Phone } from 'lucide-react'
+import { ArrowLeft, Mail } from 'lucide-react'
 
 export default function Support() {
   return (
@@ -21,7 +22,20 @@ export default function Support() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
             Customer Support
           </h1>
-          <p className="text-gray-600">Support content will be added here.</p>
+          <p className="text-gray-600 text-lg mb-6">
+            Need help with Macro or Micro? We're here to assist you.
+          </p>
+          <div className="glass rounded-2xl p-6 inline-block">
+            <div className="flex items-center gap-3">
+              <Mail className="text-lumora-pink" size={24} />
+              <div>
+                <p className="text-gray-900 font-semibold">Email Support</p>
+                <a href="mailto:lumos@lumoralabs.io" className="text-lumora-pink hover:text-lumora-purple transition-colors">
+                  lumos@lumoralabs.io
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
