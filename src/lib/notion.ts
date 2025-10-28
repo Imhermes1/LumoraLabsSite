@@ -78,10 +78,10 @@ export async function getPrefectsProgramStatus(): Promise<{
   try {
     const currentCount = await getAlphaTesterCount()
     const isFull = currentCount >= 25
-    
+
     // Check for admin override (you can set this via environment variable)
     const adminOverride = process.env.PREFECTS_ADMIN_OVERRIDE === 'true'
-    
+
     return {
       isFull: isFull && !adminOverride,
       currentCount,
@@ -105,7 +105,7 @@ export async function createBetaSignup(signupData: {
   betaTestInvites?: string
   appInvites?: {
     macro: boolean
-    
+    micro?: boolean
   }
   disclaimer?: boolean
   isFromAlpha?: boolean
@@ -161,7 +161,7 @@ export async function createBetaSignup(signupData: {
         'App Invites ': {
           multi_select: [
             ...(signupData.appInvites?.macro ? [{ name: 'Macro' }] : []),
-            ...(signupData.),
+            ...(signupData.appInvites?.micro ? [{ name: 'Micro' }] : []),
           ],
         },
         'Disclaimer': {
