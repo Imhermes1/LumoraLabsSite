@@ -1,5 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
 import PageShell from '@/components/PageShell'
 import RevealOnScroll from '@/components/RevealOnScroll'
 
@@ -21,6 +23,13 @@ export default function TermsOfUse() {
       </header>
 
       <main className="flex flex-col gap-12">
+        <Link
+          href="/"
+          className="mb-8 flex w-full items-center justify-center gap-2 text-sm font-semibold text-gray-700 transition-colors hover:text-gray-900"
+        >
+          <ArrowLeft size={18} />
+          Back to Home
+        </Link>
         <RevealOnScroll>
           <section className="page-surface rounded-3xl p-8 md:p-12">
             <div className="mb-8">
