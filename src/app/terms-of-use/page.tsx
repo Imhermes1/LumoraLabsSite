@@ -83,9 +83,11 @@ export default function TermsOfUse() {
               </p>
               <p className="mb-4"><strong>Data Processing:</strong></p>
               <ul className="mb-6 list-disc pl-6">
-                <li><strong>Firebase (Google):</strong> Application hosting and analytics</li>
-                <li><strong>Apple iCloud:</strong> iOS data synchronization (with user consent)</li>
+                <li><strong>Supabase:</strong> Application hosting and user data storage</li>
+                <li><strong>PostHog:</strong> Application analytics and user behavior tracking</li>
+                <li><strong>Resend:</strong> Email communications and notifications</li>
                 <li><strong>Notion:</strong> Internal operations and customer support</li>
+                <li><strong>Local Device Storage:</strong> Data stored directly on your device</li>
               </ul>
               <p className="mb-6">
                 We process your data in accordance with the Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs).
@@ -145,12 +147,13 @@ export default function TermsOfUse() {
 
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">9. Third-Party Services</h2>
               <p className="mb-4">
-                Our Licensed Applications may integrate with third-party services:
+                Our Licensed Applications integrate with the following third-party services:
               </p>
               <ul className="mb-6 list-disc pl-6">
-                <li>Firebase for analytics and hosting</li>
-                <li>Apple services for iOS functionality</li>
-                <li>Other approved integrations and partnerships</li>
+                <li><strong>Supabase:</strong> Backend hosting and database services</li>
+                <li><strong>PostHog:</strong> Analytics and user insights</li>
+                <li><strong>Resend:</strong> Email delivery service</li>
+                <li><strong>Notion:</strong> Data management and internal operations</li>
               </ul>
               <p className="mb-6">
                 Your use of third-party services is subject to their respective terms and policies.
