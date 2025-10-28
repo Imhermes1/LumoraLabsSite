@@ -105,7 +105,7 @@ export async function createBetaSignup(signupData: {
   betaTestInvites?: string
   appInvites?: {
     macro: boolean
-    moodo: boolean
+    
   }
   disclaimer?: boolean
   isFromAlpha?: boolean
@@ -161,7 +161,7 @@ export async function createBetaSignup(signupData: {
         'App Invites ': {
           multi_select: [
             ...(signupData.appInvites?.macro ? [{ name: 'Macro' }] : []),
-            ...(signupData.appInvites?.moodo ? [{ name: 'MooDo' }] : []),
+            ...(signupData.),
           ],
         },
         'Disclaimer': {

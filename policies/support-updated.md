@@ -1,8 +1,8 @@
 # Customer Support
 
-**Get Help with Macro and MooDo Applications**
+**Get Help with Macro and Micro Applications**
 
-Welcome to Lumora Labs customer support. We're here to help you get the most out of your Macro and MooDo applications. Whether you need technical assistance, have questions about features, or want to provide feedback, we've got you covered.
+Welcome to Lumora Labs customer support. We're here to help you get the most out of your Macro and Micro applications. Whether you need technical assistance, have questions about features, or want to provide feedback, we've got you covered.
 
 ## Quick Support Options
 
@@ -11,7 +11,7 @@ Before contacting us, try searching our comprehensive knowledge base for instant
 
 **Popular Topics:**
 - Getting started with Macro
-- MooDo setup and configuration  
+- Micro setup and configuration  
 - Account management and billing
 - Troubleshooting common issues
 - Data synchronization and backup
@@ -30,7 +30,7 @@ For detailed questions or when you need to share screenshots/files.
 - **Priority:** Paid subscribers receive priority support
 
 ### 📱 In-App Support
-Access support directly from within the Macro and MooDo applications:
+Access support directly from within the Macro and Micro applications:
 - Use the "Help" or "Support" menu option
 - Submit bug reports with automatic diagnostic data
 - Access contextual help for specific features
@@ -38,7 +38,7 @@ Access support directly from within the Macro and MooDo applications:
 ## Support Categories
 
 ### 🚀 Getting Started
-**New to Macro or MooDo?** We'll help you get up and running quickly.
+**New to Macro or Micro?** We'll help you get up and running quickly.
 
 **What we can help with:**
 - Account setup and verification
@@ -127,14 +127,14 @@ Access support directly from within the Macro and MooDo applications:
 ## Premium Support
 
 ### 🌟 Priority Support
-Available for paid subscribers of Macro and MooDo applications.
+Available for paid subscribers of Macro and Micro applications.
 
 **Benefits include:**
 - Faster response times (within 4 hours)
 - Direct access to senior support staff
 - Phone support for critical issues
 - Dedicated account management for enterprise customers
-- Beta program access and early feature previews
+- Early feature previews
 
 ### 🏢 Enterprise Support
 For business and enterprise customers with special requirements.
@@ -167,7 +167,7 @@ Step-by-step video guides for common tasks and features.
 
 **Popular video topics:**
 - Getting started with Macro
-- Advanced MooDo features
+- Advanced Micro features
 - Data management and organization
 - Automation and workflow setup
 - Integration with third-party services
@@ -221,10 +221,9 @@ If you're not satisfied with our response:
 - General Support: "SUPPORT - [Brief Description]"
 - Billing Inquiries: "BILLING - [Brief Description]"
 - Privacy Questions: "PRIVACY - [Brief Description]"
-- Beta Program: "BETA - [Brief Description]"
+- Feature Requests: "FEATURE - [Brief Description]"
 - Enterprise Sales: "ENTERPRISE - [Brief Description]"
 - Media Inquiries: "MEDIA - [Brief Description]"
-- Urgent Security Issues: "URGENT SECURITY - [Brief Description]"
 
 ### 🕒 Business Hours
 **Standard Support:**

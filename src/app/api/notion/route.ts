@@ -4,7 +4,7 @@ import { createBetaSignup, getBetaSignups, getAlphaTesterCount, getPrefectsProgr
 export async function POST(request: NextRequest) {
   try {
     console.log('API route called')
-    
+
     // Test environment variables immediately
     console.log('=== ENVIRONMENT VARIABLE TEST ===')
     console.log('NOTION_API_TOKEN exists:', !!process.env.NOTION_API_TOKEN)
@@ -13,12 +13,12 @@ export async function POST(request: NextRequest) {
     console.log('NOTION_DATABASE_ID value:', process.env.NOTION_DATABASE_ID)
     console.log('All env vars with NOTION:', Object.keys(process.env).filter(key => key.includes('NOTION')))
     console.log('=== END ENVIRONMENT TEST ===')
-    
+
     const body = await request.json()
     console.log('Request body:', body)
-    
-    const { 
-      name, 
+
+    const {
+      name,
       appleIdEmail,
       googleEmail,
       betaTestInvites,
@@ -62,10 +62,10 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    if (!appInvites || (!appInvites.macro && !appInvites.moodo)) {
+    if (!appInvites || !appInvites.macro) {
       console.log('Validation failed: missing app invites')
       return NextResponse.json(
-        { error: 'At least one app invite must be selected' },
+        { error: 'Macro app invite must be selected' },
         { status: 400 }
       )
     }
@@ -84,13 +84,13 @@ export async function POST(request: NextRequest) {
     try {
       console.log('Testing Notion API connection...')
       const { notion } = await import('@/lib/notion')
-      
+
       // Test if we can access the database
       const testResponse = await notion.databases.retrieve({
         database_id: process.env.NOTION_DATABASE_ID || '22b2ce9d9bf180a3868fd7a68da60bf0'
       })
       console.log('Notion API connection successful, database ID:', testResponse.id)
-      
+
       // Check database properties
       console.log('Database properties:', Object.keys(testResponse.properties))
       console.log('Available properties:', testResponse.properties)
@@ -109,7 +109,9 @@ export async function POST(request: NextRequest) {
       appleIdEmail: appleIdEmail || undefined,
       googleEmail: googleEmail || undefined,
       betaTestInvites,
-      appInvites,
+      appInvites: {
+        macro: true
+      },
       disclaimer,
       isFromAlpha: isFromAlpha || false
     })
@@ -117,17 +119,15 @@ export async function POST(request: NextRequest) {
     if (!signupResult.id) {
       console.log('createBetaSignup returned null/undefined')
       return NextResponse.json(
-        { error: 'Failed to create beta signup - function returned null' },
+        { error: 'Failed to create app signup - function returned null' },
         { status: 500 }
       )
     }
 
     return NextResponse.json(
-      { 
-        success: true, 
-        message: signupResult.isAlphaTester 
-          ? 'Congratulations! You\'re an Alpha Tester! 🎉' 
-          : 'Beta signup successful!',
+      {
+        success: true,
+        message: 'App signup successful!',
         id: signupResult.id,
         isAlphaTester: signupResult.isAlphaTester
       },
@@ -142,7 +142,7 @@ export async function POST(request: NextRequest) {
       body: error?.body
     })
     return NextResponse.json(
-      { error: 'Failed to submit beta signup', details: error?.message },
+      { error: 'Failed to submit app signup', details: error?.message },
       { status: 500 }
     )
   }
@@ -152,7 +152,7 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
     const checkPrefects = searchParams.get('checkPrefects')
-    
+
     if (checkPrefects === 'true') {
       // Return Prefects Program status
       const prefectsStatus = await getPrefectsProgramStatus()
@@ -161,7 +161,7 @@ export async function GET(request: NextRequest) {
         prefectsStatus
       })
     }
-    
+
     // Get all beta signups using our utility function
     const signups = await getBetaSignups()
     const alphaTesterCount = await getAlphaTesterCount()
@@ -175,8 +175,8 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error('Notion API error:', error)
     return NextResponse.json(
-      { error: 'Failed to fetch beta signups' },
+      { error: 'Failed to fetch app signups' },
       { status: 500 }
     )
   }
-} 
+}

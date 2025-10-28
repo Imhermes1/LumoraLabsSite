@@ -106,7 +106,7 @@ export default function Technology() {
             <h3 className="text-2xl font-bold text-white mb-6">AI Innovation</h3>
             <div className="space-y-4">
               <div className="card-primary rounded-xl p-4">
-                <h4 className="text-lumora-pink font-semibold mb-2">MooDo AI</h4>
+                <h4 className="text-lumora-pink font-semibold mb-2">Intelligent AI</h4>
                 <p className="text-white/70 text-sm">
                   Emotional intelligence algorithms that learn from user behaviour patterns 
                   to optimise task recommendations and workflow adaptations.

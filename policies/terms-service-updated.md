@@ -5,7 +5,7 @@
 
 ## 1. Introduction and Acceptance
 
-These Terms of Service (**"Terms"**) govern your use of the software applications **Macro** and **MooDo** (the **"Services"**) provided by Lumora Labs Pty Ltd (**"we"**, **"us"**, **"our"**, or **"Lumora Labs"**).
+These Terms of Service (**"Terms"**) govern your use of the software applications **Macro** and **Micro** (the **"Services"**) provided by Lumora Labs Pty Ltd (**"we"**, **"us"**, **"our"**, or **"Lumora Labs"**).
 
 By accessing or using our Services, you agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, you must not use our Services.
 
@@ -19,8 +19,8 @@ By accessing or using our Services, you agree to be bound by these Terms and our
 
 ### 2.1 Service Overview
 Lumora Labs provides:
-- **Macro:** [Brief description of Macro app functionality]
-- **MooDo:** [Brief description of MooDo app functionality]
+- **Macro:** AI-powered nutrition tracking for Australian dietary needs
+- **Micro:** Daily planning and productivity application
 - Associated website, support, and account management services
 
 ### 2.2 Service Modifications
@@ -138,7 +138,7 @@ Some Services may require payment of subscription fees:
 
 ### 8.1 Our Intellectual Property
 We own all intellectual property rights in:
-- The Macro and MooDo applications
+- The Macro and Micro applications
 - Our website, logos, and branding
 - Documentation and support materials
 - Software code, algorithms, and technical innovations
@@ -152,13 +152,13 @@ You retain ownership of content you create using our Services, subject to:
 ### 8.3 License Grant
 We grant you a limited, non-exclusive, non-transferable license to use our Services in accordance with these Terms.
 
-## 9. Beta Testing and Pre-Release Features
+## 9. Pre-Release Features
 
-Some features may be offered in beta or pre-release form:
-- Beta features are experimental and may not function as intended
-- Beta access may be limited and subject to additional terms
-- We may modify or discontinue beta features without notice
-- Beta features are provided without warranty beyond consumer guarantees
+Some features may be offered in pre-release form:
+- Pre-release features are experimental and may not function as intended
+- Pre-release access may be limited and subject to additional terms
+- We may modify or discontinue pre-release features without notice
+- Pre-release features are provided without warranty beyond consumer guarantees
 
 ## 10. Third-Party Services
 

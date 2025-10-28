@@ -11,8 +11,8 @@ const fontClass = 'font-sans'
 export const metadata: Metadata = {
   metadataBase: new URL('https://lumoralabs.com'),
   title: 'Lumora Labs - Crafting the Future of Extraordinary Apps',
-  description: "Lumora Labs creates the world's most elegantly crafted and intuitively powerful apps for Apple and Android. Join our beta program.",  
-  keywords: 'Lumora Labs, MooDo, Macro, iOS apps, Apple ecosystem, AI nutrition, mood management, productivity, mental health, Australian nutrition app',
+  description: "Lumora Labs creates the world's most elegantly crafted and intuitively powerful apps for Apple and Android.",
+  keywords: 'Lumora Labs, Macro, Micro, iOS apps, Apple ecosystem, AI nutrition, productivity, mental health, Australian nutrition app',
   authors: [{ name: 'Luke Fornieri' }],
   creator: 'Luke Fornieri',
   publisher: 'Lumora Labs',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     locale: 'en_AU',
     url: 'https://lumoralabs.com',
     title: 'Lumora Labs - Crafting the Future of Extraordinary Apps',
-    description: 'Elegantly crafted apps for Apple and Android. MooDo for mood-based task management and Macro for Australian nutrition tracking.',
+    description: 'Elegantly crafted apps for Apple and Android. Macro for Australian nutrition tracking and Micro for daily planning.',
     siteName: 'Lumora Labs',
     images: [
       {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Lumora Labs - Crafting the Future of Extraordinary Apps',
-    description: 'Elegantly crafted AI-powered apps for Apple ecosystem. Join our exclusive beta program.',
+    description: 'Elegantly crafted AI-powered apps for Apple ecosystem.',
     images: ['/images/twitter-image.png'],
   },
 }
@@ -59,16 +59,16 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/images/lumoralabs_logo.png" />
         <link rel="apple-touch-icon" href="/images/lumoralabs_logo.png" />
-        
+
         {/* Performance optimizations */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="//vercel.live" />
         <link rel="dns-prefetch" href="//vitals.vercel-insights.com" />
-        
+
         {/* Preload critical images */}
         <link rel="preload" as="image" href="/images/lumoralabs_logo.png" />
-        
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -104,7 +104,7 @@ export default function RootLayout({
         <div className="min-h-screen">
           {children}
         </div>
-        
+
         <Analytics />
         <SpeedInsights />
       </body>

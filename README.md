@@ -14,7 +14,7 @@ Lumora Labs creates the world's most beautifully designed and best functioning a
 
 ### Our Apps
 
-#### 🎯 MooDo - Mood-Based Task Management
+#### 🎯 Micro - Mood-Based Task Management
 *"Work with your emotions, not against them"*
 - AI-powered mood recognition and task optimization
 - Natural voice interaction and emotional intelligence
@@ -154,7 +154,7 @@ lumora-labs-nextjs/
 ## 📱 Beta Program Integration
 
 ### Current Status
-- **MooDo Beta**: 20/50 participants
+- **Micro Beta**: 20/50 participants
 - **Macro Beta**: 20/50 participants
 - **Total Combined**: 40/100 spots filled
 
@@ -249,7 +249,7 @@ npm run type-check  # TypeScript type checking
 - Robot.txt configuration
 
 ### Content Strategy
-- Focus keywords: "Lumora Labs", "MooDo", "Macro", "iOS apps", "Australian nutrition app"
+- Focus keywords: "Lumora Labs", "Micro", "Macro", "iOS apps", "Australian nutrition app"
 - Regular content updates through blog (future)
 - Social media integration
 - Press coverage and backlinks
@@ -340,5 +340,5 @@ This project is proprietary software. Unauthorized copying, modification, distri
 - ✅ Australian English language throughout
 - ✅ Apple-style elegant terminology  
 - ✅ Embedded beta signup modal
-- ✅ Updated beta counters (MooDo: 16/50, CoreTrack: 22/50)
+- ✅ Updated beta counters (Micro: 16/50, Macro: 22/50)
 - ✅ Vercel Analytics integration

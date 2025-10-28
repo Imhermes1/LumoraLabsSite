@@ -5,7 +5,7 @@
 
 ## 1. Introduction
 
-This Privacy Policy describes how Lumora Labs Pty Ltd (**"we"**, **"us"**, **"our"** or **"Lumora Labs"**) collects, uses, stores, and protects your personal information when you use our software applications **Macro** and **MooDo** (the **"Services"**) and visit our website.
+This Privacy Policy describes how Lumora Labs Pty Ltd (**"we"**, **"us"**, **"our"** or **"Lumora Labs"**) collects, uses, stores, and protects your personal information when you use our software applications **Macro** and **Micro** (the **"Services"**) and visit our website.
 
 We are committed to protecting your privacy and complying with the Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs). This policy explains your rights regarding your personal information and how we handle it.
 
@@ -34,7 +34,6 @@ We collect the following types of personal information:
 **Communication Data:**
 - Support requests and correspondence
 - Feedback and survey responses
-- Beta testing feedback (if applicable)
 
 ### 2.2 Information Collected Automatically
 Our Services automatically collect certain information through:
@@ -47,7 +46,7 @@ Our Services automatically collect certain information through:
 We use your personal information for the following purposes under the Australian Privacy Principles:
 
 ### 3.1 Primary Purposes
-- **Service Provision:** Operating and maintaining the Macro and MooDo applications
+- **Service Provision:** Operating and maintaining the Macro and Micro applications
 - **Account Management:** Creating and managing your user account
 - **Customer Support:** Responding to your inquiries and providing technical assistance
 - **Service Improvement:** Analyzing usage patterns to enhance our applications
