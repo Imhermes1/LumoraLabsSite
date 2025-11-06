@@ -2,13 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import {
-  ArrowRight,
-  Compass,
-  SunMedium,
-  Wand2,
-  Zap
-} from 'lucide-react'
+import { ArrowRight, Compass, SunMedium, Wand2, Zap } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import RevealOnScroll from '@/components/RevealOnScroll'
 
@@ -43,6 +37,11 @@ export default function Hero() {
 
   const quickLinks = [
     {
+      label: 'Macro',
+      href: '/macro',
+      description: 'Meet your AI nutrition coach',
+    },
+    {
       label: 'About Lumora',
       href: '/about-us',
       description: 'Our purpose and principles',
@@ -61,7 +60,7 @@ export default function Hero() {
 
 
   return (
-    <section className="relative isolate overflow-hidden pt-16 sm:pt-20">
+    <section className="relative isolate overflow-hidden pt-2 sm:pt-6">
       <div className="pointer-events-none absolute inset-x-0 top-[-28rem] -z-20 flex justify-center blur-3xl">
         <div className="aspect-[6/3] w-[68rem] bg-gradient-to-br from-lumora-pink/10 via-lumora-purple/10 to-transparent opacity-40" />
       </div>
@@ -86,9 +85,60 @@ export default function Hero() {
             <span className="text-vibrant">Deliberate.</span> <span className="text-vibrant">Refined.</span> <span className="text-vibrant">Unmistakably ours.</span>
           </h1>
           <p className="max-w-4xl text-pretty text-lg text-black sm:text-xl">
-            Our purpose is to shape serene digital experiences that help you feel centered, capable, and clear. We achieve this by ensuring every interaction is a delicate blend of simplicity and surprise, making your progress feel truly effortless.
+            Our purpose is to shape serene digital experiences that help you feel centered, capable, and clear. Meet Macro—an AI nutritionist designed with the same intention, turning daily routines into moments that feel effortless.
           </p>
 
+        </div>
+
+        <div className="rounded-3xl border border-gray-200/60 bg-white/70 p-6 shadow-[0_20px_60px_-35px_rgba(0,0,0,0.1)] backdrop-blur-xl">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex-1">
+              <div className="inline-flex items-center gap-2 rounded-full border border-lumora-purple/30 bg-gradient-to-r from-lumora-pink/10 via-white to-lumora-purple/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-gray-600">
+                <Zap className="h-3.5 w-3.5 text-lumora-purple" />
+                Macro is here
+              </div>
+              <h2 className="mt-4 text-3xl font-semibold text-gray-900 sm:text-4xl">
+                The nutrition coach that knows your day better than a diary.
+              </h2>
+              <p className="mt-3 text-base leading-relaxed text-gray-600 sm:text-lg">
+                Effortless meal logging, symptom tracking, and personalised guidance—wrapped in a calm, considered interface.
+              </p>
+              <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <Link
+                  href="/macro"
+                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-lumora-pink to-lumora-purple px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_-22px_rgba(125,59,180,0.45)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_-20px_rgba(125,59,180,0.55)]"
+                >
+                  Explore Macro
+                </Link>
+                <Link
+                  href="https://apps.apple.com/us/app/macro/id6753906481"
+                  className="inline-flex items-center"
+                  aria-label="Download Macro on the App Store"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src="/images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
+                    alt="Download on the App Store"
+                    width={160}
+                    height={48}
+                    className="h-12 w-auto transition-transform duration-200 hover:scale-105"
+                    priority
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="relative flex h-48 w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-lumora-pink/15 via-white to-lumora-purple/10 lg:h-52 lg:w-72">
+              <Image
+                src="/images/macrologoNB.png"
+                alt="Macro logo"
+                width={180}
+                height={180}
+                className="h-auto w-full max-w-[10rem] object-contain"
+                priority
+              />
+            </div>
+          </div>
         </div>
 
         <RevealOnScroll>
@@ -105,7 +155,7 @@ export default function Hero() {
               </h2>
             </div>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {quickLinks.map((link) => (
                 <Link
                   key={link.label}
