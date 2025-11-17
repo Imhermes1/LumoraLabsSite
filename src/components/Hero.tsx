@@ -2,39 +2,32 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Compass, SunMedium, Wand2, Sparkles } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import ParallaxSection from '@/components/ParallaxSection'
 import AnimatedCard from '@/components/AnimatedCard'
-import MorphIcon from '@/components/MorphIcon'
 
 export default function Hero() {
 
   const highlightItems: Array<{
     title: string
     description: string
-    icon: LucideIcon
   }> = [
       {
         title: 'Clarity First',
         description: 'Interfaces stripped back to the essentials so every action feels immediate and intentional.',
-        icon: SunMedium,
       },
       {
         title: 'Light-Led Interactions',
         description: 'Moments of delight guide people through the flow without overwhelming the senses.',
-        icon: SunMedium,
       },
       {
         title: 'Practical Magic',
         description: 'Purposeful features shaped with craft, so the technology fades and the outcome shines.',
-        icon: Wand2,
       },
       {
         title: 'Future Fluent',
         description: 'A design language ready for new platforms while feeling familiar on day one.',
-        icon: Compass,
       },
     ]
 
@@ -139,7 +132,7 @@ export default function Hero() {
             className="bevel-card p-10 relative overflow-hidden"
             variants={itemVariants}
           >
-            {/* Minimal accent line - only color on page */}
+            {/* Minimal accent line */}
             <motion.div
               className="absolute top-0 left-0 right-0 h-[2px] bg-accent"
               initial={{ scaleX: 0 }}
@@ -150,24 +143,12 @@ export default function Hero() {
 
             <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="flex-1 space-y-6">
-                {/* Version badge - accent color used here */}
+                {/* Version badge - clean, no icons */}
                 <motion.div
                   className="inline-flex items-center gap-2 rounded-full border border-grey-subtle bg-white px-4 py-2"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: 'spring', stiffness: 400 }}
                 >
-                  <motion.div
-                    animate={{
-                      rotate: [0, 360],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                  >
-                    <Sparkles className="h-4 w-4 text-accent" />
-                  </motion.div>
                   <span className="text-xs font-bold uppercase tracking-[0.35em] text-near-black">
                     V1.1.0 Now Available
                   </span>
@@ -255,7 +236,7 @@ export default function Hero() {
                         viewport={{ once: true }}
                         transition={{ delay: 0.6 + idx * 0.1 }}
                       >
-                        <div className="h-1.5 w-1.5 rounded-full bg-near-black" />
+                        <div className="h-1 w-1 rounded-full bg-near-black" />
                         {feature}
                       </motion.div>
                     ))}
@@ -296,14 +277,7 @@ export default function Hero() {
         <ParallaxSection offset={40}>
           <AnimatedCard delay={0.2} className="bevel-card p-8">
             <div className="flex flex-col gap-6 text-center sm:text-left">
-              <div className="flex items-center justify-center gap-3 text-grey sm:justify-start">
-                <MorphIcon
-                  icon={Compass}
-                  containerClassName="h-10 w-10 rounded-full bg-near-black text-white flex items-center justify-center"
-                  className="h-5 w-5"
-                />
-                <p className="text-sm font-medium uppercase tracking-[0.3em]">Explore</p>
-              </div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-grey-light">Explore</p>
               <h2 className="text-3xl font-semibold text-near-black leading-tight">
                 Buttons and swipes, not menus and clutter. Choose where the light takes you.
               </h2>
@@ -341,32 +315,18 @@ export default function Hero() {
         <ParallaxSection offset={50}>
           <AnimatedCard delay={0.3} className="bevel-card p-8">
             <div className="flex flex-col gap-6 text-center sm:text-left">
-              <div className="flex items-center justify-center gap-3 text-grey sm:justify-start">
-                <MorphIcon
-                  icon={Wand2}
-                  containerClassName="h-10 w-10 rounded-full bg-near-black text-white flex items-center justify-center"
-                  className="h-5 w-5"
-                />
-                <p className="text-sm font-medium uppercase tracking-[0.3em]">Design</p>
-              </div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-grey-light">Design</p>
               <h2 className="text-3xl font-semibold text-near-black leading-tight">
                 Purposeful, calming interfaces that feel beautifully simple and move exactly how they should.
               </h2>
             </div>
 
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              {highlightItems.map(({ title, description, icon: Icon }, idx) => (
+              {highlightItems.map(({ title, description }, idx) => (
                 <AnimatedCard key={title} delay={0.4 + idx * 0.1} hoverScale={1.03}>
                   <div className="group rounded-2xl border border-grey-subtle bg-white p-6 transition-all duration-500 hover:border-grey-lighter hover:shadow-lg">
-                    <div className="flex items-center gap-3">
-                      <MorphIcon
-                        icon={Icon}
-                        containerClassName="h-11 w-11 rounded-xl bg-near-black text-white flex items-center justify-center"
-                        className="h-5 w-5"
-                      />
-                      <span className="text-lg font-semibold text-near-black">{title}</span>
-                    </div>
-                    <p className="mt-4 text-sm text-grey leading-relaxed">{description}</p>
+                    <span className="text-lg font-semibold text-near-black">{title}</span>
+                    <p className="mt-3 text-sm text-grey leading-relaxed">{description}</p>
                   </div>
                 </AnimatedCard>
               ))}
