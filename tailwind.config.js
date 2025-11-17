@@ -8,19 +8,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Clean Lumora Colors
-        'lumora-purple': '#7c3aed',
-        'lumora-pink': '#ec4899',
-        'lumora-blue': '#3b82f6',
-        'accent-light': '#a855f7',
-        // Clean Neutrals
-        'text-primary': '#1f2937',
-        'text-secondary': '#6b7280',
-        'background-light': '#ffffff',
-        'background-subtle': '#f9fafb',
-        'border-light': '#e5e7eb',
-        'shadow-light': 'rgba(0, 0, 0, 0.05)',
-        'shadow-medium': 'rgba(0, 0, 0, 0.1)',
+        // Minimal Accent (use sparingly for CTAs and key features)
+        'accent': '#2563eb', // Clean blue for primary actions
+        'accent-hover': '#1d4ed8',
+
+        // Neutral Palette
+        'black': '#000000',
+        'near-black': '#0a0a0a',
+        'darker': '#1a1a1a',
+        'dark': '#2d2d2d',
+        'slate': '#3f3f46',
+        'grey': '#71717a',
+        'grey-light': '#a1a1aa',
+        'grey-lighter': '#d4d4d8',
+        'grey-subtle': '#e4e4e7',
+        'off-white': '#fafafa',
+        'white': '#ffffff',
+
+        // Semantic colors (minimal usage)
+        'border-default': '#e5e7eb',
+        'border-subtle': '#f3f4f6',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

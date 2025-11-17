@@ -21,7 +21,7 @@
   }
 
   body {
-    @apply bg-gradient-to-br from-gray-50 via-white to-gray-50;
+    @apply bg-white;
   }
 }
 
@@ -40,16 +40,16 @@
 
   /* Bevel-style card */
   .bevel-card {
-    @apply rounded-3xl bg-white/60 backdrop-blur-xl;
-    @apply border border-gray-200/40;
-    @apply shadow-[0_2px_20px_-8px_rgba(0,0,0,0.06)];
+    @apply rounded-3xl bg-white;
+    @apply border border-grey-subtle;
+    @apply shadow-[0_1px_3px_0_rgba(0,0,0,0.03)];
     @apply transition-all duration-500 ease-out;
   }
 
   .bevel-card:hover {
-    @apply shadow-[0_8px_40px_-12px_rgba(0,0,0,0.12)];
-    @apply border-gray-200/60;
-    transform: translateY(-2px);
+    @apply shadow-[0_4px_12px_0_rgba(0,0,0,0.05)];
+    @apply border-grey-lighter;
+    transform: translateY(-1px);
   }
 
   /* Bevel-style button */
@@ -69,9 +69,13 @@
     transform: translateY(0) scale(0.98);
   }
 
-  /* Gradient text */
-  .text-vibrant {
-    @apply bg-gradient-to-r from-lumora-pink via-lumora-purple to-lumora-purple bg-clip-text text-transparent;
+  /* Accent text (minimal usage) */
+  .text-accent {
+    @apply text-near-black font-medium;
+  }
+
+  .text-accent-feature {
+    @apply text-accent;
   }
 
   /* Morphing icon container */
@@ -93,7 +97,7 @@
   .smooth-link::after {
     content: '';
     @apply absolute bottom-0 left-0 w-0 h-0.5;
-    @apply bg-gradient-to-r from-lumora-pink to-lumora-purple;
+    @apply bg-near-black;
     @apply transition-all duration-300;
   }
 
