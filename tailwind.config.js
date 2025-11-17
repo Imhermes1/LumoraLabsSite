@@ -11,6 +11,7 @@ module.exports = {
         // Clean Lumora Colors
         'lumora-purple': '#7c3aed',
         'lumora-pink': '#ec4899',
+        'lumora-blue': '#3b82f6',
         'accent-light': '#a855f7',
         // Clean Neutrals
         'text-primary': '#1f2937',
@@ -32,6 +33,12 @@ module.exports = {
         'float': 'float 6s ease-in-out infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
         'gradient': 'gradient 8s ease infinite',
+        'fade-in': 'fadeIn 0.6s ease-out forwards',
+        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+        'scale-in': 'scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
+        'morph': 'morph 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+        'pulse-soft': 'pulseSoft 2s ease-in-out infinite',
       },
       keyframes: {
         float: {
@@ -45,6 +52,30 @@ module.exports = {
         gradient: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        scaleIn: {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        slideInRight: {
+          '0%': { opacity: '0', transform: 'translateX(-20px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        morph: {
+          '0%, 100%': { borderRadius: '24px' },
+          '50%': { borderRadius: '16px' },
+        },
+        pulseSoft: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.8' },
         },
       },
       backgroundImage: {
