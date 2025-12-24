@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     siteName: 'Lumora Labs',
     images: [
       {
-        url: '/images/og-image.png',
-        width: 1200,
-        height: 630,
+        url: '/images/lumoralabs_logo.png',
+        width: 512,
+        height: 512,
         alt: 'Lumora Labs - Where Light Meets Innovation',
       },
     ],
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Lumora Labs - Crafting the Future of Extraordinary Apps',
     description: 'Elegantly crafted AI-powered apps for Apple ecosystem.',
-    images: ['/images/twitter-image.png'],
+    images: ['/images/lumoralabs_logo.png'],
   },
 }
 
