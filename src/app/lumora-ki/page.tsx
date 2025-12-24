@@ -224,7 +224,7 @@ export default function LumoraKiPage() {
 
                 {/* CTA */}
                 <RevealOnScroll>
-                    <section className="bevel-card relative overflow-hidden p-8 text-center md:p-12 min-h-[300px] flex items-center justify-center group">
+                    <section className="bevel-card relative overflow-hidden p-8 pb-16 text-center md:p-12 md:pb-20 min-h-[300px] flex items-center justify-center group">
                         {/* Background Image */}
                         <div className="absolute inset-0 z-0">
                             <Image
@@ -238,7 +238,7 @@ export default function LumoraKiPage() {
                         {/* Frosted overlay - reduces on hover */}
                         <div className="absolute inset-0 bg-white/60 backdrop-blur-sm z-[1] transition-all duration-500 group-hover:bg-white/30 group-hover:backdrop-blur-none" />
 
-                        <div className="relative z-10 w-full">
+                        <div className="relative z-10 w-full flex flex-col items-center text-center mt-8">
                             <h2 className="text-3xl font-bold text-black md:text-4xl">
                                 Feel the energy
                             </h2>

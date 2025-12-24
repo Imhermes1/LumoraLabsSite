@@ -139,32 +139,34 @@ export default function Hero() {
             variants={itemVariants}
           >
             {/* Blended Background Container */}
-            <div className="absolute inset-0 flex pointer-events-none opacity-70 transition-opacity duration-700 group-hover:opacity-90">
-              <div className="relative w-1/2 h-full">
+            <div className="absolute inset-0 pointer-events-none opacity-70 transition-opacity duration-700 group-hover:opacity-90">
+              <Image
+                src="/images/macro_nutrition.jpg"
+                alt=""
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/40 to-white/80" />
+            </div>
+
+            {/* Frosted Overlay - balanced for image and text */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/50 to-white/60" />
+
+            {/* App Icon - Top Left Corner */}
+            <div className="absolute top-6 left-6 z-20 lg:top-8 lg:left-8">
+              <div className="bg-white/80 backdrop-blur-xl p-4 rounded-2xl border border-white/50 shadow-2xl">
                 <Image
-                  src="/images/macro_nutrition.jpg"
-                  alt=""
-                  fill
-                  className="object-cover"
+                  src="/images/macrologoNB.png"
+                  alt="Macro"
+                  width={48}
+                  height={48}
+                  className="h-12 w-12"
                 />
-                <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-r from-transparent via-white/60 to-white/90" />
-              </div>
-              <div className="relative w-1/2 h-full">
-                <Image
-                  src="/images/macro_workout.jpg"
-                  alt=""
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-l from-transparent via-white/60 to-white/90" />
               </div>
             </div>
 
-            {/* Frosted Overlay - reduced for image clarity */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/30 to-white/50 backdrop-blur-[0.5px]" />
-
-            <div className="relative z-10 w-full p-8 lg:p-12 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-              <div className="flex-1 space-y-6">
+            <div className="relative z-10 w-full p-8 pt-24 lg:p-12 lg:pt-12">
+              <div className="space-y-6 text-center flex flex-col items-center">
                 {/* Version badge */}
                 <motion.div
                   className="inline-flex items-center gap-2 rounded-full border border-grey-subtle bg-white/80 backdrop-blur-md px-4 py-2 shadow-sm"
@@ -187,18 +189,18 @@ export default function Hero() {
                     Macro 1.2.3: Rebuilt for Performance.
                   </motion.h2>
                   <motion.p
-                    className="mt-4 text-sm leading-relaxed text-slate sm:text-base lg:text-lg"
+                    className="mt-4 text-sm leading-relaxed text-gray-700 sm:text-base lg:text-lg"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
                   >
-                    A major architectural leap. Experience our official <span className="text-near-black font-medium">ChatGPT App integration</span> and the new <span className="text-near-black font-medium">Lumora Ki</span>—all wrapped in Apple’s <span className="text-near-black font-medium">Liquid Glass</span> aesthetic. From smart meal generation and interactive water logging to our new <span className="text-near-black font-medium">Apple Watch companion</span>, Macro now layers deep intelligence over your life. Hardened with OAuth 2.1 for total privacy and refactored for near-zero latency.
+                    A major architectural leap. Experience our official <span className="text-near-black font-medium">ChatGPT App integration</span> and the new <span className="text-near-black font-medium">Lumora Ki</span>—all wrapped in Apple's <span className="text-near-black font-medium">Liquid Glass</span> aesthetic. From smart meal generation and interactive water logging to our new <span className="text-near-black font-medium">Apple Watch companion</span>, Macro now layers deep intelligence over your life. Hardened with OAuth 2.1 for total privacy and refactored for near-zero latency.
                   </motion.p>
                 </div>
 
                 <motion.div
-                  className="flex flex-col gap-3 sm:flex-row sm:items-center"
+                  className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -231,19 +233,6 @@ export default function Hero() {
                     </Link>
                   </motion.div>
                 </motion.div>
-              </div>
-
-              {/* Visual Anchor on the right side */}
-              <div className="hidden lg:flex items-center justify-center pl-12 border-l border-grey-subtle/30">
-                <div className="bg-white/80 backdrop-blur-xl p-6 rounded-[2.5rem] border border-white/50 shadow-2xl">
-                  <Image
-                    src="/images/macrologoNB.png"
-                    alt="Macro"
-                    width={80}
-                    height={80}
-                    className="h-20 w-20"
-                  />
-                </div>
               </div>
             </div>
           </motion.div>
